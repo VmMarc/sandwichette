@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Sandwichette</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="/src/styles/output.css"
+      type="text/css"
+      charset="utf-8"
+    />
+    <script type="text/javascript" src="/src/scripts/header-scroll.js"></script>
+  </head>
+  <body>
+    <div class="bg-blue-tint bg-center bg-cover w-full h-screen">
+      <header
+        class="flex fixed top-0 w-full justify-between items-center px-8 py-2 transition duration-300 ease-in-out bg-gradient-to-b from-white/15 to-transparent backdrop-blur-[1px]"
+      >
+        <div class="grow xl:shrink-0 xl:basis-0">
+          <img
+            id="instagram-icon"
+            class="h-8 w-8"
+            src="/src/img/instagram-color-icon.svg"
+            alt="instagram"
+          />
+        </div>
+        <div class="grow-0">
+          <img class="h-16 px-4" src="/src/img/trademark-logo.svg" alt="logo" />
+        </div>
+        <nav class="hidden xl:block grow shrink-0 basis-0">
+          <ul class="flex justify-end items-center list-none">
+            <li class="p-2">
+              <a class="text-sm text-nowrap" href="#apropos">À propos</a>
+            </li>
+            <li class="p-2">
+              <a class="text-sm text-nowrap" href="#philosophie">Philosophie</a>
+            </li>
+            <li class="p-2">
+              <a class="text-sm text-nowrap" href="#magazines">Magazines</a>
+            </li>
+            <li class="p-2">
+              <a class="text-sm text-nowrap" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="xl:hidden flex justify-end grow">
+          <img class="h-10 w-10" src="/src/img/menu-icon.svg" alt="menu" />
+        </div>
+      </header>
+    </div>
+    <div id="apropos" style="height: 1000px"></div>
+    <div id="philosophie"></div>
+    <div id="magazines"></div>
+    <div id="contact"></div>
+  </body>
+</html>

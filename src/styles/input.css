@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Cooper Lt BT";
+  src:
+    url("fonts/cooper_bold_bt-webfont.woff2") format("woff2"),
+    url("fonts/cooper_bold_bt-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+  /* border: 1px solid #000; */
+}
+
+@layer base {
+  html {
+    font-family: "Cooper Lt BT", Arial, sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    font-size: calc(15px + 0.390625vw);
+    background: var(--background-primary, #ffe4f6);
+  }
+}
+
+a {
+  text-decoration: none;
+}
