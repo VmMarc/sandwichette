@@ -5,14 +5,10 @@ let scrollPosIsTop = true;
 function switchBackgroundOpacity() {
   if (window.scrollY === 0) {
     if (scrollPosIsTop) return;
-    let header = document
-      .getElementsByTagName("header")[0]
-      .classList.remove("after-top");
+    document.getElementsByTagName("header")[0].classList.remove("scrolled");
     scrollPosIsTop = true;
   } else if (scrollPosIsTop) {
-    let header = document
-      .getElementsByTagName("header")[0]
-      .classList.add("after-top");
+    document.getElementsByTagName("header")[0].classList.add("scrolled");
     scrollPosIsTop = false;
   }
 }

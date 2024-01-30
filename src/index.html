@@ -3,8 +3,12 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Sandwichette</title>
+    <title>Sandwichette – Fine cuisine in a dwich</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Indulge your taste buds at Sandwichette, where passion meets flavor in every sandwich creation. Savor mouthwatering combinations crafted with the finest ingredients, expertly prepared to elevate your dining experience. Explore our menu of delectable sandwiches and natural wines, while browsing through our curated collection of sandwich-centric magazines, bringing you the latest trends and insights in the world of culinary delights. Join us for a culinary journey that transcends the ordinary – where sandwiches become an art form, and every bite tells a delicious story. Visit us now for a symphony of flavors and a feast for the senses!"
+    />
     <link
       rel="stylesheet"
       href="/src/styles/output.css"
@@ -20,19 +24,20 @@
   </head>
 
   <body>
-    <div class="h-screen w-full bg-blue-tint bg-cover bg-center">
+    <div class="h-screen w-full bg-header bg-cover bg-center">
       <header
-        class="fixed top-0 flex w-full items-center justify-between bg-gradient-to-b from-white/15 to-transparent px-8 py-2 backdrop-blur-[1px] transition duration-300 ease-in-out"
+        class="fixed top-0 flex h-32 w-full items-center justify-between px-8 py-2 transition duration-300 ease-in-out"
       >
         <div class="flex grow justify-start">
           <a
-            class="hover:bg-[radial-gradient(61.46%_59.09%_at_36.25%_96.55%,_#ffd600_0%,_#ff6930_48.44%,_#fe3b36_73.44%,_rgba(254,_59,_54,_0)_100%_),_radial-gradient(_202.83%_136.37%_at_84.5%_113.5%,_#ff1b90_24.39%,_#f80261_43.67%,_#ed00c0_68.85%,_#c500e9_77.68%,_#7017ff_89.32%_)] hover:bg-clip-text hover:text-transparent"
+            class="hover:bg-insta-gradient hover:bg-clip-text hover:text-transparent"
             href="https://www.instagram.com/sandwichetteparis"
+            aria-label="instagram"
           >
-            <i class="fa-brands fa-instagram text-4xl"></i>
+            <i class="fa-brands fa-instagram text-3xl"></i>
           </a>
         </div>
-        <div class="h-28 grow-0">
+        <div class="h-full grow-0">
           <img class="h-full" src="/src/img/trademark-logo.svg" alt="logo" />
         </div>
         <nav class="hidden shrink-0 grow basis-0 xl:block">
@@ -52,30 +57,24 @@
           </ul>
         </nav>
         <div class="flex grow justify-end xl:hidden">
-          <a href="#">
-            <i id="menu-icon" class="fa-solid fa-bars text-4xl"></i>
+          <a href="#" aria-label="menu">
+            <i id="menu-icon" class="fa-solid fa-bars text-3xl"></i>
           </a>
         </div>
       </header>
     </div>
 
-    <main>
-      <div
-        id="apropos"
-        class="bg-[radial-gradient(61.46%_59.09%_at_36.25%_96.55%,_#ffd600_0%,_#ff6930_48.44%,_#fe3b36_73.44%,_rgba(254,_59,_54,_0)_100%_),_radial-gradient(_202.83%_136.37%_at_84.5%_113.5%,_#ff1b90_24.39%,_#f80261_43.67%,_#ed00c0_68.85%,_#c500e9_77.68%,_#7017ff_89.32%_)]"
-        style="height: 1000px"
-      ></div>
-      <div id="philosophie"></div>
-      <div id="magazines"></div>
-      <div id="contact"></div>
-      <!-- <div class="y absolute left-0 top-0 h-screen w-screen">
-        <img
-          id="flyingSandwich"
-          class="x relative left-0 top-0 h-64 w-64"
-          src="/src/img/assiette-sandwich.png"
-        />
-      </div> -->
-    </main>
+    <section id="apropos" class="h-64 scroll-mt-32 bg-red-500"></section>
+    <section id="philosophie" class="h-64 scroll-mt-32 bg-orange-500"></section>
+    <section id="magazines" class="h-64 scroll-mt-32 bg-lime-500"></section>
+    <section id="contact" class="h-64 scroll-mt-32 bg-cyan-500"></section>
+    <!-- <div class="y absolute left-0 top-0 h-screen w-screen">
+      <img
+        id="flyingSandwich"
+        class="x relative left-64 top-0 h-64 w-64"
+        src="/src/img/assiette-sandwich.png"
+      />
+    </div> -->
 
     <footer></footer>
   </body>
