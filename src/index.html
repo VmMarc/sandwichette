@@ -9,38 +9,102 @@
       name="description"
       content="Indulge your taste buds at Sandwichette, where passion meets flavor in every sandwich creation. Savor mouthwatering combinations crafted with the finest ingredients, expertly prepared to elevate your dining experience. Explore our menu of delectable sandwiches and natural wines, while browsing through our curated collection of sandwich-centric magazines, bringing you the latest trends and insights in the world of culinary delights. Join us for a culinary journey that transcends the ordinary – where sandwiches become an art form, and every bite tells a delicious story. Visit us now for a symphony of flavors and a feast for the senses!"
     />
+
+    <link
+      rel="preload"
+      fetchpriority="high"
+      as="image"
+      href="./assets/images/header-bg.webp"
+      type="image/webp"
+    />
+
+    <!-- <script
+      src="https://kit.fontawesome.com/90c69bc248.js"
+      crossorigin="anonymous"
+    ></script> -->
+
     <link
       rel="stylesheet"
-      href="/src/styles/output.css"
+      href="./styles.min.css"
       type="text/css"
       charset="utf-8"
     />
-    <script
-      src="https://kit.fontawesome.com/90c69bc248.js"
-      crossorigin="anonymous"
-    ></script>
-    <script type="text/javascript" src="/src/scripts/headerScroll.js"></script>
-    <!-- <script type="text/javascript" src="/src/scripts/idleScreen.js"></script> -->
+    <link
+      href="./assets/css/fontawesome.min.css"
+      rel="stylesheet"
+      type="text/css"
+      charset="utf-8"
+    />
+    <link
+      href="./assets/css/brands.min.css"
+      rel="stylesheet"
+      type="text/css"
+      charset="utf-8"
+    />
+    <link
+      href="./assets/css/solid.min.css"
+      rel="stylesheet"
+      type="text/css"
+      charset="utf-8"
+    />
   </head>
 
-  <body>
-    <div class="h-screen w-full bg-header bg-cover bg-center">
+  <body class="text-base text-black tablet:text-lg desktop:text-xl">
+    <div
+      class="mb-8 h-screen w-full bg-header bg-cover bg-center tablet:mb-16 desktop:mb-24"
+    >
       <header
-        class="fixed top-0 flex h-32 w-full items-center justify-between px-8 py-2 transition duration-300 ease-in-out"
+        class="fixed top-0 z-10 flex w-full items-center justify-between px-8 py-2 transition duration-300 ease-in-out"
       >
+        <script>
+          let ticking = false;
+          let scrollPosIsTop = true;
+
+          /** Change the header appearance if page is scrolled */
+          function switchBackgroundOpacity() {
+            if (window.scrollY === 0) {
+              if (scrollPosIsTop) return;
+              document
+                .getElementsByTagName("header")[0]
+                .classList.remove("scrolled");
+              scrollPosIsTop = true;
+            } else if (scrollPosIsTop) {
+              document
+                .getElementsByTagName("header")[0]
+                .classList.add("scrolled");
+              scrollPosIsTop = false;
+            }
+          }
+
+          document.addEventListener("scroll", (event) => {
+            if (!ticking) {
+              window.requestAnimationFrame(() => {
+                switchBackgroundOpacity();
+                ticking = false;
+              });
+
+              ticking = true;
+            }
+          });
+        </script>
         <div class="flex grow justify-start">
           <a
             class="hover:bg-insta-gradient hover:bg-clip-text hover:text-transparent"
             href="https://www.instagram.com/sandwichetteparis"
-            aria-label="instagram"
+            aria-label="Instagram"
           >
             <i class="fa-brands fa-instagram text-3xl"></i>
           </a>
         </div>
-        <div class="h-full grow-0">
-          <img class="h-full" src="/src/img/trademark-logo.svg" alt="logo" />
+        <div class="grow-0">
+          <img
+            id="logo"
+            class="h-28 w-full"
+            src="./assets/images/trademark-logo.svg"
+            alt="Logo Sandwichette"
+          />
         </div>
-        <nav class="hidden shrink-0 grow basis-0 xl:block">
+        <nav class="hidden shrink-0 grow basis-0 desktop:block">
           <ul class="flex items-center justify-end gap-7">
             <li>
               <a class="text-nowrap text-lg" href="#apropos">À propos</a>
@@ -56,25 +120,228 @@
             </li>
           </ul>
         </nav>
-        <div class="flex grow justify-end xl:hidden">
+        <div class="flex grow justify-end desktop:hidden">
           <a href="#" aria-label="menu">
             <i id="menu-icon" class="fa-solid fa-bars text-3xl"></i>
           </a>
         </div>
       </header>
+      <div id="scroll-icon" class="absolute left-1/2 top-[90vh]">
+        <i class="fa-solid fa-angles-down animate-bounce text-3xl"></i>
+      </div>
     </div>
 
-    <section id="apropos" class="h-64 scroll-mt-32 bg-red-500"></section>
-    <section id="philosophie" class="h-64 scroll-mt-32 bg-orange-500"></section>
-    <section id="magazines" class="h-64 scroll-mt-32 bg-lime-500"></section>
-    <section id="contact" class="h-64 scroll-mt-32 bg-cyan-500"></section>
-    <!-- <div class="y absolute left-0 top-0 h-screen w-screen">
-      <img
-        id="flyingSandwich"
-        class="x relative left-64 top-0 h-64 w-64"
-        src="/src/img/assiette-sandwich.png"
-      />
-    </div> -->
+    <div
+      class="flex flex-col items-center justify-center gap-8 tablet:gap-16 desktop:gap-32"
+    >
+      <section
+        id="apropos"
+        class="flex max-w-6xl grow scroll-mt-32 flex-col items-center justify-center gap-4 px-5 tablet:gap-10 tablet:px-16 desktop:gap-12 desktop:px-24"
+      >
+        <div class="flex items-center gap-4 self-stretch">
+          <hr
+            class="h-[8px] w-16 rounded-md bg-black tablet:h-[10px] tablet:w-24 desktop:h-[12px] desktop:w-36"
+          />
+          <h1>À propos</h1>
+        </div>
+        <div
+          class="flex flex-col content-center items-center justify-center gap-8 tablet:gap-11 lg:flex-row desktop:gap-16"
+        >
+          <div
+            class="flex max-w-2xl flex-[1_0_0%] flex-col items-center justify-center gap-4 text-justify tablet:gap-6"
+          >
+            <span
+              >Des sandwichs, des gâteaux et des trucs à boire. Rien de nouveau
+              mais avec quelque chose en plus, pas original mais un peu
+              <span class="text-brand">spécial</span>.</span
+            >
+            <span
+              >Des bons sandwichs faits dans des pains du quotidien fabriqués
+              par une boulangerie qui respecte la terre et le sommeil de ses
+              employés. Des recettes classiques et souvent très kitsch.</span
+            >
+            <span
+              >Desserts à la part, en barre ou à la louche. Chouquettes
+              débordantes de chantilly, cookies plein de confettis. Vanille,
+              praliné ou chocolat, pas de problème de choix.</span
+            >
+            <span
+              >Pas de matcha latte ni de latte tout court. Du café filtre en
+              abondance à toute heure. Des chouquettes et de l'amour. Vin nature
+              choisi par nos amis des
+              <a href="https://www.instagram.com/lesvinsdumatin/"
+                ><u>Vins du matin</u></a
+              >. Thé chaud ou thé pas chaud.</span
+            >
+          </div>
+          <img
+            class="h-96 w-64 rounded-xl"
+            src="./assets/images/boisson.webp"
+            alt="coffee-service"
+            loading="lazy"
+          />
+        </div>
+        <div
+          class="flex flex-col items-center gap-4 tablet:gap-6 desktop:flex-row"
+        >
+          <span class="w-[312px] text-center"
+            >C'est petit chez nous mais
+            <span class="text-lg text-brand tablet:text-xl desktop:text-2xl"
+              >sympathique</span
+            ></span
+          >
+          <img
+            class="h-96 w-64 rounded-t-full"
+            src="./assets/images/chaise.webp"
+            alt="sandich"
+            loading="lazy"
+          />
+          <span class="w-[312px] text-center"
+            >Pas original mais un peu
+            <span class="text-lg text-brand tablet:text-xl desktop:text-2xl"
+              >extraordinaire</span
+            ></span
+          >
+        </div>
+      </section>
+
+      <section
+        id="philosophie"
+        class="flex w-full grow -scroll-mt-32 flex-col items-center justify-center text-white"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="1 1 1279 195"
+          class="w-full"
+        >
+          <path
+            d="M1280.5 82.0047V196.5H0.5V89.0308C0.5 89.0308 323.607 -84.0464 640.599 53.7961C994.675 207.763 1280.5 82.0047 1280.5 82.0047Z"
+            class="w-full fill-brand"
+          />
+        </svg>
+        <div
+          id="content-mask"
+          class="relative top-80 -mt-40 block h-40 w-full bg-gradient-to-b from-transparent to-brand"
+        ></div>
+        <div
+          id="panel"
+          class="flex max-h-80 w-full flex-col items-center justify-start self-stretch overflow-hidden bg-brand px-5 py-16 transition-[max-height_1s_ease-out] duration-1000 tablet:px-16 desktop:px-24"
+        >
+          <div
+            class="flex w-full max-w-6xl flex-col items-center justify-center gap-4 tablet:gap-10 desktop:gap-12"
+          >
+            <div class="flex items-center gap-8 self-stretch">
+              <hr
+                class="h-[8px] w-16 rounded-md bg-white tablet:h-[10px] tablet:w-24 desktop:h-[12px] desktop:w-36"
+              />
+              <h1>Philosophie</h1>
+            </div>
+            <div class="flex flex-col gap-4 tablet:gap-8">
+              <div
+                class="flex flex-wrap content-center items-center justify-center gap-4 self-stretch tablet:gap-8"
+              >
+                <span class="min-w-60 max-w-2xl flex-[1_0_0%] text-justify"
+                  >Toute l'année, nous suivons le rythme de la terre et ses
+                  saisons. Des produits français dans la mesure du possible et
+                  venant de nos fournisseurs, le Zingam, Borniambuc, les Vergers
+                  Saint Eustache, Huguenin, etc. Pour le reste (comme les
+                  agrumes), ce sera des produits issus d'une agriculture
+                  européenne raisonnée. On veut respecter la planète et dans le
+                  bon sens. Quand on s'occupe d'un légume, d'un fruit ou d'un
+                  morceau de viande c'est entièrement.</span
+                >
+                <img
+                  class="h-64 w-64 rounded-full tablet:h-80 tablet:w-80"
+                  src="./assets/images/sandwich.webp"
+                  alt="sandwich"
+                  loading="lazy"
+                />
+              </div>
+              <span class="min-w-60 self-stretch text-justify tablet:min-w-80">
+                Peu de plastique autant que possible.<br />Du packaging
+                recyclable mais si vous venez avec vos contenants ça sera encore
+                mieux.<br />Pas de carte précise à vous montrer ici. Mais des
+                exemples.<br />Les œufs, la mayo et le jambon nous en avons tout
+                le temps.<br />Le bourguignon c'est plutôt pour l'hiver quand il
+                fait froid.<br />Le fameux BLT (bacon/laitue/tomate) vous le
+                croiserez seulement en été.</span
+              >
+              <div
+                class="flex flex-wrap content-center items-center justify-center gap-4 self-stretch tablet:gap-8"
+              >
+                <img
+                  class="h-60 w-60"
+                  src="./assets/images/cheese.webp"
+                  alt="cheese-sandwich"
+                  loading="lazy"
+                />
+                <span class="min-w-60 flex-[1_0_0%] text-justify"
+                  >Faire fondre du fromage sur du pain au levain, ça, on peut le
+                  faire tous les jours. Pour les fêtes, on fera des sandwichs
+                  super spéciaux pour s'enjailler. Bref, certains seront vos
+                  acolytes du quotidien et d'autres ne seront que de passage.
+                  Avec ou sans viande, avec ou sans œuf, tout est
+                  possible.</span
+                >
+              </div>
+              <div
+                class="flex flex-wrap content-center items-center justify-center gap-4 self-stretch tablet:gap-8"
+              >
+                <span class="min-w-60 flex-[1_0_0%] text-justify"
+                  >On peut enlever ou ajouter des ingrédients, le seul qui reste
+                  c'est celui du plaisir. Au final, chez Sandwichette, dans un
+                  sandwich on trouve de la sauce, du croquant, du fondant, de
+                  l'acidité et des fois du coulant. Pour le sucré, il reste
+                  toujours de la place. Des goûts qui rappellent les sorties au
+                  square du mercredi après-midi. Sandwichette, c'est l'odeur du
+                  fait maison sans prise de tête.</span
+                >
+                <img
+                  class="h-72 w-72"
+                  alt="cake"
+                  src="./assets/images/cake.webp"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="w-full">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="1 1 1279 195">
+            <path
+              d="M0.5 114.995V0.5H1280.5V107.969C1280.5 107.969 957.393 281.046 640.401 143.204C286.325 -10.7635 0.5 114.995 0.5 114.995Z"
+              class="w-full fill-brand"
+            />
+          </svg>
+          <button
+            id="accordion"
+            aria-label="Open/close accordion"
+            class="hover:shadow-button relative -top-16 left-[calc(50%_-_2rem)] flex h-16 w-16 items-center justify-center rounded-full border-4 border-solid border-primary bg-brand p-4 transition duration-300 ease-in-out hover:-translate-x-1 hover:-translate-y-1 tablet:-top-20 tablet:h-20 tablet:w-20 desktop:-top-28 desktop:h-24 desktop:w-24"
+          >
+            <i></i>
+          </button>
+          <script>
+            var accordion = document.getElementById("accordion");
+
+            accordion.addEventListener("click", function () {
+              var panel = document.getElementById("panel");
+              var contentMask = document.getElementById("content-mask");
+
+              accordion.classList.toggle("active");
+              if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+                contentMask.style.display = "block";
+              } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+                contentMask.style.display = "none";
+              }
+            });
+          </script>
+        </div>
+      </section>
+      <section id="magazines" class="h-64 scroll-mt-32 bg-lime-500"></section>
+      <section id="contact" class="h-64 scroll-mt-32 bg-cyan-500"></section>
+    </div>
 
     <footer></footer>
   </body>
