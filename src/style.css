@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Cooper Lt BT";
+  src:
+    url("assets/webfonts/cooper_bold_bt.woff2") format("woff2"),
+    url("assets/webfonts/cooper_bold_bt.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  border: 1px solid #000;
+  @apply cursor-pickle;
+}
+
+@layer base {
+  html {
+    font-family: "Cooper Lt BT", Arial, sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    @apply bg-primary;
+  }
+
+  button {
+    @apply cursor-pickle;
+  }
+
+  a:hover {
+    @apply text-brand;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  header[class~="scrolled"] {
+    @apply bg-primary shadow;
+  }
+
+  h1 {
+    @apply text-4xl tablet:text-5xl desktop:text-6xl;
+  }
+
+  hr {
+    @apply border-none;
+  }
+
+  i::before {
+    display: inline-block;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  #accordion > i::before {
+    font: var(--fa-font-solid);
+    content: "\f107";
+    @apply text-2xl tablet:text-3xl desktop:text-4xl;
+  }
+
+  #accordion.active > i::before {
+    font: var(--fa-font-solid);
+    content: "\f106";
+    @apply text-2xl tablet:text-3xl desktop:text-4xl;
+  }
+}

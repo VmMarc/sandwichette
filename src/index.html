@@ -11,52 +11,51 @@
     />
 
     <link
+      rel="stylesheet"
+      href="style.min.css"
+      type="text/css"
+      charset="utf-8"
+    />
+
+    <link
       rel="preload"
       fetchpriority="high"
       as="image"
-      href="./assets/images/header-bg.webp"
+      href="assets/images/header-bg.webp"
       type="image/webp"
     />
 
-    <!-- <script
+    <link
+      rel="preload"
+      fetchpriority="high"
+      as="image"
+      href="assets/images/logo.svg"
+      type="image/svg+xml"
+    />
+
+    <link rel="preconnect" href="https://ka-f.fontawesome.com" />
+    <link rel="preconnect" href="https://kit.fontawesome.com" />
+
+    <script
       src="https://kit.fontawesome.com/90c69bc248.js"
       crossorigin="anonymous"
-    ></script> -->
+      async
+    ></script>
 
-    <link
-      rel="stylesheet"
-      href="./styles.min.css"
-      type="text/css"
-      charset="utf-8"
-    />
-    <link
-      href="./assets/css/fontawesome.min.css"
-      rel="stylesheet"
-      type="text/css"
-      charset="utf-8"
-    />
-    <link
-      href="./assets/css/brands.min.css"
-      rel="stylesheet"
-      type="text/css"
-      charset="utf-8"
-    />
-    <link
-      href="./assets/css/solid.min.css"
-      rel="stylesheet"
-      type="text/css"
-      charset="utf-8"
-    />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="manifest" href="site.webmanifest" />
   </head>
 
+  <div
+    class="mb-8 h-screen w-full bg-header bg-cover bg-center tablet:mb-16 desktop:mb-24"
+  >
   <body class="text-base text-black tablet:text-lg desktop:text-xl">
-    <div
-      class="mb-8 h-screen w-full bg-header bg-cover bg-center tablet:mb-16 desktop:mb-24"
-    >
       <header
-        class="fixed top-0 z-10 flex w-full items-center justify-between px-8 py-2 transition duration-300 ease-in-out"
+        class="fixed top-0 left-0 z-10 flex h-28 w-full items-center justify-between px-8 py-2 transition duration-500 ease-in-out"
       >
-        <script>
+        <script defer>
           let ticking = false;
           let scrollPosIsTop = true;
 
@@ -87,6 +86,7 @@
             }
           });
         </script>
+
         <div class="flex grow justify-start">
           <a
             class="hover:bg-insta-gradient hover:bg-clip-text hover:text-transparent"
@@ -96,11 +96,11 @@
             <i class="fa-brands fa-instagram text-3xl"></i>
           </a>
         </div>
-        <div class="grow-0">
+        <div class="h-full grow-0">
           <img
             id="logo"
-            class="h-28 w-full"
-            src="./assets/images/trademark-logo.svg"
+            class="aspect-16/10 w-full object-cover"
+            src="assets/images/logo.svg"
             alt="Logo Sandwichette"
           />
         </div>
@@ -153,7 +153,8 @@
             <span
               >Des sandwichs, des gâteaux et des trucs à boire. Rien de nouveau
               mais avec quelque chose en plus, pas original mais un peu
-              <span class="text-brand">spécial</span>.</span
+              <span class="text-brand"><b>spécial</b></span
+              >.</span
             >
             <span
               >Des bons sandwichs faits dans des pains du quotidien fabriqués
@@ -176,7 +177,7 @@
           </div>
           <img
             class="h-96 w-64 rounded-xl"
-            src="./assets/images/boisson.webp"
+            src="assets/images/boisson.webp"
             alt="coffee-service"
             loading="lazy"
           />
@@ -192,7 +193,7 @@
           >
           <img
             class="h-96 w-64 rounded-t-full"
-            src="./assets/images/chaise.webp"
+            src="assets/images/chaise.webp"
             alt="sandich"
             loading="lazy"
           />
@@ -252,7 +253,7 @@
                 >
                 <img
                   class="h-64 w-64 rounded-full tablet:h-80 tablet:w-80"
-                  src="./assets/images/sandwich.webp"
+                  src="assets/images/sandwich.webp"
                   alt="sandwich"
                   loading="lazy"
                 />
@@ -271,7 +272,7 @@
               >
                 <img
                   class="h-60 w-60"
-                  src="./assets/images/cheese.webp"
+                  src="assets/images/cheese.webp"
                   alt="cheese-sandwich"
                   loading="lazy"
                 />
@@ -299,7 +300,7 @@
                 <img
                   class="h-72 w-72"
                   alt="cake"
-                  src="./assets/images/cake.webp"
+                  src="assets/images/cake.webp"
                   loading="lazy"
                 />
               </div>
@@ -316,7 +317,7 @@
           <button
             id="accordion"
             aria-label="Open/close accordion"
-            class="hover:shadow-button relative -top-16 left-[calc(50%_-_2rem)] flex h-16 w-16 items-center justify-center rounded-full border-4 border-solid border-primary bg-brand p-4 transition duration-300 ease-in-out hover:-translate-x-1 hover:-translate-y-1 tablet:-top-20 tablet:h-20 tablet:w-20 desktop:-top-28 desktop:h-24 desktop:w-24"
+            class="relative -top-16 left-[calc(50%_-_2rem)] flex h-16 w-16 items-center justify-center rounded-full border-4 border-solid border-primary bg-brand p-4 transition duration-300 ease-in-out hover:-translate-x-1 hover:-translate-y-1 hover:shadow-button tablet:-top-20 tablet:h-20 tablet:w-20 desktop:-top-28 desktop:h-24 desktop:w-24"
           >
             <i></i>
           </button>
