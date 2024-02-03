@@ -3,10 +3,10 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "Cooper Lt BT";
+  font-family: 'Cooper Lt BT';
   src:
-    url("assets/webfonts/cooper_bold_bt.woff2") format("woff2"),
-    url("assets/webfonts/cooper_bold_bt.woff") format("woff");
+    url('assets/webfonts/cooper_bold_bt.woff2') format('woff2'),
+    url('assets/webfonts/cooper_bold_bt.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -16,13 +16,13 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  border: 1px solid #000;
+  /* border: 1px solid #000; */
   @apply cursor-pickle;
 }
 
 @layer base {
   html {
-    font-family: "Cooper Lt BT", Arial, sans-serif;
+    font-family: 'Cooper Lt BT', Arial, sans-serif;
     font-weight: normal;
     font-style: normal;
     @apply bg-primary;
@@ -40,7 +40,7 @@
     max-width: 100%;
   }
 
-  header[class~="scrolled"] {
+  div#navbar.scrolled {
     @apply bg-primary shadow;
   }
 
@@ -60,13 +60,13 @@
 
   #accordion > i::before {
     font: var(--fa-font-solid);
-    content: "\f107";
+    content: '\f107';
     @apply text-2xl tablet:text-3xl desktop:text-4xl;
   }
 
   #accordion.active > i::before {
     font: var(--fa-font-solid);
-    content: "\f106";
+    content: '\f106';
     @apply text-2xl tablet:text-3xl desktop:text-4xl;
   }
 }

@@ -1,92 +1,58 @@
 <!doctype html>
-
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
     <title>Sandwichette – Fine cuisine in a dwich</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
       content="Indulge your taste buds at Sandwichette, where passion meets flavor in every sandwich creation. Savor mouthwatering combinations crafted with the finest ingredients, expertly prepared to elevate your dining experience. Explore our menu of delectable sandwiches and natural wines, while browsing through our curated collection of sandwich-centric magazines, bringing you the latest trends and insights in the world of culinary delights. Join us for a culinary journey that transcends the ordinary – where sandwiches become an art form, and every bite tells a delicious story. Visit us now for a symphony of flavors and a feast for the senses!"
     />
-
     <link
       rel="stylesheet"
-      href="style.min.css"
+      href="assets/style.css"
       type="text/css"
-      charset="utf-8"
+      charset="UTF-8"
     />
-
     <link
       rel="preload"
       fetchpriority="high"
       as="image"
-      href="assets/images/header-bg.webp"
-      type="image/webp"
+      srcset="
+            assets/images/header-bg-desktop.webp 2867w,
+            assets/images/header-bg-tablet.webp  1600w,
+            assets/images/header-bg-default.webp 1100w
+          "
+      sizes="100vw"
     />
-
     <link
       rel="preload"
       fetchpriority="high"
       as="image"
-      href="assets/images/logo.svg"
+      href="assets/images/logo-default.svg"
       type="image/svg+xml"
     />
-
     <link rel="preconnect" href="https://ka-f.fontawesome.com" />
     <link rel="preconnect" href="https://kit.fontawesome.com" />
-
     <script
       src="https://kit.fontawesome.com/90c69bc248.js"
       crossorigin="anonymous"
       async
     ></script>
-
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
-    <link rel="manifest" href="site.webmanifest" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
   </head>
 
-  <div
-    class="mb-8 h-screen w-full bg-header bg-cover bg-center tablet:mb-16 desktop:mb-24"
-  >
   <body class="text-base text-black tablet:text-lg desktop:text-xl">
-      <header
+    <header class="mb-8 tablet:mb-16 desktop:mb-24">
+      <div
+        id="navbar"
         class="fixed top-0 left-0 z-10 flex h-28 w-full items-center justify-between px-8 py-2 transition duration-500 ease-in-out"
       >
-        <script defer>
-          let ticking = false;
-          let scrollPosIsTop = true;
-
-          /** Change the header appearance if page is scrolled */
-          function switchBackgroundOpacity() {
-            if (window.scrollY === 0) {
-              if (scrollPosIsTop) return;
-              document
-                .getElementsByTagName("header")[0]
-                .classList.remove("scrolled");
-              scrollPosIsTop = true;
-            } else if (scrollPosIsTop) {
-              document
-                .getElementsByTagName("header")[0]
-                .classList.add("scrolled");
-              scrollPosIsTop = false;
-            }
-          }
-
-          document.addEventListener("scroll", (event) => {
-            if (!ticking) {
-              window.requestAnimationFrame(() => {
-                switchBackgroundOpacity();
-                ticking = false;
-              });
-
-              ticking = true;
-            }
-          });
-        </script>
-
         <div class="flex grow justify-start">
           <a
             class="hover:bg-insta-gradient hover:bg-clip-text hover:text-transparent"
@@ -100,7 +66,7 @@
           <img
             id="logo"
             class="aspect-16/10 w-full object-cover"
-            src="assets/images/logo.svg"
+            src="assets/images/logo-default.svg"
             alt="Logo Sandwichette"
           />
         </div>
@@ -125,11 +91,60 @@
             <i id="menu-icon" class="fa-solid fa-bars text-3xl"></i>
           </a>
         </div>
-      </header>
+      </div>
+      <script defer>
+        let ticking = false;
+        let scrollPosIsTop = true;
+        /** Change the header appearance if page is scrolled */
+        function switchBackgroundOpacity() {
+          if (window.scrollY === 0) {
+            if (scrollPosIsTop) return;
+            document.getElementById('navbar').classList.remove('scrolled');
+            scrollPosIsTop = true;
+          } else if (scrollPosIsTop) {
+            document.getElementById('navbar').classList.add('scrolled');
+            scrollPosIsTop = false;
+          }
+        }
+        document.addEventListener('scroll', (event) => {
+          if (!ticking) {
+            window.requestAnimationFrame(() => {
+              switchBackgroundOpacity();
+              ticking = false;
+            });
+            ticking = true;
+          }
+        });
+      </script>
+      <picture>
+        <source
+          type="image/webp"
+          srcset="
+            assets/images/header-bg-desktop.webp 2867w,
+            assets/images/header-bg-tablet.webp  1600w,
+            assets/images/header-bg-default.webp 1100w
+          "
+          sizes="100vw"
+        />
+        <source
+          type="image/jpeg"
+          srcset="
+            assets/images/header-bg-desktop.webp 2867w,
+            assets/images/header-bg-tablet.webp  1600w,
+            assets/images/header-bg-default.webp 1100w
+          "
+          sizes="100vw"
+        />
+        <img
+          class="w-full h-screen object-cover object-center"
+          src="assets/images/header-bg-2xl.jpeg"
+          alt="background"
+        />
+      </picture>
       <div id="scroll-icon" class="absolute left-1/2 top-[90vh]">
         <i class="fa-solid fa-angles-down animate-bounce text-3xl"></i>
       </div>
-    </div>
+    </header>
 
     <div
       class="flex flex-col items-center justify-center gap-8 tablet:gap-16 desktop:gap-32"
@@ -194,7 +209,7 @@
           <img
             class="h-96 w-64 rounded-t-full"
             src="assets/images/chaise.webp"
-            alt="sandich"
+            alt="sandwich"
             loading="lazy"
           />
           <span class="w-[312px] text-center"
@@ -205,7 +220,6 @@
           >
         </div>
       </section>
-
       <section
         id="philosophie"
         class="flex w-full grow -scroll-mt-32 flex-col items-center justify-center text-white"
@@ -218,7 +232,7 @@
           <path
             d="M1280.5 82.0047V196.5H0.5V89.0308C0.5 89.0308 323.607 -84.0464 640.599 53.7961C994.675 207.763 1280.5 82.0047 1280.5 82.0047Z"
             class="w-full fill-brand"
-          />
+          ></path>
         </svg>
         <div
           id="content-mask"
@@ -312,7 +326,7 @@
             <path
               d="M0.5 114.995V0.5H1280.5V107.969C1280.5 107.969 957.393 281.046 640.401 143.204C286.325 -10.7635 0.5 114.995 0.5 114.995Z"
               class="w-full fill-brand"
-            />
+            ></path>
           </svg>
           <button
             id="accordion"
@@ -322,19 +336,17 @@
             <i></i>
           </button>
           <script>
-            var accordion = document.getElementById("accordion");
-
-            accordion.addEventListener("click", function () {
-              var panel = document.getElementById("panel");
-              var contentMask = document.getElementById("content-mask");
-
-              accordion.classList.toggle("active");
+            var accordion = document.getElementById('accordion');
+            accordion.addEventListener('click', function () {
+              var panel = document.getElementById('panel');
+              var contentMask = document.getElementById('content-mask');
+              accordion.classList.toggle('active');
               if (panel.style.maxHeight) {
                 panel.style.maxHeight = null;
-                contentMask.style.display = "block";
+                contentMask.style.display = 'block';
               } else {
-                panel.style.maxHeight = panel.scrollHeight + "px";
-                contentMask.style.display = "none";
+                panel.style.maxHeight = panel.scrollHeight + 'px';
+                contentMask.style.display = 'none';
               }
             });
           </script>
@@ -343,7 +355,6 @@
       <section id="magazines" class="h-64 scroll-mt-32 bg-lime-500"></section>
       <section id="contact" class="h-64 scroll-mt-32 bg-cyan-500"></section>
     </div>
-
     <footer></footer>
   </body>
 </html>

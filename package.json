@@ -1,18 +1,13 @@
 {
   "type": "module",
   "devDependencies": {
-    "@lodder/grunt-postcss": "^3.1.1",
-    "autoprefixer": "^10.4.17",
-    "cssnano": "^6.0.3",
-    "grunt": "^1.6.1",
-    "grunt-contrib-htmlmin": "^3.1.0",
-    "grunt-contrib-watch": "^1.1.0",
-    "grunt-svgmin": "^7.0.0",
+    "cli-real-favicon": "^0.0.8",
     "prettier": "^3.2.4",
     "prettier-plugin-tailwindcss": "^0.5.11",
     "tailwindcss": "^3.4.1"
   },
   "dependencies": {
+    "html-minifier": "^4.0.0",
     "imagemin": "^8.0.1",
     "imagemin-giflossy": "^5.1.10",
     "imagemin-mozjpeg": "^10.0.0",
@@ -24,8 +19,13 @@
     "sharp": "^0.33.2"
   },
   "scripts": {
-    "watch": "grunt watch",
-    "build": "grunt"
+    "iconupd": "real-favicon check-for-update --fail-on-update faviconData.json",
+    "icongen": "real-favicon generate faviconDescription.json faviconData.json dist && real-favicon inject faviconData.json src src/index.html",
+    "htmlmini": "html-minifier --collapse-whitespace --remove-comments --minify-css true --minify-js true src/index.html > dist/index.html",
+    "cssgen": "npx tailwindcss -i src/style.css -o dist/assets/style.css --minify",
+    "prebuild": "mkdir -p dist/assets/images && cp -R src/assets/webfonts dist/assets/ && cp src/assets/images/icon.png dist/assets/images/ && cp src/assets/images/cursor.png dist/assets/images/",
+    "build": "node imageGenerator.js && npm run cssgen && npm run htmlmini",
+    "clean": "rm -rf dist"
   },
   "browserslist": [
     "defaults"

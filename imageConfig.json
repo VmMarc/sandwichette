@@ -1,52 +1,53 @@
 {
-  "header-bg": {
-    "ratio": "16/9",
-    "breakpoint": {
-      "desktop": 2867,
-      "tablet": 1920,
-      "default": 1280
+  "images": [
+    {
+      "name": "header-bg",
+      "ratio": "16/9",
+      "breakpoint": {
+        "desktop": 2867,
+        "tablet": 1600,
+        "default": 1100
+      }
+    },
+    {
+      "name": "boisson",
+      "ratio": "2/3",
+      "breakpoint": {
+        "desktop": 600,
+        "default": 400
+      }
+    },
+    {
+      "name": "chaise",
+      "ratio": "2/3",
+      "breakpoint": {
+        "desktop": 600,
+        "default": 400
+      }
+    },
+    {
+      "name": "sandwich-green-plate",
+      "ratio": "1",
+      "breakpoint": {
+        "desktop": 378,
+        "default": 260
+      }
+    },
+    {
+      "name": "cheese-sandwich",
+      "ratio": "2/3",
+      "breakpoint": {
+        "desktop": 305,
+        "default": 240
+      }
+    },
+    {
+      "name": "dessert",
+      "ratio": "2/3",
+      "breakpoint": {
+        "desktop": 373,
+        "default": 260
+      }
     }
-  },
-  "logo": {
-    "ratio": "16/10",
-    "breakpoint": {
-      "desktop": 154,
-      "default": 128
-    }
-  },
-  "boisson": {
-    "ratio": "2/3",
-    "breakpoint": {
-      "desktop": 600,
-      "default": 400
-    }
-  },
-  "chaise": {
-    "ratio": "2/3",
-    "breakpoint": {
-      "desktop": 600,
-      "default": 400
-    }
-  },
-  "sandwich-green-plate": {
-    "ratio": "1",
-    "breakpoint": {
-      "desktop": 378,
-      "default": 260
-    }
-  },
-  "cheese-sandwich": {
-    "ratio": "2/3",
-    "breakpoint": {
-      "desktop": 305,
-      "default": 240
-    }
-  },
-  "dessert": {
-    "ratio": "2/3",
-    "breakpoint": {
-      "desktop": 373,
-      "default": 260
-    }
-  }
+  ]
 }
