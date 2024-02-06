@@ -1,0 +1,22 @@
+{
+	"compilerOptions": {
+		"module": "ESNext",
+		"moduleResolution": "bundler",
+		"checkJs": true,
+		"baseUrl": ".",
+		"paths": {
+			"*": [
+				"./gulp/*"
+			]
+		}
+	},
+	"exclude": [
+		"node_modules",
+		"**/node_modules/*",
+		"dist"
+	],
+	"include": [
+		"src",
+		"gulp"
+	]
+}

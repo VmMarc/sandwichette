@@ -1,48 +1,70 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <title>Sandwichette – Fine cuisine in a dwich</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Indulge your taste buds at Sandwichette, where passion meets flavor in every sandwich creation. Savor mouthwatering combinations crafted with the finest ingredients, expertly prepared to elevate your dining experience. Explore our menu of delectable sandwiches and natural wines, while browsing through our curated collection of sandwich-centric magazines, bringing you the latest trends and insights in the world of culinary delights. Join us for a culinary journey that transcends the ordinary – where sandwiches become an art form, and every bite tells a delicious story. Visit us now for a symphony of flavors and a feast for the senses!"
+      content="Des sandwichs, des chouquettes, des choses à boire et des magazines food 🥪🍰🍷"
     />
+    <link rel="canonical" href="https://sandwichette.com/" />
     <link
       rel="stylesheet"
-      href="assets/style.css"
+      href="styles/global.css"
       type="text/css"
       charset="UTF-8"
     />
+
+    <!-- opengraph -->
+    <meta
+      property="og:title"
+      content="Sandwichette – Fine cuisine in a dwich"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://sandwichette.com/" />
+    <!-- <meta property="og:image" content="URL img/hero-bg-1200.jpg" /> -->
+    <meta property="og:locale" content="fr_FR" />
+    <meta
+      property="og:description"
+      content="Des sandwichs, des chouquettes, des choses à boire et des magazines food 🥪🍰🍷"
+    />
+
+    <!-- hero background -->
     <link
       rel="preload"
       fetchpriority="high"
       as="image"
+      sizes="(min-height: 1080px) 1920px, (min-height: 900px) 1600px, (min-height: 720px) 1280px, (min-height: 576px) 1024px, (min-height: 480px) 854px, 100vw"
       srcset="
-            assets/images/header-bg-desktop.webp 2867w,
-            assets/images/header-bg-tablet.webp  1600w,
-            assets/images/header-bg-default.webp 1100w
-          "
-      sizes="100vw"
+              img/hero-bg-1920.webp 1920w,
+              img/hero-bg-1600.webp 1600w,
+              img/hero-bg-1280.webp 1280w,
+              img/hero-bg-1024.webp 1024w,
+              img/hero-bg-854.webp   854w,
+              img/hero-bg-640.webp   640w
+            "
     />
+
+    <!-- cooper bt font -->
     <link
       rel="preload"
-      fetchpriority="high"
-      as="image"
-      href="assets/images/logo-default.svg"
-      type="image/svg+xml"
+      as="font"
+      href="fonts/cooper_bold_bt.woff2"
+      crossorigin
     />
-    <link rel="preconnect" href="https://ka-f.fontawesome.com" />
-    <link rel="preconnect" href="https://kit.fontawesome.com" />
-    <script
-      src="https://kit.fontawesome.com/90c69bc248.js"
-      crossorigin="anonymous"
-      async
-    ></script>
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- fontawesome -->
+    <link href="styles/fontawesome/fontawesome.css" rel="stylesheet" />
+    <link href="styles/fontawesome/brands.css" rel="stylesheet" />
+    <link href="styles/fontawesome/solid.css" rel="stylesheet" />
+    <link href="styles/fontawesome/regular.css" rel="stylesheet" />
+
+    <!-- favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="manifest" href="site.webmanifest" />
     <meta name="msapplication-TileColor" content="#da532c" />
     <meta name="theme-color" content="#ffffff" />
   </head>
@@ -66,7 +88,7 @@
           <img
             id="logo"
             class="aspect-16/10 w-full object-cover"
-            src="assets/images/logo-default.svg"
+            src="img/logo.svg"
             alt="Logo Sandwichette"
           />
         </div>
@@ -95,7 +117,6 @@
       <script defer>
         let ticking = false;
         let scrollPosIsTop = true;
-        /** Change the header appearance if page is scrolled */
         function switchBackgroundOpacity() {
           if (window.scrollY === 0) {
             if (scrollPosIsTop) return;
@@ -116,33 +137,41 @@
           }
         });
       </script>
-      <picture>
-        <source
-          type="image/webp"
-          srcset="
-            assets/images/header-bg-desktop.webp 2867w,
-            assets/images/header-bg-tablet.webp  1600w,
-            assets/images/header-bg-default.webp 1100w
-          "
-          sizes="100vw"
-        />
-        <source
-          type="image/jpeg"
-          srcset="
-            assets/images/header-bg-desktop.webp 2867w,
-            assets/images/header-bg-tablet.webp  1600w,
-            assets/images/header-bg-default.webp 1100w
-          "
-          sizes="100vw"
-        />
-        <img
-          class="w-full h-screen object-cover object-center"
-          src="assets/images/header-bg-2xl.jpeg"
-          alt="background"
-        />
-      </picture>
-      <div id="scroll-icon" class="absolute left-1/2 top-[90vh]">
-        <i class="fa-solid fa-angles-down animate-bounce text-3xl"></i>
+      <div id="hero">
+        <picture id="hero-bg">
+          <source
+            type="image/webp"
+            srcset="
+              img/hero-bg-1920.webp 1920w,
+              img/hero-bg-1600.webp 1600w,
+              img/hero-bg-1280.webp 1280w,
+              img/hero-bg-1024.webp 1024w,
+              img/hero-bg-854.webp   854w,
+              img/hero-bg-640.webp   640w
+            "
+            sizes="(min-height: 1080px) 1920px, (min-height: 900px) 1600px, (min-height: 720px) 1280px, (min-height: 576px) 1024px, (min-height: 480px) 854px, 100vw"
+          />
+          <source
+            type="image/jpg"
+            srcset="
+              img/hero-bg-1920.jpg 1920w,
+              img/hero-bg-1600.jpg 1600w,
+              img/hero-bg-1280.jpg 1280w,
+              img/hero-bg-1024.jpg 1024w,
+              img/hero-bg-854.jpg   854w,
+              img/hero-bg-640.webp  640w
+            "
+            sizes="(min-height: 1080px) 1920px, (min-height: 900px) 1600px, (min-height: 720px) 1280px, (min-height: 576px) 1024px, (min-height: 480px) 854px, 100vw"
+          />
+          <img
+            class="w-full h-screen object-cover object-center"
+            src="img/hero-bg-2xl.jpg"
+            alt="background"
+          />
+        </picture>
+        <div id="scroll-icon" class="absolute left-1/2 top-[90vh]">
+          <i class="fa-solid fa-angles-down animate-bounce text-3xl"></i>
+        </div>
       </div>
     </header>
 
@@ -190,12 +219,15 @@
               >. Thé chaud ou thé pas chaud.</span
             >
           </div>
-          <img
-            class="h-96 w-64 rounded-xl"
-            src="assets/images/boisson.webp"
-            alt="coffee-service"
-            loading="lazy"
-          />
+          <picture>
+            <source type="image/webp" srcset="img/boisson1.webp" />
+            <img
+              class="h-96 w-64 rounded-xl"
+              src="img/boisson.jpg"
+              alt="photo animee boisson"
+              loading="lazy"
+            />
+          </picture>
         </div>
         <div
           class="flex flex-col items-center gap-4 tablet:gap-6 desktop:flex-row"
@@ -206,12 +238,15 @@
               >sympathique</span
             ></span
           >
-          <img
-            class="h-96 w-64 rounded-t-full"
-            src="assets/images/chaise.webp"
-            alt="sandwich"
-            loading="lazy"
-          />
+          <picture>
+            <source type="image/webp" srcset="img/chaise1.webp" />
+            <img
+              class="h-96 w-64 rounded-t-full"
+              src="img/chaise1.jpg"
+              alt="sandwich"
+              loading="lazy"
+            />
+          </picture>
           <span class="w-[312px] text-center"
             >Pas original mais un peu
             <span class="text-lg text-brand tablet:text-xl desktop:text-2xl"
@@ -265,12 +300,18 @@
                   bon sens. Quand on s'occupe d'un légume, d'un fruit ou d'un
                   morceau de viande c'est entièrement.</span
                 >
-                <img
-                  class="h-64 w-64 rounded-full tablet:h-80 tablet:w-80"
-                  src="assets/images/sandwich.webp"
-                  alt="sandwich"
-                  loading="lazy"
-                />
+                <picture>
+                  <source
+                    type="image/webp"
+                    srcset="img/sandwich-frites1.webp"
+                  />
+                  <img
+                    class="h-64 w-64 rounded-full tablet:h-80 tablet:w-80"
+                    src="img/sandwich-frites1.jpg"
+                    alt="sandwich-frite"
+                    loading="lazy"
+                  />
+                </picture>
               </div>
               <span class="min-w-60 self-stretch text-justify tablet:min-w-80">
                 Peu de plastique autant que possible.<br />Du packaging
@@ -284,12 +325,18 @@
               <div
                 class="flex flex-wrap content-center items-center justify-center gap-4 self-stretch tablet:gap-8"
               >
-                <img
-                  class="h-60 w-60"
-                  src="assets/images/cheese.webp"
-                  alt="cheese-sandwich"
-                  loading="lazy"
-                />
+                <picture>
+                  <source
+                    type="image/webp"
+                    srcset="img/cheese-sandwich1.webp"
+                  />
+                  <img
+                    class="h-60 w-60"
+                    src="img/cheese-sandwich1.jpg"
+                    alt="cheese-sandwich"
+                    loading="lazy"
+                  />
+                </picture>
                 <span class="min-w-60 flex-[1_0_0%] text-justify"
                   >Faire fondre du fromage sur du pain au levain, ça, on peut le
                   faire tous les jours. Pour les fêtes, on fera des sandwichs
@@ -311,12 +358,15 @@
                   square du mercredi après-midi. Sandwichette, c'est l'odeur du
                   fait maison sans prise de tête.</span
                 >
-                <img
-                  class="h-72 w-72"
-                  alt="cake"
-                  src="assets/images/cake.webp"
-                  loading="lazy"
-                />
+                <picture>
+                  <source type="image/webp" srcset="img/dessert.webp" />
+                  <img
+                    class="h-72 w-72"
+                    src="img/dessert.jpg"
+                    alt="dessert"
+                    loading="lazy"
+                  />
+                </picture>
               </div>
             </div>
           </div>

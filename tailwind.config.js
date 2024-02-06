@@ -11,7 +11,7 @@ module.exports = {
         primary: '#ffe4f6',
       },
       cursor: {
-        pickle: "url('images/cursor.png'), auto",
+        pickle: "url('img/cursor.png'), auto",
       },
       backgroundImage: {
         'insta-gradient':

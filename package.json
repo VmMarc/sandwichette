@@ -1,10 +1,21 @@
 {
   "type": "module",
   "devDependencies": {
+    "@types/node": "^20.11.16",
     "cli-real-favicon": "^0.0.8",
+    "critical": "^7.1.0",
+    "gulp": "^4.0.2",
+    "gulp-changed": "^5.0.2",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-inject": "^5.0.5",
+    "gulp-real-favicon": "^0.3.2",
+    "gulp-rename": "^2.0.0",
     "prettier": "^3.2.4",
     "prettier-plugin-tailwindcss": "^0.5.11",
-    "tailwindcss": "^3.4.1"
+    "tailwindcss": "^3.4.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3",
+    "uglify-js": "^3.17.4"
   },
   "dependencies": {
     "html-minifier": "^4.0.0",
@@ -19,13 +30,7 @@
     "sharp": "^0.33.2"
   },
   "scripts": {
-    "iconupd": "real-favicon check-for-update --fail-on-update faviconData.json",
-    "icongen": "real-favicon generate faviconDescription.json faviconData.json dist && real-favicon inject faviconData.json src src/index.html",
-    "htmlmini": "html-minifier --collapse-whitespace --remove-comments --minify-css true --minify-js true src/index.html > dist/index.html",
-    "cssgen": "npx tailwindcss -i src/style.css -o dist/assets/style.css --minify",
-    "prebuild": "mkdir -p dist/assets/images && cp -R src/assets/webfonts dist/assets/ && cp src/assets/images/icon.png dist/assets/images/ && cp src/assets/images/cursor.png dist/assets/images/",
-    "build": "node imageGenerator.js && npm run cssgen && npm run htmlmini",
-    "clean": "rm -rf dist"
+    "cssgen": "npx tailwindcss -i src/styles/global.css --minify"
   },
   "browserslist": [
     "defaults"

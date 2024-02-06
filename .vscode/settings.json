@@ -5,4 +5,5 @@
 	"editor.quickSuggestions": {
 		"strings": "on"
 	},
+	"liveServer.settings.multiRootWorkspaceName": "sandwichette",
 }
