@@ -5,7 +5,7 @@ import gulp from 'gulp';
 import realFavicon from 'gulp-real-favicon';
 
 const faviconDataFile = 'faviconData.json';
-const faviconPath = '../assets/images/icon.png';
+const faviconPath = '../src/img/icon.png';
 const buildDir = '../build';
 const imgDest = `../dist`;
 

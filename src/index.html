@@ -9,58 +9,60 @@
       content="Des sandwichs, des chouquettes, des choses à boire et des magazines food 🥪🍰🍷"
     />
     <link rel="canonical" href="https://sandwichette.com/" />
-    <link
-      rel="stylesheet"
-      href="styles/global.css"
-      type="text/css"
-      charset="UTF-8"
-    />
 
-    <!-- opengraph -->
     <meta
       property="og:title"
       content="Sandwichette – Fine cuisine in a dwich"
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://sandwichette.com/" />
-    <!-- <meta property="og:image" content="URL img/hero-bg-1200.jpg" /> -->
+    <meta
+      property="og:image"
+      content="https://sandwichette.com/img/hero-1200.jpg"
+    />
     <meta property="og:locale" content="fr_FR" />
     <meta
       property="og:description"
       content="Des sandwichs, des chouquettes, des choses à boire et des magazines food 🥪🍰🍷"
     />
 
-    <!-- hero background -->
+    <link rel="preload" href="/img/logo.svg" fetchpriority="high" as="image" />
     <link
       rel="preload"
       fetchpriority="high"
       as="image"
-      sizes="(min-height: 1080px) 1920px, (min-height: 900px) 1600px, (min-height: 720px) 1280px, (min-height: 576px) 1024px, (min-height: 480px) 854px, 100vw"
-      srcset="
-              img/hero-bg-1920.webp 1920w,
-              img/hero-bg-1600.webp 1600w,
-              img/hero-bg-1280.webp 1280w,
-              img/hero-bg-1024.webp 1024w,
-              img/hero-bg-854.webp   854w,
-              img/hero-bg-640.webp   640w
+      imagesizes="(min-height: 1357px) 2897w, (min-height: 1131px) 1920w, (min-height: 905px) 1600w, (min-height: 724px) 1280w, (min-height: 604px) 1024w, (min-height: 452px) 854w, 100vw"
+      imagesrcset="
+              /img/hero-bg-2897.webp 2897w,
+              /img/hero-bg-1920.webp 1920w,
+              /img/hero-bg-1600.webp 1600w,
+              /img/hero-bg-1280.webp 1280w,
+              /img/hero-bg-1024.webp 1024w,
+              /img/hero-bg-854.webp   854w,
+              /img/hero-bg-640.webp   640w
             "
     />
 
-    <!-- cooper bt font -->
     <link
       rel="preload"
       as="font"
-      href="fonts/cooper_bold_bt.woff2"
+      href="/fonts/cooper_bold_bt.woff2"
       crossorigin
     />
 
-    <!-- fontawesome -->
-    <link href="styles/fontawesome/fontawesome.css" rel="stylesheet" />
-    <link href="styles/fontawesome/brands.css" rel="stylesheet" />
-    <link href="styles/fontawesome/solid.css" rel="stylesheet" />
-    <link href="styles/fontawesome/regular.css" rel="stylesheet" />
+    <!-- build:css css/main.css -->
+    <link
+      rel="stylesheet"
+      href="/css/global.css"
+      type="text/css"
+      charset="UTF-8"
+    />
+    <link href="/css/fontawesome/fontawesome.css" rel="stylesheet" />
+    <link href="/css/fontawesome/brands.css" rel="stylesheet" />
+    <link href="/css/fontawesome/solid.css" rel="stylesheet" />
+    <link href="/css/fontawesome/regular.css" rel="stylesheet" />
+    <!-- endbuild -->
 
-    <!-- favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
@@ -88,7 +90,7 @@
           <img
             id="logo"
             class="aspect-16/10 w-full object-cover"
-            src="img/logo.svg"
+            src="/img/logo.svg"
             alt="Logo Sandwichette"
           />
         </div>
@@ -114,58 +116,37 @@
           </a>
         </div>
       </div>
-      <script defer>
-        let ticking = false;
-        let scrollPosIsTop = true;
-        function switchBackgroundOpacity() {
-          if (window.scrollY === 0) {
-            if (scrollPosIsTop) return;
-            document.getElementById('navbar').classList.remove('scrolled');
-            scrollPosIsTop = true;
-          } else if (scrollPosIsTop) {
-            document.getElementById('navbar').classList.add('scrolled');
-            scrollPosIsTop = false;
-          }
-        }
-        document.addEventListener('scroll', (event) => {
-          if (!ticking) {
-            window.requestAnimationFrame(() => {
-              switchBackgroundOpacity();
-              ticking = false;
-            });
-            ticking = true;
-          }
-        });
-      </script>
       <div id="hero">
         <picture id="hero-bg">
           <source
             type="image/webp"
             srcset="
-              img/hero-bg-1920.webp 1920w,
-              img/hero-bg-1600.webp 1600w,
-              img/hero-bg-1280.webp 1280w,
-              img/hero-bg-1024.webp 1024w,
-              img/hero-bg-854.webp   854w,
-              img/hero-bg-640.webp   640w
+              /img/hero-bg-2897.webp 2897w,
+              /img/hero-bg-1920.webp 1920w,
+              /img/hero-bg-1600.webp 1600w,
+              /img/hero-bg-1280.webp 1280w,
+              /img/hero-bg-1024.webp 1024w,
+              /img/hero-bg-854.webp   854w,
+              /img/hero-bg-640.webp   640w
             "
-            sizes="(min-height: 1080px) 1920px, (min-height: 900px) 1600px, (min-height: 720px) 1280px, (min-height: 576px) 1024px, (min-height: 480px) 854px, 100vw"
+            sizes="(min-height: 1357px) 2897w, (min-height: 1131px) 1920w, (min-height: 905px) 1600w, (min-height: 724px) 1280w, (min-height: 604px) 1024w, (min-height: 452px) 854w, 100vw"
           />
           <source
             type="image/jpg"
             srcset="
-              img/hero-bg-1920.jpg 1920w,
-              img/hero-bg-1600.jpg 1600w,
-              img/hero-bg-1280.jpg 1280w,
-              img/hero-bg-1024.jpg 1024w,
-              img/hero-bg-854.jpg   854w,
-              img/hero-bg-640.webp  640w
+              /img/hero-bg-2897.jpg 2897w,
+              /img/hero-bg-1920.jpg 1920w,
+              /img/hero-bg-1600.jpg 1600w,
+              /img/hero-bg-1280.jpg 1280w,
+              /img/hero-bg-1024.jpg 1024w,
+              /img/hero-bg-854.jpg   854w,
+              /img/hero-bg-640.jpg   640w
             "
-            sizes="(min-height: 1080px) 1920px, (min-height: 900px) 1600px, (min-height: 720px) 1280px, (min-height: 576px) 1024px, (min-height: 480px) 854px, 100vw"
+            sizes="(min-height: 1357px) 2897w, (min-height: 1131px) 1920w, (min-height: 905px) 1600w, (min-height: 724px) 1280w, (min-height: 604px) 1024w, (min-height: 452px) 854w, 100vw"
           />
           <img
             class="w-full h-screen object-cover object-center"
-            src="img/hero-bg-2xl.jpg"
+            src="/img/hero-bg-2xl.jpg"
             alt="background"
           />
         </picture>
@@ -174,6 +155,31 @@
         </div>
       </div>
     </header>
+    <script defer>
+      let ticking = false;
+      let scrollPosIsTop = true;
+
+      function switchBackgroundOpacity() {
+        if (window.scrollY === 0) {
+          if (scrollPosIsTop) return;
+          document.getElementById('navbar').classList.remove('scrolled');
+          scrollPosIsTop = true;
+        } else if (scrollPosIsTop) {
+          document.getElementById('navbar').classList.add('scrolled');
+          scrollPosIsTop = false;
+        }
+      }
+
+      document.addEventListener('scroll', (event) => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            switchBackgroundOpacity();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+    </script>
 
     <div
       class="flex flex-col items-center justify-center gap-8 tablet:gap-16 desktop:gap-32"
@@ -220,10 +226,10 @@
             >
           </div>
           <picture>
-            <source type="image/webp" srcset="img/boisson1.webp" />
+            <source type="image/webp" srcset="/img/boisson1.webp" />
             <img
               class="h-96 w-64 rounded-xl"
-              src="img/boisson.jpg"
+              src="/img/boisson.jpg"
               alt="photo animee boisson"
               loading="lazy"
             />
@@ -239,10 +245,10 @@
             ></span
           >
           <picture>
-            <source type="image/webp" srcset="img/chaise1.webp" />
+            <source type="image/webp" srcset="/img/chaise1.webp" />
             <img
               class="h-96 w-64 rounded-t-full"
-              src="img/chaise1.jpg"
+              src="/img/chaise1.jpg"
               alt="sandwich"
               loading="lazy"
             />
@@ -275,7 +281,7 @@
         ></div>
         <div
           id="panel"
-          class="flex max-h-80 w-full flex-col items-center justify-start self-stretch overflow-hidden bg-brand px-5 py-16 transition-[max-height_1s_ease-out] duration-1000 tablet:px-16 desktop:px-24"
+          class="flex max-h-80 w-full flex-col items-center justify-start self-stretch overflow-hidden bg-brand px-5 py-16 transition-[max-height_500ms_ease-out] duration-500 tablet:px-16 desktop:px-24"
         >
           <div
             class="flex w-full max-w-6xl flex-col items-center justify-center gap-4 tablet:gap-10 desktop:gap-12"
@@ -286,7 +292,7 @@
               />
               <h1>Philosophie</h1>
             </div>
-            <div class="flex flex-col gap-4 tablet:gap-8">
+            <div class="flex flex-col gap-4 tablet:gap-8 self-stretch">
               <div
                 class="flex flex-wrap content-center items-center justify-center gap-4 self-stretch tablet:gap-8"
               >
@@ -303,11 +309,11 @@
                 <picture>
                   <source
                     type="image/webp"
-                    srcset="img/sandwich-frites1.webp"
+                    srcset="/img/sandwich-frites1.webp"
                   />
                   <img
                     class="h-64 w-64 rounded-full tablet:h-80 tablet:w-80"
-                    src="img/sandwich-frites1.jpg"
+                    src="/img/sandwich-frites1.jpg"
                     alt="sandwich-frite"
                     loading="lazy"
                   />
@@ -328,11 +334,11 @@
                 <picture>
                   <source
                     type="image/webp"
-                    srcset="img/cheese-sandwich1.webp"
+                    srcset="/img/cheese-sandwich1.webp"
                   />
                   <img
-                    class="h-60 w-60"
-                    src="img/cheese-sandwich1.jpg"
+                    class="h-80 w-60"
+                    src="/img/cheese-sandwich1.jpg"
                     alt="cheese-sandwich"
                     loading="lazy"
                   />
@@ -359,10 +365,10 @@
                   fait maison sans prise de tête.</span
                 >
                 <picture>
-                  <source type="image/webp" srcset="img/dessert.webp" />
+                  <source type="image/webp" srcset="/img/dessert.webp" />
                   <img
-                    class="h-72 w-72"
-                    src="img/dessert.jpg"
+                    class="h-60 w-60"
+                    src="/img/dessert.jpg"
                     alt="dessert"
                     loading="lazy"
                   />
@@ -381,11 +387,11 @@
           <button
             id="accordion"
             aria-label="Open/close accordion"
-            class="relative -top-16 left-[calc(50%_-_2rem)] flex h-16 w-16 items-center justify-center rounded-full border-4 border-solid border-primary bg-brand p-4 transition duration-300 ease-in-out hover:-translate-x-1 hover:-translate-y-1 hover:shadow-button tablet:-top-20 tablet:h-20 tablet:w-20 desktop:-top-28 desktop:h-24 desktop:w-24"
+            class="relative -top-16 left-[calc(50%_-_2rem)] flex h-16 w-16 items-center justify-center rounded-full border-4 border-solid border-primary bg-brand p-4 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-button tablet:-top-20 tablet:h-20 tablet:w-20 desktop:-top-28 desktop:h-24 desktop:w-24"
           >
-            <i></i>
+            <i class="fa-solid fa-angle-down"></i>
           </button>
-          <script>
+          <script defer>
             var accordion = document.getElementById('accordion');
             accordion.addEventListener('click', function () {
               var panel = document.getElementById('panel');

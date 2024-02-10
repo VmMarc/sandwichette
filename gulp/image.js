@@ -1,3 +1,4 @@
+import gulp from 'gulp';
 import imagemin from 'imagemin';
 import imageminMozjpeg from 'imagemin-mozjpeg';
 import imageminSvgo from 'imagemin-svgo';
@@ -59,4 +60,6 @@ async function resize() {
   });
 }
 
-export { compress, resize };
+const image = gulp.series(compress, resize);
+
+export default image;
