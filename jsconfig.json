@@ -2,6 +2,8 @@
 	"compilerOptions": {
 		"module": "ESNext",
 		"moduleResolution": "bundler",
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
 		"checkJs": true,
 		"baseUrl": ".",
 		"paths": {
@@ -18,5 +20,5 @@
 	"include": [
 		"src",
 		"gulp"
-	]
+	],
 }

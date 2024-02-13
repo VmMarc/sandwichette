@@ -31,16 +31,8 @@
       rel="preload"
       fetchpriority="high"
       as="image"
+      imagesrcset="/img/hero-bg-2897.webp 2897w, /img/hero-bg-1920.webp 1920w, /img/hero-bg-1600.webp 1600w, /img/hero-bg-1280.webp 1280w, /img/hero-bg-1024.webp 1024w, /img/hero-bg-854.webp 854w, /img/hero-bg-640.webp 640w"
       imagesizes="(min-height: 1357px) 2897w, (min-height: 1131px) 1920w, (min-height: 905px) 1600w, (min-height: 724px) 1280w, (min-height: 604px) 1024w, (min-height: 452px) 854w, 100vw"
-      imagesrcset="
-              /img/hero-bg-2897.webp 2897w,
-              /img/hero-bg-1920.webp 1920w,
-              /img/hero-bg-1600.webp 1600w,
-              /img/hero-bg-1280.webp 1280w,
-              /img/hero-bg-1024.webp 1024w,
-              /img/hero-bg-854.webp   854w,
-              /img/hero-bg-640.webp   640w
-            "
     />
 
     <link
@@ -155,31 +147,7 @@
         </div>
       </div>
     </header>
-    <script defer>
-      let ticking = false;
-      let scrollPosIsTop = true;
-
-      function switchBackgroundOpacity() {
-        if (window.scrollY === 0) {
-          if (scrollPosIsTop) return;
-          document.getElementById('navbar').classList.remove('scrolled');
-          scrollPosIsTop = true;
-        } else if (scrollPosIsTop) {
-          document.getElementById('navbar').classList.add('scrolled');
-          scrollPosIsTop = false;
-        }
-      }
-
-      document.addEventListener('scroll', (event) => {
-        if (!ticking) {
-          window.requestAnimationFrame(() => {
-            switchBackgroundOpacity();
-            ticking = false;
-          });
-          ticking = true;
-        }
-      });
-    </script>
+    <script inline defer src="js/header.js"></script>
 
     <div
       class="flex flex-col items-center justify-center gap-8 tablet:gap-16 desktop:gap-32"
@@ -389,23 +357,9 @@
             aria-label="Open/close accordion"
             class="relative -top-16 left-[calc(50%_-_2rem)] flex h-16 w-16 items-center justify-center rounded-full border-4 border-solid border-primary bg-brand p-4 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-button tablet:-top-20 tablet:h-20 tablet:w-20 desktop:-top-28 desktop:h-24 desktop:w-24"
           >
-            <i class="fa-solid fa-angle-down"></i>
+            <i></i>
           </button>
-          <script defer>
-            var accordion = document.getElementById('accordion');
-            accordion.addEventListener('click', function () {
-              var panel = document.getElementById('panel');
-              var contentMask = document.getElementById('content-mask');
-              accordion.classList.toggle('active');
-              if (panel.style.maxHeight) {
-                panel.style.maxHeight = null;
-                contentMask.style.display = 'block';
-              } else {
-                panel.style.maxHeight = panel.scrollHeight + 'px';
-                contentMask.style.display = 'none';
-              }
-            });
-          </script>
+          <script inline defer src="js/accordion.js"></script>
         </div>
       </section>
       <section id="magazines" class="h-64 scroll-mt-32 bg-lime-500"></section>

@@ -6,4 +6,5 @@
 		"strings": "on"
 	},
 	"liveServer.settings.multiRootWorkspaceName": "sandwichette",
+	"liveServer.settings.root": "/dist",
 }

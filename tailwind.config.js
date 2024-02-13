@@ -30,4 +30,8 @@ module.exports = {
     },
   },
   plugins: [],
+  purge: {
+    content: ['./src/**/*.html'],
+    safelist: ['scrolled', 'active'],
+  },
 };
