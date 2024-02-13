@@ -89,7 +89,7 @@ async function generateFavicon() {
 // as is or refactor your existing HTML pipeline.
 function injectFaviconMarkups() {
   return gulp
-    .src(['../src/*.html'], { since: gulp.lastRun(injectFaviconMarkups) })
+    .src(['../src/index.html'], { since: gulp.lastRun(injectFaviconMarkups) })
     .pipe(
       realFavicon.injectFaviconMarkups(
         // @ts-ignore
