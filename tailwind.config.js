@@ -8,7 +8,7 @@ module.exports = {
     extend: {
       colors: {
         brand: '#df3a8e',
-        primary: '#ffe4f6',
+        primary: '#fff4f9',
       },
       cursor: {
         pickle: "url('/img/cursor.png'), auto",
