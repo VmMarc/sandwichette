@@ -1,8 +1,8 @@
 import gulp from 'gulp';
 import imagemin from 'imagemin';
+import imageminGifsicle from 'imagemin-gifsicle';
 import imageminMozjpeg from 'imagemin-mozjpeg';
 import imageminSvgo from 'imagemin-svgo';
-import imageminWebp from 'imagemin-webp';
 import fsync from 'node:fs';
 import fs from 'node:fs/promises';
 import path from 'node:path';
@@ -12,7 +12,16 @@ const srcDir = '../src/img';
 const destDir = '../dist/img';
 const buildDir = '../build/img';
 
+function copyWebpImages() {
+  return gulp.src('../src/img/*.webp').pipe(gulp.dest('../build/img/'));
+}
+
 async function compress() {
+  await imagemin([`${srcDir}/**/*.gif`], {
+    destination: buildDir,
+    plugins: [imageminGifsicle({ interlaced: true, optimizationLevel: 3 })],
+  });
+
   await imagemin([`${srcDir}/**/*.svg`], {
     destination: buildDir,
     plugins: [imageminSvgo()],
@@ -20,12 +29,7 @@ async function compress() {
 
   await imagemin([`${srcDir}/**/*.@(jpeg|jpg)`], {
     destination: buildDir,
-    plugins: [imageminMozjpeg({ quality: 50 })],
-  });
-
-  await imagemin([`${srcDir}/**/*.jpg`, `${srcDir}/*.jpeg`], {
-    destination: buildDir,
-    plugins: [imageminWebp({ quality: 30 })],
+    plugins: [imageminMozjpeg({ quality: 50, progressive: true })],
   });
 }
 
@@ -47,7 +51,7 @@ async function resize() {
         for (const dimensions of Object.values(
           imageData[fileProp.name].breakpoints,
         )) {
-          await sharp(src)
+          await sharp(src, { pages: -1 })
             .resize({ ...dimensions })
             .toFile(
               `${destDir}/${fileProp.name}-${dimensions.width}${fileProp.ext}`,
@@ -60,6 +64,6 @@ async function resize() {
   });
 }
 
-const image = gulp.series(compress, resize);
+const image = gulp.series(gulp.parallel(compress, copyWebpImages), resize);
 
 export default image;

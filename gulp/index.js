@@ -1,6 +1,7 @@
 // import { stream as critical } from 'critical';
 import gulp from 'gulp';
 import cached from 'gulp-cached';
+import csso from 'gulp-csso';
 import htmlmin from 'gulp-htmlmin';
 import GulpInlineSource from 'gulp-inline-source';
 import jshintPlugin from 'gulp-jshint';
@@ -14,7 +15,6 @@ import {
   injectFaviconMarkups,
 } from './favicon.js';
 import image from './image.js';
-import csso from 'gulp-csso';
 
 const jshint = jshintPlugin;
 const inlinesource = GulpInlineSource;
@@ -98,19 +98,23 @@ export const build = gulp.series(
 
 export default function () {
   gulp.watch(
-    ['../src/input.css', '../tailwind.config.js'],
+    ['../src/input.css', '../tailwind.config.js', '../src/index.html'],
     gulp.series(globalCssGen, gulp.series(htmlBuild, htmlCompress), copyCss),
   );
   gulp.watch('../src/css/*.css', gulp.series(htmlBuild, htmlCompress, copyCss));
   gulp.watch('../src/js/*.js', gulp.series(jsLint, htmlBuild, htmlCompress));
-  gulp.watch('../src/index.html', gulp.series(htmlBuild, htmlCompress));
   gulp.watch(
     '../src/img/icon.png',
     gulp.series(generateFavicon, injectFaviconMarkups),
   );
   gulp.watch('../src/fonts/*.woff2', copyFonts);
   gulp.watch(
-    ['./imageData.json', '../src/img/**/*.jpg', '../src/img/logo.svg'],
+    [
+      './imageData.json',
+      '../src/img/**/*.jpg',
+      '../src/img/logo.svg',
+      '../src/img/**/*.gif',
+    ],
     image,
   );
   gulp.watch('../src/img/*.png', copyImages);

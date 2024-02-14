@@ -10,5 +10,38 @@
       { "width": 854, "height": 604 },
       { "width": 640, "height": 452 }
     ]
+  },
+  "boisson": {
+    "aspectRatio": "2 / 3",
+    "breakpoints": [{ "width": 400 }]
+  },
+  "chaise": {
+    "aspectRatio": "2 / 3",
+    "breakpoints": [{ "width": 400 }]
+  },
+  "cheese-sandwich": {
+    "aspectRatio": "2 / 3",
+    "breakpoints": [{ "width": 400 }]
+  },
+  "chouquettes": {
+    "breakpoints": [{ "width": 200 }]
+  },
+  "dessert": {
+    "aspectRatio": "2 / 3",
+    "breakpoints": [{ "width": 400 }]
+  },
+  "sandwich-frites": {
+    "breakpoints": [{ "width": 400 }]
+  },
+  "footer-bg": {
+    "breakpoints": [
+      { "width": 2048, "height": 1365 },
+      { "width": 1600, "height": 1066 },
+      { "width": 1280, "height": 853 },
+      { "width": 1024, "height": 683 },
+      { "width": 854, "height": 569 },
+      { "width": 640, "height": 426 },
+      { "width": 320, "height": 213 }
+    ]
   }
 }
