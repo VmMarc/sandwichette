@@ -444,6 +444,26 @@ video {
   display: none;
 }
 
+@font-face {
+  font-family: 'Cooper Lt BT';
+
+  src: url('../fonts/cooper_bold_bt.woff2') format('woff2');
+
+  font-weight: normal;
+
+  font-style: normal;
+
+  font-display: swap;
+}
+
+*,
+  *::before,
+  *::after {
+  box-sizing: border-box;
+  /* border: 1px solid #000; */
+  cursor: url('/img/cursor.png'), auto;
+}
+
 html {
   font-family: 'Cooper Lt BT', Arial, sans-serif;
   font-weight: normal;
@@ -716,6 +736,14 @@ i::before {
   aspect-ratio: 16 / 10;
 }
 
+.aspect-\[2\/3\] {
+  aspect-ratio: 2/3;
+}
+
+.aspect-square {
+  aspect-ratio: 1 / 1;
+}
+
 .h-16 {
   height: 4rem;
 }
@@ -728,16 +756,16 @@ i::before {
   height: 10rem;
 }
 
-.h-60 {
-  height: 15rem;
-}
-
 .h-64 {
   height: 16rem;
 }
 
 .h-\[8px\] {
   height: 8px;
+}
+
+.h-\[calc\(100vh_-_7rem\)\] {
+  height: calc(100vh - 7rem);
 }
 
 .h-full {
@@ -1066,26 +1094,6 @@ i::before {
 
 .ease-in-out {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-@font-face {
-  font-family: 'Cooper Lt BT';
-
-  src: url('../fonts/cooper_bold_bt.woff2') format('woff2');
-
-  font-weight: normal;
-
-  font-style: normal;
-
-  font-display: swap;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  /* border: 1px solid #000; */
-  cursor: url('/img/cursor.png'), auto;
 }
 
 .hover\:-translate-x-1:hover {

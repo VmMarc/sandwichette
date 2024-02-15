@@ -26,7 +26,6 @@
       content="Des sandwichs, des chouquettes, des choses à boire et des magazines food 🥪🍰🍷"
     />
 
-    <link rel="preload" href="/img/logo.svg" fetchpriority="high" as="image" />
     <link
       rel="preload"
       fetchpriority="high"
@@ -34,11 +33,24 @@
       imagesrcset="/img/hero-bg-2897.webp 2897w, /img/hero-bg-1920.webp 1920w, /img/hero-bg-1600.webp 1600w, /img/hero-bg-1280.webp 1280w, /img/hero-bg-1024.webp 1024w, /img/hero-bg-854.webp 854w, /img/hero-bg-640.webp 640w"
       imagesizes="(min-height: 1357px) 2897w, (min-height: 1131px) 1920w, (min-height: 905px) 1600w, (min-height: 724px) 1280w, (min-height: 604px) 1024w, (min-height: 452px) 854w, 100vw"
     />
+    <link rel="preload" href="/img/logo.svg" as="image" />
 
     <link
       rel="preload"
       as="font"
       href="/fonts/cooper_bold_bt.woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      as="font"
+      href="/fonts/fa-brands-400.woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      as="font"
+      href="/fonts/fa-solid-900.woff2"
       crossorigin
     />
 
@@ -194,10 +206,10 @@
             >
           </div>
           <picture>
-            <source type="image/webp" srcset="/img/boisson-400.webp" />
+            <source type="image/webp" srcset="/img/boisson-240.webp" />
             <img
-              class="max-w-72 rounded-xl"
-              src="/img/boisson-400.gif"
+              class="w-60 aspect-[2/3] rounded-xl"
+              src="/img/boisson-240.gif"
               alt="photo animee boisson"
               loading="lazy"
             />
@@ -213,10 +225,10 @@
             ></span
           >
           <picture>
-            <source type="image/webp" srcset="/img/chaise-400.webp" />
+            <source type="image/webp" srcset="/img/chaise-240.webp" />
             <img
-              class="max-w-72 rounded-t-full"
-              src="/img/chaise-400.jpg"
+              class="w-60 aspect-[2/3] rounded-t-full"
+              src="/img/chaise-240.jpg"
               alt="sandwich"
               loading="lazy"
             />
@@ -278,11 +290,11 @@
                 <picture>
                   <source
                     type="image/webp"
-                    srcset="/img/sandwich-frites-400.webp"
+                    srcset="/img/sandwich-frites-240.webp"
                   />
                   <img
-                    class="w-60 rounded-full"
-                    src="/img/sandwich-frites-400.jpg"
+                    class="w-60 aspect-square rounded-full"
+                    src="/img/sandwich-frites-240.jpg"
                     alt="sandwich-frite"
                     loading="lazy"
                   />
@@ -301,7 +313,7 @@
                   (bacon/laitue/tomate) vous le croiserez seulement en
                   été.</span
                 >
-                <div class="w-60 h-60 shrink-[100]"></div>
+                <div class="w-60 aspect-square shrink-[100]"></div>
               </div>
               <div
                 class="flex flex-wrap content-center items-center justify-center gap-4 self-stretch tablet:gap-8"
@@ -309,11 +321,11 @@
                 <picture>
                   <source
                     type="image/webp"
-                    srcset="/img/cheese-sandwich-400.webp"
+                    srcset="/img/cheese-sandwich-240.webp"
                   />
                   <img
-                    class="w-60 h-60 object-cover object-center"
-                    src="/img/cheese-sandwich-400.jpg"
+                    class="w-60 aspect-square object-cover object-center"
+                    src="/img/cheese-sandwich-240.jpg"
                     alt="cheese-sandwich"
                     loading="lazy"
                   />
@@ -340,10 +352,10 @@
                   c'est l'odeur du fait maison sans prise de tête.</span
                 >
                 <picture>
-                  <source type="image/webp" srcset="/img/dessert-400.webp" />
+                  <source type="image/webp" srcset="/img/dessert-240.webp" />
                   <img
-                    class="w-60 h-60 object-cover object-center"
-                    src="/img/dessert-400.jpg"
+                    class="w-60 aspect-square object-cover object-center"
+                    src="/img/dessert-240.jpg"
                     alt="dessert"
                     loading="lazy"
                   />
@@ -363,6 +375,7 @@
             id="accordion"
             aria-label="Open/close accordion"
             class="relative -top-16 left-[calc(50%_-_2rem)] flex h-16 w-16 items-center justify-center rounded-full border-4 border-solid border-primary bg-brand p-4 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-button tablet:-top-20 tablet:h-20 tablet:w-20 desktop:-top-28 desktop:h-24 desktop:w-24"
+            title="En savoir plus"
           >
             <i></i>
           </button>
@@ -401,9 +414,10 @@
           sizes="(min-height: 1066px) 2048w, (min-height: 853px) 1600w, (min-height: 683px) 1280w, (min-height: 569px) 1024w, (min-height: 426px) 854w, 100vw"
         />
         <img
-          class="w-full h-screen object-cover object-center brightness-50"
+          class="w-full h-[calc(100vh_-_7rem)] object-cover object-center brightness-50"
           src="/img/footer-bg-2048.jpg"
           alt="footer background"
+          loading="lazy"
         />
       </picture>
     </footer>
