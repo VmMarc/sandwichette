@@ -13,25 +13,25 @@
   },
   "boisson": {
     "aspectRatio": "2 / 3",
-    "breakpoints": [{ "width": 400 }]
+    "breakpoints": [{ "width": 240 }]
   },
   "chaise": {
     "aspectRatio": "2 / 3",
-    "breakpoints": [{ "width": 400 }]
+    "breakpoints": [{ "width": 240 }]
   },
   "cheese-sandwich": {
     "aspectRatio": "2 / 3",
-    "breakpoints": [{ "width": 400 }]
+    "breakpoints": [{ "width": 240 }]
   },
   "chouquettes": {
     "breakpoints": [{ "width": 200 }]
   },
   "dessert": {
     "aspectRatio": "2 / 3",
-    "breakpoints": [{ "width": 400 }]
+    "breakpoints": [{ "width": 240 }]
   },
   "sandwich-frites": {
-    "breakpoints": [{ "width": 400 }]
+    "breakpoints": [{ "width": 240 }]
   },
   "footer-bg": {
     "breakpoints": [
