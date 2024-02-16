@@ -1,9 +1,9 @@
 import gulp from 'gulp';
-import cached from 'gulp-cached';
 import csso from 'gulp-csso';
+import gulpEslint from 'gulp-eslint-new';
 import htmlmin from 'gulp-htmlmin';
 import GulpInlineSource from 'gulp-inline-source';
-import jshintPlugin from 'gulp-jshint';
+import newer from 'gulp-newer';
 import gulpPurgeCss from 'gulp-purgecss';
 import rename from 'gulp-rename';
 import size from 'gulp-size';
@@ -13,9 +13,8 @@ import { rm } from 'node:fs/promises';
 import { generateFavicon, injectFaviconMarkups } from './favicon.js';
 import image from './image.js';
 
-const jshint = jshintPlugin;
+const eslint = gulpEslint;
 const inlinesource = GulpInlineSource;
-const cache = cached;
 const purgecss = gulpPurgeCss;
 
 export async function clean() {
@@ -26,9 +25,9 @@ export async function clean() {
 export function jsLint() {
   return gulp
     .src(['../src/js/*.js'])
-    .pipe(cache('jslint'))
-    .pipe(jshint())
-    .pipe(jshint.reporter());
+    .pipe(eslint())
+    .pipe(eslint.format())
+    .pipe(eslint.failAfterError());
 }
 
 export function htmlBuild() {
@@ -55,12 +54,11 @@ export function htmlCompress() {
     .pipe(size());
 }
 
-function copyFonts() {
-  return gulp.src('../src/fonts/*.woff2').pipe(gulp.dest('../dist/fonts/'));
-}
-
-function copyImages() {
-  return gulp.src('../src/img/*.png').pipe(gulp.dest('../dist/img/'));
+function copyOther() {
+  return gulp
+    .src(['../src/**/*.woff2', '../src/**/*.png', '../src/robots.txt'])
+    .pipe(newer('../dist/fonts/'))
+    .pipe(gulp.dest('../dist/'));
 }
 
 function globalCssGen() {
@@ -108,8 +106,7 @@ function rejectedCss() {
 export const build = gulp.series(
   clean,
   gulp.parallel(
-    copyFonts,
-    copyImages,
+    copyOther,
     gulp.series(
       gulp.parallel(globalCssGen, jsLint),
       gulp.series(generateFavicon, injectFaviconMarkups),
@@ -127,7 +124,13 @@ export const build = gulp.series(
 export default function () {
   gulp.watch(
     ['../src/input.css', '../tailwind.config.js', '../src/index.html'],
-    gulp.series(globalCssGen, gulp.series(htmlBuild, htmlCompress), copyCss),
+    gulp.series(
+      globalCssGen,
+      gulp.parallel(purgeCss, rejectedCss),
+      htmlBuild,
+      htmlCompress,
+      copyCss,
+    ),
   );
   gulp.watch(
     '../src/css/*.css',
@@ -143,7 +146,7 @@ export default function () {
     '../src/img/icon.png',
     gulp.series(generateFavicon, injectFaviconMarkups),
   );
-  gulp.watch('../src/fonts/*.woff2', copyFonts);
+  gulp.watch('../src/fonts/*.woff2', copyOther);
   gulp.watch(
     [
       './imageData.json',
@@ -153,5 +156,5 @@ export default function () {
     ],
     image,
   );
-  gulp.watch('../src/img/*.png', copyImages);
+  gulp.watch('../src/img/*.png', copyOther);
 }

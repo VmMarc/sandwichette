@@ -7,4 +7,8 @@
 	},
 	"liveServer.settings.multiRootWorkspaceName": "sandwichette",
 	"liveServer.settings.root": "/dist",
+	"eslint.format.enable": true,
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": "always"
+	}
 }
