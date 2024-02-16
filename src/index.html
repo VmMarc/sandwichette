@@ -322,10 +322,16 @@
                     srcset="/img/cheese-sandwich-240.webp"
                   />
                   <img
-                    class="w-60 aspect-square object-cover object-center"
+                    class="-scale-x-100 w-60 aspect-square object-cover object-center"
                     src="/img/cheese-sandwich-240.jpg"
                     alt="cheese-sandwich"
                     loading="lazy"
+                    style="
+                      mask: url('/img/blob1.svg');
+                      mask-size: contain;
+                      mask-position: center;
+                      mask-repeat: no-repeat;
+                    "
                   />
                 </picture>
                 <span class="max-w-2xl min-w-60 flex-[1_0_0%] text-justify"
@@ -356,6 +362,12 @@
                     src="/img/dessert-240.jpg"
                     alt="dessert"
                     loading="lazy"
+                    style="
+                      mask: url('/img/blob2.svg');
+                      mask-size: contain;
+                      mask-position: center;
+                      mask-repeat: no-repeat;
+                    "
                   />
                 </picture>
               </div>
