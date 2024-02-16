@@ -12,7 +12,7 @@ function switchBackgroundOpacity() {
   }
 }
 
-document.addEventListener('scroll', (event) => {
+document.addEventListener('scroll', () => {
   if (!ticking) {
     window.requestAnimationFrame(() => {
       switchBackgroundOpacity();

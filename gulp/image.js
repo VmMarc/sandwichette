@@ -53,6 +53,7 @@ async function resize() {
         )) {
           await sharp(src, { pages: -1 })
             .resize({ ...dimensions })
+            .webp({ effort: 6, preset: 'photo', quality: 50 })
             .toFile(
               `${destDir}/${fileProp.name}-${dimensions.width}${fileProp.ext}`,
             );

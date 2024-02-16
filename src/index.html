@@ -30,8 +30,8 @@
       rel="preload"
       fetchpriority="high"
       as="image"
-      imagesrcset="/img/hero-bg-2897.webp 2897w, /img/hero-bg-1920.webp 1920w, /img/hero-bg-1600.webp 1600w, /img/hero-bg-1280.webp 1280w, /img/hero-bg-1024.webp 1024w, /img/hero-bg-854.webp 854w, /img/hero-bg-640.webp 640w"
-      imagesizes="(min-height: 1357px) 2897w, (min-height: 1131px) 1920w, (min-height: 905px) 1600w, (min-height: 724px) 1280w, (min-height: 604px) 1024w, (min-height: 452px) 854w, 100vw"
+      imagesrcset="/img/hero-bg-2897.webp 2897w, /img/hero-bg-1920.webp 1920w, /img/hero-bg-1600.webp 1600w, /img/hero-bg-1280.webp 1280w, /img/hero-bg-428.webp 428w, /img/hero-bg-360.webp 360w"
+      imagesizes="(max-height: 800px and max-width: 360px) 360w, (max-height: 926px and max-width: 428px) 428w, (min-height: 1357px) 2897w, (min-height: 1131px) 1920w, (min-height: 905px) 1600w, (min-height: 724px) 1280w, (min-height: 604px) 1024w, (min-height: 452px) 854w, 100vw"
     />
     <link rel="preload" href="/img/logo.svg" as="image" />
 
@@ -129,11 +129,10 @@
               /img/hero-bg-1920.webp 1920w,
               /img/hero-bg-1600.webp 1600w,
               /img/hero-bg-1280.webp 1280w,
-              /img/hero-bg-1024.webp 1024w,
-              /img/hero-bg-854.webp   854w,
-              /img/hero-bg-640.webp   640w
+              /img/hero-bg-428.webp   428w,
+              /img/hero-bg-360.webp   360w
             "
-            sizes="(min-height: 1357px) 2897w, (min-height: 1131px) 1920w, (min-height: 905px) 1600w, (min-height: 724px) 1280w, (min-height: 604px) 1024w, (min-height: 452px) 854w, 100vw"
+            sizes="(max-height: 800px and max-width: 360px) 360w, (max-height: 926px and max-width: 428px) 428w, (min-height: 1357px) 2897w, (min-height: 1131px) 1920w, (min-height: 905px) 1600w, (min-height: 724px) 1280w, (min-height: 604px) 1024w, (min-height: 452px) 854w, 100vw"
           />
           <source
             type="image/jpg"
@@ -142,11 +141,10 @@
               /img/hero-bg-1920.jpg 1920w,
               /img/hero-bg-1600.jpg 1600w,
               /img/hero-bg-1280.jpg 1280w,
-              /img/hero-bg-1024.jpg 1024w,
-              /img/hero-bg-854.jpg   854w,
-              /img/hero-bg-640.jpg   640w
+              /img/hero-bg-428.jpg   428w,
+              /img/hero-bg-360.jpg   360w
             "
-            sizes="(min-height: 1357px) 2897w, (min-height: 1131px) 1920w, (min-height: 905px) 1600w, (min-height: 724px) 1280w, (min-height: 604px) 1024w, (min-height: 452px) 854w, 100vw"
+            sizes="(max-height: 800px and max-width: 360px) 360w, (max-height: 926px and max-width: 428px) 428w, (min-height: 1357px) 2897w, (min-height: 1131px) 1920w, (min-height: 905px) 1600w, (min-height: 724px) 1280w, (min-height: 604px) 1024w, (min-height: 452px) 854w, 100vw"
           />
           <img
             class="w-full h-screen object-cover object-center"
@@ -371,15 +369,18 @@
               class="w-full fill-brand"
             ></path>
           </svg>
+          <script inline src="js/accordion.js"></script>
           <button
-            id="accordion"
-            aria-label="Open/close accordion"
+            id="accordion-btn"
+            aria-label="Open accordion"
             class="relative -top-16 left-[calc(50%_-_2rem)] flex h-16 w-16 items-center justify-center rounded-full border-4 border-solid border-primary bg-brand p-4 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-button tablet:-top-20 tablet:h-20 tablet:w-20 desktop:-top-28 desktop:h-24 desktop:w-24"
             title="En savoir plus"
+            onclick="accordionOpen()"
           >
-            <i></i>
+            <i
+              class="fa-solid fa-angle-down text-2xl tablet:text-3xl desktop:text-4xl"
+            ></i>
           </button>
-          <script inline defer src="js/accordion.js"></script>
         </div>
       </section>
       <section id="magazines" class="h-64 scroll-mt-32 bg-lime-500"></section>
@@ -393,12 +394,10 @@
             /img/footer-bg-2048.webp 2048w,
             /img/footer-bg-1600.webp 1600w,
             /img/footer-bg-1280.webp 1280w,
-            /img/footer-bg-1024.webp 1024w,
-            /img/footer-bg-854.webp   854w,
-            /img/footer-bg-640.webp   640w,
-            /img/footer-bg-320.jpg    320w
+            /img/footer-bg-428.webp   428w,
+            /img/footer-bg-360.webp   360w
           "
-          sizes="(min-height: 1066px) 2048w, (min-height: 853px) 1600w, (min-height: 683px) 1280w, (min-height: 569px) 1024w, (min-height: 426px) 854w, 100vw"
+          sizes="(max-height: 800px and max-width: 360px) 360w, (max-height: 926px and max-width: 428px) 428w, (min-height: 1066px) 2048w, (min-height: 853px) 1600w, (min-height: 683px) 1280w, 100vw"
         />
         <source
           type="image/jpg"
@@ -406,15 +405,13 @@
             /img/footer-bg-2048.jpg 2048w,
             /img/footer-bg-1600.jpg 1600w,
             /img/footer-bg-1280.jpg 1280w,
-            /img/footer-bg-1024.jpg 1024w,
-            /img/footer-bg-854.jpg   854w,
-            /img/footer-bg-640.jpg   640w,
-            /img/footer-bg-320.jpg   320w
+            /img/footer-bg-428.jpg   428w,
+            /img/footer-bg-360.jpg   360w
           "
-          sizes="(min-height: 1066px) 2048w, (min-height: 853px) 1600w, (min-height: 683px) 1280w, (min-height: 569px) 1024w, (min-height: 426px) 854w, 100vw"
+          sizes="(max-height: 800px and max-width: 360px) 360w, (max-height: 926px and max-width: 428px) 428w, (min-height: 1066px) 2048w, (min-height: 853px) 1600w, (min-height: 683px) 1280w, 100vw"
         />
         <img
-          class="w-full h-[calc(100vh_-_7rem)] object-cover object-center brightness-50"
+          class="w-full h-[calc(100vh_-_7rem)] object-cover object-center brightness-[.4]"
           src="/img/footer-bg-2048.jpg"
           alt="footer background"
           loading="lazy"

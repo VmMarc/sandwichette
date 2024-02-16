@@ -522,48 +522,6 @@ i::before {
   -webkit-font-smoothing: antialiased;
 }
 
-#accordion > i::before {
-  font: var(--fa-font-solid);
-  content: '\f107';
-  font-size: 1.5rem;
-  line-height: 2rem;
-}
-
-@media (min-width: 768px) {
-  #accordion > i::before {
-    font-size: 1.875rem;
-    line-height: 2.25rem;
-  }
-}
-
-@media (min-width: 1280px) {
-  #accordion > i::before {
-    font-size: 2.25rem;
-    line-height: 2.5rem;
-  }
-}
-
-#accordion.active > i::before {
-  font: var(--fa-font-solid);
-  content: '\f106';
-  font-size: 1.5rem;
-  line-height: 2rem;
-}
-
-@media (min-width: 768px) {
-  #accordion.active > i::before {
-    font-size: 1.875rem;
-    line-height: 2.25rem;
-  }
-}
-
-@media (min-width: 1280px) {
-  #accordion.active > i::before {
-    font-size: 2.25rem;
-    line-height: 2.5rem;
-  }
-}
-
 *, ::before, ::after {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
@@ -1039,6 +997,11 @@ i::before {
   text-align: justify;
 }
 
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
 .text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
@@ -1069,8 +1032,8 @@ i::before {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-.brightness-50 {
-  --tw-brightness: brightness(.5);
+.brightness-\[\.4\] {
+  --tw-brightness: brightness(.4);
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
@@ -1175,6 +1138,11 @@ i::before {
     padding-right: 4rem;
   }
 
+  .tablet\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+
   .tablet\:text-lg {
     font-size: 1.125rem;
     line-height: 1.75rem;
@@ -1249,6 +1217,11 @@ i::before {
   .desktop\:text-2xl {
     font-size: 1.5rem;
     line-height: 2rem;
+  }
+
+  .desktop\:text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
   }
 
   .desktop\:text-xl {

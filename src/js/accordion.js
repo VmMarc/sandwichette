@@ -1,14 +1,10 @@
-let accordion = document.getElementById('accordion');
+// eslint-disable-next-line no-unused-vars
+function accordionOpen() {
+  const panel = document.getElementById('panel');
+  const contentMask = document.getElementById('content-mask');
+  const accordionBtn = document.getElementById('accordion-btn');
 
-accordion.addEventListener('click', function () {
-  let panel = document.getElementById('panel');
-  let contentMask = document.getElementById('content-mask');
-  accordion.classList.toggle('active');
-  if (panel.style.maxHeight) {
-    panel.style.maxHeight = null;
-    contentMask.style.display = 'block';
-  } else {
-    panel.style.maxHeight = panel.scrollHeight + 'px';
-    contentMask.style.display = 'none';
-  }
-});
+  panel.style.maxHeight = panel.scrollHeight + 'px';
+  contentMask.style.display = 'none';
+  accordionBtn.style.display = 'none';
+}

@@ -55,16 +55,4 @@
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
   }
-
-  #accordion > i::before {
-    font: var(--fa-font-solid);
-    content: '\f107';
-    @apply text-2xl tablet:text-3xl desktop:text-4xl;
-  }
-
-  #accordion.active > i::before {
-    font: var(--fa-font-solid);
-    content: '\f106';
-    @apply text-2xl tablet:text-3xl desktop:text-4xl;
-  }
 }
