@@ -48,7 +48,7 @@
     "uglify-js": "^3.17.4"
   },
   "scripts": {
-    "build": "npx gulp -f gulp/index.js build && npx critical build/index.html --base dist --inline > ./dist/index.html",
+    "build": "npx gulp -f gulp/index.js build",
     "critical": "npx critical build/index.html --base dist --inline > ./dist/index.html",
     "watch": "npx gulp -f gulp/index.js",
     "clean": "npx gulp -f gulp/index.js clean"

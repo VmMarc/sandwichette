@@ -50,7 +50,7 @@ export function htmlCompress() {
         removeEmptyAttributes: true,
       }),
     )
-    .pipe(gulp.dest('../build/'))
+    .pipe(gulp.dest('../dist/'))
     .pipe(size());
 }
 
@@ -123,16 +123,6 @@ export const build = gulp.series(
 
 export default function () {
   gulp.watch(
-    ['../src/input.css', '../tailwind.config.js', '../src/index.html'],
-    gulp.series(
-      globalCssGen,
-      gulp.parallel(purgeCss, rejectedCss),
-      htmlBuild,
-      htmlCompress,
-      copyCss,
-    ),
-  );
-  gulp.watch(
     '../src/css/*.css',
     gulp.series(
       gulp.parallel(purgeCss, rejectedCss),
@@ -157,4 +147,24 @@ export default function () {
     image,
   );
   gulp.watch('../src/img/*.png', copyOther);
+  gulp.watch(
+    ['../src/input.css', '../tailwind.config.js'],
+    gulp.series(
+      globalCssGen,
+      gulp.parallel(purgeCss, rejectedCss),
+      htmlBuild,
+      htmlCompress,
+      copyCss,
+    ),
+  );
+  gulp.watch(
+    ['../src/index.html'],
+    gulp.series(
+      globalCssGen,
+      gulp.parallel(purgeCss, rejectedCss),
+      htmlBuild,
+      htmlCompress,
+      copyCss,
+    ),
+  );
 }
