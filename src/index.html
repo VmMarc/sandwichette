@@ -76,7 +76,7 @@
   </head>
 
   <body>
-    <header class="mb-8 tablet:mb-16 desktop:mb-24">
+    <header class="mb-16 tablet:mb-24 desktop:mb-32">
       <div
         id="navbar"
         class="fixed inset-0 z-10 flex h-28 w-full items-center justify-between px-8 py-2 transition duration-500 ease-in-out"
@@ -160,11 +160,11 @@
     <script inline defer src="js/header.js"></script>
 
     <div
-      class="flex flex-col items-center justify-center gap-8 tablet:gap-16 desktop:gap-32"
+      class="flex flex-col items-center justify-center gap-16 tablet:gap-24 desktop:gap-32"
     >
       <section
         id="apropos"
-        class="flex max-w-6xl grow scroll-mt-32 flex-col items-center justify-center gap-4 px-5 tablet:gap-10 tablet:px-16 desktop:gap-12 desktop:px-24"
+        class="flex max-w-6xl grow scroll-mt-32 flex-col items-center justify-center gap-8 px-5 tablet:gap-12 tablet:px-16 desktop:gap-16 desktop:px-24"
       >
         <div class="flex items-center gap-8 self-stretch">
           <hr
@@ -173,10 +173,10 @@
           <h1>À propos</h1>
         </div>
         <div
-          class="flex flex-col content-center items-center justify-center gap-8 tablet:gap-11 lg:flex-row desktop:gap-16"
+          class="flex flex-wrap content-center items-center justify-center gap-4 tablet:gap-6 desktop:gap-8 lg:flex-row"
         >
           <div
-            class="flex max-w-2xl flex-[1_0_0%] flex-col items-center justify-center gap-4 text-left tablet:gap-6"
+            class="flex flex-[1_0_0%] flex-col items-center justify-center gap-2 text-left tablet:gap-4 desktop:gap-6"
           >
             <p>
               Des sandwichs, des gâteaux et des trucs à boire. Rien de nouveau
@@ -263,7 +263,7 @@
           class="flex max-h-80 w-full flex-col items-center justify-start self-stretch overflow-hidden bg-brand px-5 py-16 transition-[max-height_500ms_ease-out] duration-500 tablet:px-16 desktop:px-24"
         >
           <div
-            class="flex max-w-6xl flex-col items-center justify-center gap-4 tablet:gap-10 desktop:gap-12"
+            class="flex max-w-6xl flex-col items-center justify-center gap-4 tablet:gap-8 desktop:gap-12"
           >
             <div class="flex items-center gap-8 self-stretch">
               <hr
@@ -273,9 +273,9 @@
             </div>
             <div class="flex flex-col gap-4 tablet:gap-8 self-stretch">
               <div
-                class="flex flex-wrap content-center items-center justify-center gap-4 self-stretch tablet:gap-8"
+                class="flex flex-wrap content-center items-center justify-center gap-4 self-stretch tablet:gap-8 text-[19px]"
               >
-                <p class="max-w-2xl min-w-60 flex-[1_0_0%] text-left">
+                <p class="flex-[1_0_0%] text-left">
                   Toute l'année, nous suivons le rythme de la terre et ses
                   saisons.<br />Des produits français dans la mesure du possible
                   et venant de nos fournisseurs, le Zingam, Borniambuc, les
@@ -429,8 +429,11 @@
       <div
         id="overlay"
         class="fixed overflow-y-scroll hidden p-5 tablet:p-16 desktop:p-24 inset-0 overscroll-contain w-full h-full z-20 bg-black/75 backdrop-blur-lg"
-        onclick="off()"
       >
+        <i
+          class="absolute hover:text-brand fa-solid fa-xmark top-4 right-4 tablet:top-8 tablet:right-8 desktop:top-16 desktop:right-16 text-3xl"
+          onclick="off()"
+        ></i>
         <div
           class="mx-auto flex max-w-6xl grow scroll-mt-32 flex-col items-center justify-center gap-4 tablet:gap-12 desktop:gap-16 px-5 tablet:px-16 desktop:px-24 self-stretch"
         >
@@ -438,52 +441,58 @@
             <hr
               class="h-[8px] w-16 rounded-md bg-white tablet:h-[10px] tablet:w-24 desktop:h-[12px] desktop:w-36"
             />
-            <h1 class="text-white text-2xl tablet:text-3xl desktop:text-4xl">
-              Mentions légales
-            </h1>
+            <h1 class="text-white">Mentions légales</h1>
           </div>
-          <ul class="list-disc">
+          <ol>
             <div
-              class="flex max-w-2xl flex-[1_0_0%] flex-col items-center justify-center gap-4 text-left tablet:gap-6"
+              class="flex max-w-5xl flex-[1_0_0%] flex-col items-center justify-center text-left gap-8 px-5 tablet:gap-12 tablet:px-16 desktop:gap-16 desktop:px-24"
             >
-              <div class="w-full gap-1 tablet:gap-2 desktop:gap-4">
-                <li>
-                  <h2 class="text-left"><u>À propos du site</u></h2>
-                  <p class="px-4 min-w-60 flex-[1_0_0%] text-left">
-                    Le site internet www.sandwichette.fr est édité par la
-                    société par actions simplifiée NENETTE, au capital social de
-                    5 000,00 euros, immatriculée au Registre du Commerce et des
-                    Sociétés de Paris sous le numéro B 320 252 489, n° TVA
-                    FR33953220753.<br />Adresse : 52 rue Saint Maur, 75011 Paris
-                    FRANCE<br />Téléphone : 01 41 79 80 00
+              <li
+                class="gap-6 px-2 tablet:gap-12 tablet:px-4 desktop:gap-16 desktop:px-8"
+              >
+                <h2 class="text-left pb-4">
+                  <u>1. Présentation du site internet</u>
+                </h2>
+                <div class="mb-2">
+                  <h3 class="text-left py-1">
+                    • <strong>Propriétaire</strong> :
+                  </h3>
+                  <p class="pl-6 min-w-60 flex-[1_0_0%] text-left">
+                    NENETTE, au capital social de 5 000,00 euros, immatriculée
+                    au Registre du Commerce et des Sociétés de Paris sous le
+                    numéro B 320 252 489, n° TVA FR33953220753.<br />Adresse :
+                    52 rue Saint Maur, 75011 Paris FRANCE<br />Téléphone : 01 41
+                    79 80 00
                   </p>
-                </li>
-              </div>
-              <div class="w-full gap-1 tablet:gap-2 desktop:gap-4">
-                <li>
-                  <h2 class="text-left">
-                    <u>Conception et réalisation technique du site</u>
-                  </h2>
-                  <p class="px-4 min-w-60 flex-[1_0_0%] text-left">
+                </div>
+                <div class="mb-2">
+                  <h3 class="text-left py-1">
+                    •
+                    <strong>Conception et réalisation technique du site</strong>
+                    :
+                  </h3>
+                  <p class="pl-6 min-w-60 flex-[1_0_0%] text-left">
                     Florian Ohrel EI<br />Téléphone : 06 95 52 68 82<br />Email
                     : ohrel.florian@pm.me
                   </p>
-                </li>
-              </div>
-              <div class="w-full gap-1 tablet:gap-2 desktop:gap-4">
-                <li>
-                  <h2 class="text-left"><u>Hébergement du site</u></h2>
-                  <p class="px-4 min-w-60 flex-[1_0_0%] text-left"></p>
-                </li>
-              </div>
+                </div>
+                <div class="mb-2">
+                  <h3 class="text-left py-1">
+                    • <strong>Hébergement du site</strong> :
+                  </h3>
+                  <p class="pl-6 min-w-60 flex-[1_0_0%] text-left"></p>
+                </div>
+              </li>
             </div>
-          </ul>
+          </ol>
         </div>
       </div>
       <div
         class="flex absolute flex-row max-tablet:flex-col max-tablet:justify-end w-full p-5 h-full items-end justify-between tablet:p-9"
       >
-        <p class="hover:text-brand" onclick="on()">Mentions légales</p>
+        <p class="hover:text-brand max-tablet:text-right" onclick="on()">
+          Mentions légales
+        </p>
         <p>© Sandwichette 2024. Tous droits réservés.</p>
       </div>
       <script>
