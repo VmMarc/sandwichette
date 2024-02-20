@@ -26,6 +26,10 @@
     @apply bg-primary;
   }
 
+  body {
+    @apply text-base text-black tablet:text-lg desktop:text-xl;
+  }
+
   button {
     @apply cursor-pickle;
   }
@@ -44,6 +48,10 @@
 
   h1 {
     @apply text-4xl tablet:text-5xl desktop:text-6xl;
+  }
+
+  h2 {
+    @apply text-lg tablet:text-xl desktop:text-2xl;
   }
 
   hr {

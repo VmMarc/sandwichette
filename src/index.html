@@ -75,11 +75,11 @@
     <meta name="theme-color" content="#ffffff" />
   </head>
 
-  <body class="text-base text-black tablet:text-lg desktop:text-xl">
+  <body>
     <header class="mb-8 tablet:mb-16 desktop:mb-24">
       <div
         id="navbar"
-        class="fixed top-0 left-0 z-10 flex h-28 w-full items-center justify-between px-8 py-2 transition duration-500 ease-in-out"
+        class="fixed inset-0 z-10 flex h-28 w-full items-center justify-between px-8 py-2 transition duration-500 ease-in-out"
       >
         <div class="flex grow justify-start">
           <a
@@ -166,7 +166,7 @@
         id="apropos"
         class="flex max-w-6xl grow scroll-mt-32 flex-col items-center justify-center gap-4 px-5 tablet:gap-10 tablet:px-16 desktop:gap-12 desktop:px-24"
       >
-        <div class="flex items-center gap-4 self-stretch">
+        <div class="flex items-center gap-8 self-stretch">
           <hr
             class="h-[8px] w-16 rounded-md bg-black tablet:h-[10px] tablet:w-24 desktop:h-[12px] desktop:w-36"
           />
@@ -176,7 +176,7 @@
           class="flex flex-col content-center items-center justify-center gap-8 tablet:gap-11 lg:flex-row desktop:gap-16"
         >
           <div
-            class="flex max-w-2xl flex-[1_0_0%] flex-col items-center justify-center gap-4 text-justify tablet:gap-6"
+            class="flex max-w-2xl flex-[1_0_0%] flex-col items-center justify-center gap-4 text-left tablet:gap-6"
           >
             <span
               >Des sandwichs, des gâteaux et des trucs à boire. Rien de nouveau
@@ -256,13 +256,14 @@
         <div
           id="content-mask"
           class="relative top-80 -mt-40 block h-40 w-full bg-gradient-to-b from-transparent to-brand"
+          aria-hidden="true"
         ></div>
         <div
           id="panel"
           class="flex max-h-80 w-full flex-col items-center justify-start self-stretch overflow-hidden bg-brand px-5 py-16 transition-[max-height_500ms_ease-out] duration-500 tablet:px-16 desktop:px-24"
         >
           <div
-            class="flex w-full max-w-6xl flex-col items-center justify-center gap-4 tablet:gap-10 desktop:gap-12"
+            class="flex max-w-6xl flex-col items-center justify-center gap-4 tablet:gap-10 desktop:gap-12"
           >
             <div class="flex items-center gap-8 self-stretch">
               <hr
@@ -274,7 +275,7 @@
               <div
                 class="flex flex-wrap content-center items-center justify-center gap-4 self-stretch tablet:gap-8"
               >
-                <span class="max-w-2xl min-w-60 flex-[1_0_0%] text-justify"
+                <span class="max-w-2xl min-w-60 flex-[1_0_0%] text-left"
                   >Toute l'année, nous suivons le rythme de la terre et ses
                   saisons.<br />Des produits français dans la mesure du possible
                   et venant de nos fournisseurs, le Zingam, Borniambuc, les
@@ -298,10 +299,8 @@
                   />
                 </picture>
               </div>
-              <div
-                class="flex flex-row content-center items-center justify-center gap-4 self-stretch tablet:gap-8"
-              >
-                <span class="max-w-2xl min-w-60 grow-[100] text-justify">
+              <div class="flex flex-row gap-4 self-stretch tablet:gap-8">
+                <span class="min-w-60 flex-[1_0_0%] text-left">
                   Peu de plastique autant que possible.<br />Du packaging
                   recyclable mais si vous venez avec vos contenants ça sera
                   encore mieux.<br />Pas de carte précise à vous montrer ici.
@@ -311,7 +310,6 @@
                   (bacon/laitue/tomate) vous le croiserez seulement en
                   été.</span
                 >
-                <div class="w-60 aspect-square shrink-[100]"></div>
               </div>
               <div
                 class="flex flex-wrap content-center items-center justify-center gap-4 self-stretch tablet:gap-8"
@@ -322,7 +320,7 @@
                     srcset="/img/cheese-sandwich-240.webp"
                   />
                   <img
-                    class="-scale-x-100 w-60 aspect-square object-cover object-center"
+                    class="w-60 aspect-square object-cover object-center"
                     src="/img/cheese-sandwich-240.jpg"
                     alt="cheese-sandwich"
                     loading="lazy"
@@ -334,7 +332,7 @@
                     "
                   />
                 </picture>
-                <span class="max-w-2xl min-w-60 flex-[1_0_0%] text-justify"
+                <span class="max-w-2xl min-w-60 flex-[1_0_0%] text-left"
                   >Faire fondre du fromage sur du pain au levain, ça, on peut le
                   faire tous les jours.<br />Pour les fêtes, on fera des
                   sandwichs super spéciaux pour s'enjailler.<br />Bref, certains
@@ -346,7 +344,7 @@
               <div
                 class="flex flex-wrap content-center items-center justify-center gap-4 self-stretch tablet:gap-8"
               >
-                <span class="max-w-2xl min-w-60 flex-[1_0_0%] text-justify"
+                <span class="max-w-2xl min-w-60 flex-[1_0_0%] text-left"
                   >On peut enlever ou ajouter des ingrédients, le seul qui reste
                   c'est celui du plaisir.<br />Au final, chez Sandwichette, dans
                   un sandwich on trouve de la sauce, du croquant, du fondant, de
@@ -398,7 +396,7 @@
       <section id="magazines" class="h-64 scroll-mt-32 bg-lime-500"></section>
       <section id="contact" class="h-64 scroll-mt-32 bg-cyan-500"></section>
     </div>
-    <footer>
+    <footer class="relative text-white w-full h-[calc(100vh_-_7rem)]">
       <picture id="footer-bg">
         <source
           type="image/webp"
@@ -423,12 +421,81 @@
           sizes="(max-height: 800px and max-width: 360px) 360w, (max-height: 926px and max-width: 428px) 428w, (min-height: 1066px) 2048w, (min-height: 853px) 1600w, (min-height: 683px) 1280w, 100vw"
         />
         <img
-          class="w-full h-[calc(100vh_-_7rem)] object-cover object-center brightness-[.4]"
+          class="absolute w-full h-full object-cover object-center brightness-[.4]"
           src="/img/footer-bg-2048.jpg"
           alt="footer background"
           loading="lazy"
         />
       </picture>
+      <div
+        id="overlay"
+        class="fixed overflow-y-scroll hidden p-5 tablet:p-16 desktop:p-24 inset-0 overscroll-contain w-full h-full z-20 bg-black/75 backdrop-blur-lg"
+        onclick="off()"
+      >
+        <div
+          class="mx-auto flex max-w-6xl grow scroll-mt-32 flex-col items-center justify-center gap-4 tablet:gap-12 desktop:gap-16 px-5 tablet:px-16 desktop:px-24 self-stretch"
+        >
+          <div class="flex items-center gap-8 self-stretch">
+            <hr
+              class="h-[8px] w-16 rounded-md bg-white tablet:h-[10px] tablet:w-24 desktop:h-[12px] desktop:w-36"
+            />
+            <h1 class="text-white text-2xl tablet:text-3xl desktop:text-4xl">
+              Mentions légales
+            </h1>
+          </div>
+          <ul class="list-disc">
+            <div
+              class="flex max-w-2xl flex-[1_0_0%] flex-col items-center justify-center gap-4 text-left tablet:gap-6"
+            >
+              <div class="w-full gap-1 tablet:gap-2 desktop:gap-4">
+                <li>
+                  <h2 class="text-left"><u>À propos du site</u></h2>
+                  <p class="px-4 min-w-60 flex-[1_0_0%] text-left">
+                    Le site internet www.sandwichette.fr est édité par la
+                    société par actions simplifiée NENETTE, au capital social de
+                    5 000,00 euros, immatriculée au Registre du Commerce et des
+                    Sociétés de Paris sous le numéro B 320 252 489, n° TVA
+                    FR33953220753.<br />Adresse : 52 rue Saint Maur, 75011 Paris
+                    FRANCE<br />Téléphone : 01 41 79 80 00
+                  </p>
+                </li>
+              </div>
+              <div class="w-full gap-1 tablet:gap-2 desktop:gap-4">
+                <li>
+                  <h2 class="text-left">
+                    <u>Conception et réalisation technique du site</u>
+                  </h2>
+                  <p class="px-4 min-w-60 flex-[1_0_0%] text-left">
+                    Florian Ohrel EI<br />Téléphone : 06 95 52 68 82<br />Email
+                    : ohrel.florian@pm.me
+                  </p>
+                </li>
+              </div>
+              <div class="w-full gap-1 tablet:gap-2 desktop:gap-4">
+                <li>
+                  <h2 class="text-left"><u>Hébergement du site</u></h2>
+                  <p class="px-4 min-w-60 flex-[1_0_0%] text-left"></p>
+                </li>
+              </div>
+            </div>
+          </ul>
+        </div>
+      </div>
+      <div
+        class="flex absolute flex-row max-tablet:flex-col max-tablet:justify-end w-full p-5 h-full items-end justify-between tablet:p-9"
+      >
+        <a onclick="on()"><span>Mentions légales</span></a>
+        <span>© Sandwichette 2024. Tous droits réservés.</span>
+      </div>
+      <script>
+        function on() {
+          document.getElementById('overlay').style.display = 'block';
+        }
+
+        function off() {
+          document.getElementById('overlay').style.display = 'none';
+        }
+      </script>
     </footer>
   </body>
 </html>

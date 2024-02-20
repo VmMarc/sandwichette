@@ -141,7 +141,7 @@ export default function () {
     [
       './imageData.json',
       '../src/img/**/*.jpg',
-      '../src/img/logo.svg',
+      '../src/img/**/*.svg',
       '../src/img/**/*.gif',
     ],
     image,
