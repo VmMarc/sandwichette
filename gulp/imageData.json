@@ -40,5 +40,8 @@
       { "width": 428, "height": 814 },
       { "width": 360, "height": 688 }
     ]
+  },
+  "noble-rot": {
+    "breakpoints": [{ "height": 360, "width": 240 }]
   }
 }
