@@ -1,14 +1,15 @@
 {
-	"files.associations": {
-		"*.css": "tailwindcss"
-	},
-	"editor.quickSuggestions": {
-		"strings": "on"
-	},
-	"liveServer.settings.multiRootWorkspaceName": "sandwichette",
-	"liveServer.settings.root": "/dist",
-	"eslint.format.enable": true,
-	"editor.codeActionsOnSave": {
-		"source.fixAll.eslint": "always"
-	}
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "editor.quickSuggestions": {
+    "strings": "on"
+  },
+  "liveServer.settings.multiRootWorkspaceName": "sandwichette",
+  "liveServer.settings.root": "/dist",
+  "eslint.format.enable": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "always"
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
 }
