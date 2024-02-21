@@ -75,7 +75,7 @@
     <meta name="theme-color" content="#ffffff" />
   </head>
 
-  <body class="w-screen">
+  <body class="w-full">
     <header>
       <div
         id="navbar"
@@ -123,7 +123,7 @@
     </header>
     <script inline defer src="js/header.js"></script>
 
-    <div id="hero" class="h-screen mb-16 tablet:mb-24 desktop:mb-32">
+    <div id="hero" class="h-screen w-full mb-16 tablet:mb-24 desktop:mb-32">
       <picture id="hero-bg">
         <source
           type="image/webp"
@@ -181,7 +181,7 @@
           class="flex flex-wrap content-center items-center justify-center gap-4 tablet:gap-6 desktop:gap-8 lg:flex-row"
         >
           <div
-            class="flex flex-col items-center justify-center gap-2 text-left tablet:gap-4 desktop:gap-6"
+            class="flex flex-col items-center justify-center gap-2 tablet:gap-4 desktop:gap-6 flex-[1_1_0%]"
           >
             <p>
               Des sandwichs, des gâteaux et des trucs à boire. Rien de nouveau
@@ -223,7 +223,7 @@
         >
           <p class="max-w-72 text-center">
             C'est petit chez nous mais
-            <span class="text-lg text-brand tablet:text-xl desktop:text-2xl"
+            <span class="text-xl text-brand tablet:text-2xl desktop:text-3xl"
               >sympathique</span
             >
           </p>
@@ -238,17 +238,19 @@
           </picture>
           <p class="w-[312px] text-center">
             Pas original mais un peu
-            <span class="text-lg text-brand tablet:text-xl desktop:text-2xl"
+            <span class="text-xl text-brand tablet:text-2xl desktop:text-3xl"
               >extraordinaire</span
             >
           </p>
         </div>
       </section>
+
       <section
         id="philosophie"
-        class="flex w-full grow -scroll-mt-32 flex-col items-center justify-center text-white"
+        class="w-full flex-[1_0_0%] -scroll-mt-32 text-white"
       >
         <svg
+          aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="1 1 1279 195"
           class="w-full"
@@ -265,10 +267,10 @@
         ></div>
         <div
           id="panel"
-          class="flex max-h-80 w-full flex-col items-center justify-start self-stretch overflow-hidden bg-brand px-5 py-16 transition-[max-height_500ms_ease-out] duration-500 tablet:px-16 desktop:px-24"
+          class="flex max-h-80 w-full h-auto flex-col items-center justify-start overflow-hidden bg-brand px-5 py-16 transition-[max-height_500ms_ease-out] duration-500 tablet:px-16 desktop:px-24"
         >
           <div
-            class="flex max-w-6xl flex-col items-center justify-center gap-8 tablet:gap-12 desktop:gap-16"
+            class="flex max-w-6xl flex-col flex-[1_0_0%] items-center justify-center gap-8 tablet:gap-12 desktop:gap-16 text-[19px]"
           >
             <div class="flex items-center gap-4 tablet:gap-8 self-stretch">
               <hr
@@ -276,11 +278,13 @@
               />
               <h1>Philosophie</h1>
             </div>
-            <div class="flex flex-col gap-4 tablet:gap-8 self-stretch">
+            <div
+              class="flex flex-col gap-4 flex-[1_0_0%] tablet:gap-8 self-stretch"
+            >
               <div
-                class="flex flex-wrap content-center items-center justify-center gap-4 self-stretch tablet:gap-8 text-[19px]"
+                class="flex flex-wrap content-center items-center justify-center gap-4 self-stretch tablet:gap-8"
               >
-                <p class="text-left">
+                <p class="flex-[1_0_0%]">
                   Toute l'année, nous suivons le rythme de la terre et ses
                   saisons.<br />Des produits français dans la mesure du possible
                   et venant de nos fournisseurs, le Zingam, Borniambuc, les
@@ -304,17 +308,15 @@
                   />
                 </picture>
               </div>
-              <div class="flex flex-row gap-4 self-stretch tablet:gap-8">
-                <p class="min-w-60 flex-[1_0_0%] text-left">
-                  Peu de plastique autant que possible.<br />Du packaging
-                  recyclable mais si vous venez avec vos contenants ça sera
-                  encore mieux.<br />Pas de carte précise à vous montrer ici.
-                  Mais des exemples.<br />Les œufs, la mayo et le jambon nous en
-                  avons tout le temps.<br />Le bourguignon c'est plutôt pour
-                  l'hiver quand il fait froid.<br />Le fameux BLT
-                  (bacon/laitue/tomate) vous le croiserez seulement en été.
-                </p>
-              </div>
+              <p>
+                Peu de plastique autant que possible.<br />Du packaging
+                recyclable mais si vous venez avec vos contenants ça sera encore
+                mieux.<br />Pas de carte précise à vous montrer ici. Mais des
+                exemples.<br />Les œufs, la mayo et le jambon nous en avons tout
+                le temps.<br />Le bourguignon c'est plutôt pour l'hiver quand il
+                fait froid.<br />Le fameux BLT (bacon/laitue/tomate) vous le
+                croiserez seulement en été.
+              </p>
               <div
                 class="flex flex-wrap content-center items-center justify-center gap-4 self-stretch tablet:gap-8"
               >
@@ -336,7 +338,7 @@
                     "
                   />
                 </picture>
-                <p class="max-w-2xl min-w-60 flex-[1_0_0%] text-left">
+                <p class="flex-[1_0_0%]">
                   Faire fondre du fromage sur du pain au levain, ça, on peut le
                   faire tous les jours.<br />Pour les fêtes, on fera des
                   sandwichs super spéciaux pour s'enjailler.<br />Bref, certains
@@ -348,7 +350,7 @@
               <div
                 class="flex flex-wrap content-center items-center justify-center gap-4 self-stretch tablet:gap-8"
               >
-                <p class="max-w-2xl min-w-60 flex-[1_0_0%] text-left">
+                <p class="flex-[1_0_0%]">
                   On peut enlever ou ajouter des ingrédients, le seul qui reste
                   c'est celui du plaisir.<br />Au final, chez Sandwichette, dans
                   un sandwich on trouve de la sauce, du croquant, du fondant, de
@@ -376,8 +378,13 @@
             </div>
           </div>
         </div>
-        <div class="w-full">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="1 1 1279 195">
+        <div class="w-full aspect-[1279/195] relative">
+          <svg
+            class="absolute"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="1 1 1279 195"
+            aria-hidden="true"
+          >
             <path
               d="M0.5 114.995V0.5H1280.5V107.969C1280.5 107.969 957.393 281.046 640.401 143.204C286.325 -10.7635 0.5 114.995 0.5 114.995Z"
               class="w-full fill-brand"
@@ -387,7 +394,7 @@
           <button
             id="accordion-btn"
             aria-label="Open accordion"
-            class="relative -top-16 left-[calc(50%_-_2rem)] flex h-16 w-16 items-center justify-center rounded-full border-4 border-solid border-primary bg-brand p-4 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-button tablet:-top-20 tablet:h-20 tablet:w-20 desktop:-top-28 desktop:h-24 desktop:w-24"
+            class="absolute top-[calc(70%_-_2rem)] left-[calc(50%_-_2rem)] tablet:top-[calc(70%_-_2.5rem)] tablet:left-[calc(50%_-_2.5rem)] desktop:top-[calc(70%_-_3rem)] desktop:left-[calc(50%_-_3rem)] h-16 w-16 items-center justify-center rounded-full border-4 border-solid border-primary bg-brand p-4 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-button tablet:h-20 tablet:w-20 desktop:h-24 desktop:w-24"
             title="En savoir plus"
             onclick="accordionOpen()"
           >

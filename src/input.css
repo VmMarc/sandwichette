@@ -27,7 +27,7 @@
   }
 
   body {
-    @apply text-base text-black tablet:text-lg desktop:text-xl;
+    @apply text-[19px] text-black tablet:text-xl desktop:text-2xl;
   }
 
   button {
@@ -59,7 +59,7 @@
   }
 
   p {
-    @apply max-w-2xl min-w-60 tablet:max-w-80;
+    @apply min-w-60 tablet:min-w-80 text-left;
   }
 
   hr {

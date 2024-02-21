@@ -4,7 +4,7 @@ function accordionOpen() {
   const contentMask = document.getElementById('content-mask');
   const accordionBtn = document.getElementById('accordion-btn');
 
-  panel.style.maxHeight = panel.scrollHeight + 'px';
+  panel.style.maxHeight = 'none';
   contentMask.style.display = 'none';
   accordionBtn.style.display = 'none';
 }
