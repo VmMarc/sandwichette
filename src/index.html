@@ -116,12 +116,63 @@
         </nav>
         <div class="flex grow justify-end desktop:hidden">
           <a href="#" aria-label="menu">
-            <i id="menu-icon" class="fa-solid fa-bars text-3xl"></i>
+            <i id="menu-icon" class="fa-solid fa-bars text-3xl" onclick="openBurger()"></i>
           </a>
         </div>
       </div>
     </header>
     <script inline defer src="js/header.js"></script>
+
+    <div id="navbar-burger" class="fixed overflow-y-scroll hidden p-5 tablet:p-16 desktop:p-24 inset-0 overscroll-contain w-full h-full z-20 bg-brand/75 backdrop-blur-lg">
+      <div id="navbar-burger__header"
+        class="flex h-28 w-full items-center justify-between px-8 py-2"
+      >
+        <div class="flex grow justify-start">
+          <a
+            class="hover:bg-insta-gradient hover:bg-clip-text hover:text-transparent"
+            href="https://www.instagram.com/sandwichetteparis"
+            aria-label="Instagram"
+          >
+            <i class="fa-brands fa-instagram text-3xl"></i>
+          </a>
+        </div>
+        <div class="h-full grow-0">
+          <img
+            id="logo"
+            class="aspect-16/10 w-full object-cover"
+            src="/img/logo.svg"
+            alt="Logo Sandwichette"
+          />
+        </div>
+        <div class="flex grow justify-end desktop:hidden">
+            <i id="menu-icon" class="fa-solid fa-xmark text-3xl" onClick=closeBurger()></i>
+        </div>
+      </div> 
+      <div id="navbar-burger__list" class="text-center">
+        <ul class="items-center justify-end gap-7">
+          <li>
+            <a class="text-nowrap text-lg" href="#apropos">À propos</a>
+          </li>
+          <li>
+            <a class="text-nowrap text-lg" href="#philosophie">Philosophie</a>
+          </li>
+          <li>
+            <a class="text-nowrap text-lg" href="#magazines">Magazines</a>
+          </li>
+          <li>
+            <a class="text-nowrap text-lg" href="#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <script>
+      function openBurger() {
+        document.getElementById('navbar-burger').style.display = 'block';
+      }
+      function closeBurger() {
+        document.getElementById('navbar-burger').style.display = 'none';
+      }
+    </script>
 
     <div id="hero" class="h-screen mb-16 tablet:mb-24 desktop:mb-32">
       <picture id="hero-bg">
