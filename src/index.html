@@ -167,88 +167,86 @@
       id="main"
       class="flex flex-col items-center justify-center gap-16 tablet:gap-24 desktop:gap-32"
     >
-      <section
-        id="apropos"
-        class="flex max-w-6xl grow scroll-mt-40 flex-col items-center justify-center gap-8 px-5 tablet:gap-12 tablet:px-16 desktop:gap-16 desktop:px-24"
-      >
-        <div class="flex items-center gap-4 tablet:gap-8 self-stretch">
-          <hr
-            class="h-[8px] w-16 rounded-md bg-black tablet:h-[10px] tablet:w-24 desktop:h-[12px] desktop:w-36"
-          />
-          <h1>À propos</h1>
-        </div>
+      <section id="apropos" class="w-full scroll-mt-40">
         <div
-          class="flex flex-wrap content-center items-center justify-center gap-4 tablet:gap-6 desktop:gap-8 lg:flex-row"
+          class="flex w-full max-w-6xl flex-col flex-[1_0_0%] items-center justify-center gap-8 tablet:gap-12 desktop:gap-16 px-5 tablet:px-16 desktop:px-24 m-[0_auto]"
         >
+          <div class="flex items-center gap-4 tablet:gap-8 self-stretch">
+            <hr
+              class="h-[8px] w-16 rounded-md bg-black tablet:h-[10px] tablet:w-24 desktop:h-[12px] desktop:w-36"
+            />
+            <h1>À propos</h1>
+          </div>
           <div
-            class="flex flex-col items-center justify-center gap-2 tablet:gap-4 desktop:gap-6 flex-[1_1_0%]"
+            class="flex flex-wrap content-center items-center justify-center gap-4 tablet:gap-6 desktop:gap-8 lg:flex-row"
           >
-            <p>
-              Des sandwichs, des gâteaux et des trucs à boire. Rien de nouveau
-              mais avec quelque chose en plus, pas original mais un peu
-              <span class="text-brand"><b>spécial</b></span
-              >.
+            <div
+              class="flex flex-col items-center justify-center gap-2 tablet:gap-4 desktop:gap-6 flex-[1_1_0%]"
+            >
+              <p>
+                Des sandwichs, des gâteaux et des trucs à boire. Rien de nouveau
+                mais avec quelque chose en plus, pas original mais un peu
+                <span class="text-brand"><b>spécial</b></span
+                >.
+              </p>
+              <p>
+                Des bons sandwichs faits dans des pains du quotidien fabriqués
+                par une boulangerie qui respecte la terre et le sommeil de ses
+                employés. Des recettes classiques et souvent très kitsch.
+              </p>
+              <p>
+                Desserts à la part, en barre ou à la louche. Chouquettes
+                débordantes de chantilly, cookies plein de confettis. Vanille,
+                praliné ou chocolat, pas de problème de choix.
+              </p>
+              <p>
+                Pas de matcha latte ni de latte tout court. Du café filtre en
+                abondance à toute heure. Des chouquettes et de l'amour. Vin
+                nature choisi par nos amis des
+                <a href="https://www.instagram.com/lesvinsdumatin/"
+                  ><u>Vins du matin</u></a
+                >. Thé chaud ou thé pas chaud.
+              </p>
+            </div>
+            <picture>
+              <source type="image/webp" srcset="/img/boisson-240.webp" />
+              <img
+                class="w-60 aspect-[2/3] rounded-xl"
+                src="/img/boisson-240.gif"
+                alt="photo animee boisson"
+                loading="lazy"
+              />
+            </picture>
+          </div>
+          <div
+            class="flex flex-col items-center gap-4 tablet:gap-6 desktop:flex-row"
+          >
+            <p class="max-w-72 text-center">
+              C'est petit chez nous mais
+              <span class="text-xl text-brand tablet:text-2xl desktop:text-3xl"
+                >sympathique</span
+              >
             </p>
-            <p>
-              Des bons sandwichs faits dans des pains du quotidien fabriqués par
-              une boulangerie qui respecte la terre et le sommeil de ses
-              employés. Des recettes classiques et souvent très kitsch.
-            </p>
-            <p>
-              Desserts à la part, en barre ou à la louche. Chouquettes
-              débordantes de chantilly, cookies plein de confettis. Vanille,
-              praliné ou chocolat, pas de problème de choix.
-            </p>
-            <p>
-              Pas de matcha latte ni de latte tout court. Du café filtre en
-              abondance à toute heure. Des chouquettes et de l'amour. Vin nature
-              choisi par nos amis des
-              <a href="https://www.instagram.com/lesvinsdumatin/"
-                ><u>Vins du matin</u></a
-              >. Thé chaud ou thé pas chaud.
+            <picture>
+              <source type="image/webp" srcset="/img/chaise-240.webp" />
+              <img
+                class="w-60 aspect-[2/3] rounded-t-full"
+                src="/img/chaise-240.jpg"
+                alt="sandwich"
+                loading="lazy"
+              />
+            </picture>
+            <p class="w-[312px] text-center">
+              Pas original mais un peu
+              <span class="text-xl text-brand tablet:text-2xl desktop:text-3xl"
+                >extraordinaire</span
+              >
             </p>
           </div>
-          <picture>
-            <source type="image/webp" srcset="/img/boisson-240.webp" />
-            <img
-              class="w-60 aspect-[2/3] rounded-xl"
-              src="/img/boisson-240.gif"
-              alt="photo animee boisson"
-              loading="lazy"
-            />
-          </picture>
-        </div>
-        <div
-          class="flex flex-col items-center gap-4 tablet:gap-6 desktop:flex-row"
-        >
-          <p class="max-w-72 text-center">
-            C'est petit chez nous mais
-            <span class="text-xl text-brand tablet:text-2xl desktop:text-3xl"
-              >sympathique</span
-            >
-          </p>
-          <picture>
-            <source type="image/webp" srcset="/img/chaise-240.webp" />
-            <img
-              class="w-60 aspect-[2/3] rounded-t-full"
-              src="/img/chaise-240.jpg"
-              alt="sandwich"
-              loading="lazy"
-            />
-          </picture>
-          <p class="w-[312px] text-center">
-            Pas original mais un peu
-            <span class="text-xl text-brand tablet:text-2xl desktop:text-3xl"
-              >extraordinaire</span
-            >
-          </p>
         </div>
       </section>
 
-      <section
-        id="philosophie"
-        class="w-full flex-[1_0_0%] -scroll-mt-32 text-white"
-      >
+      <section id="philosophie" class="w-full -scroll-mt-32 text-white">
         <svg
           aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
@@ -267,10 +265,10 @@
         ></div>
         <div
           id="panel"
-          class="flex max-h-80 w-full h-auto flex-col items-center justify-start overflow-hidden bg-brand px-5 py-16 transition-[max-height_500ms_ease-out] duration-500 tablet:px-16 desktop:px-24"
+          class="flex max-h-80 w-full flex-[1_0_0%] flex-col items-center justify-start overflow-hidden bg-brand py-16 transition-[max-height_500ms_ease-out] duration-500"
         >
           <div
-            class="flex max-w-6xl flex-col flex-[1_0_0%] items-center justify-center gap-8 tablet:gap-12 desktop:gap-16 text-[19px]"
+            class="flex w-full max-w-6xl flex-col flex-[1_0_0%] items-center justify-center gap-8 tablet:gap-12 desktop:gap-16 text-[19px] px-5 tablet:px-16 desktop:px-24"
           >
             <div class="flex items-center gap-4 tablet:gap-8 self-stretch">
               <hr

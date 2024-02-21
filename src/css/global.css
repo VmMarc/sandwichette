@@ -743,6 +743,10 @@ i::before {
   z-index: 20;
 }
 
+.m-\[0_auto\] {
+  margin: 0 auto;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -816,10 +820,6 @@ i::before {
   height: calc(100vh - 7rem);
 }
 
-.h-auto {
-  height: auto;
-}
-
 .h-full {
   height: 100%;
 }
@@ -838,10 +838,6 @@ i::before {
 
 .w-60 {
   width: 15rem;
-}
-
-.w-8 {
-  width: 2rem;
 }
 
 .w-\[312px\] {
