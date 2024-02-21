@@ -59,7 +59,7 @@
   }
 
   p {
-    @apply max-w-2xl min-w-60;
+    @apply max-w-2xl min-w-60 tablet:max-w-80;
   }
 
   hr {

@@ -576,6 +576,12 @@ p {
   max-width: 42rem;
 }
 
+@media (min-width: 768px) {
+  p {
+    max-width: 20rem;
+  }
+}
+
 hr {
   border-style: none;
 }
@@ -726,8 +732,8 @@ i::before {
   top: 20rem;
 }
 
-.top-\[90vh\] {
-  top: 90vh;
+.top-\[80vh\] {
+  top: 80vh;
 }
 
 .z-10 {
@@ -835,6 +841,10 @@ i::before {
   width: 100%;
 }
 
+.w-screen {
+  width: 100vw;
+}
+
 .min-w-60 {
   min-width: 15rem;
 }
@@ -897,6 +907,10 @@ i::before {
 
 .scroll-mt-32 {
   scroll-margin-top: 8rem;
+}
+
+.scroll-mt-40 {
+  scroll-margin-top: 10rem;
 }
 
 .flex-row {
@@ -1247,6 +1261,10 @@ i::before {
     top: 2rem;
   }
 
+  .tablet\:top-\[90vh\] {
+    top: 90vh;
+  }
+
   .tablet\:mb-24 {
     margin-bottom: 6rem;
   }
@@ -1365,10 +1383,6 @@ i::before {
 
   .desktop\:flex-row {
     flex-direction: row;
-  }
-
-  .desktop\:gap-12 {
-    gap: 3rem;
   }
 
   .desktop\:gap-16 {
