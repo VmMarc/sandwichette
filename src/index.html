@@ -75,8 +75,8 @@
     <meta name="theme-color" content="#ffffff" />
   </head>
 
-  <body>
-    <header class="mb-16 tablet:mb-24 desktop:mb-32">
+  <body class="w-screen">
+    <header>
       <div
         id="navbar"
         class="fixed inset-0 z-10 flex h-28 w-full items-center justify-between px-8 py-2 transition duration-500 ease-in-out"
@@ -120,53 +120,58 @@
           </a>
         </div>
       </div>
-      <div id="hero">
-        <picture id="hero-bg">
-          <source
-            type="image/webp"
-            srcset="
-              /img/hero-bg-2897.webp 2897w,
-              /img/hero-bg-1920.webp 1920w,
-              /img/hero-bg-1600.webp 1600w,
-              /img/hero-bg-1280.webp 1280w,
-              /img/hero-bg-428.webp   428w,
-              /img/hero-bg-360.webp   360w
-            "
-            sizes="(max-height: 800px and max-width: 360px) 360w, (max-height: 926px and max-width: 428px) 428w, (min-height: 1357px) 2897w, (min-height: 1131px) 1920w, (min-height: 905px) 1600w, (min-height: 724px) 1280w, (min-height: 604px) 1024w, (min-height: 452px) 854w, 100vw"
-          />
-          <source
-            type="image/jpg"
-            srcset="
-              /img/hero-bg-2897.jpg 2897w,
-              /img/hero-bg-1920.jpg 1920w,
-              /img/hero-bg-1600.jpg 1600w,
-              /img/hero-bg-1280.jpg 1280w,
-              /img/hero-bg-428.jpg   428w,
-              /img/hero-bg-360.jpg   360w
-            "
-            sizes="(max-height: 800px and max-width: 360px) 360w, (max-height: 926px and max-width: 428px) 428w, (min-height: 1357px) 2897w, (min-height: 1131px) 1920w, (min-height: 905px) 1600w, (min-height: 724px) 1280w, (min-height: 604px) 1024w, (min-height: 452px) 854w, 100vw"
-          />
-          <img
-            class="w-full h-screen object-cover object-center"
-            src="/img/hero-bg-2897.jpg"
-            alt="background"
-          />
-        </picture>
-        <div id="scroll-icon" class="absolute left-1/2 top-[90vh]">
-          <i class="fa-solid fa-angles-down animate-bounce text-3xl"></i>
-        </div>
-      </div>
     </header>
     <script inline defer src="js/header.js"></script>
 
+    <div id="hero" class="h-screen mb-16 tablet:mb-24 desktop:mb-32">
+      <picture id="hero-bg">
+        <source
+          type="image/webp"
+          srcset="
+            /img/hero-bg-2897.webp 2897w,
+            /img/hero-bg-1920.webp 1920w,
+            /img/hero-bg-1600.webp 1600w,
+            /img/hero-bg-1280.webp 1280w,
+            /img/hero-bg-428.webp   428w,
+            /img/hero-bg-360.webp   360w
+          "
+          sizes="(max-height: 800px and max-width: 360px) 360w, (max-height: 926px and max-width: 428px) 428w, (min-height: 1357px) 2897w, (min-height: 1131px) 1920w, (min-height: 905px) 1600w, (min-height: 724px) 1280w, (min-height: 604px) 1024w, (min-height: 452px) 854w, 100vw"
+        />
+        <source
+          type="image/jpg"
+          srcset="
+            /img/hero-bg-2897.jpg 2897w,
+            /img/hero-bg-1920.jpg 1920w,
+            /img/hero-bg-1600.jpg 1600w,
+            /img/hero-bg-1280.jpg 1280w,
+            /img/hero-bg-428.jpg   428w,
+            /img/hero-bg-360.jpg   360w
+          "
+          sizes="(max-height: 800px and max-width: 360px) 360w, (max-height: 926px and max-width: 428px) 428w, (min-height: 1357px) 2897w, (min-height: 1131px) 1920w, (min-height: 905px) 1600w, (min-height: 724px) 1280w, (min-height: 604px) 1024w, (min-height: 452px) 854w, 100vw"
+        />
+        <img
+          class="w-full h-full object-cover object-center"
+          src="/img/hero-bg-2897.jpg"
+          alt="background"
+        />
+      </picture>
+      <div
+        id="scroll-icon"
+        class="absolute left-1/2 top-[80vh] tablet:top-[90vh]"
+      >
+        <i class="fa-solid fa-angles-down animate-bounce text-3xl"></i>
+      </div>
+    </div>
+
     <div
+      id="main"
       class="flex flex-col items-center justify-center gap-16 tablet:gap-24 desktop:gap-32"
     >
       <section
         id="apropos"
-        class="flex max-w-6xl grow scroll-mt-32 flex-col items-center justify-center gap-8 px-5 tablet:gap-12 tablet:px-16 desktop:gap-16 desktop:px-24"
+        class="flex max-w-6xl grow scroll-mt-40 flex-col items-center justify-center gap-8 px-5 tablet:gap-12 tablet:px-16 desktop:gap-16 desktop:px-24"
       >
-        <div class="flex items-center gap-8 self-stretch">
+        <div class="flex items-center gap-4 tablet:gap-8 self-stretch">
           <hr
             class="h-[8px] w-16 rounded-md bg-black tablet:h-[10px] tablet:w-24 desktop:h-[12px] desktop:w-36"
           />
@@ -176,7 +181,7 @@
           class="flex flex-wrap content-center items-center justify-center gap-4 tablet:gap-6 desktop:gap-8 lg:flex-row"
         >
           <div
-            class="flex flex-[1_0_0%] flex-col items-center justify-center gap-2 text-left tablet:gap-4 desktop:gap-6"
+            class="flex flex-col items-center justify-center gap-2 text-left tablet:gap-4 desktop:gap-6"
           >
             <p>
               Des sandwichs, des gâteaux et des trucs à boire. Rien de nouveau
@@ -263,9 +268,9 @@
           class="flex max-h-80 w-full flex-col items-center justify-start self-stretch overflow-hidden bg-brand px-5 py-16 transition-[max-height_500ms_ease-out] duration-500 tablet:px-16 desktop:px-24"
         >
           <div
-            class="flex max-w-6xl flex-col items-center justify-center gap-4 tablet:gap-8 desktop:gap-12"
+            class="flex max-w-6xl flex-col items-center justify-center gap-8 tablet:gap-12 desktop:gap-16"
           >
-            <div class="flex items-center gap-8 self-stretch">
+            <div class="flex items-center gap-4 tablet:gap-8 self-stretch">
               <hr
                 class="h-[8px] w-16 rounded-md bg-white tablet:h-[10px] tablet:w-24 desktop:h-[12px] desktop:w-36"
               />
@@ -275,7 +280,7 @@
               <div
                 class="flex flex-wrap content-center items-center justify-center gap-4 self-stretch tablet:gap-8 text-[19px]"
               >
-                <p class="flex-[1_0_0%] text-left">
+                <p class="text-left">
                   Toute l'année, nous suivons le rythme de la terre et ses
                   saisons.<br />Des produits français dans la mesure du possible
                   et venant de nos fournisseurs, le Zingam, Borniambuc, les
@@ -395,6 +400,7 @@
       <section id="magazines" class="h-64 scroll-mt-32 bg-lime-500"></section>
       <section id="contact" class="h-64 scroll-mt-32 bg-cyan-500"></section>
     </div>
+
     <footer class="relative text-white w-full h-[calc(100vh_-_7rem)]">
       <picture id="footer-bg">
         <source
@@ -437,7 +443,7 @@
         <div
           class="mx-auto flex max-w-6xl grow scroll-mt-32 flex-col items-center justify-center gap-4 tablet:gap-12 desktop:gap-16 px-5 tablet:px-16 desktop:px-24 self-stretch"
         >
-          <div class="flex items-center gap-8 self-stretch">
+          <div class="flex items-center gap-4 tablet:gap-8 self-stretch">
             <hr
               class="h-[8px] w-16 rounded-md bg-white tablet:h-[10px] tablet:w-24 desktop:h-[12px] desktop:w-36"
             />
