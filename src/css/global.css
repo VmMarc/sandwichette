@@ -1052,6 +1052,10 @@ i::before {
   background-color: rgb(223 58 142 / var(--tw-bg-opacity));
 }
 
+.bg-brand\/75 {
+  background-color: rgb(223 58 142 / 0.75);
+}
+
 .bg-cyan-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(6 182 212 / var(--tw-bg-opacity));
@@ -1142,6 +1146,10 @@ i::before {
 
 .text-center {
   text-align: center;
+}
+
+.text-justify {
+  text-align: justify;
 }
 
 .text-2xl {
@@ -1300,6 +1308,10 @@ i::before {
     width: 6rem;
   }
 
+  .tablet\:gap-10 {
+    gap: 2.5rem;
+  }
+
   .tablet\:gap-12 {
     gap: 3rem;
   }
@@ -1402,6 +1414,10 @@ i::before {
 
   .desktop\:flex-row {
     flex-direction: row;
+  }
+
+  .desktop\:gap-12 {
+    gap: 3rem;
   }
 
   .desktop\:gap-16 {
