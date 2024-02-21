@@ -76,7 +76,7 @@
   </head>
 
   <body>
-    <header class="mb-8 tablet:mb-16 desktop:mb-24">
+    <header class="mb-16 tablet:mb-24 desktop:mb-32">
       <div
         id="navbar"
         class="fixed inset-0 z-10 flex h-28 w-full items-center justify-between px-8 py-2 transition duration-500 ease-in-out"
@@ -160,11 +160,11 @@
     <script inline defer src="js/header.js"></script>
 
     <div
-      class="flex flex-col items-center justify-center gap-8 tablet:gap-16 desktop:gap-32"
+      class="flex flex-col items-center justify-center gap-16 tablet:gap-24 desktop:gap-32"
     >
       <section
         id="apropos"
-        class="flex max-w-6xl grow scroll-mt-32 flex-col items-center justify-center gap-4 px-5 tablet:gap-10 tablet:px-16 desktop:gap-12 desktop:px-24"
+        class="flex max-w-6xl grow scroll-mt-32 flex-col items-center justify-center gap-8 px-5 tablet:gap-12 tablet:px-16 desktop:gap-16 desktop:px-24"
       >
         <div class="flex items-center gap-8 self-stretch">
           <hr
@@ -173,35 +173,35 @@
           <h1>À propos</h1>
         </div>
         <div
-          class="flex flex-col content-center items-center justify-center gap-8 tablet:gap-11 lg:flex-row desktop:gap-16"
+          class="flex flex-wrap content-center items-center justify-center gap-4 tablet:gap-6 desktop:gap-8 lg:flex-row"
         >
           <div
-            class="flex max-w-2xl flex-[1_0_0%] flex-col items-center justify-center gap-4 text-left tablet:gap-6"
+            class="flex flex-[1_0_0%] flex-col items-center justify-center gap-2 text-left tablet:gap-4 desktop:gap-6"
           >
-            <span
-              >Des sandwichs, des gâteaux et des trucs à boire. Rien de nouveau
+            <p>
+              Des sandwichs, des gâteaux et des trucs à boire. Rien de nouveau
               mais avec quelque chose en plus, pas original mais un peu
               <span class="text-brand"><b>spécial</b></span
-              >.</span
-            >
-            <span
-              >Des bons sandwichs faits dans des pains du quotidien fabriqués
-              par une boulangerie qui respecte la terre et le sommeil de ses
-              employés. Des recettes classiques et souvent très kitsch.</span
-            >
-            <span
-              >Desserts à la part, en barre ou à la louche. Chouquettes
+              >.
+            </p>
+            <p>
+              Des bons sandwichs faits dans des pains du quotidien fabriqués par
+              une boulangerie qui respecte la terre et le sommeil de ses
+              employés. Des recettes classiques et souvent très kitsch.
+            </p>
+            <p>
+              Desserts à la part, en barre ou à la louche. Chouquettes
               débordantes de chantilly, cookies plein de confettis. Vanille,
-              praliné ou chocolat, pas de problème de choix.</span
-            >
-            <span
-              >Pas de matcha latte ni de latte tout court. Du café filtre en
+              praliné ou chocolat, pas de problème de choix.
+            </p>
+            <p>
+              Pas de matcha latte ni de latte tout court. Du café filtre en
               abondance à toute heure. Des chouquettes et de l'amour. Vin nature
               choisi par nos amis des
               <a href="https://www.instagram.com/lesvinsdumatin/"
                 ><u>Vins du matin</u></a
-              >. Thé chaud ou thé pas chaud.</span
-            >
+              >. Thé chaud ou thé pas chaud.
+            </p>
           </div>
           <picture>
             <source type="image/webp" srcset="/img/boisson-240.webp" />
@@ -216,12 +216,12 @@
         <div
           class="flex flex-col items-center gap-4 tablet:gap-6 desktop:flex-row"
         >
-          <span class="max-w-72 text-center"
-            >C'est petit chez nous mais
+          <p class="max-w-72 text-center">
+            C'est petit chez nous mais
             <span class="text-lg text-brand tablet:text-xl desktop:text-2xl"
               >sympathique</span
-            ></span
-          >
+            >
+          </p>
           <picture>
             <source type="image/webp" srcset="/img/chaise-240.webp" />
             <img
@@ -231,12 +231,12 @@
               loading="lazy"
             />
           </picture>
-          <span class="w-[312px] text-center"
-            >Pas original mais un peu
+          <p class="w-[312px] text-center">
+            Pas original mais un peu
             <span class="text-lg text-brand tablet:text-xl desktop:text-2xl"
               >extraordinaire</span
-            ></span
-          >
+            >
+          </p>
         </div>
       </section>
       <section
@@ -263,7 +263,7 @@
           class="flex max-h-80 w-full flex-col items-center justify-start self-stretch overflow-hidden bg-brand px-5 py-16 transition-[max-height_500ms_ease-out] duration-500 tablet:px-16 desktop:px-24"
         >
           <div
-            class="flex max-w-6xl flex-col items-center justify-center gap-4 tablet:gap-10 desktop:gap-12"
+            class="flex max-w-6xl flex-col items-center justify-center gap-4 tablet:gap-8 desktop:gap-12"
           >
             <div class="flex items-center gap-8 self-stretch">
               <hr
@@ -273,10 +273,10 @@
             </div>
             <div class="flex flex-col gap-4 tablet:gap-8 self-stretch">
               <div
-                class="flex flex-wrap content-center items-center justify-center gap-4 self-stretch tablet:gap-8"
+                class="flex flex-wrap content-center items-center justify-center gap-4 self-stretch tablet:gap-8 text-[19px]"
               >
-                <span class="max-w-2xl min-w-60 flex-[1_0_0%] text-left"
-                  >Toute l'année, nous suivons le rythme de la terre et ses
+                <p class="flex-[1_0_0%] text-left">
+                  Toute l'année, nous suivons le rythme de la terre et ses
                   saisons.<br />Des produits français dans la mesure du possible
                   et venant de nos fournisseurs, le Zingam, Borniambuc, les
                   Vergers Saint Eustache, Huguenin, etc.<br />Pour le reste
@@ -284,8 +284,8 @@
                   agriculture européenne raisonnée.<br />On veut respecter la
                   planète et dans le bon sens.<br />Quand on s'occupe d'un
                   légume, d'un fruit ou d'un morceau de viande c'est
-                  entièrement.</span
-                >
+                  entièrement.
+                </p>
                 <picture>
                   <source
                     type="image/webp"
@@ -300,16 +300,15 @@
                 </picture>
               </div>
               <div class="flex flex-row gap-4 self-stretch tablet:gap-8">
-                <span class="min-w-60 flex-[1_0_0%] text-left">
+                <p class="min-w-60 flex-[1_0_0%] text-left">
                   Peu de plastique autant que possible.<br />Du packaging
                   recyclable mais si vous venez avec vos contenants ça sera
                   encore mieux.<br />Pas de carte précise à vous montrer ici.
                   Mais des exemples.<br />Les œufs, la mayo et le jambon nous en
                   avons tout le temps.<br />Le bourguignon c'est plutôt pour
                   l'hiver quand il fait froid.<br />Le fameux BLT
-                  (bacon/laitue/tomate) vous le croiserez seulement en
-                  été.</span
-                >
+                  (bacon/laitue/tomate) vous le croiserez seulement en été.
+                </p>
               </div>
               <div
                 class="flex flex-wrap content-center items-center justify-center gap-4 self-stretch tablet:gap-8"
@@ -332,27 +331,27 @@
                     "
                   />
                 </picture>
-                <span class="max-w-2xl min-w-60 flex-[1_0_0%] text-left"
-                  >Faire fondre du fromage sur du pain au levain, ça, on peut le
+                <p class="max-w-2xl min-w-60 flex-[1_0_0%] text-left">
+                  Faire fondre du fromage sur du pain au levain, ça, on peut le
                   faire tous les jours.<br />Pour les fêtes, on fera des
                   sandwichs super spéciaux pour s'enjailler.<br />Bref, certains
                   seront vos acolytes du quotidien et d'autres ne seront que de
                   passage.<br />Avec ou sans viande, avec ou sans œuf, tout est
-                  possible.</span
-                >
+                  possible.
+                </p>
               </div>
               <div
                 class="flex flex-wrap content-center items-center justify-center gap-4 self-stretch tablet:gap-8"
               >
-                <span class="max-w-2xl min-w-60 flex-[1_0_0%] text-left"
-                  >On peut enlever ou ajouter des ingrédients, le seul qui reste
+                <p class="max-w-2xl min-w-60 flex-[1_0_0%] text-left">
+                  On peut enlever ou ajouter des ingrédients, le seul qui reste
                   c'est celui du plaisir.<br />Au final, chez Sandwichette, dans
                   un sandwich on trouve de la sauce, du croquant, du fondant, de
                   l'acidité et des fois du coulant.<br />Pour le sucré, il reste
                   toujours de la place.<br />Des goûts qui rappellent les
                   sorties au square du mercredi après-midi.<br />Sandwichette,
-                  c'est l'odeur du fait maison sans prise de tête.</span
-                >
+                  c'est l'odeur du fait maison sans prise de tête.
+                </p>
                 <picture>
                   <source type="image/webp" srcset="/img/dessert-240.webp" />
                   <img
@@ -430,8 +429,11 @@
       <div
         id="overlay"
         class="fixed overflow-y-scroll hidden p-5 tablet:p-16 desktop:p-24 inset-0 overscroll-contain w-full h-full z-20 bg-black/75 backdrop-blur-lg"
-        onclick="off()"
       >
+        <i
+          class="absolute hover:text-brand fa-solid fa-xmark top-4 right-4 tablet:top-8 tablet:right-8 desktop:top-16 desktop:right-16 text-3xl"
+          onclick="off()"
+        ></i>
         <div
           class="mx-auto flex max-w-6xl grow scroll-mt-32 flex-col items-center justify-center gap-4 tablet:gap-12 desktop:gap-16 px-5 tablet:px-16 desktop:px-24 self-stretch"
         >
@@ -439,53 +441,59 @@
             <hr
               class="h-[8px] w-16 rounded-md bg-white tablet:h-[10px] tablet:w-24 desktop:h-[12px] desktop:w-36"
             />
-            <h1 class="text-white text-2xl tablet:text-3xl desktop:text-4xl">
-              Mentions légales
-            </h1>
+            <h1 class="text-white">Mentions légales</h1>
           </div>
-          <ul class="list-disc">
+          <ol>
             <div
-              class="flex max-w-2xl flex-[1_0_0%] flex-col items-center justify-center gap-4 text-left tablet:gap-6"
+              class="flex max-w-5xl flex-[1_0_0%] flex-col items-center justify-center text-left gap-8 px-5 tablet:gap-12 tablet:px-16 desktop:gap-16 desktop:px-24"
             >
-              <div class="w-full gap-1 tablet:gap-2 desktop:gap-4">
-                <li>
-                  <h2 class="text-left"><u>À propos du site</u></h2>
-                  <p class="px-4 min-w-60 flex-[1_0_0%] text-left">
-                    Le site internet www.sandwichette.fr est édité par la
-                    société par actions simplifiée NENETTE, au capital social de
-                    5 000,00 euros, immatriculée au Registre du Commerce et des
-                    Sociétés de Paris sous le numéro B 320 252 489, n° TVA
-                    FR33953220753.<br />Adresse : 52 rue Saint Maur, 75011 Paris
-                    FRANCE<br />Téléphone : 01 41 79 80 00
+              <li
+                class="gap-6 px-2 tablet:gap-12 tablet:px-4 desktop:gap-16 desktop:px-8"
+              >
+                <h2 class="text-left pb-4">
+                  <u>1. Présentation du site internet</u>
+                </h2>
+                <div class="mb-2">
+                  <h3 class="text-left py-1">
+                    • <strong>Propriétaire</strong> :
+                  </h3>
+                  <p class="pl-6 min-w-60 flex-[1_0_0%] text-left">
+                    NENETTE, au capital social de 5 000,00 euros, immatriculée
+                    au Registre du Commerce et des Sociétés de Paris sous le
+                    numéro B 320 252 489, n° TVA FR33953220753.<br />Adresse :
+                    52 rue Saint Maur, 75011 Paris FRANCE<br />Téléphone : 01 41
+                    79 80 00
                   </p>
-                </li>
-              </div>
-              <div class="w-full gap-1 tablet:gap-2 desktop:gap-4">
-                <li>
-                  <h2 class="text-left">
-                    <u>Conception et réalisation technique du site</u>
-                  </h2>
-                  <p class="px-4 min-w-60 flex-[1_0_0%] text-left">
+                </div>
+                <div class="mb-2">
+                  <h3 class="text-left py-1">
+                    •
+                    <strong>Conception et réalisation technique du site</strong>
+                    :
+                  </h3>
+                  <p class="pl-6 min-w-60 flex-[1_0_0%] text-left">
                     Florian Ohrel EI<br />Téléphone : 06 95 52 68 82<br />Email
                     : ohrel.florian@pm.me
                   </p>
-                </li>
-              </div>
-              <div class="w-full gap-1 tablet:gap-2 desktop:gap-4">
-                <li>
-                  <h2 class="text-left"><u>Hébergement du site</u></h2>
-                  <p class="px-4 min-w-60 flex-[1_0_0%] text-left"></p>
-                </li>
-              </div>
+                </div>
+                <div class="mb-2">
+                  <h3 class="text-left py-1">
+                    • <strong>Hébergement du site</strong> :
+                  </h3>
+                  <p class="pl-6 min-w-60 flex-[1_0_0%] text-left"></p>
+                </div>
+              </li>
             </div>
-          </ul>
+          </ol>
         </div>
       </div>
       <div
         class="flex absolute flex-row max-tablet:flex-col max-tablet:justify-end w-full p-5 h-full items-end justify-between tablet:p-9"
       >
-        <a onclick="on()"><span>Mentions légales</span></a>
-        <span>© Sandwichette 2024. Tous droits réservés.</span>
+        <p class="hover:text-brand max-tablet:text-right" onclick="on()">
+          Mentions légales
+        </p>
+        <p>© Sandwichette 2024. Tous droits réservés.</p>
       </div>
       <script>
         function on() {

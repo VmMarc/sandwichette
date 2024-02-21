@@ -51,7 +51,15 @@
   }
 
   h2 {
+    @apply text-2xl tablet:text-3xl desktop:text-4xl;
+  }
+
+  h3 {
     @apply text-lg tablet:text-xl desktop:text-2xl;
+  }
+
+  p {
+    @apply max-w-2xl min-w-60;
   }
 
   hr {
