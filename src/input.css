@@ -75,8 +75,18 @@
   .btn-secondary:hover {
     @apply text-white;
   }
+}
+#instagram-icon.btn-secondary:hover {
+  @apply max-desktop:bg-white max-desktop:bg-none;
+}
 
-  #instagram-icon.btn-secondary:hover {
-    @apply bg-white bg-none;
-  }
+#header.nav-menu {
+  @apply max-desktop:bg-right;
+}
+
+#nav-menu__open.nav-menu {
+  @apply hidden;
+}
+#nav-menu__close.nav-menu {
+  @apply block;
 }
