@@ -32,27 +32,6 @@
   "sandwich-frites": {
     "breakpoints": [{ "width": 240 }]
   },
-  "noble-rot": {
-    "breakpoints": [{ "height": 360, "width": 240 }]
-  },
-  "cherry-bombe": {
-    "breakpoints": [{ "height": 360, "width": 240 }]
-  },
-  "midnight-snack": {
-    "breakpoints": [{ "height": 360, "width": 240 }]
-  },
-  "picnic": {
-    "breakpoints": [{ "height": 360, "width": 240 }]
-  },
-  "sandwich": {
-    "breakpoints": [{ "height": 360, "width": 240 }]
-  },
-  "serviette": {
-    "breakpoints": [{ "height": 360, "width": 240 }]
-  },
-  "the-gourmand-shop": {
-    "breakpoints": [{ "height": 360, "width": 240 }]
-  },
   "footer-bg": {
     "breakpoints": [
       { "width": 2048, "height": 1253 },
