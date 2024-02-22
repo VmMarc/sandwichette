@@ -78,11 +78,12 @@
   <body class="w-full">
     <header>
       <div
-        id="navbar"
-        class="fixed inset-0 z-10 flex h-28 w-full items-center justify-between px-8 py-2 transition duration-500 ease-in-out"
+        id="header"
+        class="fixed inset-0 z-10 flex h-28 w-full items-center justify-between px-8 py-2 transition-all duration-500 ease-out bg-left bg-gradient-to-r from-transparent to-brand bg-[length:200%] from-50% to-50%"
       >
         <div class="flex grow justify-start">
           <a
+            id="instagram-icon"
             class="hover:bg-insta-gradient hover:bg-clip-text hover:text-transparent"
             href="https://www.instagram.com/sandwichetteparis"
             aria-label="Instagram"
@@ -92,14 +93,17 @@
         </div>
         <div class="h-full grow-0">
           <img
-            id="logo"
+            id="sandwichette-logo"
             class="aspect-16/10 w-full object-cover"
             src="/img/logo.svg"
             alt="Logo Sandwichette"
           />
         </div>
-        <nav class="hidden shrink-0 grow basis-0 desktop:block">
-          <ul class="flex items-center justify-end gap-7">
+        <nav id="nav" class="shrink-0 grow basis-0 desktop:block">
+          <ul
+            id="nav__list"
+            class="hidden items-center justify-end gap-7 desktop:flex"
+          >
             <li>
               <a class="text-nowrap text-lg" href="#apropos">À propos</a>
             </li>
@@ -113,21 +117,32 @@
               <a class="text-nowrap text-lg" href="#contact">Contact</a>
             </li>
           </ul>
+          <div id="burger" class="flex grow justify-end desktop:hidden">
+            <a
+              id="burger-open"
+              class="block"
+              href="javascript:void(0);"
+              aria-label="menu"
+              onclick="burgerOpen()"
+            >
+              <i id="burger-open-icon" class="fa-solid fa-bars text-3xl"></i>
+            </a>
+            <a
+              id="burger-close"
+              class="hidden btn-secondary"
+              href="javascript:void(0);"
+              onclick="burgerClose()"
+            >
+              <i id="burger-close-icon" class="fa-solid fa-xmark text-3xl"></i>
+            </a>
+          </div>
+          <script inline defer src="js/burgerMenu.js"></script>
         </nav>
-        <div class="flex grow justify-end desktop:hidden">
-          <a href="#" aria-label="menu">
-            <i
-              id="menu-icon"
-              class="fa-solid fa-bars text-3xl"
-              onclick="openBurger()"
-            ></i>
-          </a>
-        </div>
       </div>
     </header>
     <script inline defer src="js/header.js"></script>
 
-    <div
+    <!-- <div
       id="navbar-burger"
       class="fixed overflow-y-scroll hidden p-5 tablet:p-16 desktop:p-24 inset-0 overscroll-contain w-full h-full z-20 bg-brand/75 backdrop-blur-lg"
     >
@@ -153,11 +168,9 @@
           />
         </div>
         <div class="flex grow justify-end desktop:hidden">
-          <i
-            id="menu-icon"
-            class="fa-solid fa-xmark text-3xl"
-            onClick="closeBurger()"
-          ></i>
+          <a href="javascript:void(0);" onclick="closeBurger()">
+            <i id="close-burger-icon" class="fa-solid fa-xmark text-3xl"></i>
+          </a>
         </div>
       </div>
       <div id="navbar-burger__list" class="text-center">
@@ -176,15 +189,7 @@
           </li>
         </ul>
       </div>
-    </div>
-    <script>
-      function openBurger() {
-        document.getElementById('navbar-burger').style.display = 'block';
-      }
-      function closeBurger() {
-        document.getElementById('navbar-burger').style.display = 'none';
-      }
-    </script>
+    </div> -->
 
     <div id="hero" class="h-screen mb-16 tablet:mb-24 desktop:mb-32">
       <picture id="hero-bg">
@@ -537,7 +542,6 @@
           <script inline defer src="js/carousel.js"></script>
         </div>
       </section>
-      <<<<<<< HEAD =======
 
       <!-- Carousel Magazines -->
       <section
@@ -610,7 +614,6 @@
           <script inline defer src="js/carousel.js"></script>
         </div>
       </section>
-      >>>>>>> 60d2523e0d7346a6cbc6d6ceae8ba426750b4baa
       <section id="contact" class="h-64 scroll-mt-32 bg-cyan-500"></section>
     </div>
 

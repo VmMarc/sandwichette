@@ -15,7 +15,7 @@
   *::before,
   *::after {
     box-sizing: border-box;
-    border: 1px solid #000;
+    /* border: 1px solid #000; */
     @apply cursor-pickle;
   }
 
@@ -42,8 +42,8 @@
     max-width: 100%;
   }
 
-  div#navbar.scrolled {
-    @apply bg-primary shadow;
+  #header.scrolled {
+    @apply bg-gradient-to-r from-primary to-brand bg-[length:200%] from-50% to-50% shadow;
   }
 
   h1 {
@@ -67,8 +67,16 @@
   }
 
   i::before {
-    display: inline-block;
+    @apply inline-block;
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
+  }
+
+  .btn-secondary:hover {
+    @apply text-white;
+  }
+
+  #instagram-icon.btn-secondary:hover {
+    @apply bg-white bg-none;
   }
 }
