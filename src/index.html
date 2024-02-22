@@ -541,7 +541,7 @@
       <!-- Carousel Magazines -->
       <section id="magazines" class="w-full scroll-mt-32">
         <div
-          class="flex w-full max-w-6xl flex-col flex-[1_0_0%] items-center justify-center gap-8 tablet:gap-12 desktop:gap-16 px-5 tablet:px-16 desktop:px-24 m-[0_auto]"
+          class="flex h-screen max-w-6xl flex-col flex-[1_0_0%] items-center justify-center gap-8 tablet:gap-12 desktop:gap-16 px-5 tablet:px-16 desktop:px-24 m-[0_auto]"
         >
           <div class="flex items-center gap-4 tablet:gap-8 self-stretch">
             <hr
@@ -551,57 +551,28 @@
           </div>
           <div
             id="carousel"
-            class="relative max-w-6xl grow px-5 tablet:px-16 desktop:gap-12 desktop:px-24"
+            class="relative flex items-center justify-center h-full w-full mb-4"
           >
-            <!-- <picture> -->
-            <!-- <source type="image/webp" srcset="/img/noble-rot.webp" /> -->
             <img
-              class="absolute w-full aspect-[240_/_360] z-0"
+              class="absolute h-[360px] w-[240px] -z-10"
               src="/img/noble-rot-240.jpg"
               alt="magazines noble rot"
               loading="lazy"
             />
-            <!-- </picture> -->
-
-            <!-- <picture> -->
-            <!-- <source type="image/webp" srcset="/img/cherry-bombe.webp" /> -->
             <img
-              class="absolute w-full aspect-[240_/_360] -z-20"
+              class="absolute h-[360px] w-[240px] z-0"
               src="/img/cherry-bombe-240.jpg"
               alt="magazine cherry bomb"
               loading="lazy"
             />
-            <!-- </picture> -->
-
-            <!-- <picture> -->
-            <!-- <source type="image/webp" srcset="/img/midnight-snack.webp" /> -->
             <img
-              class="absolute w-full aspect-[240_/_360] -z-10"
+              class="absolute h-[360px] w-[240px] -z-20"
               src="/img/midnight-snack-240.jpg"
               alt="magazine mignight snack"
               loading="lazy"
             />
-            <!-- </picture> -->
-
-            <!-- <picture>
-          <source type="image/webp" srcset="/img/picnic.webp" />
-          <img class="h-96 w-64" src="/img/picnic.jpg" alt="magazine picnic" loading="lazy" />
-        </picture>
-        <picture>
-          <source type="image/webp" srcset="/img/sandwich.webp" />
-          <img class="h-96 w-64" src="/img/sandwich.jpg" alt="magazine sandwich" loading="lazy" />
-        </picture>
-        <picture>
-          <source type="image/webp" srcset="/img/serviette.webp" />
-          <img class="h-96 w-64" src="/img/serviette.jpg" alt="magazines serviette" loading="lazy" />
-        </picture>
-        <picture>
-          <source type="image/webp" srcset="/img/the-gourmand-shop.webp" />
-          <img class="h-96 w-64" src="/img/the-gourmand-shop.jpg" alt="magazines the gourmand shop"
-            loading="lazy" />
-        </picture> -->
             <div
-              class="flex flex-[1_0_0%] items-center justify-center gap-4 text-justify tablet:gap-6"
+              class="absolute bottom-16 tablet:bottom-10 desktop:bottom-8 flex justify-center gap-4 text-justify tablet:gap-6"
             >
               <button id="prev">left</button>
               <button id="next">right</button>
@@ -610,6 +581,7 @@
           </div>
         </div>
       </section>
+
       <section id="contact" class="h-64 scroll-mt-32 bg-cyan-500"></section>
     </div>
 
