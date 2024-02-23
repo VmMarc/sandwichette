@@ -537,7 +537,7 @@
       <!-- Carousel Magazines -->
       <section id="magazines" class="w-full scroll-mt-32">
         <div
-          class="flex h-screen max-w-6xl flex-col flex-[1_0_0%] items-center justify-center gap-8 tablet:gap-12 desktop:gap-16 px-5 tablet:px-16 desktop:px-24 m-[0_auto]"
+          class="flex h-full max-w-6xl flex-col flex-[1_0_0%] items-center justify-center gap-8 tablet:gap-12 desktop:gap-16 px-5 tablet:px-16 desktop:px-24 m-[0_auto]"
         >
           <div class="flex items-center gap-4 tablet:gap-8 self-stretch">
             <hr
@@ -547,33 +547,55 @@
           </div>
           <div
             id="carousel"
-            class="relative flex items-center justify-center h-full w-full mb-4"
+            class="flex overflow-hidden items-center justify-center h-full w-full mb-4"
           >
             <img
-              class="absolute h-[360px] w-[240px] -z-10"
+              class="h-[360px] w-[240px]"
               src="/img/noble-rot-240.jpg"
               alt="magazines noble rot"
               loading="lazy"
             />
             <img
-              class="absolute h-[360px] w-[240px] z-0"
+              class="h-[360px] w-[240px]"
               src="/img/cherry-bombe-240.jpg"
               alt="magazine cherry bomb"
               loading="lazy"
             />
             <img
-              class="absolute h-[360px] w-[240px] -z-20"
+              class="h-[360px] w-[240px]"
               src="/img/midnight-snack-240.jpg"
               alt="magazine mignight snack"
               loading="lazy"
             />
-            <div
-              class="absolute bottom-16 tablet:bottom-10 desktop:bottom-8 flex justify-center gap-4 text-justify tablet:gap-6"
-            >
-              <button id="prev">left</button>
-              <button id="next">right</button>
-              <script inline defer src="js/carousel.js"></script>
-            </div>
+            <img
+              class="h-[360px] w-[240px]"
+              src="/img/picnic-240.jpg"
+              alt="magazine picnic"
+              loading="lazy"
+            />
+            <img
+              class="h-[360px] w-[240px]"
+              src="/img/sandwich-240.jpg"
+              alt="magazine picnic"
+              loading="lazy"
+            />
+            <img
+              class="h-[360px] w-[240px]"
+              src="/img/serviette-240.jpg"
+              alt="magazine picnic"
+              loading="lazy"
+            />
+            <img
+              class="h-[360px] w-[240px]"
+              src="/img/the-gourmand-shop-240.jpg"
+              alt="magazine picnic"
+              loading="lazy"
+            />
+          </div>
+          <div class="flex justify-center gap-4 text-justify tablet:gap-6">
+            <button id="prev">left</button>
+            <button id="next">right</button>
+            <script inline defer src="js/carousel.js"></script>
           </div>
         </div>
       </section>
