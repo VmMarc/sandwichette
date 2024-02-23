@@ -707,10 +707,6 @@ i::before {
   inset: 0px;
 }
 
-.bottom-16 {
-  bottom: 4rem;
-}
-
 .left-1\/2 {
   left: 50%;
 }
@@ -737,18 +733,6 @@ i::before {
 
 .top-\[calc\(70\%_-_2rem\)\] {
   top: calc(70% - 2rem);
-}
-
-.-z-10 {
-  z-index: -10;
-}
-
-.-z-20 {
-  z-index: -20;
-}
-
-.z-0 {
-  z-index: 0;
 }
 
 .z-10 {
@@ -1284,10 +1268,6 @@ i::before {
 }
 
 @media (min-width: 768px) {
-  .tablet\:bottom-10 {
-    bottom: 2.5rem;
-  }
-
   .tablet\:left-\[calc\(50\%_-_2\.5rem\)\] {
     left: calc(50% - 2.5rem);
   }
@@ -1384,10 +1364,6 @@ i::before {
 }
 
 @media (min-width: 1280px) {
-  .desktop\:bottom-8 {
-    bottom: 2rem;
-  }
-
   .desktop\:left-\[calc\(50\%_-_3rem\)\] {
     left: calc(50% - 3rem);
   }
