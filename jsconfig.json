@@ -6,11 +6,7 @@
 		"allowSyntheticDefaultImports": true,
 		"checkJs": true,
 		"baseUrl": ".",
-		"paths": {
-			"*": [
-				"./gulp/*"
-			]
-		}
+		"paths": {}
 	},
 	"exclude": [
 		"node_modules",
@@ -19,6 +15,7 @@
 	],
 	"include": [
 		"src",
-		"gulp"
+		"gulp",
+		"gulpfile.js"
 	],
 }
