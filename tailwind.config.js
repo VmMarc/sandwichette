@@ -22,7 +22,7 @@ module.exports = {
         desktop: '1280px',
       },
       boxShadow: {
-        button: '4px 4px 2px 0px #000',
+        button: '8px 8px 8px 0px rgba(0,0,0,0.8);',
       },
       aspectRatio: {
         '16/10': '16 / 10',

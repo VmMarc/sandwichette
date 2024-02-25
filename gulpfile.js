@@ -1,6 +1,7 @@
 import { stream as critical } from 'critical';
 import fs from 'fs';
 import gulp from 'gulp';
+import access from 'gulp-accessibility';
 import cache from 'gulp-cached';
 import concat from 'gulp-concat';
 import csso from 'gulp-csso';
@@ -9,12 +10,14 @@ import favicons from 'gulp-favicons';
 import htmlmin from 'gulp-htmlmin';
 import imagemin, { gifsicle, mozjpeg, optipng, svgo } from 'gulp-imagemin';
 import inject from 'gulp-inject';
+import rename from 'gulp-rename';
 import size from 'gulp-size';
 import uglify from 'gulp-uglify';
 import webp from 'imagemin-webp';
 import fsync from 'node:fs';
 import path from 'node:path';
 import sharp from 'sharp';
+import w3cjs from 'w3cjs';
 
 const paths = {
   src: './src',
@@ -67,7 +70,7 @@ const images = {
           for (const dimensions of Object.values(
             imageConf[fileProp.name].breakpoints,
           )) {
-            await sharp(src)
+            await sharp(src, { pages: -1 })
               .resize({ ...dimensions })
               .toFile(
                 `${images.dest}/${fileProp.name}-${dimensions.width}${fileProp.ext}`,
@@ -115,7 +118,7 @@ const images = {
           },
         }),
       )
-      .pipe(gulp.dest(`${paths.tmp}/`));
+      .pipe(gulp.dest(`${paths.tmp}/favicon/`));
   },
 };
 
@@ -135,7 +138,7 @@ function fileInject() {
   return gulp
     .src(`${paths.src}/index.html`)
     .pipe(
-      inject(gulp.src(`${paths.tmp}/head-*.html`), {
+      inject(gulp.src(`${paths.tmp}/favicon/head-favicons.html`), {
         starttag: '<!-- inject:head:{{ext}} -->',
         transform: function (filePath, file) {
           return file.contents.toString('utf8');
@@ -157,47 +160,89 @@ function fileInject() {
 }
 
 export const image = gulp.series(images.compress, images.resize);
+export const faviconGen = images.favicon;
 
 export async function clean() {
   await fs.promises.rm(paths.tmp, { recursive: true, force: true });
   await fs.promises.rm(paths.dest, { recursive: true, force: true });
 }
 
-export function jsLint() {
-  return gulp
-    .src([`${paths.src}/js/*.js`])
-    .pipe(cache('linting'))
-    .pipe(eslint())
-    .pipe(eslint.format())
-    .pipe(eslint.failAfterError());
-}
+const tests = {
+  jsLint() {
+    return gulp
+      .src([`${paths.src}/js/*.js`])
+      .pipe(cache('linting'))
+      .pipe(eslint())
+      .pipe(eslint.format())
+      .pipe(eslint.failAfterError());
+  },
+
+  async w3c() {
+    await w3cjs.validate({
+      file: `${paths.src}/index.html`, // file can either be a local file or a remote file
+      //file: 'http://html5boilerplate.com/',
+      //input: '<html>...</html>',
+      //input: myBuffer,
+      output: 'json', // Defaults to 'json', other option includes html
+      //proxy: 'http://proxy:8080', // Default to null
+      callback: function (err, res) {
+        console.log(res);
+        // depending on the output type, res will either be a json object or a html string
+      },
+    });
+  },
+
+  accessibility() {
+    return gulp
+      .src(`${paths.src}/index.html`)
+      .pipe(
+        access({
+          force: true,
+        }),
+      )
+      .on('error', console.log)
+      .pipe(access.report({ reportType: 'txt' }))
+      .pipe(
+        rename({
+          extname: '.txt',
+        }),
+      )
+      .pipe(gulp.dest('./reports/'));
+  },
+};
+
+export const test = gulp.parallel(tests.accessibility, tests.w3c);
 
 export function html() {
-  return gulp
-    .src(`${paths.tmp}/index.html`)
-    .pipe(
-      critical({
-        inline: true,
-        base: `${paths.dest}/`,
-        css: `${paths.dest}/css/main.css`,
-      }),
-    )
-    .pipe(
-      htmlmin({
-        collapseBooleanAttributes: true,
-        collapseWhitespace: true,
-        minifyURLs: true,
-        removeComments: true,
-        removeEmptyAttributes: true,
-      }),
-    )
-    .pipe(gulp.dest(paths.dest))
-    .pipe(size());
+  return (
+    gulp
+      .src(`${paths.tmp}/index.html`)
+      .pipe(
+        // @ts-ignore
+        critical({
+          inline: true,
+          base: `${paths.dest}/`,
+          css: `${paths.dest}/css/main.css`,
+        }),
+      )
+      // @ts-ignore
+      .pipe(
+        htmlmin({
+          collapseBooleanAttributes: true,
+          collapseWhitespace: true,
+          minifyURLs: true,
+          removeComments: true,
+          removeEmptyAttributes: true,
+        }),
+      )
+      .pipe(gulp.dest(paths.dest))
+      .pipe(size())
+  );
 }
 
-function copyOther() {
+export function copyOther() {
   return gulp
-    .src(`${paths.src}/**/*.woff2`, { since: gulp.lastRun(copyOther) })
+    .src([`${paths.src}/**/*.woff2`, `${paths.tmp}/favicon/*.!(html)`])
     .pipe(gulp.dest(`${paths.dest}/`));
 }
 
@@ -212,28 +257,36 @@ export function css() {
 export const build = gulp.series(
   gulp.parallel(
     copyOther,
-    gulp.series(gulp.parallel(css, jsLint, images.favicon), fileInject, html),
+    gulp.series(
+      gulp.parallel(css, tests.jsLint, images.favicon),
+      fileInject,
+      html,
+    ),
     image,
   ),
 );
 
 export const watch = function () {
   gulp.watch(
-    `${paths.src}/index.html`,
-    { delay: 1000 },
-    gulp.series(gulp.parallel(css, jsLint, images.favicon), fileInject, html),
-  );
-  gulp.watch(
     [
-      `${paths.src}/css/main.css`,
-      `${paths.src}/css/input.css`,
+      `${paths.src}/index.html`,
+      `${paths.src}/css/*.css`,
       `./tailwind.config.js`,
     ],
     { delay: 1000 },
-    gulp.series(gulp.parallel(css, jsLint, images.favicon), fileInject, html),
+    gulp.series(
+      gulp.parallel(css, tests.jsLint, images.favicon),
+      fileInject,
+      html,
+    ),
   );
-  gulp.watch(`${paths.src}/js/*.js`, gulp.series(jsLint, fileInject, html));
-  gulp.watch(`${paths.src}/img/favicon.png`, images.favicon);
+  gulp.watch(
+    `${paths.src}/js/*.js`,
+    gulp.series(tests.jsLint, fileInject, html),
+  );
   gulp.watch([images.configFile, ...images.src], image);
-  gulp.watch([`${paths.src}/fonts/*.woff2`], copyOther);
+  gulp.watch(
+    [`${paths.src}/**/*.woff2`, `${paths.tmp}/favicon/*.!(html)`],
+    copyOther,
+  );
 };

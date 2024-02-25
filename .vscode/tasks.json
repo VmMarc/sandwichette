@@ -1,0 +1,41 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "shell",
+			"group": "build",
+			"label": "gulp: clean"
+		},
+		// {
+		// 	"type": "npm",
+		// 	"script": "tailwind",
+		// 	"group": "build",
+		// 	"label": "npm: tailwind",
+		// 	"detail": "npx tailwindcss -c ./tailwind.config.js -i ./src/css/input.css -o ./.tmp/css/main.css"
+		// },
+		// {
+		// 	"type": "gulp",
+		// 	"group": "build",
+		// 	"label": "gulp: build"
+		// },
+		// {
+		// 	"label": "clean + full build",
+		// 	"type": "shell",
+		// 	"dependsOrder": "sequence",
+		// 	"dependsOn": [
+		// 		"gulp: clean",
+		// 		"npm: tailwind",
+		// 		"gulp: build"
+		// 	],
+		// 	"presentation": {
+		// 		"echo": true,
+		// 		"reveal": "always",
+		// 		"focus": false,
+		// 		"panel": "shared",
+		// 		"showReuseMessage": false,
+		// 		"clear": false,
+		// 		"group": "build"
+		// 	}
+		// },
+	]
+}

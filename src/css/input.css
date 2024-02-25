@@ -27,7 +27,7 @@
   }
 
   body {
-    @apply text-[19px] text-black tablet:text-xl desktop:text-2xl;
+    @apply text-[calc(20px_+_(24_-_20)_*_((100vw_-_300px)_/_(1600_-_300)))] text-black;
   }
 
   button {
@@ -43,15 +43,15 @@
   }
 
   h1 {
-    @apply text-4xl tablet:text-5xl;
+    @apply text-[calc(40px_+_(50_-_40)_*_((100vw_-_300px)_/_(1600_-_300)));];
   }
 
   h2 {
-    @apply text-2xl tablet:text-3xl;
+    @apply text-[calc(32px_+_(40_-_32)_*_((100vw_-_300px)_/_(1600_-_300)))];
   }
 
   h3 {
-    @apply text-lg tablet:text-xl;
+    @apply text-[calc(20px_+_(24_-_20)_*_((100vw_-_300px)_/_(1600_-_300)))];
   }
 
   p {
@@ -60,12 +60,6 @@
 
   hr {
     @apply border-none;
-  }
-
-  i::before {
-    @apply inline-block;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
   }
 
   .nav-menu #nav__list > .menu__item > a {
@@ -112,36 +106,36 @@
 }
 
 @layer utilities {
-  #instagram-link__icon.link-primary:hover {
+  #instagram-btn__icon.link-primary:hover {
     @apply fill-[url(#background)];
   }
 
-  .overlay-hide.nav-menu #nav__list {
+  .overlay-collapse.nav-menu #nav__list {
     @apply left-full;
   }
 
-  .overlay-show.nav-menu #nav__list {
+  .overlay-toggle.nav-menu #nav__list {
     @apply left-0;
   }
 }
 
 #header.after-scroll {
-  @apply bg-gradient-to-r from-primary to-brand bg-[length:200%] from-50% to-50% shadow;
+  @apply bg-gradient-to-r from-primary to-brand bg-[length:200%] from-50% to-50% shadow-lg rounded-b-3xl;
 }
 
-#header.overlay-hide {
+#header.overlay-collapse {
   @apply bg-left;
 }
 
-#header.overlay-show {
+#header.overlay-toggle {
   @apply bg-right;
 }
 
-.overlay-hide.nav-menu #nav__list {
+.overlay-collapse.nav-menu #nav__list {
   @apply animate-slide-out;
 }
 
-.overlay-show.nav-menu #nav__list {
+.overlay-toggle.nav-menu #nav__list {
   @apply animate-slide-in;
 }
 
