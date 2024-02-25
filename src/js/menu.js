@@ -1,13 +1,11 @@
 // eslint-disable-next-line no-unused-vars
 function navMenuOpen() {
-  const navMenuIcon = document.getElementById('nav-menu__btn');
   const instaIcon = document.getElementById('instagram-btn__icon');
   const header = document.getElementById('header');
 
-  navMenuIcon.ariaLabel = 'Close navigation menu';
-  navMenuIcon.onclick = navMenuClose;
-  navMenuIcon.children[0].classList.add('hidden');
-  navMenuIcon.children[1].classList.remove('hidden');
+  document.getElementById('nav-menu__btn').onclick = navMenuClose;
+  document.getElementById('nav-menu__btn-toggle').classList.add('hidden');
+  document.getElementById('nav-menu__btn-collapse').classList.remove('hidden');
 
   instaIcon.classList.remove('link-primary');
   instaIcon.classList.add('link-secondary');
@@ -17,14 +15,12 @@ function navMenuOpen() {
 
 // eslint-disable-next-line no-unused-vars
 function navMenuClose() {
-  const navMenuIcon = document.getElementById('nav-menu__btn');
   const instaIcon = document.getElementById('instagram-btn__icon');
   const header = document.getElementById('header');
 
-  navMenuIcon.ariaLabel = 'Open navigation menu';
-  navMenuIcon.onclick = navMenuOpen;
-  navMenuIcon.children[0].classList.remove('hidden');
-  navMenuIcon.children[1].classList.add('hidden');
+  document.getElementById('nav-menu__btn').onclick = navMenuOpen;
+  document.getElementById('nav-menu__btn-toggle').classList.remove('hidden');
+  document.getElementById('nav-menu__btn-collapse').classList.add('hidden');
 
   instaIcon.classList.remove('link-secondary');
   instaIcon.classList.add('link-primary');
@@ -33,8 +29,9 @@ function navMenuClose() {
 }
 
 const viewport = window.visualViewport;
-
+// const header = document.getElementById('header');
 viewport.addEventListener('resize', () => {
+  console.log(`${viewport.height}, ${viewport.width}`);
   if (
     viewport.width > 1280 &&
     document.getElementById('header').classList.contains('overlay-toggle')

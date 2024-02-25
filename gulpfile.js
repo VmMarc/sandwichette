@@ -1,3 +1,4 @@
+import { exec } from 'child_process';
 import { stream as critical } from 'critical';
 import fs from 'fs';
 import gulp from 'gulp';
@@ -17,12 +18,40 @@ import webp from 'imagemin-webp';
 import fsync from 'node:fs';
 import path from 'node:path';
 import sharp from 'sharp';
-import w3cjs from 'w3cjs';
 
 const paths = {
   src: './src',
   dest: './dist',
   tmp: './.tmp',
+};
+
+const tests = {
+  jsLint() {
+    return gulp
+      .src([`${paths.src}/js/*.js`])
+      .pipe(cache('linting'))
+      .pipe(eslint())
+      .pipe(eslint.format())
+      .pipe(eslint.failAfterError());
+  },
+
+  accessibility() {
+    return gulp
+      .src(`${paths.src}/index.html`)
+      .pipe(
+        access({
+          force: true,
+        }),
+      )
+      .on('error', console.log)
+      .pipe(access.report({ reportType: 'txt' }))
+      .pipe(
+        rename({
+          extname: '.txt',
+        }),
+      )
+      .pipe(gulp.dest('./reports/'));
+  },
 };
 
 const images = {
@@ -121,146 +150,135 @@ const images = {
       .pipe(gulp.dest(`${paths.tmp}/favicon/`));
   },
 };
+export const image = gulp.series(images.compress, images.resize);
+const css = {
+  build() {
+    return exec(
+      'npx tailwindcss -c tailwind.config.js -i src/css/input.css -o .tmp/css/main.css',
+    );
+  },
+  minify() {
+    return gulp
+      .src(`${paths.tmp}/css/main.css`)
+      .pipe(csso())
+      .pipe(gulp.dest(`${paths.dest}/css/`))
+      .pipe(size());
+  },
 
-function fileInject() {
-  const headScripts = gulp
-    .src(`${paths.src}/js/{header,menu}.js`)
-    .pipe(concat('headerScripts.js'))
-    .pipe(uglify())
-    .pipe(gulp.dest(`${paths.tmp}/js/`));
+  critical() {
+    return (
+      gulp
+        .src(`${paths.tmp}/index.html`)
+        .pipe(
+          // @ts-ignore
+          critical({
+            inline: true,
+            base: `${paths.dest}/`,
+            css: `${paths.dest}/css/main.css`,
+          }),
+        )
+        // @ts-ignore
+        .pipe(gulp.dest(paths.dest))
+        .pipe(size())
+    );
+  },
+};
 
-  const footScripts = gulp
-    .src(`${paths.src}/js/{accordion,carousel,disclaimer}.js`)
-    .pipe(concat('app.js'))
-    .pipe(uglify())
-    .pipe(gulp.dest(`${paths.dest}/js/`));
+const html = {
+  inject() {
+    const headScripts = gulp
+      .src(`${paths.src}/js/{header,menu}.js`)
+      .pipe(concat('headerScripts.js'))
+      .pipe(uglify())
+      .pipe(gulp.dest(`${paths.tmp}/js/`));
 
+    const footScripts = gulp
+      .src(`${paths.src}/js/{accordion,carousel,disclaimer}.js`)
+      .pipe(concat('app.js'))
+      .pipe(uglify())
+      .pipe(gulp.dest(`${paths.dest}/js/`));
+
+    return gulp
+      .src(`${paths.src}/index.html`)
+      .pipe(
+        inject(gulp.src(`${paths.tmp}/favicon/head-favicons.html`), {
+          starttag: '<!-- inject:head:{{ext}} -->',
+          transform: function (filePath, file) {
+            return file.contents.toString('utf8');
+          },
+        }),
+      )
+      .pipe(
+        inject(headScripts, {
+          starttag: '<!-- inject:head:{{ext}} -->',
+          transform: function (filePath, file) {
+            return (
+              '<script defer>' + file.contents.toString('utf8') + '</script>'
+            );
+          },
+        }),
+      )
+      .pipe(inject(footScripts, { ignorePath: '/dist' }))
+      .pipe(gulp.dest(`${paths.tmp}/`));
+  },
+
+  minify() {
+    return (
+      gulp
+        .src(`${paths.tmp}/index.html`)
+        .pipe(
+          // @ts-ignore
+          critical({
+            inline: true,
+            base: `${paths.dest}/`,
+            css: `${paths.dest}/css/main.css`,
+          }),
+        )
+        // @ts-ignore
+        .pipe(
+          htmlmin({
+            collapseBooleanAttributes: true,
+            collapseWhitespace: true,
+            minifyURLs: true,
+            removeComments: true,
+            removeEmptyAttributes: true,
+          }),
+        )
+        .pipe(gulp.dest(paths.dest))
+        .pipe(size())
+    );
+  },
+};
+
+export function copyFiles() {
   return gulp
-    .src(`${paths.src}/index.html`)
-    .pipe(
-      inject(gulp.src(`${paths.tmp}/favicon/head-favicons.html`), {
-        starttag: '<!-- inject:head:{{ext}} -->',
-        transform: function (filePath, file) {
-          return file.contents.toString('utf8');
-        },
-      }),
-    )
-    .pipe(
-      inject(headScripts, {
-        starttag: '<!-- inject:head:{{ext}} -->',
-        transform: function (filePath, file) {
-          return (
-            '<script defer>' + file.contents.toString('utf8') + '</script>'
-          );
-        },
-      }),
-    )
-    .pipe(inject(footScripts, { ignorePath: '/dist' }))
-    .pipe(gulp.dest(`${paths.tmp}/`));
+    .src([
+      `${paths.src}/**/*.woff2`,
+      `${paths.tmp}/favicon/*.!(html)`,
+      `${paths.src}/robots.txt`,
+    ])
+    .pipe(gulp.dest(`${paths.dest}/`));
 }
 
-export const image = gulp.series(images.compress, images.resize);
-export const faviconGen = images.favicon;
+export const test = tests.accessibility;
 
 export async function clean() {
   await fs.promises.rm(paths.tmp, { recursive: true, force: true });
   await fs.promises.rm(paths.dest, { recursive: true, force: true });
 }
 
-const tests = {
-  jsLint() {
-    return gulp
-      .src([`${paths.src}/js/*.js`])
-      .pipe(cache('linting'))
-      .pipe(eslint())
-      .pipe(eslint.format())
-      .pipe(eslint.failAfterError());
-  },
-
-  async w3c() {
-    await w3cjs.validate({
-      file: `${paths.src}/index.html`, // file can either be a local file or a remote file
-      //file: 'http://html5boilerplate.com/',
-      //input: '<html>...</html>',
-      //input: myBuffer,
-      output: 'json', // Defaults to 'json', other option includes html
-      //proxy: 'http://proxy:8080', // Default to null
-      callback: function (err, res) {
-        console.log(res);
-        // depending on the output type, res will either be a json object or a html string
-      },
-    });
-  },
-
-  accessibility() {
-    return gulp
-      .src(`${paths.src}/index.html`)
-      .pipe(
-        access({
-          force: true,
-        }),
-      )
-      .on('error', console.log)
-      .pipe(access.report({ reportType: 'txt' }))
-      .pipe(
-        rename({
-          extname: '.txt',
-        }),
-      )
-      .pipe(gulp.dest('./reports/'));
-  },
-};
-
-export const test = gulp.parallel(tests.accessibility, tests.w3c);
-
-export function html() {
-  return (
-    gulp
-      .src(`${paths.tmp}/index.html`)
-      .pipe(
-        // @ts-ignore
-        critical({
-          inline: true,
-          base: `${paths.dest}/`,
-          css: `${paths.dest}/css/main.css`,
-        }),
-      )
-      // @ts-ignore
-      .pipe(
-        htmlmin({
-          collapseBooleanAttributes: true,
-          collapseWhitespace: true,
-          minifyURLs: true,
-          removeComments: true,
-          removeEmptyAttributes: true,
-        }),
-      )
-      .pipe(gulp.dest(paths.dest))
-      .pipe(size())
-  );
-}
-
-export function copyOther() {
-  return gulp
-    .src([`${paths.src}/**/*.woff2`, `${paths.tmp}/favicon/*.!(html)`])
-    .pipe(gulp.dest(`${paths.dest}/`));
-}
-
-export function css() {
-  return gulp
-    .src(`${paths.tmp}/css/main.css`)
-    .pipe(csso())
-    .pipe(gulp.dest(`${paths.dest}/css/`))
-    .pipe(size());
-}
-
 export const build = gulp.series(
   gulp.parallel(
-    copyOther,
+    copyFiles,
     gulp.series(
-      gulp.parallel(css, tests.jsLint, images.favicon),
-      fileInject,
-      html,
+      gulp.parallel(
+        gulp.series(css.build, css.minify),
+        tests.jsLint,
+        images.favicon,
+      ),
+      html.inject,
+      css.critical,
+      html.minify,
     ),
     image,
   ),
@@ -269,24 +287,25 @@ export const build = gulp.series(
 export const watch = function () {
   gulp.watch(
     [
+      `${paths.src}/js/*.js`,
       `${paths.src}/index.html`,
-      `${paths.src}/css/*.css`,
+      `${paths.src}/css/main.css`,
       `./tailwind.config.js`,
     ],
-    { delay: 1000 },
     gulp.series(
-      gulp.parallel(css, tests.jsLint, images.favicon),
-      fileInject,
-      html,
+      gulp.parallel(gulp.series(css.build, css.minify), tests.jsLint),
+      html.inject,
+      css.critical,
+      html.minify,
     ),
-  );
-  gulp.watch(
-    `${paths.src}/js/*.js`,
-    gulp.series(tests.jsLint, fileInject, html),
   );
   gulp.watch([images.configFile, ...images.src], image);
   gulp.watch(
-    [`${paths.src}/**/*.woff2`, `${paths.tmp}/favicon/*.!(html)`],
-    copyOther,
+    [
+      `${paths.src}/**/*.woff2`,
+      `${paths.tmp}/favicon/*.!(html)`,
+      `${paths.src}/robots.txt`,
+    ],
+    copyFiles,
   );
 };

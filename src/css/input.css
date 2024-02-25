@@ -120,7 +120,7 @@
 }
 
 #header.after-scroll {
-  @apply bg-gradient-to-r from-primary to-brand bg-[length:200%] from-50% to-50% shadow-lg rounded-b-3xl;
+  @apply bg-gradient-to-r from-primary to-brand bg-[length:200%] from-50% to-50% shadow-lg;
 }
 
 #header.overlay-collapse {
