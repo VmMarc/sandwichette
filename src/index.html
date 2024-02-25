@@ -2,6 +2,7 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible" />
     <title>Sandwichette – Fine cuisine in a dwich</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
@@ -26,6 +27,9 @@
       content="Des sandwichs, des chouquettes, des choses à boire et des magazines food 🥪🍰🍷"
     />
 
+    <!-- inject:head:html -->
+    <!-- endinject -->
+
     <link
       rel="preload"
       fetchpriority="high"
@@ -33,7 +37,7 @@
       imagesrcset="/img/hero-bg-2897.webp 2897w, /img/hero-bg-1920.webp 1920w, /img/hero-bg-1600.webp 1600w, /img/hero-bg-1280.webp 1280w, /img/hero-bg-428.webp 428w, /img/hero-bg-360.webp 360w"
       imagesizes="(max-height: 800px and max-width: 360px) 360w, (max-height: 926px and max-width: 428px) 428w, (min-height: 1357px) 2897w, (min-height: 1131px) 1920w, (min-height: 905px) 1600w, (min-height: 724px) 1280w, (min-height: 604px) 1024w, (min-height: 452px) 854w, 100vw"
     />
-    <link rel="preload" href="/img/logo.svg" as="image" />
+    <link rel="preload" fetchpriority="high" href="/img/logo.svg" as="image" />
 
     <link
       rel="preload"
@@ -41,57 +45,60 @@
       href="/fonts/cooper_bold_bt.woff2"
       crossorigin
     />
-    <link
-      rel="preload"
-      as="font"
-      href="/fonts/fa-brands-400.woff2"
-      crossorigin
-    />
-    <link
-      rel="preload"
-      as="font"
-      href="/fonts/fa-solid-900.woff2"
-      crossorigin
-    />
 
-    <!-- build:css css/main.css -->
     <link
       rel="stylesheet"
-      href="/css/global.css"
+      href="/css/main.css"
       type="text/css"
       charset="UTF-8"
     />
-    <link href="/css/fontawesome/fontawesome.css" rel="stylesheet" />
-    <link href="/css/fontawesome/brands.css" rel="stylesheet" />
-    <link href="/css/fontawesome/solid.css" rel="stylesheet" />
-    <link href="/css/fontawesome/regular.css" rel="stylesheet" />
-    <!-- endbuild -->
 
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="manifest" href="/site.webmanifest" />
-    <meta name="msapplication-TileColor" content="#da532c" />
-    <meta name="theme-color" content="#ffffff" />
+    <!-- inject:head:js -->
+    <!-- endinject -->
   </head>
 
   <body class="w-full">
     <header>
       <div
         id="header"
-        class="fixed inset-0 z-10 flex h-28 w-full items-center justify-between px-8 py-2 transition-all duration-500 ease-out bg-left bg-gradient-to-r from-transparent to-brand bg-[length:200%] from-50% to-50%"
+        class="fixed inset-0 z-10 flex h-28 w-full items-center px-8 py-2 bg-gradient-to-r from-transparent to-brand bg-[length:200%] from-50% to-50% overlay-hide max-desktop:nav-menu desktop:nav-bar self-stretch"
       >
-        <div class="flex grow justify-start">
+        <div class="flex-[1_0_0%]">
           <a
-            id="instagram-icon"
-            class="hover:bg-insta-gradient hover:bg-clip-text hover:text-transparent"
+            id="instagram-link"
             href="https://www.instagram.com/sandwichetteparis"
             aria-label="Instagram"
           >
-            <i class="fa-brands fa-instagram text-3xl"></i>
+            <svg
+              id="instagram-link__icon"
+              class="h-8 w-8 link-primary"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 448 512"
+              aria-hidden="true"
+            >
+              <path
+                d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"
+              />
+              <defs>
+                <pattern
+                  id="background"
+                  patternUnits="objectBoundingBox"
+                  width="1"
+                  height="1"
+                >
+                  <use xlink:href="#instaGradient" />
+                </pattern>
+                <image
+                  id="instaGradient"
+                  width="512"
+                  height="512"
+                  xlink:href="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAlgCWAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCABAAEADASIAAhEBAxEB/8QAGwAAAgMBAQEAAAAAAAAAAAAAAgMBBQYEAAf/xAAkEAACAQMDBAMBAAAAAAAAAAAAAQIDBBEhIkEFEjFxE1FhFP/EABwBAAICAwEBAAAAAAAAAAAAAAMEBQYAAgcBCP/EACARAAIDAQACAgMAAAAAAAAAAAABAgMEBTFBERMVIVH/2gAMAwEAAhEDEQA/AMlOW+WfslSEzlvl7I7jsH2pli/HSkdDkLkwO8hyNXYkPZ+fKJEmLbCbBfgxWomKs7igckJtNavyeJXlBVYhlVsfUW+XsWzsqUt8vYuVIpcexH+klViic6CDcMAeAj6qfscjhj6QMiAyMBa+gn7PJZEheCYrVB4JitUPR2foC85f1LbfLTkXK1/DSTs9z05A/i/Dg67bT8mR0JGXqWr+jnnbP6NdKwzwIqdO/B2nt/PsZhtSMr8DXAEqeDRVbLHBwV7bHBM5uum/IxG9TKhxJj5Q2tT7RKymiwU9BSXkOq1JfJ9gdnuenIcbLPBbfEu5+x9Oij59leygvS0imXT88CqvTtPBqadunwRWtl2+DWO2UWCW1pmFurHGdCjvLTGdDeX1Ba6Gc6hRWpM5OhJMmMmpsxV3b4bK+VLEjRX1PVlVUhuLbk3ycSx02to//9k="
+                ></image>
+              </defs>
+            </svg>
           </a>
         </div>
-        <div class="h-full grow-0">
+        <div class="h-full">
           <img
             id="sandwichette-logo"
             class="aspect-16/10 w-full object-cover"
@@ -99,97 +106,58 @@
             alt="Logo Sandwichette"
           />
         </div>
-        <nav id="nav" class="shrink-0 grow basis-0 desktop:block">
-          <ul
-            id="nav-list"
-            class="hidden items-center justify-end gap-7 desktop:flex"
-          >
-            <li>
-              <a class="text-nowrap text-lg" href="#apropos">À propos</a>
+        <nav id="nav" class="flex-[1_0_0%]">
+          <ul id="nav__list" class="flex items-center">
+            <li class="menu__item">
+              <a href="#apropos">À propos</a>
             </li>
-            <li>
-              <a class="text-nowrap text-lg" href="#philosophie">Philosophie</a>
+            <li class="menu__item">
+              <a href="#philosophie">Philosophie</a>
             </li>
-            <li>
-              <a class="text-nowrap text-lg" href="#magazines">Magazines</a>
+            <li class="menu__item">
+              <a href="#magazines">Magazines</a>
             </li>
-            <li>
-              <a class="text-nowrap text-lg" href="#contact">Contact</a>
+            <li class="menu__item">
+              <a href="#contact">Contact</a>
             </li>
           </ul>
-          <div id="burger" class="flex grow justify-end desktop:hidden">
+          <div
+            id="nav-menu__button"
+            class="flex grow justify-end desktop:hidden"
+          >
             <a
-              id="nav-menu__open"
-              class="block"
               href="javascript:void(0);"
               aria-label="menu"
-              onclick="burgerOpen()"
+              onclick="navMenuOpen()"
+              id="nav-menu__icon"
             >
-              <i id="burger-open-icon" class="fa-solid fa-bars text-3xl"></i>
-            </a>
-            <a
-              id="nav-menu__close"
-              class="hidden btn-secondary"
-              href="javascript:void(0);"
-              onclick="burgerClose()"
-            >
-              <i id="burger-close-icon" class="fa-solid fa-xmark text-3xl"></i>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 448 512"
+                class="h-8 w-8 link-primary"
+                id="nav-menu__icon-open"
+                aria-hidden="true"
+              >
+                <path
+                  d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"
+                />
+              </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 384 512"
+                class="w-8 h-8 hidden link-secondary active:animate-spin-once"
+                id="nav-menu__icon-close"
+                aria-hidden="true"
+              >
+                <path
+                  d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+                />
+              </svg>
             </a>
           </div>
-          <script inline defer src="js/burgerMenu.js"></script>
         </nav>
       </div>
     </header>
-    <script inline defer src="js/header.js"></script>
-
-    <!-- <div
-      id="navbar-burger"
-      class="fixed overflow-y-scroll hidden p-5 tablet:p-16 desktop:p-24 inset-0 overscroll-contain w-full h-full z-20 bg-brand/75 backdrop-blur-lg"
-    >
-      <div
-        id="navbar-burger__header"
-        class="flex h-28 w-full items-center justify-between px-8 py-2"
-      >
-        <div class="flex grow justify-start">
-          <a
-            class="hover:bg-insta-gradient hover:bg-clip-text hover:text-transparent"
-            href="https://www.instagram.com/sandwichetteparis"
-            aria-label="Instagram"
-          >
-            <i class="fa-brands fa-instagram text-3xl"></i>
-          </a>
-        </div>
-        <div class="h-full grow-0">
-          <img
-            id="logo"
-            class="aspect-16/10 w-full object-cover"
-            src="/img/logo.svg"
-            alt="Logo Sandwichette"
-          />
-        </div>
-        <div class="flex grow justify-end desktop:hidden">
-          <a href="javascript:void(0);" onclick="closeBurger()">
-            <i id="close-burger-icon" class="fa-solid fa-xmark text-3xl"></i>
-          </a>
-        </div>
-      </div>
-      <div id="navbar-burger__list" class="text-center">
-        <ul class="items-center justify-end gap-7">
-          <li>
-            <a class="text-nowrap text-lg" href="#apropos">À propos</a>
-          </li>
-          <li>
-            <a class="text-nowrap text-lg" href="#philosophie">Philosophie</a>
-          </li>
-          <li>
-            <a class="text-nowrap text-lg" href="#magazines">Magazines</a>
-          </li>
-          <li>
-            <a class="text-nowrap text-lg" href="#contact">Contact</a>
-          </li>
-        </ul>
-      </div>
-    </div> -->
 
     <div id="hero" class="h-screen mb-16 tablet:mb-24 desktop:mb-32">
       <picture id="hero-bg">
@@ -227,7 +195,15 @@
         id="scroll-icon"
         class="absolute left-1/2 top-[80vh] tablet:top-[90vh]"
       >
-        <i class="fa-solid fa-angles-down animate-bounce text-3xl"></i>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 448 512"
+          class="animate-bounce h-8 w-8"
+        >
+          <path
+            d="M246.6 470.6c-12.5 12.5-32.8 12.5-45.3 0l-160-160c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L224 402.7 361.4 265.4c12.5-12.5 32.8-12.5 45.3 0s12.5 32.8 0 45.3l-160 160zm160-352l-160 160c-12.5 12.5-32.8 12.5-45.3 0l-160-160c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L224 210.7 361.4 73.4c12.5-12.5 32.8-12.5 45.3 0s12.5 32.8 0 45.3z"
+          />
+        </svg>
       </div>
     </div>
 
@@ -336,7 +312,7 @@
           class="flex max-h-80 w-full flex-[1_0_0%] flex-col items-center justify-start overflow-hidden bg-brand py-16 transition-[max-height_500ms_ease-out] duration-500"
         >
           <div
-            class="flex w-full max-w-6xl flex-col flex-[1_0_0%] items-center justify-center gap-8 tablet:gap-12 desktop:gap-16 text-[19px] px-5 tablet:px-16 desktop:px-24"
+            class="flex w-full max-w-6xl flex-col flex-[1_0_0%] items-center justify-center gap-8 tablet:gap-12 desktop:gap-16 px-5 tablet:px-16 desktop:px-24"
           >
             <div class="flex items-center gap-4 tablet:gap-8 self-stretch">
               <hr
@@ -392,16 +368,10 @@
                     srcset="/img/cheese-sandwich-240.webp"
                   />
                   <img
-                    class="w-60 aspect-square object-cover object-center"
+                    class="w-60 blob1 aspect-square object-cover object-center"
                     src="/img/cheese-sandwich-240.jpg"
                     alt="cheese-sandwich"
                     loading="lazy"
-                    style="
-                      mask: url('/img/blob1.svg');
-                      mask-size: contain;
-                      mask-position: center;
-                      mask-repeat: no-repeat;
-                    "
                   />
                 </picture>
                 <p class="flex-[1_0_0%]">
@@ -427,17 +397,12 @@
                 </p>
                 <picture>
                   <source type="image/webp" srcset="/img/dessert-240.webp" />
+                  <!-- TODO: remplacer les classes blob1 et blob2 par une meilleure solution -->
                   <img
-                    class="w-60 aspect-square object-cover object-center"
+                    class="w-60 aspect-square object-cover object-center blob2"
                     src="/img/dessert-240.jpg"
                     alt="dessert"
                     loading="lazy"
-                    style="
-                      mask: url('/img/blob2.svg');
-                      mask-size: contain;
-                      mask-position: center;
-                      mask-repeat: no-repeat;
-                    "
                   />
                 </picture>
               </div>
@@ -456,165 +421,35 @@
               class="w-full fill-brand"
             ></path>
           </svg>
+          <!-- TODO: Ameliorer le design du bouton pour ouvrir l'accordion -->
           <button
             id="accordion-btn"
             aria-label="Open accordion"
-            class="absolute top-[calc(70%_-_2rem)] left-[calc(50%_-_2rem)] tablet:top-[calc(70%_-_2.5rem)] tablet:left-[calc(50%_-_2.5rem)] desktop:top-[calc(70%_-_3rem)] desktop:left-[calc(50%_-_3rem)] h-16 w-16 items-center justify-center rounded-full border-4 border-solid border-primary bg-brand p-4 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-button tablet:h-20 tablet:w-20 desktop:h-24 desktop:w-24"
+            class="absolute top-[calc(70%_-_2rem)] left-[calc(50%_-_2rem)] desktop:top-[calc(70%_-_3rem)] desktop:left-[calc(50%_-_3rem)] h-16 w-16 rounded-full ring-2 ring-offset-4 ring-offset-primary ring-black bg-brand p-4 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-button desktop:h-20 desktop:w-20"
             title="En savoir plus"
             onclick="accordionOpen()"
           >
-            <i
-              class="fa-solid fa-angle-down text-2xl tablet:text-3xl desktop:text-4xl"
-            ></i>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 448 512"
+              class="desktop:w-10 desktop:h-10 w-8 h-8 m-[0_auto] fill-white"
+              aria-hidden="true"
+            >
+              <path
+                d="M201.4 342.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 274.7 86.6 137.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+              />
+            </svg>
           </button>
         </div>
-        <script inline src="js/accordion.js"></script>
       </section>
-
-      <!-- Carousel Magazines -->
       <section
         id="magazines"
-        class="flex max-w-6xl grow scroll-mt-32 flex-col items-center justify-center gap-4 px-5 tablet:gap-10 tablet:px-16 desktop:gap-12 desktop:px-24"
-      >
-        <div class="flex items-center gap-4 self-stretch">
-          <hr
-            class="h-[8px] w-16 rounded-md bg-black tablet:h-[10px] tablet:w-24 desktop:h-[12px] desktop:w-36"
-          />
-          <h1>Magazines</h1>
-        </div>
-        <div
-          id="carousel"
-          class="h-96 w-64 block relative object-center object-cover gap-4 tablet:gap-6"
-        >
-          <!-- <picture> -->
-          <!-- <source type="image/webp" srcset="/img/noble-rot.webp" /> -->
-          <img
-            class="absolute w-full h-full"
-            src="/img/noble-rot-240.jpg"
-            alt="magazines noble rot"
-            loading="lazy"
-          />
-          <!-- </picture> -->
-
-          <!-- <picture> -->
-          <!-- <source type="image/webp" srcset="/img/cherry-bombe.webp" /> -->
-          <img
-            class="absolute w-full h-full"
-            src="/img/cherry-bombe.jpg"
-            alt="magazine cherry bomb"
-            loading="lazy"
-          />
-          <!-- </picture> -->
-
-          <!-- <picture> -->
-          <!-- <source type="image/webp" srcset="/img/midnight-snack.webp" /> -->
-          <img
-            class="absolute w-full h-full"
-            src="/img/midnight-snack.jpg"
-            alt="magazine mignight snack"
-            loading="lazy"
-          />
-          <!-- </picture> -->
-
-          <!-- <picture>
-          <source type="image/webp" srcset="/img/picnic.webp" />
-          <img class="h-96 w-64" src="/img/picnic.jpg" alt="magazine picnic" loading="lazy" />
-        </picture>
-        <picture>
-          <source type="image/webp" srcset="/img/sandwich.webp" />
-          <img class="h-96 w-64" src="/img/sandwich.jpg" alt="magazine sandwich" loading="lazy" />
-        </picture>
-        <picture>
-          <source type="image/webp" srcset="/img/serviette.webp" />
-          <img class="h-96 w-64" src="/img/serviette.jpg" alt="magazines serviette" loading="lazy" />
-        </picture>
-        <picture>
-          <source type="image/webp" srcset="/img/the-gourmand-shop.webp" />
-          <img class="h-96 w-64" src="/img/the-gourmand-shop.jpg" alt="magazines the gourmand shop"
-            loading="lazy" />
-        </picture> -->
-        </div>
-        <div
-          class="flex flex-[1_0_0%] items-center justify-center gap-4 text-justify tablet:gap-6"
-        >
-          <button id="prev">left</button>
-          <button id="next">right</button>
-          <script inline defer src="js/carousel.js"></script>
-        </div>
-      </section>
-
-      <!-- Carousel Magazines -->
+        class="h-64 w-full scroll-mt-32 bg-cyan-500"
+      ></section>
       <section
-        id="magazines"
-        class="flex max-w-6xl grow scroll-mt-32 flex-col items-center justify-center gap-4 px-5 tablet:gap-10 tablet:px-16 desktop:gap-12 desktop:px-24"
-      >
-        <div class="flex items-center gap-4 self-stretch">
-          <hr
-            class="h-[8px] w-16 rounded-md bg-black tablet:h-[10px] tablet:w-24 desktop:h-[12px] desktop:w-36"
-          />
-          <h1>Magazines</h1>
-        </div>
-        <div
-          id="carousel"
-          class="h-96 w-64 block relative object-center object-cover gap-4 tablet:gap-6"
-        >
-          <!-- <picture> -->
-          <!-- <source type="image/webp" srcset="/img/noble-rot.webp" /> -->
-          <img
-            class="absolute w-full h-full"
-            src="/img/noble-rot-240.jpg"
-            alt="magazines noble rot"
-            loading="lazy"
-          />
-          <!-- </picture> -->
-
-          <!-- <picture> -->
-          <!-- <source type="image/webp" srcset="/img/cherry-bombe.webp" /> -->
-          <img
-            class="absolute w-full h-full"
-            src="/img/cherry-bombe.jpg"
-            alt="magazine cherry bomb"
-            loading="lazy"
-          />
-          <!-- </picture> -->
-
-          <!-- <picture> -->
-          <!-- <source type="image/webp" srcset="/img/midnight-snack.webp" /> -->
-          <img
-            class="absolute w-full h-full"
-            src="/img/midnight-snack.jpg"
-            alt="magazine mignight snack"
-            loading="lazy"
-          />
-          <!-- </picture> -->
-
-          <!-- <picture>
-          <source type="image/webp" srcset="/img/picnic.webp" />
-          <img class="h-96 w-64" src="/img/picnic.jpg" alt="magazine picnic" loading="lazy" />
-        </picture>
-        <picture>
-          <source type="image/webp" srcset="/img/sandwich.webp" />
-          <img class="h-96 w-64" src="/img/sandwich.jpg" alt="magazine sandwich" loading="lazy" />
-        </picture>
-        <picture>
-          <source type="image/webp" srcset="/img/serviette.webp" />
-          <img class="h-96 w-64" src="/img/serviette.jpg" alt="magazines serviette" loading="lazy" />
-        </picture>
-        <picture>
-          <source type="image/webp" srcset="/img/the-gourmand-shop.webp" />
-          <img class="h-96 w-64" src="/img/the-gourmand-shop.jpg" alt="magazines the gourmand shop"
-            loading="lazy" />
-        </picture> -->
-        </div>
-        <div
-          class="flex flex-[1_0_0%] items-center justify-center gap-4 text-justify tablet:gap-6"
-        >
-          <button id="prev">left</button>
-          <button id="next">right</button>
-          <script inline defer src="js/carousel.js"></script>
-        </div>
-      </section>
-      <section id="contact" class="h-64 scroll-mt-32 bg-cyan-500"></section>
+        id="contact"
+        class="h-64 w-full scroll-mt-32 bg-orange-500"
+      ></section>
     </div>
 
     <footer class="relative text-white w-full h-[calc(100vh_-_7rem)]">
@@ -650,17 +485,27 @@
       </picture>
       <div
         id="overlay"
-        class="fixed overflow-y-scroll hidden p-5 tablet:p-16 desktop:p-24 inset-0 overscroll-contain w-full h-full z-20 bg-black/75 backdrop-blur-lg"
+        class="fixed overflow-y-scroll hidden p-5 tablet:p-8 desktop:p-12 inset-0 overscroll-contain w-full h-full z-20 bg-black/75 backdrop-blur-lg"
       >
         <a href="javascript:void(0);" onclick="disclaimerClose()">
-          <i
-            class="absolute hover:text-brand fa-solid fa-xmark top-4 right-4 tablet:top-8 tablet:right-8 desktop:top-16 desktop:right-16 text-3xl"
-          ></i>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 384 512"
+            class="absolute desktop:w-12 desktop:h-12 tablet:w-10 tablet:h-10 w-8 h-8 fill-primary hover:fill-brand top-4 right-4 tablet:top-6 tablet:right-6 desktop:top-8 desktop:right-8 active:animate-spin-once"
+            id="disclaimer-close-icon"
+            aria-hidden="true"
+          >
+            <path
+              d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+            />
+          </svg>
         </a>
         <div
-          class="mx-auto flex max-w-6xl grow scroll-mt-32 flex-col items-center justify-center gap-4 tablet:gap-12 desktop:gap-16 px-5 tablet:px-16 desktop:px-24 self-stretch"
+          class="mx-auto flex max-w-7xl grow scroll-mt-32 flex-col items-center justify-center pt-4 tablet:pt-12 desktop:pt-16 px-5 tablet:px-16 desktop:px-24 self-stretch"
         >
-          <div class="flex items-center gap-4 tablet:gap-8 self-stretch">
+          <div
+            class="flex items-center mb-4 tablet:mb-6 desktop:mb-8 gap-4 tablet:gap-8 self-stretch"
+          >
             <hr
               class="h-[8px] w-16 rounded-md bg-white tablet:h-[10px] tablet:w-24 desktop:h-[12px] desktop:w-36"
             />
@@ -668,42 +513,50 @@
           </div>
           <ol>
             <div
-              class="flex max-w-5xl flex-[1_0_0%] flex-col items-center justify-center text-left gap-8 px-5 tablet:gap-12 tablet:px-16 desktop:gap-16 desktop:px-24"
+              class="flex max-w-6xl flex-[1_0_0%] flex-col items-center justify-center text-left gap-8 px-5 tablet:gap-12 tablet:px-16 desktop:gap-16 desktop:px-24"
             >
               <li
                 class="gap-6 px-2 tablet:gap-12 tablet:px-4 desktop:gap-16 desktop:px-8"
               >
-                <h2 class="text-left pb-4">
-                  <u>1. Présentation du site internet</u>
-                </h2>
                 <div class="mb-2">
-                  <h3 class="text-left py-1">
+                  <h2 class="text-left py-1">
                     • <strong>Propriétaire</strong> :
-                  </h3>
-                  <p class="pl-6 min-w-60 flex-[1_0_0%] text-left">
-                    NENETTE, au capital social de 5 000,00 euros, immatriculée
-                    au Registre du Commerce et des Sociétés de Paris sous le
-                    numéro B 320 252 489, n° TVA FR33953220753.<br />Adresse :
-                    52 rue Saint Maur, 75011 Paris FRANCE<br />Téléphone : 01 41
-                    79 80 00
+                  </h2>
+                  <p class="pl-8 min-w-60 flex-[1_0_0%] text-left">
+                    Nom commercial : Sandwichette&reg;, marque déposée auprès de
+                    l'INPI<br />Nenette SAS<br />Siège social : 52 rue Saint
+                    Maur 75011 Paris<br />Capital social de 5000 €<br />SIRET
+                    953 220 753 00016<br />RCS PARIS 953 220 753<br />TVA n°
+                    FR33 953220753<br />sandwichetteparis@gmail.com
                   </p>
                 </div>
                 <div class="mb-2">
-                  <h3 class="text-left py-1">
+                  <h2 class="text-left py-1">
                     •
                     <strong>Conception et réalisation technique du site</strong>
                     :
-                  </h3>
-                  <p class="pl-6 min-w-60 flex-[1_0_0%] text-left">
-                    Florian Ohrel EI<br />Téléphone : 06 95 52 68 82<br />Email
-                    : ohrel.florian@pm.me
+                  </h2>
+                  <p class="pl-8 min-w-60 flex-[1_0_0%] text-left">
+                    (⌐◉_◉)<br />bilaz666
                   </p>
                 </div>
                 <div class="mb-2">
-                  <h3 class="text-left py-1">
+                  <h2 class="text-left py-1">
                     • <strong>Hébergement du site</strong> :
-                  </h3>
-                  <p class="pl-6 min-w-60 flex-[1_0_0%] text-left"></p>
+                  </h2>
+                  <p class="pl-8 min-w-60 flex-[1_0_0%] text-left"></p>
+                </div>
+                <div class="mb-2">
+                  <h2 class="text-left py-1">• <strong>Photo</strong> :</h2>
+                  <p class="pl-8 min-w-60 flex-[1_0_0%] text-left">
+                    Julia Velázquez Charro
+                  </p>
+                </div>
+                <div class="mb-2">
+                  <h2 class="text-left py-1">• <strong>Logo</strong> :</h2>
+                  <p class="pl-8 min-w-60 flex-[1_0_0%] text-left">
+                    Ida Quilvin
+                  </p>
                 </div>
               </li>
             </div>
@@ -720,9 +573,12 @@
         >
           Mentions légales
         </a>
-        <p class="max-w-none">© Sandwichette 2024. Tous droits réservés.</p>
+        <p class="max-w-none text-right text-wrap">
+          Sandwichette&reg; 2024 – Tous droits réservés
+        </p>
       </div>
-      <script inline src="js/disclaimer.js"></script>
     </footer>
+    <!-- inject:js -->
+    <!-- endinject -->
   </body>
 </html>
