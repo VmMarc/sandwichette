@@ -151,6 +151,7 @@ const images = {
   },
 };
 export const image = gulp.series(images.compress, images.resize);
+
 const css = {
   build() {
     return exec(
@@ -269,18 +270,18 @@ export async function clean() {
 
 export const build = gulp.series(
   gulp.parallel(
-    copyFiles,
+    image,
     gulp.series(
       gulp.parallel(
         gulp.series(css.build, css.minify),
         tests.jsLint,
         images.favicon,
       ),
+      copyFiles,
       html.inject,
       css.critical,
       html.minify,
     ),
-    image,
   ),
 );
 

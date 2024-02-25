@@ -39,7 +39,7 @@
   }
 
   img {
-    max-width: 100%;
+    @apply max-w-full;
   }
 
   h1 {

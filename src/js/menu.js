@@ -28,13 +28,11 @@ function navMenuClose() {
   header.classList.add('overlay-collapse');
 }
 
-const viewport = window.visualViewport;
-// const header = document.getElementById('header');
-viewport.addEventListener('resize', () => {
-  console.log(`${viewport.height}, ${viewport.width}`);
+window.addEventListener('resize', () => {
+  const header = document.getElementById('header');
   if (
-    viewport.width > 1280 &&
-    document.getElementById('header').classList.contains('overlay-toggle')
+    window.matchMedia('not all and (min-width: 1280px)') &&
+    header.classList.contains('overlay-toggle')
   ) {
     navMenuClose();
   }
