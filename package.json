@@ -48,8 +48,10 @@
   "scripts": {
     "tailwind:build": "npx tailwindcss -c ./tailwind.config.js -i ./src/css/input.css -o ./.tmp/css/main.css",
     "tailwind:watch": "npx tailwindcss -c ./tailwind.config.js -i ./src/css/input.css -o ./.tmp/css/main.css --watch",
-    "gulp:build": "gulp build",
-    "gulp:watch": "gulp watch"
+    "gulp:build": "npx gulp build",
+    "gulp:watch": "npx gulp watch",
+    "gulp:clean": "npx gulp clean",
+    "gulp:test": "npx gulp test"
   },
   "browserslist": [
     "defaults"

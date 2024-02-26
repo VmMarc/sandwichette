@@ -31,7 +31,7 @@ function navMenuClose() {
 window.addEventListener('resize', () => {
   const header = document.getElementById('header');
   if (
-    window.matchMedia('not all and (min-width: 1280px)') &&
+    window.matchMedia('(min-width: 1280px)').matches &&
     header.classList.contains('overlay-toggle')
   ) {
     navMenuClose();

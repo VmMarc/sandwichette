@@ -55,10 +55,7 @@ const tests = {
 };
 
 const images = {
-  src: [
-    `${paths.src}/img/**/*.{jpg,jpeg,png,svg,gif,webp}`,
-    `!${paths.src}/img/favicon.png`,
-  ],
+  src: `${paths.src}/img/**/*.{jpg,jpeg,png,svg,gif,webp}`,
   tmp: `${paths.tmp}/img`,
   dest: `${paths.dest}/img`,
   configFile: 'image.json',
@@ -158,6 +155,7 @@ const css = {
       'npx tailwindcss -c tailwind.config.js -i src/css/input.css -o .tmp/css/main.css',
     );
   },
+
   minify() {
     return gulp
       .src(`${paths.tmp}/css/main.css`)
@@ -253,11 +251,14 @@ const html = {
 
 export function copyFiles() {
   return gulp
-    .src([
-      `${paths.src}/**/*.woff2`,
-      `${paths.tmp}/favicon/*.!(html)`,
-      `${paths.src}/robots.txt`,
-    ])
+    .src(
+      [
+        `${paths.src}/**/*.woff2`,
+        `${paths.tmp}/favicon/*.!(html)`,
+        `${paths.src}/robots.txt`,
+      ],
+      { since: gulp.lastRun(copyFiles) },
+    )
     .pipe(gulp.dest(`${paths.dest}/`));
 }
 
@@ -269,6 +270,7 @@ export async function clean() {
 }
 
 export const build = gulp.series(
+  clean,
   gulp.parallel(
     image,
     gulp.series(
@@ -291,8 +293,9 @@ export const watch = function () {
       `${paths.src}/js/*.js`,
       `${paths.src}/index.html`,
       `${paths.src}/css/main.css`,
-      `./tailwind.config.js`,
+      './tailwind.config.js',
     ],
+    { ignoreInitial: false },
     gulp.series(
       gulp.parallel(gulp.series(css.build, css.minify), tests.jsLint),
       html.inject,
@@ -300,13 +303,23 @@ export const watch = function () {
       html.minify,
     ),
   );
-  gulp.watch([images.configFile, ...images.src], image);
+  gulp.watch(
+    `${paths.src}/img/favicon.png`,
+    { ignoreInitial: false },
+    images.favicon,
+  );
+  gulp.watch(
+    [images.configFile, images.src],
+    { ignoreInitial: false, ignored: `${paths.src}/img/favicon.png` },
+    image,
+  );
   gulp.watch(
     [
       `${paths.src}/**/*.woff2`,
       `${paths.tmp}/favicon/*.!(html)`,
       `${paths.src}/robots.txt`,
     ],
+    { ignoreInitial: false },
     copyFiles,
   );
 };
