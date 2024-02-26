@@ -1,5 +1,6 @@
 import { exec } from 'child_process';
 import { stream as critical } from 'critical';
+import 'dotenv/config';
 import fs from 'fs';
 import gulp from 'gulp';
 import access from 'gulp-accessibility';
@@ -12,6 +13,8 @@ import htmlmin from 'gulp-htmlmin';
 import imagemin, { gifsicle, mozjpeg, optipng, svgo } from 'gulp-imagemin';
 import inject from 'gulp-inject';
 import rename from 'gulp-rename';
+import save from 'gulp-save';
+import sitemap from 'gulp-sitemap';
 import size from 'gulp-size';
 import uglify from 'gulp-uglify';
 import webp from 'imagemin-webp';
@@ -225,6 +228,14 @@ const html = {
     return (
       gulp
         .src(`${paths.tmp}/index.html`)
+        .pipe(save('before-sitemap'))
+        .pipe(
+          sitemap({
+            siteUrl: process.env.SITE_URL,
+          }),
+        )
+        .pipe(gulp.dest('./dist'))
+        .pipe(save.restore('before-sitemap'))
         .pipe(
           // @ts-ignore
           critical({
