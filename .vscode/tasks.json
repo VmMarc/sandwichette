@@ -1,0 +1,84 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		// {
+		// 	"type": "npm",
+		// 	"script": "tailwind:watch",
+		// 	"label": "tailwind:watch",
+		// 	"runOptions": {
+		// 		"runOn": "folderOpen"
+		// 	},
+		// 	"group": "none",
+		// 	"presentation": {
+		// 		"echo": true,
+		// 		"reveal": "silent",
+		// 		"revealProblems": "onProblem",
+		// 		"focus": false,
+		// 		"panel": "dedicated",
+		// 		"showReuseMessage": false,
+		// 		"clear": false,
+		// 		"group": "watch"
+		// 	}
+		// },
+		{
+			"type": "npm",
+			"script": "gulp:watch",
+			"label": "watch",
+			"runOptions": {
+				"runOn": "folderOpen",
+			},
+			"group": "none",
+			"presentation": {
+				"echo": true,
+				"reveal": "silent",
+				"focus": false,
+				"panel": "dedicated",
+				"showReuseMessage": false,
+				"clear": false,
+				"group": "watch",
+			},
+			"icon": {
+				"id": "eye-watch",
+			}
+		},
+		{
+			"type": "npm",
+			"script": "gulp:build",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"label": "build",
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared",
+				"showReuseMessage": false,
+				"clear": false,
+				"group": "build",
+			}
+		},
+		{
+			"type": "npm",
+			"script": "gulp:test",
+			"group": {
+				"kind": "test",
+				"isDefault": true
+			},
+			"label": "test",
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": true,
+				"panel": "shared",
+				"showReuseMessage": false,
+				"clear": false,
+				"group": "test",
+			},
+			"icon": {
+				"id": "checklist",
+			}
+		},
+	]
+}

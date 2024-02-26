@@ -1,0 +1,154 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: 'Cooper Lt BT';
+    src: url('../fonts/cooper_bold_bt.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    /* border: 1px solid #000; */
+    @apply cursor-pickle;
+  }
+
+  html {
+    font-family: 'Cooper Lt BT', Arial, sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    @apply bg-primary;
+  }
+
+  body {
+    @apply text-[calc(20px_+_(24_-_20)_*_((100vw_-_300px)_/_(1600_-_300)))] text-black;
+  }
+
+  button {
+    @apply cursor-pickle;
+  }
+
+  a:hover {
+    @apply text-brand;
+  }
+
+  img {
+    @apply max-w-full;
+  }
+
+  h1 {
+    @apply text-[calc(40px_+_(50_-_40)_*_((100vw_-_300px)_/_(1600_-_300)));];
+  }
+
+  h2 {
+    @apply text-[calc(32px_+_(40_-_32)_*_((100vw_-_300px)_/_(1600_-_300)))];
+  }
+
+  h3 {
+    @apply text-[calc(20px_+_(24_-_20)_*_((100vw_-_300px)_/_(1600_-_300)))];
+  }
+
+  p {
+    @apply min-w-60 tablet:min-w-80 text-left;
+  }
+
+  hr {
+    @apply border-none;
+  }
+
+  .nav-menu #nav__list > .menu__item > a {
+    @apply text-2xl link-secondary;
+  }
+
+  .nav-bar #nav__list > .menu__item > a {
+    @apply text-nowrap text-lg link-primary;
+  }
+}
+
+@layer components {
+  .link-primary {
+    @apply text-black fill-black;
+  }
+
+  .link-primary:hover {
+    @apply text-brand fill-brand;
+  }
+
+  .link-secondary {
+    @apply text-black fill-black;
+  }
+
+  .link-secondary:hover {
+    @apply text-white fill-white;
+  }
+
+  .nav-bar #nav__list {
+    @apply justify-end gap-7;
+  }
+
+  .nav-menu #nav__list {
+    @apply fixed flex-col top-28 left-0 h-[calc(100%_-_7rem)] w-full z-20 bg-brand items-center justify-center self-stretch;
+  }
+
+  #header.nav-menu {
+    @apply transition-[background-position] duration-500 ease-out;
+  }
+
+  .nav-menu #nav__list {
+    @apply transition-[left] duration-500 ease-out;
+  }
+}
+
+@layer utilities {
+  #instagram-btn__icon.link-primary:hover {
+    @apply fill-[url(#background)];
+  }
+
+  .overlay-collapse.nav-menu #nav__list {
+    @apply left-full;
+  }
+
+  .overlay-toggle.nav-menu #nav__list {
+    @apply left-0;
+  }
+}
+
+#header.after-scroll {
+  @apply bg-gradient-to-r from-primary to-brand bg-[length:200%] from-50% to-50% shadow-lg;
+}
+
+#header.overlay-collapse {
+  @apply bg-left;
+}
+
+#header.overlay-toggle {
+  @apply bg-right;
+}
+
+.overlay-collapse.nav-menu #nav__list {
+  @apply animate-slide-out;
+}
+
+.overlay-toggle.nav-menu #nav__list {
+  @apply animate-slide-in;
+}
+
+.blob1 {
+  mask: url('/img/blob1.svg');
+  mask-size: contain;
+  mask-position: center;
+  mask-repeat: no-repeat;
+}
+
+.blob2 {
+  mask: url('/img/blob2.svg');
+  mask-size: contain;
+  mask-position: center;
+  mask-repeat: no-repeat;
+}

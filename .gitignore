@@ -132,5 +132,7 @@ dist
 images/
 dist/
 build/
+.tmp/
 google*
-faviconData.json
+favicon.json
+reports/

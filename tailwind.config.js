@@ -2,7 +2,7 @@
 module.exports = {
   content: {
     relative: true,
-    files: ['./src/index.html'],
+    files: ['./src/**/*.{html,js}'],
   },
   theme: {
     extend: {
@@ -22,16 +22,30 @@ module.exports = {
         desktop: '1280px',
       },
       boxShadow: {
-        button: '4px 4px 2px 0px #000',
+        button: '8px 8px 8px 0px rgba(0,0,0,0.8);',
       },
       aspectRatio: {
         '16/10': '16 / 10',
       },
+      keyframes: {
+        slideIn: {
+          from: { left: '100%' },
+          to: { left: '0%' },
+        },
+        slideOut: {
+          from: { left: '0%' },
+          to: { left: '100%' },
+        },
+        spinOnce: {
+          to: { transform: 'rotate(360deg)' },
+        },
+      },
+      animation: {
+        'slide-in': 'slideIn 0.5s ease-out 1',
+        'slide-out': 'slideOut 0.5s ease-out 1',
+        'spin-once': 'spinOnce 150ms ease-in-out 1',
+      },
     },
   },
   plugins: [],
-  purge: {
-    content: ['./src/**/*.html'],
-    safelist: ['scrolled', 'active'],
-  },
 };
