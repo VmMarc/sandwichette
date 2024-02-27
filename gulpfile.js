@@ -9,6 +9,7 @@ import concat from 'gulp-concat';
 import csso from 'gulp-csso';
 import eslint from 'gulp-eslint-new';
 import favicons from 'gulp-favicons';
+import flatten from 'gulp-flatten';
 import htmlmin from 'gulp-htmlmin';
 import imagemin, { gifsicle, mozjpeg, optipng, svgo } from 'gulp-imagemin';
 import inject from 'gulp-inject';
@@ -22,16 +23,14 @@ import fsync from 'node:fs';
 import path from 'node:path';
 import sharp from 'sharp';
 
-const paths = {
-  src: './src',
-  dest: './dist',
-  tmp: './.tmp',
-};
+const SRC = process.env.SRC_DIR;
+const TMP = process.env.BUILD_DIR;
+const DEST = process.env.DEST_DIR;
 
 const tests = {
   jsLint() {
     return gulp
-      .src([`${paths.src}/js/*.js`])
+      .src([`${SRC}/js/*.js`])
       .pipe(cache('linting'))
       .pipe(eslint())
       .pipe(eslint.format())
@@ -40,17 +39,22 @@ const tests = {
 
   accessibility() {
     return gulp
-      .src(`${paths.src}/index.html`)
+      .src(`${SRC}/index.html`)
       .pipe(
         access({
           force: true,
+          verbose: false,
+          reportLevels: {
+            notice: true,
+            warning: true,
+            error: true,
+          },
         }),
       )
-      .on('error', console.log)
-      .pipe(access.report({ reportType: 'txt' }))
+      .pipe(access.report({ reportType: 'json' }))
       .pipe(
         rename({
-          extname: '.txt',
+          extname: '.json',
         }),
       )
       .pipe(gulp.dest('./reports/'));
@@ -58,14 +62,13 @@ const tests = {
 };
 
 const images = {
-  src: `${paths.src}/img/**/*.{jpg,jpeg,png,svg,gif,webp}`,
-  tmp: `${paths.tmp}/img`,
-  dest: `${paths.dest}/img`,
-  configFile: 'image.json',
+  src: `${SRC}/img/**/*.{jpg,jpeg,png,svg,gif,webp}`,
 
   compress() {
     return gulp
-      .src(images.src, { since: gulp.lastRun(images.compress) })
+      .src(`${images.src}`, {
+        since: gulp.lastRun(images.compress),
+      })
       .pipe(
         imagemin([
           gifsicle({ interlaced: true, optimizationLevel: 3 }),
@@ -75,46 +78,46 @@ const images = {
           webp({ method: 6, preset: 'photo', quality: 60 }),
         ]),
       )
-      .pipe(gulp.dest(`${images.tmp}/`));
+      .pipe(flatten())
+      .pipe(gulp.dest(`${TMP}/img`));
   },
 
   async resize() {
-    const config = await fs.promises.readFile(images.configFile, 'utf-8');
-    const dirEnt = await fs.promises.readdir(images.tmp, {
+    const config = await fs.promises.readFile('./image.json', 'utf-8');
+    const dirEnt = await fs.promises.readdir(`${TMP}/img`, {
       withFileTypes: true,
     });
     const files = dirEnt.filter((d) => d.isFile()).map((d) => d.name);
 
-    if (!fsync.existsSync(images.dest)) {
-      fsync.mkdirSync(images.dest);
+    if (!fsync.existsSync(`${DEST}/img`)) {
+      fsync.mkdirSync(`${DEST}/img`);
     }
 
     const imageConf = JSON.parse(config);
     files.forEach(async (file) => {
-      const fileProp = path.parse(file);
-      const src = `${images.tmp}/${file}`;
+      const filePath = path.parse(file);
 
-      if (imageConf[fileProp.name] !== undefined) {
-        if (imageConf[fileProp.name].breakpoints) {
+      if (imageConf[filePath.name] !== undefined) {
+        if (imageConf[filePath.name].breakpoints) {
           for (const dimensions of Object.values(
-            imageConf[fileProp.name].breakpoints,
+            imageConf[filePath.name].breakpoints,
           )) {
-            await sharp(src, { pages: -1 })
+            await sharp(`${TMP}/img/${file}`, { pages: -1 })
               .resize({ ...dimensions })
               .toFile(
-                `${images.dest}/${fileProp.name}-${dimensions.width}${fileProp.ext}`,
+                `${DEST}/img/${filePath.name}-${dimensions.width}${filePath.ext}`,
               );
           }
         }
       } else {
-        await fs.promises.copyFile(src, `${images.dest}/${file}`);
+        await fs.promises.copyFile(`${TMP}/img/${file}`, `${DEST}/img/${file}`);
       }
     });
   },
 
   favicon() {
     return gulp
-      .src(`${paths.src}/img/favicon.png`, {
+      .src(`${SRC}/img/favicon.png`, {
         since: gulp.lastRun(images.favicon),
       })
       .pipe(
@@ -147,7 +150,7 @@ const images = {
           },
         }),
       )
-      .pipe(gulp.dest(`${paths.tmp}/favicon/`));
+      .pipe(gulp.dest(`${TMP}/favicon/`));
   },
 };
 export const image = gulp.series(images.compress, images.resize);
@@ -155,32 +158,32 @@ export const image = gulp.series(images.compress, images.resize);
 const css = {
   build() {
     return exec(
-      'npx tailwindcss -c tailwind.config.js -i src/css/input.css -o .tmp/css/main.css',
+      `npx tailwindcss -c tailwind.config.js -i ${SRC}/css/input.css -o ${TMP}/css/main.css`,
     );
   },
 
   minify() {
     return gulp
-      .src(`${paths.tmp}/css/main.css`)
+      .src(`${TMP}/css/main.css`)
       .pipe(csso())
-      .pipe(gulp.dest(`${paths.dest}/css/`))
+      .pipe(gulp.dest(`${DEST}/css/`))
       .pipe(size());
   },
 
   critical() {
     return (
       gulp
-        .src(`${paths.tmp}/index.html`)
+        .src(`${TMP}/index.html`)
         .pipe(
           // @ts-ignore
           critical({
             inline: true,
-            base: `${paths.dest}/`,
-            css: `${paths.dest}/css/main.css`,
+            base: `${DEST}/`,
+            css: `${DEST}/css/main.css`,
           }),
         )
         // @ts-ignore
-        .pipe(gulp.dest(paths.dest))
+        .pipe(gulp.dest(DEST))
         .pipe(size())
     );
   },
@@ -189,21 +192,21 @@ const css = {
 const html = {
   inject() {
     const headScripts = gulp
-      .src(`${paths.src}/js/{header,menu}.js`)
+      .src(`${SRC}/js/{header,menu}.js`)
       .pipe(concat('headerScripts.js'))
       .pipe(uglify())
-      .pipe(gulp.dest(`${paths.tmp}/js/`));
+      .pipe(gulp.dest(`${TMP}/js/`));
 
     const footScripts = gulp
-      .src(`${paths.src}/js/{accordion,carousel,disclaimer}.js`)
+      .src(`${SRC}/js/{accordion,carousel,disclaimer}.js`)
       .pipe(concat('app.js'))
-      .pipe(uglify())
-      .pipe(gulp.dest(`${paths.dest}/js/`));
+      .pipe(uglify({ compress: true, mangle: true }))
+      .pipe(gulp.dest(`${DEST}/js/`));
 
     return gulp
-      .src(`${paths.src}/index.html`)
+      .src(`${SRC}/index.html`)
       .pipe(
-        inject(gulp.src(`${paths.tmp}/favicon/head-favicons.html`), {
+        inject(gulp.src(`${TMP}/favicon/head-favicons.html`), {
           starttag: '<!-- inject:head:{{ext}} -->',
           transform: function (filePath, file) {
             return file.contents.toString('utf8');
@@ -221,27 +224,27 @@ const html = {
         }),
       )
       .pipe(inject(footScripts, { ignorePath: '/dist' }))
-      .pipe(gulp.dest(`${paths.tmp}/`));
+      .pipe(gulp.dest(`${TMP}/`));
   },
 
   minify() {
     return (
       gulp
-        .src(`${paths.tmp}/index.html`)
+        .src(`${TMP}/index.html`)
         .pipe(save('before-sitemap'))
         .pipe(
           sitemap({
             siteUrl: process.env.SITE_URL,
           }),
         )
-        .pipe(gulp.dest('./dist'))
+        .pipe(gulp.dest(DEST))
         .pipe(save.restore('before-sitemap'))
         .pipe(
           // @ts-ignore
           critical({
             inline: true,
-            base: `${paths.dest}/`,
-            css: `${paths.dest}/css/main.css`,
+            base: `${DEST}/`,
+            css: `${DEST}/css/main.css`,
           }),
         )
         // @ts-ignore
@@ -254,7 +257,7 @@ const html = {
             removeEmptyAttributes: true,
           }),
         )
-        .pipe(gulp.dest(paths.dest))
+        .pipe(gulp.dest(DEST))
         .pipe(size())
     );
   },
@@ -263,21 +266,17 @@ const html = {
 export function copyFiles() {
   return gulp
     .src(
-      [
-        `${paths.src}/**/*.woff2`,
-        `${paths.tmp}/favicon/*.!(html)`,
-        `${paths.src}/robots.txt`,
-      ],
+      [`${SRC}/**/*.woff2`, `${TMP}/favicon/*.!(html)`, `${SRC}/robots.txt`],
       { since: gulp.lastRun(copyFiles) },
     )
-    .pipe(gulp.dest(`${paths.dest}/`));
+    .pipe(gulp.dest(`${DEST}/`));
 }
 
 export const test = tests.accessibility;
 
 export async function clean() {
-  await fs.promises.rm(paths.tmp, { recursive: true, force: true });
-  await fs.promises.rm(paths.dest, { recursive: true, force: true });
+  await fs.promises.rm(`${TMP}`, { recursive: true, force: true });
+  await fs.promises.rm(`${DEST}`, { recursive: true, force: true });
 }
 
 export const build = gulp.series(
@@ -301,9 +300,9 @@ export const build = gulp.series(
 export const watch = function () {
   gulp.watch(
     [
-      `${paths.src}/js/*.js`,
-      `${paths.src}/index.html`,
-      `${paths.src}/css/main.css`,
+      `${SRC}/js/*.js`,
+      `${SRC}/index.html`,
+      `${SRC}/css/main.css`,
       './tailwind.config.js',
     ],
     { ignoreInitial: false },
@@ -315,21 +314,17 @@ export const watch = function () {
     ),
   );
   gulp.watch(
-    `${paths.src}/img/favicon.png`,
+    `${SRC}/img/favicon.png`,
     { ignoreInitial: false },
     images.favicon,
   );
   gulp.watch(
-    [images.configFile, images.src],
-    { ignoreInitial: false, ignored: `${paths.src}/img/favicon.png` },
+    ['./image.json', images.src],
+    { ignoreInitial: false, ignored: `${SRC}/img/favicon.png` },
     image,
   );
   gulp.watch(
-    [
-      `${paths.src}/**/*.woff2`,
-      `${paths.tmp}/favicon/*.!(html)`,
-      `${paths.src}/robots.txt`,
-    ],
+    [`${SRC}/**/*.woff2`, `${TMP}/favicon/*.!(html)`, `${SRC}/robots.txt`],
     { ignoreInitial: false },
     copyFiles,
   );

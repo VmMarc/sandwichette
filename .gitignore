@@ -132,7 +132,7 @@ dist
 images/
 dist/
 build/
-.tmp/
+tmp/
 google*
 favicon.json
 reports/
