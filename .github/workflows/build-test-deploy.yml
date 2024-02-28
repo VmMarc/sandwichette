@@ -1,0 +1,47 @@
+name: Build, test and deploy
+
+on:
+  push:
+    branches: ['dev', 'main']
+  pull_request:
+    branches: ['dev', 'main']
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    environment: ${{ github.ref_name }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Node setup
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18.18.0
+
+      - name: Node pkg install
+        run: npm install
+
+      - name: Build
+        env:
+          SRC: ${{ vars.SRC }}
+          TMP: ${{ vars.TMP }}
+          DEST: ${{ vars.DEST }}
+          URL: ${{ vars.URL }}
+        run: |
+          mkdir ${TMP}
+          npx gulp build
+          npx gulp test
+
+      - name: Deploy
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          port: ${{ secrets.PORT }}
+          key: ${{ secrets.KEY }}
+          source: ${{ vars.DEST }}/*
+          target: /var/www/${{ vars.HOSTNAME }}/public
+          strip_components: 1

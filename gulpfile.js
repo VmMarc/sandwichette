@@ -23,9 +23,10 @@ import fsync from 'node:fs';
 import path from 'node:path';
 import sharp from 'sharp';
 
-const SRC = process.env.SRC_DIR;
-const TMP = process.env.BUILD_DIR;
-const DEST = process.env.DEST_DIR;
+const SRC = process.env.SRC;
+const TMP = process.env.BUILD;
+const DEST = process.env.DEST;
+const SITE_URL = process.env.URL;
 
 const tests = {
   jsLint() {
@@ -60,6 +61,7 @@ const tests = {
       .pipe(gulp.dest('./reports/'));
   },
 };
+export const test = tests.accessibility;
 
 const images = {
   src: `${SRC}/img/**/*.{jpg,jpeg,png,svg,gif,webp}`,
@@ -132,11 +134,11 @@ const images = {
           background: '#fff4f9',
           theme_color: '#df3a8e',
           path: '/',
-          url: 'https://morizur.freeboxos.fr/',
+          url: `${SITE_URL}`,
           display: 'browser',
           orientation: 'any',
           scope: '/',
-          start_url: 'https://morizur.freeboxos.fr/index.html',
+          start_url: `${SITE_URL}/index.html`,
           version: 1.0,
           html: 'head-favicons.html',
           pipeHTML: true,
@@ -234,7 +236,7 @@ const html = {
         .pipe(save('before-sitemap'))
         .pipe(
           sitemap({
-            siteUrl: process.env.SITE_URL,
+            siteUrl: SITE_URL,
           }),
         )
         .pipe(gulp.dest(DEST))
@@ -271,8 +273,6 @@ export function copyFiles() {
     )
     .pipe(gulp.dest(`${DEST}/`));
 }
-
-export const test = tests.accessibility;
 
 export async function clean() {
   await fs.promises.rm(`${TMP}`, { recursive: true, force: true });

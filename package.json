@@ -50,8 +50,8 @@
     "uglify-js": "^3.17.4"
   },
   "scripts": {
-    "tailwind:build": "npx tailwindcss -c ./tailwind.config.js -i ./src/css/input.css -o ./.tmp/css/main.css",
-    "tailwind:watch": "npx tailwindcss -c ./tailwind.config.js -i ./src/css/input.css -o ./.tmp/css/main.css --watch",
+    "tailwind:build": "npx tailwindcss -c ./tailwind.config.js -i ./src/css/input.css -o ./tmp/css/main.css",
+    "tailwind:watch": "npx tailwindcss -c ./tailwind.config.js -i ./src/css/input.css -o ./tmp/css/main.css --watch",
     "gulp:build": "npx gulp build",
     "gulp:watch": "npx gulp watch",
     "gulp:clean": "npx gulp clean",
