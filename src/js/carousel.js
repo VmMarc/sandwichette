@@ -1,4 +1,4 @@
-let magazines = document.getElementById('carousel').children;
+let magazines = document.getElementById('carousel-content').children;
 console.log('magazines', magazines); //TODO
 
 let carousel = document.getElementById('carousel');
