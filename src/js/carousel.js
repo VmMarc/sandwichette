@@ -3,7 +3,6 @@ console.log('magazines', magazines); //TODO
 
 let carousel = document.getElementById('carousel');
 console.log('carousel', carousel); //TODO
-console.log('magazines[0].classList[2] : ', magazines[0].classList[2]); //TODO
 
 let next = document.getElementById('next');
 let prev = document.getElementById('prev');
@@ -14,11 +13,11 @@ console.log('position start : ', position); //TODO
 // FONCTION
 function Slider() {
   for (let i = 0; i < magazines.length; i++) {
-    magazines[i].classList.remove(magazines[i].classList[3]); //Todo change logic
-    console.log('magazines[i] : ', magazines[i]); //TODO
-
-    let translateX = position * 100;
-    magazines[i].classList.add(`translate-x-[-${translateX}%]`);
+    let translateValue = position * 240;
+    magazines[i].setAttribute(
+      'style',
+      `transform: translateX(-${translateValue}px)`,
+    );
   }
 }
 
