@@ -27,7 +27,7 @@
   }
 
   body {
-    @apply text-[calc(20px_+_(24_-_20)_*_((100vw_-_300px)_/_(1600_-_300)))] text-black;
+    @apply text-[calc(20px_+_(24_-_20)_*_((100vw_-_300px)_/_(1600_-_300)))] leading-8 text-black;
   }
 
   button {
@@ -43,15 +43,11 @@
   }
 
   h1 {
-    @apply text-[calc(40px_+_(50_-_40)_*_((100vw_-_300px)_/_(1600_-_300)));];
+    @apply text-[calc(40px_+_(50_-_40)_*_((100vw_-_300px)_/_(1600_-_300)))] leading-10;
   }
 
   h2 {
-    @apply text-[calc(32px_+_(40_-_32)_*_((100vw_-_300px)_/_(1600_-_300)))];
-  }
-
-  h3 {
-    @apply text-[calc(20px_+_(24_-_20)_*_((100vw_-_300px)_/_(1600_-_300)))];
+    @apply text-[calc(32px_+_(40_-_32)_*_((100vw_-_300px)_/_(1600_-_300)))] leading-9;
   }
 
   p {
@@ -67,7 +63,7 @@
   }
 
   .nav-bar #nav__list > .menu__item > a {
-    @apply text-nowrap text-lg link-primary;
+    @apply text-nowrap text-xl link-primary;
   }
 }
 

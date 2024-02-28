@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Des sandwichs, des chouquettes, des choses à boire et des magazines food 🥪🍰🍷"
+      content="Des bons sandwichs, des chouquettes, du café filtre en abondance et des magazines food. Mardi-Vendredi 11h-16h. Samedi 11h-17h. 52 rue Saint-Maur 75011 Paris"
     />
     <link rel="canonical" href="https://sandwichette.com/" />
 
@@ -24,7 +24,7 @@
     <meta property="og:locale" content="fr_FR" />
     <meta
       property="og:description"
-      content="Des sandwichs, des chouquettes, des choses à boire et des magazines food 🥪🍰🍷"
+      content="Des bons sandwichs, des chouquettes, du café filtre en abondance et des magazines food 🥪🍰🍷 Mardi-Vendredi 11h-16h. Samedi 11h-17h – 52 rue Saint-Maur 75011 Paris"
     />
 
     <!-- inject:head:html -->
@@ -46,14 +46,7 @@
       crossorigin
     />
 
-    <link
-      rel="stylesheet"
-      href="/css/main.css"
-      type="text/css"
-      charset="UTF-8"
-    />
-
-    <!-- inject:head:js -->
+    <!-- inject:css -->
     <!-- endinject -->
   </head>
 
@@ -268,20 +261,20 @@
           >
             <p class="max-w-72 text-center">
               C'est petit chez nous mais
-              <span class="text-brand">sympathique</span>
+              <span class="text-brand text-3xl">sympathique</span>
             </p>
             <picture>
               <source type="image/webp" srcset="/img/chaise-240.webp" />
               <img
                 class="w-60 aspect-[2/3] rounded-t-full"
                 src="/img/chaise-240.jpg"
-                alt="Une chaise, un sandwich, un fumigène, kamoulox"
+                alt="Une chaise, un sandwich, un fumigène et un cerceau de hula-hoop, kamoulox"
                 loading="lazy"
               />
             </picture>
             <p class="w-[312px] text-center">
               Pas original mais un peu
-              <span class="text-brand">extraordinaire</span>
+              <span class="text-brand text-3xl">extraordinaire</span>
             </p>
           </div>
         </div>
@@ -557,19 +550,21 @@
         </div>
       </div>
       <div
-        class="flex absolute flex-row max-tablet:flex-col max-tablet:justify-end w-full p-5 h-full items-end justify-between tablet:p-9"
+        class="flex absolute flex-row max-tablet:flex-col max-tablet:justify-end w-full p-12 h-full items-start tablet:items-end justify-between"
       >
         <button
-          class="hover:text-brand max-tablet:text-right"
+          class="hover:text-brand max-tablet:text-right min-h-12"
           onclick="disclaimerOpen()"
           aria-label="Ouvrir section"
           accesskey="o"
         >
           Mentions légales
-        <button/>
-        <p class="max-w-none text-right text-wrap">
-          Sandwichette&reg; 2024 – Tous droits réservés
-        </p>
+        </button>
+        <div class="flex items-center min-h-12 text-right">
+          <p class="items-center">
+            Sandwichette&reg; 2024 – Tous droits réservés
+          </p>
+        </div>
       </div>
     </footer>
     <!-- inject:js -->

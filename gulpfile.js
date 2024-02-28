@@ -14,9 +14,11 @@ import htmlmin from 'gulp-htmlmin';
 import imagemin, { gifsicle, mozjpeg, optipng, svgo } from 'gulp-imagemin';
 import inject from 'gulp-inject';
 import rename from 'gulp-rename';
+import rev from 'gulp-rev';
 import save from 'gulp-save';
 import sitemap from 'gulp-sitemap';
 import size from 'gulp-size';
+import sort from 'gulp-sort';
 import uglify from 'gulp-uglify';
 import webp from 'imagemin-webp';
 import fsync from 'node:fs';
@@ -105,7 +107,7 @@ const images = {
             imageConf[filePath.name].breakpoints,
           )) {
             await sharp(`${TMP}/img/${file}`, { pages: -1 })
-              .resize({ ...dimensions })
+              .resize({ ...dimensions, ...imageConf[filePath.name].options })
               .toFile(
                 `${DEST}/img/${filePath.name}-${dimensions.width}${filePath.ext}`,
               );
@@ -143,11 +145,11 @@ const images = {
           html: 'head-favicons.html',
           pipeHTML: true,
           icons: {
-            android: true,
-            appleIcon: true,
-            appleStartup: true,
+            android: false,
+            appleIcon: false,
+            appleStartup: false,
             favicons: true,
-            windows: true,
+            windows: false,
             yandex: true,
           },
         }),
@@ -168,65 +170,53 @@ const css = {
     return gulp
       .src(`${TMP}/css/main.css`)
       .pipe(csso())
+      .pipe(rev())
       .pipe(gulp.dest(`${DEST}/css/`))
       .pipe(size());
-  },
-
-  critical() {
-    return (
-      gulp
-        .src(`${TMP}/index.html`)
-        .pipe(
-          // @ts-ignore
-          critical({
-            inline: true,
-            base: `${DEST}/`,
-            css: `${DEST}/css/main.css`,
-          }),
-        )
-        // @ts-ignore
-        .pipe(gulp.dest(DEST))
-        .pipe(size())
-    );
   },
 };
 
 const html = {
   inject() {
-    const headScripts = gulp
-      .src(`${SRC}/js/{header,menu}.js`)
-      .pipe(concat('headerScripts.js'))
-      .pipe(uglify())
-      .pipe(gulp.dest(`${TMP}/js/`));
+    // const headScripts = gulp
+    //   .src(`${SRC}/js/{header,menu}.js`)
+    //   .pipe(concat('headerScripts.js'))
+    //   .pipe(uglify())
+    //   .pipe(gulp.dest(`${TMP}/js/`));
 
     const footScripts = gulp
-      .src(`${SRC}/js/{accordion,carousel,disclaimer}.js`)
-      .pipe(concat('app.js'))
+      .src(`${SRC}/js/*.js`)
+      .pipe(sort())
+      .pipe(concat({ path: 'bundle.js', cwd: '' }))
+      .pipe(rev())
       .pipe(uglify({ compress: true, mangle: true }))
       .pipe(gulp.dest(`${DEST}/js/`));
 
-    return gulp
-      .src(`${SRC}/index.html`)
-      .pipe(
-        inject(gulp.src(`${TMP}/favicon/head-favicons.html`), {
-          starttag: '<!-- inject:head:{{ext}} -->',
-          transform: function (filePath, file) {
-            return file.contents.toString('utf8');
-          },
-        }),
-      )
-      .pipe(
-        inject(headScripts, {
-          starttag: '<!-- inject:head:{{ext}} -->',
-          transform: function (filePath, file) {
-            return (
-              '<script defer>' + file.contents.toString('utf8') + '</script>'
-            );
-          },
-        }),
-      )
-      .pipe(inject(footScripts, { ignorePath: '/dist' }))
-      .pipe(gulp.dest(`${TMP}/`));
+    return (
+      gulp
+        .src(`${SRC}/index.html`)
+        .pipe(
+          inject(gulp.src(`${TMP}/favicon/head-favicons.html`), {
+            starttag: '<!-- inject:head:{{ext}} -->',
+            transform: function (filePath, file) {
+              return file.contents.toString('utf8');
+            },
+          }),
+        )
+        .pipe(inject(gulp.src(`${DEST}/css/*.css`), { ignorePath: '/dist' }))
+        // .pipe(
+        //   inject(headScripts, {
+        //     starttag: '<!-- inject:head:{{ext}} -->',
+        //     transform: function (filePath, file) {
+        //       return (
+        //         '<script defer>' + file.contents.toString('utf8') + '</script>'
+        //       );
+        //     },
+        //   }),
+        // )
+        .pipe(inject(footScripts, { ignorePath: '/dist' }))
+        .pipe(gulp.dest(`${TMP}/`))
+    );
   },
 
   minify() {
@@ -246,7 +236,7 @@ const html = {
           critical({
             inline: true,
             base: `${DEST}/`,
-            css: `${DEST}/css/main.css`,
+            css: `${DEST}/css/*.css`,
           }),
         )
         // @ts-ignore
@@ -291,7 +281,6 @@ export const build = gulp.series(
       ),
       copyFiles,
       html.inject,
-      css.critical,
       html.minify,
     ),
   ),
@@ -302,14 +291,13 @@ export const watch = function () {
     [
       `${SRC}/js/*.js`,
       `${SRC}/index.html`,
-      `${SRC}/css/main.css`,
+      `${SRC}/css/input.css`,
       './tailwind.config.js',
     ],
     { ignoreInitial: false },
     gulp.series(
       gulp.parallel(gulp.series(css.build, css.minify), tests.jsLint),
       html.inject,
-      css.critical,
       html.minify,
     ),
   );
