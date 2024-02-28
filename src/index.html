@@ -450,49 +450,58 @@
             />
             <h1>Magazines</h1>
           </div>
-          <div id="carousel" class="flex overflow-hidden">
-            <img
-              class="h-[360px] w-[240px]"
-              src="/img/noble-rot-240.jpg"
-              alt="magazines noble rot"
-              loading="lazy"
-            />
-            <img
-              class="h-[360px] w-[240px]"
-              src="/img/cherry-bombe-240.jpg"
-              alt="magazine cherry bomb"
-              loading="lazy"
-            />
-            <img
-              class="h-[360px] w-[240px]"
-              src="/img/midnight-snack-240.jpg"
-              alt="magazine mignight snack"
-              loading="lazy"
-            />
-            <img
-              class="h-[360px] w-[240px]"
-              src="/img/picnic-240.jpg"
-              alt="magazine picnic"
-              loading="lazy"
-            />
-            <img
-              class="h-[360px] w-[240px]"
-              src="/img/sandwich-240.jpg"
-              alt="magazine sandwich"
-              loading="lazy"
-            />
-            <img
-              class="h-[360px] w-[240px]"
-              src="/img/serviette-240.jpg"
-              alt="magazine serviette"
-              loading="lazy"
-            />
-            <img
-              class="h-[360px] w-[240px]"
-              src="/img/the-gourmand-shop-240.jpg"
-              alt="magazine the gourmand shop"
-              loading="lazy"
-            />
+          <div
+            id="carousel"
+            class="flex h-[360px] w-full overflow-hidden justify-center relative"
+          >
+            <!-- TODO test carousel=relative carousel-content=absolte for right position  -->
+            <div
+              id="carousel-content"
+              class="flex absolute left-1/2 transform -translate-x-[120px]"
+            >
+              <img
+                class="h-[360px] w-[240px]"
+                src="/img/noble-rot-240.jpg"
+                alt="magazines noble rot"
+                loading="lazy"
+              />
+              <img
+                class="h-[360px] w-[240px]"
+                src="/img/cherry-bombe-240.jpg"
+                alt="magazine cherry bomb"
+                loading="lazy"
+              />
+              <img
+                class="h-[360px] w-[240px]"
+                src="/img/midnight-snack-240.jpg"
+                alt="magazine mignight snack"
+                loading="lazy"
+              />
+              <img
+                class="h-[360px] w-[240px]"
+                src="/img/picnic-240.jpg"
+                alt="magazine picnic"
+                loading="lazy"
+              />
+              <img
+                class="h-[360px] w-[240px]"
+                src="/img/sandwich-240.jpg"
+                alt="magazine sandwich"
+                loading="lazy"
+              />
+              <img
+                class="h-[360px] w-[240px]"
+                src="/img/serviette-240.jpg"
+                alt="magazine serviette"
+                loading="lazy"
+              />
+              <img
+                class="h-[360px] w-[240px]"
+                src="/img/the-gourmand-shop-240.jpg"
+                alt="magazine the gourmand shop"
+                loading="lazy"
+              />
+            </div>
           </div>
           <div class="flex justify-center gap-4 text-justify tablet:gap-6">
             <button id="prev">left</button>
@@ -502,8 +511,7 @@
       </section>
 
       <section id="contact" class="h-64 scroll-mt-32 bg-cyan-500"></section>
-    </div>
-
+    </main>
     <footer class="relative text-white w-full h-[calc(100vh_-_7rem)]">
       <picture id="footer-bg">
         <source
@@ -622,7 +630,7 @@
           accesskey="o"
         >
           Mentions légales
-        <button/>
+        </button>
         <p class="max-w-none text-right text-wrap">
           Sandwichette&reg; 2024 – Tous droits réservés
         </p>
