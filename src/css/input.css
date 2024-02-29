@@ -15,7 +15,7 @@
   *::before,
   *::after {
     box-sizing: border-box;
-    /* border: 1px solid #000; */
+    border: 1px solid #000;
     @apply cursor-pickle;
   }
 
@@ -138,6 +138,15 @@
 .overlay-toggle.nav-menu #nav__list {
   @apply animate-slide-in;
 }
+
+/* TODO */
+/* .carousel-responsive #carousel {
+  @apply relative;
+} */
+
+/* .content-carousel-responsive #content-carousel {
+  @apply absolute left-1/2 transform -translate-x-[120px];
+} */
 
 .blob1 {
   mask: url('/img/blob1.svg');
