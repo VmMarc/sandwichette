@@ -33,36 +33,24 @@
 ////////////////////////////////////////////////
 
 let carouselContent = document.getElementById('carousel-content');
-
 let isDown = false;
 let startX = 0;
 let scrollXLeft = 0;
 
 carouselContent.addEventListener('mousedown', (e) => {
-  console.log('mousedown'); //TODO
   isDown = true;
-  carouselContent.classList.add('snap-none');
   startX = e.pageX - carouselContent.offsetLeft;
   scrollXLeft = carouselContent.scrollLeft;
 });
 
-carouselContent.addEventListener('mouseleave', () => {
-  console.log('mouseleave'); //TODO
-  isDown = false;
-  carouselContent.classList.remove('snap-none');
-});
-
-carouselContent.addEventListener('mouseup', () => {
-  console.log('mouseup'); //TODO
-  isDown = false;
-  carouselContent.classList.remove('snap-none');
-});
-
 carouselContent.addEventListener('mousemove', (e) => {
-  console.log('mousemove'); //TODO
   if (!isDown) return;
   e.preventDefault();
-  const x = e.pageX - carouselContent.offsetLeft;
-  const walk = x - startX;
+  const endX = e.pageX - carouselContent.offsetLeft;
+  const walk = endX - startX;
   carouselContent.scrollLeft = scrollXLeft - walk;
+});
+
+document.addEventListener('mouseup', () => {
+  isDown = false;
 });
