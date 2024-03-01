@@ -450,7 +450,10 @@
             />
             <h1>Magazines</h1>
           </div>
-          <div id="carousel" class="flex h-[360px] w-full overflow-auto snap-x">
+          <div
+            id="carousel"
+            class="flex h-[360px] w-[240px] overflow-y-hidden snap-x"
+          >
             <div id="carousel-content" class="flex snap-mandatory">
               <img
                 class="h-[360px] w-[240px] snap-center"
@@ -496,7 +499,14 @@
               />
             </div>
           </div>
-          <div class="flex justify-center gap-4 text-justify tablet:gap-6">
+          <div
+            id="carousel-bullets"
+            class="flex min-tablet:hidden justify-center gap-2"
+          ></div>
+          <div
+            id="carousel-buttons"
+            class="hidden min-tablet:flex justify-center gap-4 text-justify tablet:gap-6"
+          >
             <button id="prev">left</button>
             <button id="next">right</button>
           </div>
