@@ -51,106 +51,104 @@
   </head>
 
   <body class="w-full">
-    <header>
-      <div
-        id="header"
-        class="fixed inset-0 z-10 flex h-28 w-full items-center px-8 py-2 bg-gradient-to-r from-transparent to-brand bg-[length:200%] from-50% to-50% overlay-collapse max-desktop:nav-menu desktop:nav-bar self-stretch"
-      >
-        <div class="flex-[1_0_0%]">
-          <a
-            id="instagram-btn"
-            href="https://www.instagram.com/sandwichetteparis"
-            aria-label="Ouvrir Instagram"
+    <header
+      id="header"
+      class="fixed inset-0 z-10 flex h-28 w-full items-center px-8 py-2 bg-gradient-to-r from-transparent to-brand bg-[length:200%] from-50% to-50% overlay-collapse max-desktop:nav-menu desktop:nav-bar self-stretch"
+    >
+      <div id="instagram-btn__container" class="flex-[1_0_0%]">
+        <a
+          id="instagram-btn"
+          href="https://www.instagram.com/sandwichetteparis"
+          aria-label="Ouvrir Instagram"
+        >
+          <svg
+            id="instagram-btn__icon"
+            class="h-8 w-8 link-primary"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 448 512"
+            aria-hidden="true"
           >
+            <path
+              d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"
+            />
+            <defs>
+              <pattern
+                id="background"
+                patternUnits="objectBoundingBox"
+                width="1"
+                height="1"
+              >
+                <use xlink:href="#instaGradient" />
+              </pattern>
+              <image
+                id="instaGradient"
+                width="512"
+                height="512"
+                xlink:href="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAlgCWAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCABAAEADASIAAhEBAxEB/8QAGwAAAgMBAQEAAAAAAAAAAAAAAgMBBQYEAAf/xAAkEAACAQMDBAMBAAAAAAAAAAAAAQIDBBEhIkEFEjFxE1FhFP/EABwBAAICAwEBAAAAAAAAAAAAAAMEBQYAAgcBCP/EACARAAIDAQACAgMAAAAAAAAAAAABAgMEBTFBERMVIVH/2gAMAwEAAhEDEQA/AMlOW+WfslSEzlvl7I7jsH2pli/HSkdDkLkwO8hyNXYkPZ+fKJEmLbCbBfgxWomKs7igckJtNavyeJXlBVYhlVsfUW+XsWzsqUt8vYuVIpcexH+klViic6CDcMAeAj6qfscjhj6QMiAyMBa+gn7PJZEheCYrVB4JitUPR2foC85f1LbfLTkXK1/DSTs9z05A/i/Dg67bT8mR0JGXqWr+jnnbP6NdKwzwIqdO/B2nt/PsZhtSMr8DXAEqeDRVbLHBwV7bHBM5uum/IxG9TKhxJj5Q2tT7RKymiwU9BSXkOq1JfJ9gdnuenIcbLPBbfEu5+x9Oij59leygvS0imXT88CqvTtPBqadunwRWtl2+DWO2UWCW1pmFurHGdCjvLTGdDeX1Ba6Gc6hRWpM5OhJMmMmpsxV3b4bK+VLEjRX1PVlVUhuLbk3ycSx02to//9k="
+              ></image>
+            </defs>
+          </svg>
+        </a>
+      </div>
+      <div id="sandwichette-logo__container" class="h-full">
+        <img
+          id="sandwichette-logo"
+          class="aspect-16/10 w-full object-cover"
+          src="/img/logo.svg"
+          alt="Logo de Sandwichette"
+        />
+      </div>
+      <nav id="nav__container" class="flex-[1_0_0%]">
+        <ul id="nav__list" class="flex items-center">
+          <li class="menu__item">
+            <a href="#apropos">À propos</a>
+          </li>
+          <li class="menu__item">
+            <a href="#philosophie">Philosophie</a>
+          </li>
+          <li class="menu__item">
+            <a href="#magazines">Magazines</a>
+          </li>
+          <li class="menu__item">
+            <a href="#contact">Contact</a>
+          </li>
+        </ul>
+        <div
+          id="nav-menu__btn-container"
+          class="flex grow justify-end desktop:hidden"
+        >
+          <button
+            aria-label="Toggle menu"
+            onclick="navMenuOpen()"
+            id="nav-menu__btn"
+            accesskey="m"
+          >
+            <span class="sr-only">Toggle navigation menu</span>
             <svg
-              id="instagram-btn__icon"
-              class="h-8 w-8 link-primary"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 448 512"
+              class="h-8 w-8 link-primary"
+              id="nav-menu__btn-toggle"
               aria-hidden="true"
             >
               <path
-                d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"
+                d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"
               />
-              <defs>
-                <pattern
-                  id="background"
-                  patternUnits="objectBoundingBox"
-                  width="1"
-                  height="1"
-                >
-                  <use xlink:href="#instaGradient" />
-                </pattern>
-                <image
-                  id="instaGradient"
-                  width="512"
-                  height="512"
-                  xlink:href="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAlgCWAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCABAAEADASIAAhEBAxEB/8QAGwAAAgMBAQEAAAAAAAAAAAAAAgMBBQYEAAf/xAAkEAACAQMDBAMBAAAAAAAAAAAAAQIDBBEhIkEFEjFxE1FhFP/EABwBAAICAwEBAAAAAAAAAAAAAAMEBQYAAgcBCP/EACARAAIDAQACAgMAAAAAAAAAAAABAgMEBTFBERMVIVH/2gAMAwEAAhEDEQA/AMlOW+WfslSEzlvl7I7jsH2pli/HSkdDkLkwO8hyNXYkPZ+fKJEmLbCbBfgxWomKs7igckJtNavyeJXlBVYhlVsfUW+XsWzsqUt8vYuVIpcexH+klViic6CDcMAeAj6qfscjhj6QMiAyMBa+gn7PJZEheCYrVB4JitUPR2foC85f1LbfLTkXK1/DSTs9z05A/i/Dg67bT8mR0JGXqWr+jnnbP6NdKwzwIqdO/B2nt/PsZhtSMr8DXAEqeDRVbLHBwV7bHBM5uum/IxG9TKhxJj5Q2tT7RKymiwU9BSXkOq1JfJ9gdnuenIcbLPBbfEu5+x9Oij59leygvS0imXT88CqvTtPBqadunwRWtl2+DWO2UWCW1pmFurHGdCjvLTGdDeX1Ba6Gc6hRWpM5OhJMmMmpsxV3b4bK+VLEjRX1PVlVUhuLbk3ycSx02to//9k="
-                ></image>
-              </defs>
             </svg>
-          </a>
-        </div>
-        <div class="h-full">
-          <img
-            id="sandwichette-logo"
-            class="aspect-16/10 w-full object-cover"
-            src="/img/logo.svg"
-            alt="Logo de Sandwichette"
-          />
-        </div>
-        <nav id="nav" class="flex-[1_0_0%]">
-          <ul id="nav__list" class="flex items-center">
-            <li class="menu__item">
-              <a href="#apropos">À propos</a>
-            </li>
-            <li class="menu__item">
-              <a href="#philosophie">Philosophie</a>
-            </li>
-            <li class="menu__item">
-              <a href="#magazines">Magazines</a>
-            </li>
-            <li class="menu__item">
-              <a href="#contact">Contact</a>
-            </li>
-          </ul>
-          <div
-            id="nav-menu__btn-container"
-            class="flex grow justify-end desktop:hidden"
-          >
-            <button
-              aria-label="Toggle menu"
-              onclick="navMenuOpen()"
-              id="nav-menu__btn"
-              accesskey="m"
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 384 512"
+              class="w-8 h-8 hidden link-secondary active:animate-spin-once"
+              id="nav-menu__btn-collapse"
+              aria-hidden="true"
             >
-              <span class="sr-only">Toggle navigation menu</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 448 512"
-                class="h-8 w-8 link-primary"
-                id="nav-menu__btn-toggle"
-                aria-hidden="true"
-              >
-                <path
-                  d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"
-                />
-              </svg>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 384 512"
-                class="w-8 h-8 hidden link-secondary active:animate-spin-once"
-                id="nav-menu__btn-collapse"
-                aria-hidden="true"
-              >
-                <path
-                  d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
-                />
-              </svg>
-            </button>
-          </div>
-        </nav>
-      </div>
+              <path
+                d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+              />
+            </svg>
+          </button>
+        </div>
+      </nav>
     </header>
 
     <div id="hero" class="h-screen mb-16 tablet:mb-24 desktop:mb-32">
