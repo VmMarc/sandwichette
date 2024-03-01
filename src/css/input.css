@@ -103,6 +103,15 @@
   #header.overlay-collapse.nav-menu #nav__list > .menu__item > a {
     @apply invisible;
   }
+
+  /* TODO */
+  .carousel-responsive #carousel {
+    @apply relative w-full overflow-hidden;
+  }
+
+  .content-carousel-responsive #content-carousel {
+    @apply absolute left-1/2 transform -translate-x-[120px];
+  }
 }
 
 @layer utilities {
