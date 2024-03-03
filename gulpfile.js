@@ -178,45 +178,30 @@ const css = {
 
 const html = {
   inject() {
-    // const headScripts = gulp
-    //   .src(`${SRC}/js/{header,menu}.js`)
-    //   .pipe(concat('headerScripts.js'))
-    //   .pipe(uglify())
-    //   .pipe(gulp.dest(`${TMP}/js/`));
-
-    const footScripts = gulp
+    const scripts = gulp
       .src(`${SRC}/js/*.js`)
       .pipe(sort())
       .pipe(concat({ path: 'bundle.js', cwd: '' }))
       .pipe(rev())
       .pipe(uglify({ compress: true, mangle: true }))
-      .pipe(gulp.dest(`${DEST}/js/`));
+      .pipe(gulp.dest(`${DEST}/js/`))
+      .pipe(size());
 
-    return (
-      gulp
-        .src(`${SRC}/index.html`)
-        .pipe(
-          inject(gulp.src(`${TMP}/favicon/head-favicons.html`), {
-            starttag: '<!-- inject:head:{{ext}} -->',
-            transform: function (filePath, file) {
-              return file.contents.toString('utf8');
-            },
-          }),
-        )
-        .pipe(inject(gulp.src(`${DEST}/css/*.css`), { ignorePath: '/dist' }))
-        // .pipe(
-        //   inject(headScripts, {
-        //     starttag: '<!-- inject:head:{{ext}} -->',
-        //     transform: function (filePath, file) {
-        //       return (
-        //         '<script defer>' + file.contents.toString('utf8') + '</script>'
-        //       );
-        //     },
-        //   }),
-        // )
-        .pipe(inject(footScripts, { ignorePath: '/dist' }))
-        .pipe(gulp.dest(`${TMP}/`))
-    );
+    const stylesheet = css.minify();
+
+    return gulp
+      .src(`${SRC}/index.html`)
+      .pipe(
+        inject(gulp.src(`${TMP}/favicon/head-favicons.html`), {
+          starttag: '<!-- inject:head:{{ext}} -->',
+          transform: function (filePath, file) {
+            return file.contents.toString('utf8');
+          },
+        }),
+      )
+      .pipe(inject(stylesheet, { ignorePath: '/dist' }))
+      .pipe(inject(scripts, { ignorePath: '/dist' }))
+      .pipe(gulp.dest(`${TMP}/`));
   },
 
   minify() {
@@ -274,11 +259,7 @@ export const build = gulp.series(
   gulp.parallel(
     image,
     gulp.series(
-      gulp.parallel(
-        gulp.series(css.build, css.minify),
-        tests.jsLint,
-        images.favicon,
-      ),
+      gulp.parallel(css.build, tests.jsLint, images.favicon),
       copyFiles,
       html.inject,
       html.minify,
@@ -296,7 +277,7 @@ export const watch = function () {
     ],
     { ignoreInitial: false },
     gulp.series(
-      gulp.parallel(gulp.series(css.build, css.minify), tests.jsLint),
+      gulp.parallel(css.build, tests.jsLint),
       html.inject,
       html.minify,
     ),
