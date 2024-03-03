@@ -26,6 +26,10 @@
       property="og:description"
       content="Des bons sandwichs, des chouquettes, du café filtre en abondance et des magazines food 🥪🍰🍷 Mardi-Vendredi 11h-16h. Samedi 11h-17h – 52 rue Saint-Maur 75011 Paris"
     />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.googleapis.com https://*.gstatic.com *.google.com https://*.ggpht.com *.googleusercontent.com blob:; img-src 'self' https://*.googleapis.com https://*.gstatic.com *.google.com  *.googleusercontent.com data:; frame-src *.google.com; connect-src 'self' https://*.googleapis.com *.google.com https://*.gstatic.com  data: blob:; font-src 'self' https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; worker-src blob:;"
+    />
 
     <!-- inject:head:html -->
     <!-- endinject -->
@@ -78,13 +82,13 @@
                 width="1"
                 height="1"
               >
-                <use xlink:href="#instaGradient" />
+                <use href="#instaGradient" />
               </pattern>
               <image
                 id="instaGradient"
                 width="512"
                 height="512"
-                xlink:href="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAlgCWAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCABAAEADASIAAhEBAxEB/8QAGwAAAgMBAQEAAAAAAAAAAAAAAgMBBQYEAAf/xAAkEAACAQMDBAMBAAAAAAAAAAAAAQIDBBEhIkEFEjFxE1FhFP/EABwBAAICAwEBAAAAAAAAAAAAAAMEBQYAAgcBCP/EACARAAIDAQACAgMAAAAAAAAAAAABAgMEBTFBERMVIVH/2gAMAwEAAhEDEQA/AMlOW+WfslSEzlvl7I7jsH2pli/HSkdDkLkwO8hyNXYkPZ+fKJEmLbCbBfgxWomKs7igckJtNavyeJXlBVYhlVsfUW+XsWzsqUt8vYuVIpcexH+klViic6CDcMAeAj6qfscjhj6QMiAyMBa+gn7PJZEheCYrVB4JitUPR2foC85f1LbfLTkXK1/DSTs9z05A/i/Dg67bT8mR0JGXqWr+jnnbP6NdKwzwIqdO/B2nt/PsZhtSMr8DXAEqeDRVbLHBwV7bHBM5uum/IxG9TKhxJj5Q2tT7RKymiwU9BSXkOq1JfJ9gdnuenIcbLPBbfEu5+x9Oij59leygvS0imXT88CqvTtPBqadunwRWtl2+DWO2UWCW1pmFurHGdCjvLTGdDeX1Ba6Gc6hRWpM5OhJMmMmpsxV3b4bK+VLEjRX1PVlVUhuLbk3ycSx02to//9k="
+                href="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAlgCWAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCABAAEADASIAAhEBAxEB/8QAGwAAAgMBAQEAAAAAAAAAAAAAAgMBBQYEAAf/xAAkEAACAQMDBAMBAAAAAAAAAAAAAQIDBBEhIkEFEjFxE1FhFP/EABwBAAICAwEBAAAAAAAAAAAAAAMEBQYAAgcBCP/EACARAAIDAQACAgMAAAAAAAAAAAABAgMEBTFBERMVIVH/2gAMAwEAAhEDEQA/AMlOW+WfslSEzlvl7I7jsH2pli/HSkdDkLkwO8hyNXYkPZ+fKJEmLbCbBfgxWomKs7igckJtNavyeJXlBVYhlVsfUW+XsWzsqUt8vYuVIpcexH+klViic6CDcMAeAj6qfscjhj6QMiAyMBa+gn7PJZEheCYrVB4JitUPR2foC85f1LbfLTkXK1/DSTs9z05A/i/Dg67bT8mR0JGXqWr+jnnbP6NdKwzwIqdO/B2nt/PsZhtSMr8DXAEqeDRVbLHBwV7bHBM5uum/IxG9TKhxJj5Q2tT7RKymiwU9BSXkOq1JfJ9gdnuenIcbLPBbfEu5+x9Oij59leygvS0imXT88CqvTtPBqadunwRWtl2+DWO2UWCW1pmFurHGdCjvLTGdDeX1Ba6Gc6hRWpM5OhJMmMmpsxV3b4bK+VLEjRX1PVlVUhuLbk3ycSx02to//9k="
               ></image>
             </defs>
           </svg>
@@ -274,10 +278,11 @@
 
       <section id="philosophie" class="w-full -scroll-mt-32 text-white">
         <svg
-          aria-hidden="true"
+          id="border-top"
           xmlns="http://www.w3.org/2000/svg"
-          viewBox="1 1 1279 195"
+          viewBox="1 -2 1279 195"
           class="w-full"
+          aria-hidden="true"
         >
           <path
             d="M1280.5 82.0047V196.5H0.5V89.0308C0.5 89.0308 323.607 -84.0464 640.599 53.7961C994.675 207.763 1280.5 82.0047 1280.5 82.0047Z"
@@ -383,6 +388,7 @@
         </div>
         <div class="w-full aspect-[1279/195] relative">
           <svg
+            id="border-bot"
             class="absolute"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="1 2 1279 195"
@@ -417,13 +423,121 @@
         id="magazines"
         class="h-96 w-full scroll-mt-32 bg-cyan-500"
       ></section>
-      <section
-        id="contact"
-        class="h-96 w-full scroll-mt-32 bg-orange-500"
-      ></section>
+      <section id="contact" class="w-full scroll-mt-32">
+        <div
+          class="flex flex-wrap w-full items-center justify-center gap-8 tablet:gap-12 desktop:gap-16 px-5 tablet:px-16 desktop:px-24 m-[0_auto]"
+        >
+          <div
+            class="flex flex-col bg-brand h-full max-tablet:w-full desktop:w-5/12 rounded-2xl max-tablet:px-4 tablet:px-8 max-tablet:py-12 tablet:py-16"
+          >
+            <div
+              class="flex items-center gap-4 tablet:gap-8 self-stretch -translate-x-[calc(1rem_+_1%)] tablet:-translate-x-[calc(2rem_+_1%)] mb-8"
+            >
+              <hr
+                class="h-[8px] w-16 rounded-md bg-black tablet:h-[10px] tablet:w-24 desktop:h-[12px] desktop:w-36"
+              />
+              <h1>Contact</h1>
+            </div>
+            <div class="p-4 flex flex-col gap-8 max-tablet:w-full">
+              <div
+                class="flex flex-col gap-2 tablet:gap-4 items-center justify-start max-tablet:w-full"
+              >
+                <svg
+                  class="h-8 w-8 shrink-0"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 384 512"
+                >
+                  <path
+                    d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"
+                  />
+                </svg>
+                <span
+                  class="whitespace-break-spaces max-tablet:w-full self-stretch text-center tablet:text-left"
+                >
+                  52 rue Saint Maur,
+                  <span class="inline-block">75011 Paris</span>
+                </span>
+              </div>
+              <div
+                class="flex flex-col gap-2 tablet:gap-4 items-center justify-start max-tablet:w-full"
+              >
+                <svg
+                  class="h-8 w-8 shrink-0"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 512 512"
+                >
+                  <path
+                    d="M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"
+                  />
+                </svg>
+                <table
+                  class="max-tablet:table-fixed max-tablet:w-full border-separate border-spacing-x-2 text-center tablet:text-left self-stretch"
+                >
+                  <tbody>
+                    <tr>
+                      <td class="max-tablet:w-1/2 text-right">Mar-Ven:</td>
+                      <td class="max-tablet:w-1/2 text-left">11h-16h</td>
+                    </tr>
+                    <tr>
+                      <td class="max-tablet:w-1/2 text-right">Sam:</td>
+                      <td class="max-tablet:w-1/2 text-left">11h-17h</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div
+                class="flex flex-col gap-2 tablet:gap-4 items-center justify-start max-tablet:w-full"
+              >
+                <svg
+                  class="h-8 w-8 shrink-0"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 512 512"
+                >
+                  <path
+                    d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"
+                  />
+                </svg>
+                <span
+                  class="max-tablet:w-full text-wrap self-stretch break-all text-center tablet:text-left"
+                >
+                  sandwichetteparis<span class="inline-block">@gmail.com</span>
+                </span>
+              </div>
+              <div
+                class="flex flex-col gap-2 tablet:gap-4 items-center justify-start max-tablet:w-full"
+              >
+                <svg
+                  class="h-8 w-8 shrink-0"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 448 512"
+                >
+                  <path
+                    d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"
+                  />
+                </svg>
+                <a
+                  id="instagram-link"
+                  class="link-secondary max-tablet:w-full self-stretch break-all text-center tablet:text-left"
+                  href="https://www.instagram.com/sandwichetteparis"
+                  aria-label="Ouvrir Instagram"
+                  ><u>@sandwichetteparis</u></a
+                >
+              </div>
+            </div>
+          </div>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.7697181420053!2d2.377316676464635!3d48.862601471332816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66d0fd0d197e3%3A0x78b77068ae853c4e!2sSandwichette!5e0!3m2!1sen!2sfr!4v1709560379299!5m2!1sen!2sfr"
+            class="w-5/12 h-[400px] border-2 align-middle"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </section>
     </main>
 
-    <footer class="relative text-white w-full h-[calc(100vh_-_7rem)]">
+    <footer
+      class="relative mt-16 tablet:mt-24 desktop:mt-32 text-white w-full h-[calc(100vh_-_7rem)]"
+    >
       <picture id="footer-bg">
         <source
           type="image/webp"
