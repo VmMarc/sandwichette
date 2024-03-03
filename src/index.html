@@ -105,16 +105,16 @@
       <nav id="nav__container" class="flex-[1_0_0%]">
         <ul id="nav__list" class="flex items-center">
           <li class="menu__item">
-            <a href="#apropos">À propos</a>
+            <a href="#apropos" onclick="navMenuClose()">À propos</a>
           </li>
           <li class="menu__item">
-            <a href="#philosophie">Philosophie</a>
+            <a href="#philosophie" onclick="navMenuClose()">Philosophie</a>
           </li>
           <li class="menu__item">
-            <a href="#magazines">Magazines</a>
+            <a href="#magazines" onclick="navMenuClose()">Magazines</a>
           </li>
           <li class="menu__item">
-            <a href="#contact">Contact</a>
+            <a href="#contact" onclick="navMenuClose()">Contact</a>
           </li>
         </ul>
         <div
@@ -205,7 +205,7 @@
     </div>
 
     <main class="flex flex-col gap-16 tablet:gap-24 desktop:gap-32">
-      <section id="apropos" class="w-full scroll-mt-40">
+      <section id="apropos" class="w-full scroll-mt-32 desktop:scroll-mt-40">
         <div
           class="flex w-full max-w-6xl flex-col items-center justify-center gap-8 tablet:gap-12 desktop:gap-16 px-5 tablet:px-16 desktop:px-24 m-[0_auto]"
         >
@@ -276,7 +276,10 @@
         </div>
       </section>
 
-      <section id="philosophie" class="w-full -scroll-mt-32 text-white">
+      <section
+        id="philosophie"
+        class="w-full tablet:-scroll-mt-16 desktop:-scroll-mt-32 text-white"
+      >
         <svg
           id="border-top"
           xmlns="http://www.w3.org/2000/svg"
@@ -421,9 +424,9 @@
       </section>
       <section
         id="magazines"
-        class="h-96 w-full scroll-mt-32 bg-cyan-500"
+        class="h-96 w-full scroll-mt-32 desktop:scroll-mt-40 bg-cyan-500"
       ></section>
-      <section id="contact" class="w-full scroll-mt-32">
+      <section id="contact" class="w-full scroll-mt-32 desktop:scroll-mt-40">
         <div
           class="flex flex-wrap w-full items-center justify-center gap-4 tablet:gap-8 desktop:gap-12 px-5 tablet:px-16 desktop:px-24 m-[0_auto]"
         >
@@ -517,7 +520,7 @@
                 </svg>
                 <a
                   id="instagram-link"
-                  class="link-secondary w-auto self-stretch break-all text-center tablet:text-left"
+                  class="link-secondary w-auto self-stretch break-all text-center"
                   href="https://www.instagram.com/sandwichetteparis"
                   aria-label="Ouvrir Instagram"
                   ><u>@sandwichetteparis</u></a
@@ -572,12 +575,17 @@
         id="overlay"
         class="fixed overflow-y-scroll hidden p-5 tablet:p-8 desktop:p-12 inset-0 overscroll-contain w-full h-full z-20 bg-black/75 backdrop-blur-lg"
       >
-        <button onclick="disclaimerClose()" aria-label="Quitter" accesskey="q">
+        <button
+          class="absolute top-4 right-4 tablet:top-6 tablet:right-6 desktop:top-8 desktop:right-8"
+          onclick="disclaimerClose()"
+          aria-label="Quitter"
+          accesskey="q"
+        >
           <span class="sr-only">Quitter la section mentions légales</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 384 512"
-            class="absolute desktop:w-12 desktop:h-12 tablet:w-10 tablet:h-10 w-8 h-8 fill-primary hover:fill-brand top-4 right-4 tablet:top-6 tablet:right-6 desktop:top-8 desktop:right-8 active:animate-spin-once"
+            class="desktop:w-12 desktop:h-12 tablet:w-10 tablet:h-10 w-8 h-8 fill-primary hover:fill-brand active:animate-spin-once"
             id="disclaimer-close-icon"
             aria-hidden="true"
           >
@@ -600,11 +608,9 @@
               class="flex max-w-6xl flex-[1_0_0%] flex-col items-center justify-center text-left gap-12 tablet:gap-12 desktop:gap-16"
             >
               <li class="gap-8 tablet:gap-12 desktop:gap-16">
-                <div class="mb-3">
-                  <h2 class="text-left py-1">
-                    • <strong>Propriétaire</strong> :
-                  </h2>
-                  <p class="pl-8 min-w-60 flex-[1_0_0%] text-left">
+                <div>
+                  <h2 class="text-left mb-2">• Propriétaire :</h2>
+                  <p class="ml-8 min-w-60 flex-[1_0_0%] text-left">
                     Nom commercial : Sandwichette&reg;, marque déposée auprès de
                     l'INPI<br />Nenette SAS<br />Siège social : 52 rue Saint
                     Maur 75011 Paris<br />Capital social de 5000 €<br />SIRET
@@ -612,31 +618,31 @@
                     FR33 953220753<br />sandwichetteparis@gmail.com
                   </p>
                 </div>
-                <div class="mb-3">
-                  <h2 class="text-left py-1">
-                    •
-                    <strong>Conception et réalisation technique du site</strong>
-                    :
+                <div>
+                  <hr class="w-full h-1 rounded-md bg-white my-8" />
+                  <h2 class="text-left mb-2">
+                    • Conception et réalisation technique du site :
                   </h2>
-                  <p class="pl-8 min-w-60 flex-[1_0_0%] text-left">
-                    (⌐◉_◉)<br />bilaz666
+                  <p class="ml-8 min-w-60 flex-[1_0_0%] text-left">
+                    - Florian Ohrel EI<br />- bilaz666
                   </p>
                 </div>
-                <div class="mb-3">
-                  <h2 class="text-left py-1">
-                    • <strong>Hébergement du site</strong> :
-                  </h2>
-                  <p class="pl-8 min-w-60 flex-[1_0_0%] text-left"></p>
+                <div>
+                  <hr class="w-full h-1 rounded-md bg-white my-8" />
+                  <h2 class="text-left mb-2">• Hébergement du site :</h2>
+                  <p class="ml-8 min-w-60 flex-[1_0_0%] text-left"></p>
                 </div>
-                <div class="mb-2">
-                  <h2 class="text-left py-1">• <strong>Photo</strong> :</h2>
-                  <p class="pl-8 min-w-60 flex-[1_0_0%] text-left">
+                <div>
+                  <hr class="w-full h-1 rounded-md bg-white my-8" />
+                  <h2 class="text-left mb-2">• Photo :</h2>
+                  <p class="ml-8 min-w-60 flex-[1_0_0%] text-left">
                     Julia Velázquez Charro
                   </p>
                 </div>
-                <div class="mb-2">
-                  <h2 class="text-left py-1">• <strong>Logo</strong> :</h2>
-                  <p class="pl-8 min-w-60 flex-[1_0_0%] text-left">
+                <div>
+                  <hr class="w-full h-1 rounded-md bg-white my-8" />
+                  <h2 class="text-left mb-2">• Logo :</h2>
+                  <p class="ml-8 min-w-60 flex-[1_0_0%] text-left">
                     Ida Quilvin
                   </p>
                 </div>

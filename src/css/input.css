@@ -89,7 +89,7 @@
   }
 
   .nav-menu #nav__list {
-    @apply transition-[left] duration-500 ease-out;
+    @apply transition-[left] duration-500 ease-out gap-12;
   }
 
   .nav-menu #nav__list > .menu__item > a {
@@ -137,18 +137,4 @@
 
 .overlay-toggle.nav-menu #nav__list {
   @apply animate-slide-in;
-}
-
-.blob1 {
-  mask: url('/img/blob1.svg');
-  mask-size: contain;
-  mask-position: center;
-  mask-repeat: no-repeat;
-}
-
-.blob2 {
-  mask: url('/img/blob2.svg');
-  mask-size: contain;
-  mask-position: center;
-  mask-repeat: no-repeat;
 }
