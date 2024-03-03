@@ -1,5 +1,4 @@
 import { exec } from 'child_process';
-import { stream as critical } from 'critical';
 import 'dotenv/config';
 import fs from 'fs';
 import gulp from 'gulp';
@@ -178,8 +177,14 @@ const css = {
 
 const html = {
   inject() {
-    const scripts = gulp
-      .src(`${SRC}/js/*.js`)
+    const headScripts = gulp
+      .src(`${SRC}/js/{header,menu}.js`)
+      .pipe(concat('headerScripts.js'))
+      .pipe(uglify())
+      .pipe(gulp.dest(`${TMP}/js/`));
+
+    const footScripts = gulp
+      .src(`${SRC}/js/{accordion,carousel,disclaimer}.js`)
       .pipe(sort())
       .pipe(concat({ path: 'bundle.js', cwd: '' }))
       .pipe(rev())
@@ -200,7 +205,15 @@ const html = {
         }),
       )
       .pipe(inject(stylesheet, { ignorePath: '/dist' }))
-      .pipe(inject(scripts, { ignorePath: '/dist' }))
+      .pipe(
+        inject(headScripts, {
+          starttag: '<!-- inject:head:{{ext}} -->',
+          transform: function (filePath, file) {
+            return '<script>' + file.contents.toString('utf8') + '</script>';
+          },
+        }),
+      )
+      .pipe(inject(footScripts, { ignorePath: '/dist' }))
       .pipe(gulp.dest(`${TMP}/`));
   },
 
@@ -216,14 +229,14 @@ const html = {
         )
         .pipe(gulp.dest(DEST))
         .pipe(save.restore('before-sitemap'))
-        .pipe(
-          // @ts-ignore
-          critical({
-            inline: true,
-            base: `${DEST}/`,
-            css: `${DEST}/css/*.css`,
-          }),
-        )
+        // .pipe(
+        //   // @ts-ignore
+        //   critical({
+        //     inline: true,
+        //     base: `${DEST}/`,
+        //     css: `${DEST}/css/*.css`,
+        //   }),
+        // )
         // @ts-ignore
         .pipe(
           htmlmin({

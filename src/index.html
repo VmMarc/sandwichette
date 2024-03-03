@@ -30,23 +30,25 @@
     <!-- inject:head:html -->
     <!-- endinject -->
 
+    <link rel="preload" fetchpriority="high" href="/img/logo.svg" as="image" />
     <link
       rel="preload"
       fetchpriority="high"
-      as="image"
-      imagesrcset="/img/hero-bg-2897.webp 2897w, /img/hero-bg-1920.webp 1920w, /img/hero-bg-1600.webp 1600w, /img/hero-bg-1280.webp 1280w, /img/hero-bg-428.webp 428w, /img/hero-bg-360.webp 360w"
-      imagesizes="(max-height: 800px and max-width: 360px) 360w, (max-height: 926px and max-width: 428px) 428w, (min-height: 1357px) 2897w, (min-height: 1131px) 1920w, (min-height: 905px) 1600w, (min-height: 724px) 1280w, (min-height: 604px) 1024w, (min-height: 452px) 854w, 100vw"
-    />
-    <link rel="preload" fetchpriority="high" href="/img/logo.svg" as="image" />
-
-    <link
-      rel="preload"
       as="font"
       href="/fonts/cooper_bold_bt.woff2"
       crossorigin
     />
+    <link
+      rel="preload"
+      as="image"
+      imagesrcset="/img/hero-bg-2897.webp 2897w, /img/hero-bg-1920.webp 1920w, /img/hero-bg-1600.webp 1600w, /img/hero-bg-1280.webp 1280w, /img/hero-bg-428.webp 428w, /img/hero-bg-360.webp 360w"
+      imagesizes="(max-height: 800px and max-width: 360px) 360w, (max-height: 926px and max-width: 428px) 428w, (min-height: 1357px) 2897w, (min-height: 1131px) 1920w, (min-height: 905px) 1600w, (min-height: 724px) 1280w, (min-height: 604px) 1024w, (min-height: 452px) 854w, 100vw"
+    />
 
     <!-- inject:css -->
+    <!-- endinject -->
+
+    <!-- inject:head:js -->
     <!-- endinject -->
   </head>
 
@@ -526,6 +528,7 @@
           </div>
           <iframe
             class="grow min-w-64 max-w-[500px] w-auto aspect-square m-4 border-2 align-middle"
+            title="Sandwichette sur Google maps"
             loading="lazy"
             allowfullscreen
             referrerpolicy="no-referrer-when-downgrade"
