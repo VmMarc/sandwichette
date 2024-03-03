@@ -105,13 +105,20 @@
   }
 
   /* TODO */
-  .carousel-responsive #carousel {
+  /* .carousel-responsive #carousel {
     @apply relative w-full overflow-hidden;
+  } */
+
+  .disable-scrollbar {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE 10+ */
+    overflow: -moz-scrollbars-none; /* Firefox */
+    -webkit-scrollbar: none; /* WebKit */
   }
 
-  .content-carousel-responsive #content-carousel {
+  /* .content-carousel-responsive #carousel-content {
     @apply absolute left-1/2 transform -translate-x-[120px];
-  }
+  } */
 }
 
 @layer utilities {
