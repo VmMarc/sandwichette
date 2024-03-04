@@ -4,7 +4,6 @@ let nextButton = document.getElementById('next-button');
 let previousButton = document.getElementById('previous-button');
 
 let position = 0;
-let tabletView = 768;
 let magazineWidth = 240;
 
 // FONCTION SLIDER
@@ -12,9 +11,8 @@ function buttonSlider() {
   for (let i = 0; i < magazines.length; i++) {
     let scaleValue = 'scale(1)';
 
-    if (window.innerWidth >= tabletView) {
-      scaleValue = i === position ? 'scale(1)' : 'scale(.75)';
-    }
+    // TODO responsive scaling
+    scaleValue = i === position ? 'scale(1)' : 'scale(.75)';
     let translateValue = position * magazineWidth;
     magazines[i].setAttribute(
       'style',
@@ -43,13 +41,13 @@ function updateBullets() {
   let bullets = document.getElementById('carousel-bullets').children;
 
   setTimeout(() => {
-    position = Math.round(
+    let scollPosition = Math.round(
       document.getElementById('carousel').scrollLeft / magazineWidth,
     );
     for (let i = 0; i < bullets.length; i++) {
       bullets[i].classList.remove('bullet-active');
     }
-    bullets[position].classList.add('bullet-active');
+    bullets[scollPosition].classList.add('bullet-active');
     console.log('update bullets'); //TODO
   }, 200);
 }
