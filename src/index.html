@@ -450,11 +450,15 @@
             />
             <h1>Magazines</h1>
           </div>
+          <!-- TODO fix : snap-x randomizes images -->
           <div
             id="carousel"
-            class="flex h-[360px] w-[240px] disable-scrollbar overflow-y-hidden snap-mandatory snap-x"
+            class="flex h-[360px] w-[240px] disable-scrollbar overflow-y-hidden snap-mandatory snap-x tablet:relative tablet:w-full tablet:overflow-hidden"
           >
-            <div id="carousel-content" class="flex gap-4">
+            <div
+              id="carousel-content"
+              class="flex gap-4 tablet:absolute tablet:gap-0 tablet:left-1/2 tablet:transform tablet:-translate-x-[120px]"
+            >
               <img
                 class="h-[360px] w-[240px] snap-always snap-center"
                 src="/img/noble-rot-240.jpg"
@@ -501,11 +505,11 @@
           </div>
           <div
             id="carousel-bullets"
-            class="flex min-tablet:hidden justify-center gap-2"
+            class="flex tablet:hidden justify-center gap-2"
           ></div>
           <div
             id="carousel-buttons"
-            class="hidden min-tablet:flex justify-center gap-4 text-justify tablet:gap-6"
+            class="hidden tablet:flex justify-center gap-4 text-justify tablet:gap-6"
           >
             <button id="previous-button">left</button>
             <button id="next-button">right</button>

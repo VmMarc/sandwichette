@@ -112,14 +112,6 @@
     -webkit-scrollbar: none; /* WebKit */
   }
 
-  /* .carousel-responsive #carousel {
-    @apply relative w-full overflow-hidden;
-  } */
-
-  /* .content-carousel-responsive #carousel-content {
-    @apply absolute left-1/2 transform -translate-x-[120px];
-  } */
-
   .bullets {
     @apply rounded-full w-4 h-4 bg-brand/30;
   }
