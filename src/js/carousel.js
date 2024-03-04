@@ -41,13 +41,17 @@ createBullets();
 //FONCTION UPDATE BULLETS
 function updateBullets() {
   let bullets = document.getElementById('carousel-bullets').children;
-  console.log('update bullets'); //TODO
 
-  for (let i = 0; i < bullets.length; i++) {
-    bullets[i].classList.remove('bullet-active');
-  }
-
-  bullets[position].classList.add('bullet-active');
+  setTimeout(() => {
+    position = Math.round(
+      document.getElementById('carousel').scrollLeft / magazineWidth,
+    );
+    for (let i = 0; i < bullets.length; i++) {
+      bullets[i].classList.remove('bullet-active');
+    }
+    bullets[position].classList.add('bullet-active');
+    console.log('update bullets'); //TODO
+  }, 200);
 }
 
 updateBullets();
@@ -65,10 +69,5 @@ previousButton.addEventListener('click', () => {
 
 // EVENT SCROLL
 carousel.addEventListener('touchend', () => {
-  console.log('carousel scroll'); //TODO
-  position = Math.round(
-    document.getElementById('carousel').scrollLeft / magazineWidth,
-  );
-  console.log('position', position);
   updateBullets();
 });
