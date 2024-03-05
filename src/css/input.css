@@ -15,7 +15,7 @@
   *::before,
   *::after {
     box-sizing: border-box;
-    border: 1px solid #000;
+    /* border: 1px solid #000; */
     @apply cursor-pickle;
   }
 

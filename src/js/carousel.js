@@ -6,13 +6,10 @@ let previousButton = document.getElementById('previous-button');
 let position = 0;
 let magazineWidth = 240;
 
-// FONCTION SLIDER
+// FONCTION SLIDER WITH IMAGE SCALING
 function buttonSlider() {
   for (let i = 0; i < magazines.length; i++) {
-    let scaleValue = 'scale(1)';
-
-    // TODO responsive scaling
-    scaleValue = i === position ? 'scale(1)' : 'scale(.75)';
+    let scaleValue = i === position ? 'scale(1)' : 'scale(.75)';
     let translateValue = position * magazineWidth;
     magazines[i].setAttribute(
       'style',
@@ -21,7 +18,9 @@ function buttonSlider() {
   }
 }
 
-buttonSlider();
+if (window.matchMedia('(min-width: 768px)').matches) {
+  buttonSlider();
+}
 
 //FONCTION CREATE BULLETS
 function createBullets() {
@@ -41,20 +40,19 @@ function updateBullets() {
   let bullets = document.getElementById('carousel-bullets').children;
 
   setTimeout(() => {
-    let scollPosition = Math.round(
+    position = Math.round(
       document.getElementById('carousel').scrollLeft / magazineWidth,
     );
     for (let i = 0; i < bullets.length; i++) {
       bullets[i].classList.remove('bullet-active');
     }
-    bullets[scollPosition].classList.add('bullet-active');
-    console.log('update bullets'); //TODO
-  }, 200);
+    bullets[position].classList.add('bullet-active');
+  }, 250);
 }
 
 updateBullets();
 
-// EVENT NEXT/PREV
+// EVENT NEXT/PREV BUTTONS FOR TABLET/DESKTOP
 nextButton.addEventListener('click', () => {
   position = position + 1 < magazines.length ? position + 1 : position;
   buttonSlider();
@@ -65,7 +63,19 @@ previousButton.addEventListener('click', () => {
   buttonSlider();
 });
 
-// EVENT SCROLL
+// EVENT SCROLL FOR MOBILE
 carousel.addEventListener('touchend', () => {
   updateBullets();
+});
+
+window.addEventListener('resize', () => {
+  if (window.matchMedia('(max-width: 767px)').matches) {
+    updateBullets();
+    for (let i = 0; i < magazines.length; i++) {
+      let scaleValue = 'scale(1)';
+      magazines[i].setAttribute('style', `transform: ${scaleValue}`);
+    }
+  } else {
+    buttonSlider();
+  }
 });
