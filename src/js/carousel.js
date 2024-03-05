@@ -40,14 +40,20 @@ function updateBullets() {
   let bullets = document.getElementById('carousel-bullets').children;
 
   setTimeout(() => {
+    console.log(
+      `pos: ${position} scrollLeft: ${document.getElementById('carousel').scrollLeft}`,
+    );
     position = Math.round(
       document.getElementById('carousel').scrollLeft / magazineWidth,
+    );
+    console.log(
+      `pos: ${position} scrollLeft: ${document.getElementById('carousel').scrollLeft}`,
     );
     for (let i = 0; i < bullets.length; i++) {
       bullets[i].classList.remove('bullet-active');
     }
     bullets[position].classList.add('bullet-active');
-  }, 250);
+  }, 50);
 }
 
 updateBullets();
@@ -63,9 +69,8 @@ previousButton.addEventListener('click', () => {
   buttonSlider();
 });
 
-// EVENT SCROLL FOR MOBILE
-carousel.addEventListener('touchend', () => {
-  updateBullets();
+'touchend scrollend'.split(' ').forEach(function (e) {
+  carousel.addEventListener(e, updateBullets, false);
 });
 
 window.addEventListener('resize', () => {
