@@ -1,20 +1,15 @@
-let magazines = document.getElementById('carousel-content').children;
-let carousel = document.getElementById('carousel');
-let nextButton = document.getElementById('next-button');
-let previousButton = document.getElementById('previous-button');
-
 let position = 0;
 let magazineWidth = 240;
+const magazineLength =
+  document.getElementById('carousel-content').children.length;
+document.getElementById('carousel').scrollLeft = 0;
 
 // FONCTION SLIDER WITH IMAGE SCALING
 function buttonSlider() {
+  const magazines = document.getElementById('carousel-content').children;
   for (let i = 0; i < magazines.length; i++) {
     let scaleValue = i === position ? 'scale(1)' : 'scale(.75)';
-    let translateValue = position * magazineWidth;
-    magazines[i].setAttribute(
-      'style',
-      `transform: translateX(-${translateValue}px) ${scaleValue}`,
-    );
+    magazines[i].setAttribute('style', `transform: ${scaleValue}`);
   }
 }
 
@@ -26,7 +21,7 @@ if (window.matchMedia('(min-width: 768px)').matches) {
 function createBullets() {
   let carouselBulletsContainer = document.getElementById('carousel-bullets');
 
-  for (let i = 0; i < magazines.length; i++) {
+  for (let i = 0; i < magazineLength; i++) {
     let bullet = document.createElement('button');
     bullet.classList.add('bullets');
     carouselBulletsContainer.appendChild(bullet);
@@ -35,19 +30,13 @@ function createBullets() {
 
 createBullets();
 
-//FONCTION UPDATE BULLETS
+// eslint-disable-next-line no-unused-vars
 function updateBullets() {
   let bullets = document.getElementById('carousel-bullets').children;
 
   setTimeout(() => {
-    console.log(
-      `pos: ${position} scrollLeft: ${document.getElementById('carousel').scrollLeft}`,
-    );
     position = Math.round(
       document.getElementById('carousel').scrollLeft / magazineWidth,
-    );
-    console.log(
-      `pos: ${position} scrollLeft: ${document.getElementById('carousel').scrollLeft}`,
     );
     for (let i = 0; i < bullets.length; i++) {
       bullets[i].classList.remove('bullet-active');
@@ -56,31 +45,33 @@ function updateBullets() {
   }, 50);
 }
 
-updateBullets();
-
 // EVENT NEXT/PREV BUTTONS FOR TABLET/DESKTOP
-nextButton.addEventListener('click', () => {
-  position = position + 1 < magazines.length ? position + 1 : position;
+// eslint-disable-next-line no-unused-vars
+function nextButton(e) {
+  e.preventDefault();
+  if (position < magazineLength - 1) ++position;
+  document.getElementById('carousel').scrollLeft += magazineWidth;
   buttonSlider();
-});
+}
 
-previousButton.addEventListener('click', () => {
-  position = position - 1 >= 0 ? position - 1 : position;
+// eslint-disable-next-line no-unused-vars
+function prevButton(e) {
+  e.preventDefault();
+  if (position > 0) --position;
+  document.getElementById('carousel').scrollLeft -= magazineWidth;
   buttonSlider();
-});
-
-'touchend scrollend'.split(' ').forEach(function (e) {
-  carousel.addEventListener(e, updateBullets, false);
-});
+}
 
 window.addEventListener('resize', () => {
   if (window.matchMedia('(max-width: 767px)').matches) {
-    updateBullets();
-    for (let i = 0; i < magazines.length; i++) {
-      let scaleValue = 'scale(1)';
-      magazines[i].setAttribute('style', `transform: ${scaleValue}`);
+    const magazines = document.getElementById('carousel-content').children;
+    for (let i = 0; i < magazineLength; i++) {
+      magazines[i].setAttribute('style', `transform: scale(1)`);
     }
   } else {
+    position = Math.round(
+      document.getElementById('carousel').scrollLeft / magazineWidth,
+    );
     buttonSlider();
   }
 });
