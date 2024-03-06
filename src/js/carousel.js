@@ -1,12 +1,11 @@
 let position = 0;
 let magazineWidth = 240;
-const magazineLength =
-  document.getElementById('carousel-content').children.length;
+const magazineLength = document.getElementById('carousel').children.length;
 document.getElementById('carousel').scrollLeft = 0;
 
 // FONCTION SLIDER WITH IMAGE SCALING
 function buttonSlider() {
-  const magazines = document.getElementById('carousel-content').children;
+  const magazines = document.getElementById('carousel').children;
   for (let i = 0; i < magazines.length; i++) {
     let scaleValue = i === position ? 'scale(1)' : 'scale(.75)';
     magazines[i].setAttribute('style', `transform: ${scaleValue}`);
@@ -64,7 +63,7 @@ function prevButton(e) {
 
 window.addEventListener('resize', () => {
   if (window.matchMedia('(max-width: 767px)').matches) {
-    const magazines = document.getElementById('carousel-content').children;
+    const magazines = document.getElementById('carousel').children;
     for (let i = 0; i < magazineLength; i++) {
       magazines[i].setAttribute('style', `transform: scale(1)`);
     }
