@@ -120,20 +120,8 @@
     @apply rounded-full w-4 h-4 bg-brand;
   }
 
-  /* TODO */
-  .disable-scrollbar {
-    scrollbar-width: none; /* Firefox */
-    overflow: -moz-scrollbars-none; /* Firefox */
-    -ms-overflow-style: none; /* IE 10+ */
-    -webkit-scrollbar: none; /* WebKit */
-  }
-
-  .bullets {
-    @apply rounded-full w-4 h-4 bg-brand/30;
-  }
-
-  .bullet-active {
-    @apply rounded-full w-4 h-4 bg-brand;
+  .image-shadow {
+    box-shadow: 7px 7px 10px 0px rgba(0, 0, 0, 0.5);
   }
 }
 

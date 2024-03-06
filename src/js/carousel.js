@@ -6,8 +6,29 @@ const magazineLength = document.getElementById('carousel').children.length;
 function buttonSlider() {
   const magazines = document.getElementById('carousel').children;
   for (let i = 0; i < magazines.length; i++) {
-    let scaleValue = i === position ? 'scale(1)' : 'scale(.75)';
-    magazines[i].setAttribute('style', `transform: ${scaleValue}`);
+    // let scaleValue;
+    if (i === position) {
+      // scaleValue = 'scale(1)';
+      magazines[i].classList.remove('scale-75');
+      magazines[i].classList.add(
+        'image-shadow',
+        'scale-100',
+        'transition-all',
+        'duration-100',
+        'ease-in-out',
+      );
+    } else {
+      magazines[i].classList.remove(
+        'image-shadow',
+        'scale-100',
+        'transition-all',
+        'duration-100',
+        'ease-in-out',
+      );
+      magazines[i].classList.add('scale-75');
+      // scaleValue = 'scale(.75)';
+    }
+    // magazines[i].setAttribute('style', `transform: ${scaleValue}`);
   }
 }
 
