@@ -1,7 +1,6 @@
 let position = 0;
 let magazineWidth = 240;
 const magazineLength = document.getElementById('carousel').children.length;
-document.getElementById('carousel').scrollLeft = 0;
 
 // FONCTION SLIDER WITH IMAGE SCALING
 function buttonSlider() {
