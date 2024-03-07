@@ -252,7 +252,12 @@ const html = {
 export function copyFiles() {
   return gulp
     .src(
-      [`${SRC}/**/*.woff2`, `${TMP}/favicon/*.!(html)`, `${SRC}/robots.txt`],
+      [
+        `${SRC}/**/*.woff2`,
+        `${TMP}/favicon/*.!(html)`,
+        `${SRC}/robots.txt`,
+        `${SRC}/img/**/*.pdf`,
+      ],
       { since: gulp.lastRun(copyFiles) },
     )
     .pipe(gulp.dest(`${DEST}/`));
@@ -302,7 +307,12 @@ export const watch = function () {
     image,
   );
   gulp.watch(
-    [`${SRC}/**/*.woff2`, `${TMP}/favicon/*.!(html)`, `${SRC}/robots.txt`],
+    [
+      `${SRC}/**/*.woff2`,
+      `${TMP}/favicon/*.!(html)`,
+      `${SRC}/robots.txt`,
+      `${SRC}/img/**/*.pdf`,
+    ],
     { ignoreInitial: false },
     copyFiles,
   );
