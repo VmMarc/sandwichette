@@ -105,14 +105,16 @@ window.addEventListener('resize', () => {
   }
 });
 
-'wheel touchmove'.split(' ').forEach((event) => {
+'wheel touchend'.split(' ').forEach((event) => {
   window.addEventListener(event, () => {
     if (!frameTick) {
-      window.requestAnimationFrame(() => {
-        updateBullets();
-        frameTick = false;
-      });
-      frameTick = true;
+      setTimeout(() => {
+        window.requestAnimationFrame(() => {
+          updateBullets();
+          frameTick = false;
+        });
+        frameTick = true;
+      }, 250);
     }
   });
 });
