@@ -74,7 +74,9 @@ if (window.matchMedia('(min-width: 768px)').matches) {
   buttonSlider();
 }
 createBullets();
-updateBullets();
+setTimeout(() => {
+  updateBullets();
+}, 300);
 
 window.addEventListener('resize', () => {
   if (window.matchMedia('(min-width: 768px)').matches) {
@@ -114,7 +116,7 @@ window.addEventListener('resize', () => {
           frameTick = false;
         });
         frameTick = true;
-      }, 250);
+      }, 300);
     }
   });
 });
