@@ -422,7 +422,7 @@
       </section>
 
       <!-- Carousel Magazines -->
-      <section id="magazines" class="w-full scroll-mt-32">
+      <section id="magazines" class="w-full scroll-mt-32 desktop:scroll-mt-40">
         <div
           class="flex h-full max-w-6xl flex-col flex-[1_0_0%] items-center justify-center gap-8 tablet:gap-12 desktop:gap-16 px-5 tablet:px-16 desktop:px-24 m-[0_auto]"
         >
@@ -436,7 +436,7 @@
             <div id="carousel__container" class="w-full">
               <div
                 id="carousel"
-                class="max-tablet:m-[0_auto] max-tablet:gap-4 max-tablet:w-[240px] tablet:px-[calc(50%_-_120px)] flex scroll-smooth overflow-y-hidden tablet:overflow-x-hidden overflow-x-scroll disable-scrollbar max-tablet:snap-x max-tablet:snap-mandatory h-[400px] items-center transition-all duration-300 ease-in-out"
+                class="max-tablet:m-[0_auto] max-tablet:gap-4 max-tablet:w-[240px] tablet:px-[calc(50%_-_120px)] flex scroll-smooth overflow-y-hidden tablet:overflow-x-hidden overflow-x-scroll disable-scrollbar max-tablet:snap-x max-tablet:snap-mandatory h-[400px] items-center"
               >
                 <img
                   class="h-[360px] w-[240px] snap-always snap-center border-solid border-[1px] border-black"
@@ -531,10 +531,10 @@
 
       <section id="contact" class="w-full scroll-mt-32 desktop:scroll-mt-40">
         <div
-          class="flex flex-wrap w-full items-center justify-center gap-4 tablet:gap-8 desktop:gap-12 px-5 tablet:px-16 desktop:px-24 m-[0_auto]"
+          class="flex w-full items-center justify-center px-5 tablet:px-16 desktop:px-24 m-[0_auto] max-w-6xl"
         >
           <div
-            class="flex flex-col relative bg-brand h-full desktop:w-5/12 rounded-2xl max-tablet:px-4 tablet:px-8 max-tablet:py-12 tablet:py-16 desktop:py-24 gap-8 tablet:gap-12 desktop:gap-16"
+            class="flex flex-col relative bg-brand h-full rounded-2xl max-tablet:px-4 tablet:px-8 max-tablet:py-12 tablet:py-16 desktop:py-24 gap-8 tablet:gap-12 desktop:gap-16 self-stretch grow"
           >
             <div
               class="flex items-center gap-4 tablet:gap-8 self-stretch -translate-x-[calc(1rem_+_1%)] tablet:-translate-x-[calc(2rem_+_1%)]"
@@ -544,101 +544,109 @@
               />
               <h1>Contact</h1>
             </div>
-            <div class="p-4 flex flex-col gap-8 w-auto">
+            <div
+              class="flex flex-wrap self-stretch items-center justify-center gap-4 tablet:gap-8 desktop:gap-12"
+            >
               <div
-                class="flex flex-col gap-2 tablet:gap-4 items-center justify-start w-auto"
+                class="flex flex-col gap-4 tablet:gap-6 desktop:gap-8 w-auto"
               >
-                <svg
-                  class="h-8 w-8 shrink-0"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 384 512"
+                <div
+                  class="flex flex-col gap-1 items-center justify-start w-auto"
                 >
-                  <path
-                    d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"
-                  />
-                </svg>
-                <span
-                  class="whitespace-break-spaces w-auto self-stretch text-center"
+                  <svg
+                    class="h-8 w-8 shrink-0"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 384 512"
+                  >
+                    <path
+                      d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"
+                    />
+                  </svg>
+                  <span
+                    class="whitespace-break-spaces w-auto self-stretch text-center"
+                  >
+                    52 rue Saint Maur,
+                    <span class="inline-block">75011 Paris</span>
+                  </span>
+                </div>
+                <div
+                  class="flex flex-col gap-1 items-center justify-start w-auto"
                 >
-                  52 rue Saint Maur,
-                  <span class="inline-block">75011 Paris</span>
-                </span>
+                  <svg
+                    class="h-8 w-8 shrink-0"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 512"
+                  >
+                    <path
+                      d="M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"
+                    />
+                  </svg>
+                  <table
+                    class="table-fixed w-auto border-separate border-spacing-x-2 border-spacing-y-0 text-center self-stretch"
+                  >
+                    <tbody>
+                      <tr>
+                        <td class="w-1/2 text-right">Mar-Ven:</td>
+                        <td class="w-1/2 text-left">11h-16h</td>
+                      </tr>
+                      <tr>
+                        <td class="w-1/2 text-right">Sam:</td>
+                        <td class="w-1/2 text-left">11h-17h</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div
+                  class="flex flex-col gap-1 items-center justify-start w-auto"
+                >
+                  <svg
+                    class="h-8 w-8 shrink-0"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 512"
+                  >
+                    <path
+                      d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"
+                    />
+                  </svg>
+                  <span
+                    class="w-auto text-wrap self-stretch break-all text-center"
+                  >
+                    sandwichetteparis<span class="inline-block"
+                      >@gmail.com</span
+                    >
+                  </span>
+                </div>
+                <div
+                  class="flex flex-col gap-1 items-center justify-start w-auto"
+                >
+                  <svg
+                    class="h-8 w-8 shrink-0"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512"
+                  >
+                    <path
+                      d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"
+                    />
+                  </svg>
+                  <a
+                    id="instagram-link"
+                    class="link-secondary w-auto self-stretch break-all text-center"
+                    href="https://www.instagram.com/sandwichetteparis"
+                    aria-label="Ouvrir Instagram"
+                    ><u>@sandwichetteparis</u></a
+                  >
+                </div>
               </div>
-              <div
-                class="flex flex-col gap-2 tablet:gap-4 items-center justify-start w-auto"
-              >
-                <svg
-                  class="h-8 w-8 shrink-0"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 512 512"
-                >
-                  <path
-                    d="M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"
-                  />
-                </svg>
-                <table
-                  class="table-fixed w-auto border-separate border-spacing-x-2 text-center self-stretch"
-                >
-                  <tbody>
-                    <tr>
-                      <td class="w-1/2 text-right">Mar-Ven:</td>
-                      <td class="w-1/2 text-left">11h-16h</td>
-                    </tr>
-                    <tr>
-                      <td class="w-1/2 text-right">Sam:</td>
-                      <td class="w-1/2 text-left">11h-17h</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div
-                class="flex flex-col gap-2 tablet:gap-4 items-center justify-start w-auto"
-              >
-                <svg
-                  class="h-8 w-8 shrink-0"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 512 512"
-                >
-                  <path
-                    d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"
-                  />
-                </svg>
-                <span
-                  class="w-auto text-wrap self-stretch break-all text-center"
-                >
-                  sandwichetteparis<span class="inline-block">@gmail.com</span>
-                </span>
-              </div>
-              <div
-                class="flex flex-col gap-2 tablet:gap-4 items-center justify-start w-auto"
-              >
-                <svg
-                  class="h-8 w-8 shrink-0"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 448 512"
-                >
-                  <path
-                    d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"
-                  />
-                </svg>
-                <a
-                  id="instagram-link"
-                  class="link-secondary w-auto self-stretch break-all text-center"
-                  href="https://www.instagram.com/sandwichetteparis"
-                  aria-label="Ouvrir Instagram"
-                  ><u>@sandwichetteparis</u></a
-                >
-              </div>
+              <iframe
+                class="w-[402px] aspect-square border-[1px] border-black"
+                title="Sandwichette sur Google maps"
+                loading="lazy"
+                allowfullscreen
+                referrerpolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJ45fR0A9t5kcRTjyFrmhwt3g&key=AIzaSyD2Vrgp9v03NEjdASw-aRRe_B7sttn5a9E&language=fr&region=fr"
+              ></iframe>
             </div>
           </div>
-          <iframe
-            class="grow min-w-64 max-w-[500px] w-auto aspect-square m-4 border-2 align-middle"
-            title="Sandwichette sur Google maps"
-            loading="lazy"
-            allowfullscreen
-            referrerpolicy="no-referrer-when-downgrade"
-            src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJ45fR0A9t5kcRTjyFrmhwt3g&key=AIzaSyD2Vrgp9v03NEjdASw-aRRe_B7sttn5a9E&language=fr&region=fr"
-          ></iframe>
         </div>
       </section>
     </main>

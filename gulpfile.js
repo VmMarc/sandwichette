@@ -16,7 +16,6 @@ import rename from 'gulp-rename';
 import rev from 'gulp-rev';
 import save from 'gulp-save';
 import sitemap from 'gulp-sitemap';
-import size from 'gulp-size';
 import sort from 'gulp-sort';
 import uglify from 'gulp-uglify';
 import webp from 'imagemin-webp';
@@ -170,8 +169,7 @@ const css = {
       .src(`${TMP}/css/main.css`)
       .pipe(csso())
       .pipe(rev())
-      .pipe(gulp.dest(`${DEST}/css/`))
-      .pipe(size());
+      .pipe(gulp.dest(`${DEST}/css/`));
   },
 };
 
@@ -189,8 +187,7 @@ const html = {
       .pipe(concat({ path: 'bundle.js', cwd: '' }))
       .pipe(rev())
       .pipe(uglify({ compress: true, mangle: true }))
-      .pipe(gulp.dest(`${DEST}/js/`))
-      .pipe(size());
+      .pipe(gulp.dest(`${DEST}/js/`));
 
     const stylesheet = css.minify();
 
@@ -248,7 +245,6 @@ const html = {
           }),
         )
         .pipe(gulp.dest(DEST))
-        .pipe(size())
     );
   },
 };
