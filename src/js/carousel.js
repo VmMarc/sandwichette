@@ -72,22 +72,26 @@ const checkLoaded = setInterval(() => {
   if (magazineLoaded === magazineLength) {
     createBullets();
     updateBullets();
+    carousel.addEventListener('touchstart', cancelWheelEvent, false);
+    carousel.addEventListener('touchmove', cancelWheelEvent, false);
+    carousel.addEventListener('mousewheel', cancelWheelEvent, false);
+    carousel.addEventListener('DOMMouseScroll', cancelWheelEvent, false);
     carousel.addEventListener('scroll', () => {
       if (!frameTick) {
         window.requestAnimationFrame(() => {
           position = Math.round(carousel.scrollLeft / magazineWidth);
           if (window.matchMedia('(min-width: 768px)').matches) {
             buttonSlider();
-            carousel.addEventListener('mousewheel', cancelWheelEvent, false);
-            carousel.addEventListener(
+          } else {
+            updateBullets();
+            carousel.removeEventListener('touchstart', cancelWheelEvent, false);
+            carousel.removeEventListener('touchmove', cancelWheelEvent, false);
+            carousel.removeEventListener('mousewheel', cancelWheelEvent, false);
+            carousel.removeEventListener(
               'DOMMouseScroll',
               cancelWheelEvent,
               false,
             );
-            carousel.addEventListener('touchstart', cancelWheelEvent, false);
-            carousel.addEventListener('touchmove', cancelWheelEvent, false);
-          } else {
-            updateBullets();
           }
           frameTick = false;
         });
@@ -128,16 +132,13 @@ function updateBullets() {
 }
 
 function throttle(mainFunction, delay) {
-  let timerFlag = null; // Variable to keep track of the timer
+  let timerFlag = null;
 
-  // Returning a throttled version
   return (...args) => {
     if (timerFlag === null) {
-      // If there is no timer currently running
-      mainFunction(...args); // Execute the main function
+      mainFunction(...args);
       timerFlag = setTimeout(() => {
-        // Set a timer to clear the timerFlag after the specified delay
-        timerFlag = null; // Clear the timerFlag to allow the main function to be executed again
+        timerFlag = null;
       }, delay);
     }
   };
@@ -165,6 +166,10 @@ window.addEventListener('resize', () => {
   if (window.matchMedia('(min-width: 768px)').matches) {
     carousel.scrollLeft = position * magazineWidth;
     buttonSlider();
+    carousel.addEventListener('touchstart', cancelWheelEvent, false);
+    carousel.addEventListener('touchmove', cancelWheelEvent, false);
+    carousel.addEventListener('mousewheel', cancelWheelEvent, false);
+    carousel.addEventListener('DOMMouseScroll', cancelWheelEvent, false);
   } else {
     for (let i = 0; i < magazines.length; i++) {
       if (i === position) {
@@ -175,5 +180,9 @@ window.addEventListener('resize', () => {
       }
     }
     updateBullets();
+    carousel.removeEventListener('touchstart', cancelWheelEvent, false);
+    carousel.removeEventListener('touchmove', cancelWheelEvent, false);
+    carousel.removeEventListener('mousewheel', cancelWheelEvent, false);
+    carousel.removeEventListener('DOMMouseScroll', cancelWheelEvent, false);
   }
 });
