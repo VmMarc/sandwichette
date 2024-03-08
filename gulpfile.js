@@ -106,9 +106,15 @@ const images = {
           )) {
             await sharp(`${TMP}/img/${file}`, { pages: -1 })
               .resize({ ...dimensions, ...imageConf[filePath.name].options })
-              .toFile(
-                `${DEST}/img/${filePath.name}-${dimensions.width}${filePath.ext}`,
-              );
+              .toBuffer({ resolveWithObject: true })
+              .then(({ data, info }) => {
+                sharp(data).toFile(
+                  `${DEST}/img/${filePath.name}-${info.width}${filePath.ext}`,
+                );
+              })
+              .catch((err) => {
+                console.error(err);
+              });
           }
         }
       } else {

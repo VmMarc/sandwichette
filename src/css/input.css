@@ -34,7 +34,7 @@
     @apply cursor-pickle;
   }
 
-  a:not(#catering-btn):hover {
+  #catering-btn a:hover {
     @apply text-brand;
   }
 
@@ -104,12 +104,11 @@
     @apply invisible;
   }
 
-  /* TODO */
   .disable-scrollbar {
-    scrollbar-width: none; /* Firefox */
-    overflow: -moz-scrollbars-none; /* Firefox */
-    -ms-overflow-style: none; /* IE 10+ */
-    -webkit-scrollbar: none; /* WebKit */
+    scrollbar-width: none;
+    overflow: -moz-scrollbars-none;
+    -ms-overflow-style: none;
+    -webkit-scrollbar: none;
   }
 
   .bullets {
@@ -126,6 +125,10 @@
 
   #catering-btn:hover {
     @apply text-black;
+  }
+
+  #carousel {
+    overflow-anchor: none;
   }
 
   .magazine {

@@ -1,23 +1,39 @@
 const carousel = document.getElementById('carousel');
 const carouselBulletsContainer = document.getElementById('carousel-bullets');
-const magazines = document.getElementById('carousel').children;
+const magazines = carousel.children;
 const magazineLength = magazines.length;
 const magazineWidth = 240;
 let position = 0;
 let frameTick = false;
 let magazineLoaded = 0;
 
-for (let i = 0; i < magazines.length; i++) {
-  magazines[i].addEventListener('load', () => {
-    magazineLoaded++;
-    carousel.scrollLeft = 0;
-  });
+if (magazines) {
+  for (let i = 0; i < magazines.length; i++) {
+    magazines[i].addEventListener('load', () => {
+      magazineLoaded++;
+      carousel.scrollLeft = 0;
+    });
+  }
 }
 
+/**
+ * @param {number} x
+ */
 function easeInOutQuad(x) {
   return x < 0.5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2;
 }
 
+/**
+ * scrollLeft change animation
+ * @date 3/8/2024 - 12:02:09 PM
+ * @author morizur
+ *
+ * @param {boolean} [scrollRight=true] scroll direction
+ * @param {number} [duration=1000] animation duration
+ * @param {number} [baseValue=carousel.scrollLeft] scrollLeft initial value
+ * @param {(x: number) => number} [easingFn=easeInOutQuad] easing function
+ * @returns {void}
+ */
 function scroll(
   scrollRight = true,
   duration = 1000,
@@ -28,10 +44,28 @@ function scroll(
   let done = false;
   const scrollDir = scrollRight ? 1 : -1;
 
+  /**
+   * Scroll coefficient generator
+   * @date 3/8/2024 - 12:22:16 PM
+   * @author morizur
+   *
+   * @generator
+   * @param {number} x
+   * @param {(x: number) => number} [f] easing function
+   * @return {Generator}
+   * @yields {number}
+   */
   function* generator(x, f) {
     yield f(x);
   }
 
+  /**
+   * Scrolling function
+   * @date 3/8/2024 - 12:18:27 PM
+   * @author morizur
+   *
+   * @param {DOMHighResTimeStamp} timeStamp
+   */
   function scrollLeftTransition(timeStamp) {
     if (start === undefined) {
       start = timeStamp;
@@ -46,7 +80,7 @@ function scroll(
           Math.min(
             magazineWidth *
               generator(elapsed / duration, easingFn).next().value,
-            240,
+            magazineWidth,
           );
       if (compteur === 100) done = true;
     }
@@ -61,21 +95,10 @@ function scroll(
   window.requestAnimationFrame(scrollLeftTransition);
 }
 
-function cancelWheelEvent(e) {
-  if (window.matchMedia('(min-width: 768px)').matches) {
-    e.preventDefault();
-    e.stopPropagation();
-  }
-}
-
 const checkLoaded = setInterval(() => {
   if (magazineLoaded === magazineLength) {
     createBullets();
     updateBullets();
-    carousel.addEventListener('touchstart', cancelWheelEvent, false);
-    carousel.addEventListener('touchmove', cancelWheelEvent, false);
-    carousel.addEventListener('mousewheel', cancelWheelEvent, false);
-    carousel.addEventListener('DOMMouseScroll', cancelWheelEvent, false);
     carousel.addEventListener('scroll', () => {
       if (!frameTick) {
         window.requestAnimationFrame(() => {
@@ -84,14 +107,6 @@ const checkLoaded = setInterval(() => {
             buttonSlider();
           } else {
             updateBullets();
-            carousel.removeEventListener('touchstart', cancelWheelEvent, false);
-            carousel.removeEventListener('touchmove', cancelWheelEvent, false);
-            carousel.removeEventListener('mousewheel', cancelWheelEvent, false);
-            carousel.removeEventListener(
-              'DOMMouseScroll',
-              cancelWheelEvent,
-              false,
-            );
           }
           frameTick = false;
         });
@@ -105,9 +120,9 @@ function buttonSlider() {
   for (let i = 0; i < magazines.length; i++) {
     if (i === position) {
       magazines[i].classList.remove('scale-75');
-      magazines[i].classList.add('image-shadow', 'scale-100');
+      magazines[i].classList.add('image-shadow');
     } else {
-      magazines[i].classList.remove('image-shadow', 'scale-100');
+      magazines[i].classList.remove('image-shadow');
       magazines[i].classList.add('scale-75');
     }
   }
@@ -166,10 +181,6 @@ window.addEventListener('resize', () => {
   if (window.matchMedia('(min-width: 768px)').matches) {
     carousel.scrollLeft = position * magazineWidth;
     buttonSlider();
-    carousel.addEventListener('touchstart', cancelWheelEvent, false);
-    carousel.addEventListener('touchmove', cancelWheelEvent, false);
-    carousel.addEventListener('mousewheel', cancelWheelEvent, false);
-    carousel.addEventListener('DOMMouseScroll', cancelWheelEvent, false);
   } else {
     for (let i = 0; i < magazines.length; i++) {
       if (i === position) {
@@ -180,9 +191,5 @@ window.addEventListener('resize', () => {
       }
     }
     updateBullets();
-    carousel.removeEventListener('touchstart', cancelWheelEvent, false);
-    carousel.removeEventListener('touchmove', cancelWheelEvent, false);
-    carousel.removeEventListener('mousewheel', cancelWheelEvent, false);
-    carousel.removeEventListener('DOMMouseScroll', cancelWheelEvent, false);
   }
 });
