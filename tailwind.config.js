@@ -40,7 +40,7 @@ module.exports = {
         spinOnce: {
           to: { transform: 'rotate(360deg)' },
         },
-        imagesFloat: {
+        imageFloater: {
           '0%': { transform: 'translate(-200%, 110vh) rotate(45deg)' },
           '12.5%': { transform: 'translate(120vw, -120%) scale(1.2)' },
           '25%': { transform: 'translate(-200%, 50vh) rotate(-90deg)' },
@@ -51,12 +51,21 @@ module.exports = {
           '87.5%': { transform: 'translate(50vw, -200%)' },
           '100%': { transform: 'translate(-200%, 110vh) rotate(-360deg)' },
         },
+        movingArm: {
+          '0%': { transform: 'translatex(-100%) rotate(3deg)' },
+          '20%': { transform: 'translatex(-10%)' },
+          '40%': { transform: 'rotate(5deg)' },
+          '60%': { transform: 'rotate(-2deg) translatex(-15%)' },
+          '80%': { transform: 'rotate(5deg)' },
+          '100%': { transform: 'translatex(-100%)' },
+        },
       },
       animation: {
         'slide-in': 'slideIn 0.5s ease-out 1',
         'slide-out': 'slideOut 0.5s ease-out 1',
         'spin-once': 'spinOnce 150ms ease-in-out 1',
-        'images-float': 'imagesFloat 30s linear infinite',
+        'image-floater': 'imageFloater 30s linear infinite',
+        'moving-arm': 'movingArm 10s linear infinite',
       },
     },
   },

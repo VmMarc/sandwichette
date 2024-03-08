@@ -34,8 +34,8 @@
     @apply cursor-pickle;
   }
 
-  a:not(#catering-btn):hover {
-    @apply text-brand;
+  #catering-btn a:hover {
+    @apply text-black;
   }
 
   img {
