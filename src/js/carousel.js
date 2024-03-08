@@ -1,38 +1,109 @@
+const carousel = document.getElementById('carousel');
+const carouselBulletsContainer = document.getElementById('carousel-bullets');
+const magazines = document.getElementById('carousel').children;
+const magazineLength = magazines.length;
+const magazineWidth = 240;
 let position = 0;
-let magazineWidth = 240;
-const magazineLength = document.getElementById('carousel').children.length;
 let frameTick = false;
+let magazineLoaded = 0;
 
-// FONCTION SLIDER WITH IMAGE SCALING
+for (let i = 0; i < magazines.length; i++) {
+  magazines[i].addEventListener('load', () => {
+    magazineLoaded++;
+    carousel.scrollLeft = 0;
+  });
+}
+
+function easeInOutCubic(x) {
+  return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
+}
+
+function scroll(
+  scrollRight = true,
+  duration = 1000,
+  baseValue = carousel.scrollLeft,
+  easingFn = easeInOutCubic,
+) {
+  let start, prevTime;
+  let done = false;
+  const scrollDir = scrollRight ? 1 : -1;
+
+  function* generator(x, f) {
+    yield f(x);
+  }
+
+  function scrollLeftTransition(timeStamp) {
+    if (start === undefined) {
+      start = timeStamp;
+    }
+    const elapsed = timeStamp - start;
+
+    if (prevTime !== timeStamp) {
+      const compteur = Math.min(0.1 * elapsed, 100);
+      carousel.scrollLeft =
+        baseValue +
+        scrollDir *
+          Math.min(
+            magazineWidth *
+              generator(elapsed / duration, easingFn).next().value,
+            240,
+          );
+      if (compteur === 100) done = true;
+    }
+
+    if (elapsed < duration) {
+      prevTime = timeStamp;
+      if (!done) {
+        window.requestAnimationFrame(scrollLeftTransition);
+      }
+    }
+  }
+  window.requestAnimationFrame(scrollLeftTransition);
+}
+
+function cancelWheelEvent(e) {
+  if (window.matchMedia('(min-width: 768px)').matches) {
+    e.preventDefault();
+    e.stopPropagation();
+  }
+}
+
+const checkLoaded = setInterval(() => {
+  if (magazineLoaded === magazineLength) {
+    createBullets();
+    updateBullets();
+    carousel.addEventListener('scroll', () => {
+      if (!frameTick) {
+        window.requestAnimationFrame(() => {
+          position = Math.round(carousel.scrollLeft / magazineWidth);
+          if (window.matchMedia('(min-width: 768px)').matches) {
+            buttonSlider();
+          } else {
+            updateBullets();
+          }
+          frameTick = false;
+        });
+        frameTick = true;
+      }
+    });
+    carousel.addEventListener('mousewheel', cancelWheelEvent, false);
+    carousel.addEventListener('DOMMouseScroll', cancelWheelEvent, false);
+  }
+}, 200);
+
 function buttonSlider() {
-  const magazines = document.getElementById('carousel').children;
   for (let i = 0; i < magazines.length; i++) {
     if (i === position) {
       magazines[i].classList.remove('scale-75');
-      magazines[i].classList.add(
-        'image-shadow',
-        'scale-100',
-        'transition-transform',
-        'duration-100',
-        'ease-in-out',
-      );
+      magazines[i].classList.add('image-shadow', 'scale-100');
     } else {
-      magazines[i].classList.remove(
-        'image-shadow',
-        'scale-100',
-        'transition-transform',
-        'duration-100',
-        'ease-in-out',
-      );
+      magazines[i].classList.remove('image-shadow', 'scale-100');
       magazines[i].classList.add('scale-75');
     }
   }
 }
 
-//FONCTION CREATE BULLETS
 function createBullets() {
-  let carouselBulletsContainer = document.getElementById('carousel-bullets');
-
   for (let i = 0; i < magazineLength; i++) {
     let bullet = document.createElement('div');
     bullet.classList.add('bullets');
@@ -40,83 +111,48 @@ function createBullets() {
   }
 }
 
-// eslint-disable-next-line no-unused-vars
 function updateBullets() {
-  let bullets = document.getElementById('carousel-bullets').children;
+  const bullets = carouselBulletsContainer.children;
 
-  position = Math.round(
-    document.getElementById('carousel').scrollLeft / magazineWidth,
-  );
   for (let i = 0; i < bullets.length; i++) {
     bullets[i].classList.remove('bullet-active');
   }
   bullets[position].classList.add('bullet-active');
+  clearInterval(checkLoaded);
 }
 
-// EVENT NEXT/PREV BUTTONS FOR TABLET/DESKTOP
 // eslint-disable-next-line no-unused-vars
-function nextButton(e) {
-  e.preventDefault();
+function nextButton() {
+  scroll(true, 500);
   if (position < magazineLength - 1) ++position;
-  document.getElementById('carousel').scrollLeft += magazineWidth;
   buttonSlider();
 }
 
 // eslint-disable-next-line no-unused-vars
-function prevButton(e) {
-  e.preventDefault();
+function prevButton() {
+  scroll(false, 500);
   if (position > 0) --position;
-  document.getElementById('carousel').scrollLeft -= magazineWidth;
+  carousel.scrollLeft -= magazineWidth;
   buttonSlider();
 }
 
 if (window.matchMedia('(min-width: 768px)').matches) {
   buttonSlider();
 }
-createBullets();
-setTimeout(() => {
-  updateBullets();
-}, 300);
 
 window.addEventListener('resize', () => {
   if (window.matchMedia('(min-width: 768px)').matches) {
-    document.getElementById('carousel').scrollLeft = position * magazineWidth;
+    carousel.scrollLeft = position * magazineWidth;
     buttonSlider();
   } else {
-    const magazines = document.getElementById('carousel').children;
     for (let i = 0; i < magazines.length; i++) {
       if (i === position) {
-        magazines[i].classList.remove(
-          'image-shadow',
-          'transition-transform',
-          'duration-100',
-          'ease-in-out',
-        );
+        magazines[i].classList.remove('image-shadow');
       } else {
-        magazines[i].classList.remove(
-          'image-shadow',
-          'scale-75',
-          'transition-transform',
-          'duration-100',
-          'ease-in-out',
-        );
+        magazines[i].classList.remove('image-shadow', 'scale-75');
         magazines[i].classList.add('scale-100');
       }
     }
     updateBullets();
   }
-});
-
-'wheel touchend'.split(' ').forEach((event) => {
-  window.addEventListener(event, () => {
-    if (!frameTick) {
-      setTimeout(() => {
-        window.requestAnimationFrame(() => {
-          updateBullets();
-          frameTick = false;
-        });
-        frameTick = true;
-      }, 300);
-    }
-  });
 });
