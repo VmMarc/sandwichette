@@ -78,6 +78,14 @@ const checkLoaded = setInterval(() => {
           position = Math.round(carousel.scrollLeft / magazineWidth);
           if (window.matchMedia('(min-width: 768px)').matches) {
             buttonSlider();
+            carousel.addEventListener('mousewheel', cancelWheelEvent, false);
+            carousel.addEventListener(
+              'DOMMouseScroll',
+              cancelWheelEvent,
+              false,
+            );
+            carousel.addEventListener('touchstart', cancelWheelEvent, false);
+            carousel.addEventListener('touchmove', cancelWheelEvent, false);
           } else {
             updateBullets();
           }
@@ -86,8 +94,6 @@ const checkLoaded = setInterval(() => {
         frameTick = true;
       }
     });
-    carousel.addEventListener('mousewheel', cancelWheelEvent, false);
-    carousel.addEventListener('DOMMouseScroll', cancelWheelEvent, false);
   }
 }, 200);
 
@@ -121,19 +127,35 @@ function updateBullets() {
   clearInterval(checkLoaded);
 }
 
-// eslint-disable-next-line no-unused-vars
-function nextButton() {
-  scroll(true, 300);
-  if (position < magazineLength - 1) ++position;
-  buttonSlider();
+function throttle(mainFunction, delay) {
+  let timerFlag = null; // Variable to keep track of the timer
+
+  // Returning a throttled version
+  return (...args) => {
+    if (timerFlag === null) {
+      // If there is no timer currently running
+      mainFunction(...args); // Execute the main function
+      timerFlag = setTimeout(() => {
+        // Set a timer to clear the timerFlag after the specified delay
+        timerFlag = null; // Clear the timerFlag to allow the main function to be executed again
+      }, delay);
+    }
+  };
 }
 
 // eslint-disable-next-line no-unused-vars
-function prevButton() {
+const nextButton = throttle(() => {
+  buttonSlider();
+  scroll(true, 300);
+  if (position < magazineLength - 1) ++position;
+}, 300);
+
+// eslint-disable-next-line no-unused-vars
+const prevButton = throttle(() => {
+  buttonSlider();
   scroll(false, 300);
   if (position > 0) --position;
-  buttonSlider();
-}
+}, 300);
 
 if (window.matchMedia('(min-width: 768px)').matches) {
   buttonSlider();
