@@ -14,15 +14,15 @@ for (let i = 0; i < magazines.length; i++) {
   });
 }
 
-function easeInOutCubic(x) {
-  return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
+function easeInOutQuad(x) {
+  return x < 0.5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2;
 }
 
 function scroll(
   scrollRight = true,
   duration = 1000,
   baseValue = carousel.scrollLeft,
-  easingFn = easeInOutCubic,
+  easingFn = easeInOutQuad,
 ) {
   let start, prevTime;
   let done = false;
@@ -123,16 +123,15 @@ function updateBullets() {
 
 // eslint-disable-next-line no-unused-vars
 function nextButton() {
-  scroll(true, 500);
+  scroll(true, 300);
   if (position < magazineLength - 1) ++position;
   buttonSlider();
 }
 
 // eslint-disable-next-line no-unused-vars
 function prevButton() {
-  scroll(false, 500);
+  scroll(false, 300);
   if (position > 0) --position;
-  carousel.scrollLeft -= magazineWidth;
   buttonSlider();
 }
 

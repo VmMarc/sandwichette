@@ -127,6 +127,10 @@
   #catering-btn:hover {
     @apply text-black;
   }
+
+  .magazine {
+    @apply h-[360px] w-[240px] snap-always snap-center border-solid border-[1px] border-black transition-all duration-300 ease-in-out;
+  }
 }
 
 @layer utilities {
