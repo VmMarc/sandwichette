@@ -123,16 +123,15 @@ function updateBullets() {
 
 // eslint-disable-next-line no-unused-vars
 function nextButton() {
-  scroll(true, 500);
+  scroll(true, 1000);
   if (position < magazineLength - 1) ++position;
   buttonSlider();
 }
 
 // eslint-disable-next-line no-unused-vars
 function prevButton() {
-  scroll(false, 500);
+  scroll(false, 1000);
   if (position > 0) --position;
-  carousel.scrollLeft -= magazineWidth;
   buttonSlider();
 }
 

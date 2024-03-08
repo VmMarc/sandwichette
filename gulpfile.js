@@ -169,7 +169,11 @@ const css = {
       .src(`${TMP}/css/main.css`)
       .pipe(csso())
       .pipe(rev())
-      .pipe(gulp.dest(`${DEST}/css/`));
+      .pipe(gulp.dest(`${DEST}/css/`))
+      .pipe(save('before-manifest'))
+      .pipe(rev.manifest())
+      .pipe(gulp.dest('./'))
+      .pipe(save.restore('before-manifest'));
   },
 };
 
