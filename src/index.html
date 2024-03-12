@@ -403,7 +403,7 @@
           <button
             id="accordion-btn"
             aria-label="Ouvrir la section Philosophie"
-            class="absolute top-[calc(70%_-_2rem)] left-[calc(50%_-_2rem)] desktop:top-[calc(70%_-_2.5rem)] desktop:left-[calc(50%_-_2.5rem)] h-16 w-16 rounded-full ring-4 ring-primary bg-brand transition-all ease-out duration-300 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-button desktop:h-20 desktop:w-20"
+            class="absolute top-[calc(70%_-_2rem)] left-[calc(50%_-_2rem)] desktop:top-[calc(70%_-_2.5rem)] desktop:left-[calc(50%_-_2.5rem)] h-16 w-16 rounded-full ring-4 ring-primary bg-brand hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[6px_6px_0px_2px_rgba(0,0,0,1)] active:shadow-none active:translate-x-0 active:translate-y-0 transition-all ease-in-out duration-150 desktop:h-20 desktop:w-20"
             title="En savoir plus"
             onclick="accordionOpen()"
           >
@@ -420,16 +420,167 @@
           </button>
         </div>
       </section>
-      <section
-        id="magazines"
-        class="h-96 w-full scroll-mt-32 desktop:scroll-mt-40 bg-cyan-500"
-      ></section>
+      <section id="Catering" class="w-full scroll-mt-32 desktop:scroll-mt-40">
+        <div
+          class="flex w-full max-w-6xl flex-col items-center justify-center gap-8 tablet:gap-12 desktop:gap-16 px-5 tablet:px-16 desktop:px-24 m-[0_auto]"
+        >
+          <div class="flex items-center gap-4 tablet:gap-8 self-stretch">
+            <hr
+              class="h-[8px] w-16 rounded-md bg-black tablet:h-[10px] tablet:w-24 desktop:h-[12px] desktop:w-36"
+            />
+            <h1>Catering</h1>
+          </div>
+          <div
+            class="flex flex-col content-center items-center justify-center gap-8 tablet:gap-10 desktop:gap-12"
+          >
+            <div
+              class="flex flex-col items-center justify-center gap-2 tablet:gap-4 desktop:gap-6 flex-[1_1_65%]"
+            >
+              <p>
+                Sandwichette fait du
+                <span class="text-brand"><b> traiteur </b></span>! <br />
+                Évenements, staff meal, festivités, tout est possible !
+              </p>
+            </div>
+            <a
+              id="catering-btn"
+              class="flex text-black items-center justify-center h-16 w-full rounded-full ring-[5px] ring-black bg-primary hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[6px_6px_0px_2px_rgba(0,0,0,1)] active:shadow-none active:translate-x-0 active:translate-y-0 transition-all ease-in-out duration-150 tablet:w-96"
+              href="/pdf/proposition_commerciale.pdf"
+              target="_blank"
+              title="Formule catering"
+              aria-label="Lien vers le PDF de la formule catering"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 640 512"
+                class="h-8 w-8 mr-2"
+              >
+                <path
+                  d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"
+                />
+              </svg>
+              LIEN VERS LE PDF
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="magazines" class="w-full scroll-mt-32 desktop:scroll-mt-40">
+        <div
+          class="flex h-full max-w-6xl flex-col flex-[1_0_0%] items-center justify-center gap-8 tablet:gap-12 desktop:gap-16 px-5 tablet:px-16 desktop:px-24 m-[0_auto]"
+        >
+          <div class="flex items-center gap-4 tablet:gap-8 self-stretch">
+            <hr
+              class="h-[8px] w-16 rounded-md bg-black tablet:h-[10px] tablet:w-24 desktop:h-[12px] desktop:w-36"
+            />
+            <h1>Magazines</h1>
+          </div>
+          <div class="flex flex-col gap-4 tablet:gap-6 desktop:gap-8">
+            <div
+              id="carousel__container"
+              class="w-[700px] max-tablet:w-[240px]"
+            >
+              <div
+                id="carousel"
+                class="max-tablet:m-[0_auto] max-tablet:gap-4 tablet:px-[calc(50%_-_120px)] flex scroll-smooth overflow-y-hidden overflow-x-scroll tablet:overflow-x-hidden disable-scrollbar max-tablet:snap-mandatory max-tablet:snap-x h-[400px] items-center"
+              >
+                <img
+                  class="magazine"
+                  src="/img/noble-rot-270.webp"
+                  alt="magazines noble rot"
+                  loading="lazy"
+                />
+                <img
+                  class="magazine"
+                  src="/img/cherry-bombe-288.webp"
+                  alt="magazine cherry bomb"
+                  loading="lazy"
+                />
+                <img
+                  class="magazine"
+                  src="/img/midnight-snack-288.webp"
+                  alt="magazine mignight snack"
+                  loading="lazy"
+                />
+                <img
+                  class="magazine"
+                  src="/img/picnic-257.webp"
+                  alt="magazine picnic"
+                  loading="lazy"
+                />
+                <img
+                  class="magazine"
+                  src="/img/sandwich-257.webp"
+                  alt="magazine sandwich"
+                  loading="lazy"
+                />
+                <img
+                  class="magazine"
+                  src="/img/serviette-288.webp"
+                  alt="magazine serviette"
+                  loading="lazy"
+                />
+                <img
+                  class="magazine"
+                  src="/img/the-gourmand-shop-257.webp"
+                  alt="magazine the gourmand shop"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+            <div
+              id="carousel-bullets"
+              class="flex tablet:hidden justify-center gap-2"
+            ></div>
+            <div
+              id="carousel-buttons"
+              class="max-tablet:hidden tablet:flex justify-center gap-4 text-justify tablet:gap-6"
+            >
+              <button
+                id="previous-button"
+                aria-label="Naviguer vers l'image précedente"
+                class="h-16 w-16 rounded-full ring-4 ring-brand bg-primary desktop:h-20 desktop:w-20 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[6px_6px_0px_2px_rgba(0,0,0,1)] active:shadow-none active:translate-x-0 active:translate-y-0 transition-all ease-in-out duration-150"
+                title="Image précedente"
+                onclick="prevButton()"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 320 512"
+                  class="desktop:w-10 desktop:h-10 w-8 h-8 m-[0_auto] fill-brand"
+                >
+                  <path
+                    d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"
+                  />
+                </svg>
+              </button>
+              <button
+                id="next-button"
+                aria-label="Naviguer vers l'image suivante"
+                class="h-16 w-16 rounded-full ring-4 ring-brand bg-primary desktop:h-20 desktop:w-20 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[6px_6px_0px_2px_rgba(0,0,0,1)] active:shadow-none active:translate-x-0 active:translate-y-0 transition-all ease-in-out duration-150"
+                title="Image suivante"
+                onclick="nextButton()"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 320 512"
+                  class="desktop:w-10 desktop:h-10 w-8 h-8 m-[0_auto] fill-brand"
+                >
+                  <path
+                    d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="contact" class="w-full scroll-mt-32 desktop:scroll-mt-40">
         <div
-          class="flex flex-wrap w-full items-center justify-center gap-4 tablet:gap-8 desktop:gap-12 px-5 tablet:px-16 desktop:px-24 m-[0_auto]"
+          class="flex w-full items-center justify-center px-5 tablet:px-16 desktop:px-24 m-[0_auto] max-w-6xl"
         >
           <div
-            class="flex flex-col relative bg-brand h-full desktop:w-5/12 rounded-2xl max-tablet:px-4 tablet:px-8 max-tablet:py-12 tablet:py-16 desktop:py-24 gap-8 tablet:gap-12 desktop:gap-16"
+            class="flex flex-col relative bg-brand h-full rounded-2xl max-tablet:px-4 tablet:px-8 max-tablet:py-12 tablet:py-16 desktop:py-24 gap-8 tablet:gap-12 desktop:gap-16 self-stretch grow"
           >
             <div
               class="flex items-center gap-4 tablet:gap-8 self-stretch -translate-x-[calc(1rem_+_1%)] tablet:-translate-x-[calc(2rem_+_1%)]"
@@ -439,101 +590,109 @@
               />
               <h1>Contact</h1>
             </div>
-            <div class="p-4 flex flex-col gap-8 w-auto">
+            <div
+              class="flex flex-wrap self-stretch items-center justify-center gap-8 tablet:gap-12 desktop:gap-16"
+            >
               <div
-                class="flex flex-col gap-2 tablet:gap-4 items-center justify-start w-auto"
+                class="flex flex-col gap-4 tablet:gap-6 desktop:gap-8 w-auto"
               >
-                <svg
-                  class="h-8 w-8 shrink-0"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 384 512"
+                <div
+                  class="flex flex-col gap-1 items-center justify-start w-auto"
                 >
-                  <path
-                    d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"
-                  />
-                </svg>
-                <span
-                  class="whitespace-break-spaces w-auto self-stretch text-center"
+                  <svg
+                    class="h-8 w-8 shrink-0"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 384 512"
+                  >
+                    <path
+                      d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"
+                    />
+                  </svg>
+                  <span
+                    class="whitespace-break-spaces w-auto self-stretch text-center"
+                  >
+                    52 rue Saint Maur,
+                    <span class="inline-block">75011 Paris</span>
+                  </span>
+                </div>
+                <div
+                  class="flex flex-col gap-1 items-center justify-start w-auto"
                 >
-                  52 rue Saint Maur,
-                  <span class="inline-block">75011 Paris</span>
-                </span>
+                  <svg
+                    class="h-8 w-8 shrink-0"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 512"
+                  >
+                    <path
+                      d="M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"
+                    />
+                  </svg>
+                  <table
+                    class="table-fixed w-auto border-separate border-spacing-x-2 border-spacing-y-0 text-center self-stretch"
+                  >
+                    <tbody>
+                      <tr>
+                        <td class="w-1/2 text-right">Mar-Ven:</td>
+                        <td class="w-1/2 text-left">11h-16h</td>
+                      </tr>
+                      <tr>
+                        <td class="w-1/2 text-right">Sam:</td>
+                        <td class="w-1/2 text-left">11h-17h</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div
+                  class="flex flex-col gap-1 items-center justify-start w-auto"
+                >
+                  <svg
+                    class="h-8 w-8 shrink-0"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 512"
+                  >
+                    <path
+                      d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"
+                    />
+                  </svg>
+                  <span
+                    class="w-auto text-wrap self-stretch break-all text-center"
+                  >
+                    sandwichetteparis<span class="inline-block"
+                      >@gmail.com</span
+                    >
+                  </span>
+                </div>
+                <div
+                  class="flex flex-col gap-1 items-center justify-start w-auto"
+                >
+                  <svg
+                    class="h-8 w-8 shrink-0"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512"
+                  >
+                    <path
+                      d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"
+                    />
+                  </svg>
+                  <a
+                    id="instagram-link"
+                    class="link-secondary w-auto self-stretch break-all text-center"
+                    href="https://www.instagram.com/sandwichetteparis"
+                    aria-label="Ouvrir Instagram"
+                    ><u>@sandwichetteparis</u></a
+                  >
+                </div>
               </div>
-              <div
-                class="flex flex-col gap-2 tablet:gap-4 items-center justify-start w-auto"
-              >
-                <svg
-                  class="h-8 w-8 shrink-0"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 512 512"
-                >
-                  <path
-                    d="M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"
-                  />
-                </svg>
-                <table
-                  class="table-fixed w-auto border-separate border-spacing-x-2 text-center self-stretch"
-                >
-                  <tbody>
-                    <tr>
-                      <td class="w-1/2 text-right">Mar-Ven:</td>
-                      <td class="w-1/2 text-left">11h-16h</td>
-                    </tr>
-                    <tr>
-                      <td class="w-1/2 text-right">Sam:</td>
-                      <td class="w-1/2 text-left">11h-17h</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div
-                class="flex flex-col gap-2 tablet:gap-4 items-center justify-start w-auto"
-              >
-                <svg
-                  class="h-8 w-8 shrink-0"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 512 512"
-                >
-                  <path
-                    d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"
-                  />
-                </svg>
-                <span
-                  class="w-auto text-wrap self-stretch break-all text-center"
-                >
-                  sandwichetteparis<span class="inline-block">@gmail.com</span>
-                </span>
-              </div>
-              <div
-                class="flex flex-col gap-2 tablet:gap-4 items-center justify-start w-auto"
-              >
-                <svg
-                  class="h-8 w-8 shrink-0"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 448 512"
-                >
-                  <path
-                    d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"
-                  />
-                </svg>
-                <a
-                  id="instagram-link"
-                  class="link-secondary w-auto self-stretch break-all text-center"
-                  href="https://www.instagram.com/sandwichetteparis"
-                  aria-label="Ouvrir Instagram"
-                  ><u>@sandwichetteparis</u></a
-                >
-              </div>
+              <iframe
+                class="w-[402px] aspect-square border-[1px] border-black"
+                title="Sandwichette sur Google maps"
+                loading="lazy"
+                allowfullscreen
+                referrerpolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJ45fR0A9t5kcRTjyFrmhwt3g&key=AIzaSyD2Vrgp9v03NEjdASw-aRRe_B7sttn5a9E&language=fr&region=fr"
+              ></iframe>
             </div>
           </div>
-          <iframe
-            class="grow min-w-64 max-w-[500px] w-auto aspect-square m-4 border-2 align-middle"
-            title="Sandwichette sur Google maps"
-            loading="lazy"
-            allowfullscreen
-            referrerpolicy="no-referrer-when-downgrade"
-            src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJ45fR0A9t5kcRTjyFrmhwt3g&key=AIzaSyD2Vrgp9v03NEjdASw-aRRe_B7sttn5a9E&language=fr&region=fr"
-          ></iframe>
         </div>
       </section>
     </main>

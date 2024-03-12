@@ -42,51 +42,51 @@
     ]
   },
   "noble-rot": {
-    "breakpoints": [{ "height": 360, "width": 240 }],
+    "breakpoints": [{ "height": 360 }],
     "options": {
-      "fit": "contain",
+      "fit": "outside",
       "background": { "r": 0, "g": 0, "b": 0, "alpha": 0 }
     }
   },
   "cherry-bombe": {
-    "breakpoints": [{ "height": 360, "width": 240 }],
+    "breakpoints": [{ "height": 360 }],
     "options": {
-      "fit": "contain",
+      "fit": "outside",
       "background": { "r": 0, "g": 0, "b": 0, "alpha": 0 }
     }
   },
   "midnight-snack": {
-    "breakpoints": [{ "height": 360, "width": 240 }],
+    "breakpoints": [{ "height": 360 }],
     "options": {
-      "fit": "contain",
+      "fit": "outside",
       "background": { "r": 0, "g": 0, "b": 0, "alpha": 0 }
     }
   },
   "sandwich": {
-    "breakpoints": [{ "height": 360, "width": 240 }],
+    "breakpoints": [{ "height": 360 }],
     "options": {
-      "fit": "contain",
+      "fit": "outside",
       "background": { "r": 0, "g": 0, "b": 0, "alpha": 0 }
     }
   },
   "serviette": {
-    "breakpoints": [{ "height": 360, "width": 240 }],
+    "breakpoints": [{ "height": 360 }],
     "options": {
-      "fit": "contain",
+      "fit": "outside",
       "background": { "r": 0, "g": 0, "b": 0, "alpha": 0 }
     }
   },
   "the-gourmand-shop": {
-    "breakpoints": [{ "height": 360, "width": 240 }],
+    "breakpoints": [{ "height": 360 }],
     "options": {
-      "fit": "contain",
+      "fit": "outside",
       "background": { "r": 0, "g": 0, "b": 0, "alpha": 0 }
     }
   },
   "picnic": {
-    "breakpoints": [{ "height": 360, "width": 240 }],
+    "breakpoints": [{ "height": 360 }],
     "options": {
-      "fit": "contain",
+      "fit": "outside",
       "background": { "r": 0, "g": 0, "b": 0, "alpha": 0 }
     }
   }

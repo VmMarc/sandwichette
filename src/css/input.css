@@ -34,7 +34,7 @@
     @apply cursor-pickle;
   }
 
-  a:hover {
+  #catering-btn a:hover {
     @apply text-brand;
   }
 
@@ -102,6 +102,37 @@
 
   #header.overlay-collapse.nav-menu #nav__list > .menu__item > a {
     @apply invisible;
+  }
+
+  .disable-scrollbar {
+    scrollbar-width: none;
+    overflow: -moz-scrollbars-none;
+    -ms-overflow-style: none;
+    -webkit-scrollbar: none;
+  }
+
+  .bullets {
+    @apply rounded-full w-4 h-4 bg-brand/30;
+  }
+
+  .bullet-active {
+    @apply rounded-full w-4 h-4 bg-brand;
+  }
+
+  .image-shadow {
+    @apply shadow-magazine;
+  }
+
+  #catering-btn:hover {
+    @apply text-black;
+  }
+
+  #carousel {
+    overflow-anchor: none;
+  }
+
+  .magazine {
+    @apply h-[360px] w-[240px] snap-always snap-center border-solid border-[1px] border-black transition-all duration-300 ease-in-out;
   }
 }
 
