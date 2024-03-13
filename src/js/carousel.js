@@ -2,7 +2,7 @@ const carousel = document.getElementById('carousel');
 const carouselBulletsContainer = document.getElementById('carousel-bullets');
 const magazines = carousel.children;
 const magazineLength = magazines.length;
-const magazineWidth = 240;
+const magazineWidth = 242;
 let position = 0;
 let frameTick = false;
 let magazineLoaded = 0;
@@ -73,7 +73,7 @@ function scroll(
     const elapsed = timeStamp - start;
 
     if (prevTime !== timeStamp) {
-      const compteur = Math.min(0.1 * elapsed, 100);
+      const compteur = Math.min(0.1 * elapsed, 30);
       carousel.scrollLeft =
         baseValue +
         scrollDir *
@@ -82,7 +82,7 @@ function scroll(
               generator(elapsed / duration, easingFn).next().value,
             magazineWidth,
           );
-      if (compteur === 100) done = true;
+      if (compteur === 30) done = true;
     }
 
     if (elapsed < duration) {
