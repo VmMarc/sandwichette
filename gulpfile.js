@@ -26,7 +26,7 @@ import sharp from 'sharp';
 const SRC = process.env.SRC;
 const TMP = process.env.BUILD;
 const DEST = process.env.DEST;
-const SITE_URL = process.env.URL;
+const URL = process.env.URL;
 
 const tests = {
   jsLint() {
@@ -140,11 +140,11 @@ const images = {
           background: '#fff4f9',
           theme_color: '#df3a8e',
           path: '/',
-          url: `${SITE_URL}`,
+          url: `${URL}`,
           display: 'browser',
           orientation: 'any',
           scope: '/',
-          start_url: `${SITE_URL}/index.html`,
+          start_url: `${URL}/index.html`,
           version: 1.0,
           html: 'head-favicons.html',
           pipeHTML: true,
@@ -227,7 +227,7 @@ const html = {
         .pipe(save('before-sitemap'))
         .pipe(
           sitemap({
-            siteUrl: SITE_URL,
+            siteUrl: URL,
           }),
         )
         .pipe(gulp.dest(DEST))
