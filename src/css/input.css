@@ -34,7 +34,7 @@
     @apply cursor-pickle;
   }
 
-  #catering-btn a:hover {
+  a:hover {
     @apply text-brand;
   }
 
@@ -132,7 +132,7 @@
   }
 
   .magazine {
-    @apply h-[360px] w-[240px] snap-always snap-center border-solid border-[1px] border-black transition-all duration-300 ease-in-out;
+    @apply h-[360px] w-[240px] snap-always snap-center border-solid border-[1px] border-black transition-all duration-150 ease-in-out;
   }
 }
 

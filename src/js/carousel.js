@@ -2,7 +2,7 @@ const carousel = document.getElementById('carousel');
 const carouselBulletsContainer = document.getElementById('carousel-bullets');
 const magazines = carousel.children;
 const magazineLength = magazines.length;
-const magazineWidth = 242;
+const magazineWidth = 240 + 2;
 let position = 0;
 let frameTick = false;
 let magazineLoaded = 0;
@@ -23,18 +23,7 @@ function easeInOutQuad(x) {
   return x < 0.5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2;
 }
 
-/**
- * scrollLeft change animation
- * @date 3/8/2024 - 12:02:09 PM
- * @author morizur
- *
- * @param {boolean} [scrollRight=true] scroll direction
- * @param {number} [duration=1000] animation duration
- * @param {number} [baseValue=carousel.scrollLeft] scrollLeft initial value
- * @param {(x: number) => number} [easingFn=easeInOutQuad] easing function
- * @returns {void}
- */
-function scroll(
+async function scroll(
   scrollRight = true,
   duration = 1000,
   baseValue = carousel.scrollLeft,
@@ -43,29 +32,12 @@ function scroll(
   let start, prevTime;
   let done = false;
   const scrollDir = scrollRight ? 1 : -1;
+  const startTime = performance.now();
 
-  /**
-   * Scroll coefficient generator
-   * @date 3/8/2024 - 12:22:16 PM
-   * @author morizur
-   *
-   * @generator
-   * @param {number} x
-   * @param {(x: number) => number} [f] easing function
-   * @return {Generator}
-   * @yields {number}
-   */
   function* generator(x, f) {
     yield f(x);
   }
 
-  /**
-   * Scrolling function
-   * @date 3/8/2024 - 12:18:27 PM
-   * @author morizur
-   *
-   * @param {DOMHighResTimeStamp} timeStamp
-   */
   function scrollLeftTransition(timeStamp) {
     if (start === undefined) {
       start = timeStamp;
@@ -73,16 +45,12 @@ function scroll(
     const elapsed = timeStamp - start;
 
     if (prevTime !== timeStamp) {
-      const compteur = Math.min(0.1 * elapsed, 30);
-      carousel.scrollLeft =
-        baseValue +
-        scrollDir *
-          Math.min(
-            magazineWidth *
-              generator(elapsed / duration, easingFn).next().value,
-            magazineWidth,
-          );
-      if (compteur === 30) done = true;
+      const count = Math.min(
+        magazineWidth * generator(elapsed / duration, easingFn).next().value,
+        magazineWidth,
+      );
+      carousel.scrollLeft = baseValue + count * scrollDir;
+      if (count === magazineWidth) done = true;
     }
 
     if (elapsed < duration) {
@@ -90,8 +58,13 @@ function scroll(
       if (!done) {
         window.requestAnimationFrame(scrollLeftTransition);
       }
+    } else {
+      buttonSlider();
+      const endTime = performance.now();
+      console.log(`Call to scroll took ${endTime - startTime} ms`);
     }
   }
+
   window.requestAnimationFrame(scrollLeftTransition);
 }
 
@@ -161,17 +134,15 @@ function throttle(mainFunction, delay) {
 
 // eslint-disable-next-line no-unused-vars
 const nextButton = throttle(() => {
-  buttonSlider();
-  scroll(true, 300);
   if (position < magazineLength - 1) ++position;
-}, 300);
+  scroll(true, 150);
+}, 200);
 
 // eslint-disable-next-line no-unused-vars
 const prevButton = throttle(() => {
-  buttonSlider();
-  scroll(false, 300);
   if (position > 0) --position;
-}, 300);
+  scroll(false, 150);
+}, 200);
 
 if (window.matchMedia('(min-width: 768px)').matches) {
   buttonSlider();
