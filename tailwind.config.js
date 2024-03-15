@@ -64,7 +64,7 @@ module.exports = {
         'slide-in': 'slideIn 0.5s ease-out 1',
         'slide-out': 'slideOut 0.5s ease-out 1',
         'spin-once': 'spinOnce 150ms ease-in-out 1',
-        'image-floater': 'imageFloater 30s linear infinite',
+        'image-floater': 'imageFloater 75s linear infinite',
         'moving-arm': 'movingArm 10s linear infinite',
       },
     },
