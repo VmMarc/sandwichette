@@ -16,57 +16,54 @@ if (magazines) {
   }
 }
 
-/**
- * @param {number} x
- */
-function easeInOutQuad(x) {
-  return x < 0.5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2;
-}
+// function easeInOutQuad(x) {
+//   return x < 0.5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2;
+// }
 
-async function scroll(
-  scrollRight = true,
-  duration = 1000,
-  baseValue = carousel.scrollLeft,
-  easingFn = easeInOutQuad,
-) {
-  let start, prevTime;
-  let done = false;
-  const scrollDir = scrollRight ? 1 : -1;
-  const startTime = performance.now();
+// async function scroll(
+//   scrollRight = true,
+//   duration = 1000,
+//   baseValue = carousel.scrollLeft,
+//   easingFn = easeInOutQuad,
+// ) {
+//   let start, prevTime;
+//   let done = false;
+//   const scrollDir = scrollRight ? 1 : -1;
+//   const startTime = performance.now();
 
-  function* generator(x, f) {
-    yield f(x);
-  }
+//   function* generator(x, f) {
+//     yield f(x);
+//   }
 
-  function scrollLeftTransition(timeStamp) {
-    if (start === undefined) {
-      start = timeStamp;
-    }
-    const elapsed = timeStamp - start;
+//   function scrollLeftTransition(timeStamp) {
+//     if (start === undefined) {
+//       start = timeStamp;
+//     }
+//     const elapsed = timeStamp - start;
 
-    if (prevTime !== timeStamp) {
-      const count = Math.min(
-        magazineWidth * generator(elapsed / duration, easingFn).next().value,
-        magazineWidth,
-      );
-      carousel.scrollLeft = baseValue + count * scrollDir;
-      if (count === magazineWidth) done = true;
-    }
+//     if (prevTime !== timeStamp) {
+//       const count = Math.min(
+//         magazineWidth * generator(elapsed / duration, easingFn).next().value,
+//         magazineWidth,
+//       );
+//       carousel.scrollLeft = baseValue + count * scrollDir;
+//       if (count === magazineWidth) done = true;
+//     }
 
-    if (elapsed < duration) {
-      prevTime = timeStamp;
-      if (!done) {
-        window.requestAnimationFrame(scrollLeftTransition);
-      }
-    } else {
-      buttonSlider();
-      const endTime = performance.now();
-      console.log(`Call to scroll took ${endTime - startTime} ms`);
-    }
-  }
+//     if (elapsed < duration) {
+//       prevTime = timeStamp;
+//       if (!done) {
+//         window.requestAnimationFrame(scrollLeftTransition);
+//       }
+//     } else {
+//       buttonSlider();
+//       const endTime = performance.now();
+//       console.log(`Call to scroll took ${endTime - startTime} ms`);
+//     }
+//   }
 
-  window.requestAnimationFrame(scrollLeftTransition);
-}
+//   window.requestAnimationFrame(scrollLeftTransition);
+// }
 
 const checkLoaded = setInterval(() => {
   if (magazineLoaded === magazineLength) {
@@ -119,30 +116,42 @@ function updateBullets() {
   clearInterval(checkLoaded);
 }
 
-function throttle(mainFunction, delay) {
-  let timerFlag = null;
+// function throttle(mainFunction, delay) {
+//   let timerFlag = null;
 
-  return (...args) => {
-    if (timerFlag === null) {
-      mainFunction(...args);
-      timerFlag = setTimeout(() => {
-        timerFlag = null;
-      }, delay);
-    }
-  };
-}
+//   return (...args) => {
+//     if (timerFlag === null) {
+//       mainFunction(...args);
+//       timerFlag = setTimeout(() => {
+//         timerFlag = null;
+//       }, delay);
+//     }
+//   };
+// }
+
+// const nextButton = throttle(() => {
+//   if (position < magazineLength - 1) ++position;
+//   scroll(true, 150);
+// }, 200);
+
+// const prevButton = throttle(() => {
+//   if (position > 0) --position;
+//   scroll(false, 150);
+// }, 200);
 
 // eslint-disable-next-line no-unused-vars
-const nextButton = throttle(() => {
+const nextButton = () => {
   if (position < magazineLength - 1) ++position;
-  scroll(true, 150);
-}, 200);
+  carousel.scrollLeft += magazineWidth;
+  buttonSlider();
+};
 
 // eslint-disable-next-line no-unused-vars
-const prevButton = throttle(() => {
+const prevButton = () => {
   if (position > 0) --position;
-  scroll(false, 150);
-}, 200);
+  carousel.scrollLeft -= magazineWidth;
+  buttonSlider();
+};
 
 if (window.matchMedia('(min-width: 768px)').matches) {
   buttonSlider();
