@@ -1,11 +1,14 @@
 const carousel = document.getElementById('carousel');
 const carouselBulletsContainer = document.getElementById('carousel-bullets');
+const prevButtonElement = document.getElementById('previous-button');
+const nextButtonElement = document.getElementById('next-button');
 const magazines = carousel.children;
 const magazineLength = magazines.length;
 const magazineWidth = 240 + 2;
 let position = 0;
-let frameTick = false;
 let magazineLoaded = 0;
+let frameTick = false;
+let buttonDisabled = false;
 
 if (magazines) {
   for (let i = 0; i < magazines.length; i++) {
@@ -139,18 +142,34 @@ function updateBullets() {
 //   scroll(false, 150);
 // }, 200);
 
+function disableButtons() {
+  buttonDisabled = true;
+  prevButtonElement.setAttribute('disabled', 'true');
+  nextButtonElement.setAttribute('disabled', 'true');
+
+  setTimeout(() => {
+    buttonDisabled = false;
+    prevButtonElement.removeAttribute('disabled');
+    nextButtonElement.removeAttribute('disabled');
+  }, 1000);
+}
+
 // eslint-disable-next-line no-unused-vars
 const nextButton = () => {
+  if (buttonDisabled) return;
   if (position < magazineLength - 1) ++position;
   carousel.scrollLeft += magazineWidth;
   buttonSlider();
+  disableButtons();
 };
 
 // eslint-disable-next-line no-unused-vars
 const prevButton = () => {
+  if (buttonDisabled) return;
   if (position > 0) --position;
   carousel.scrollLeft -= magazineWidth;
   buttonSlider();
+  disableButtons();
 };
 
 if (window.matchMedia('(min-width: 768px)').matches) {
