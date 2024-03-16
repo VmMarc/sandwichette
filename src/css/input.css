@@ -104,12 +104,11 @@
     @apply invisible;
   }
 
-  /* TODO */
   .disable-scrollbar {
-    scrollbar-width: none; /* Firefox */
-    overflow: -moz-scrollbars-none; /* Firefox */
-    -ms-overflow-style: none; /* IE 10+ */
-    -webkit-scrollbar: none; /* WebKit */
+    scrollbar-width: none;
+    overflow: -moz-scrollbars-none;
+    -ms-overflow-style: none;
+    -webkit-scrollbar: none;
   }
 
   .bullets {
@@ -126,6 +125,14 @@
 
   #catering-btn:hover {
     @apply text-black;
+  }
+
+  .floating-images {
+    @apply fixed max-tablet:w-[40%] max-tablet:h-[40%] z-20;
+  }
+
+  .moving-arm {
+    @apply fixed bottom-14 max-tablet:w-[40%] max-tablet:h-[40%] z-20;
   }
 }
 

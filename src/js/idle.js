@@ -1,36 +1,41 @@
+const floatingDish = document.getElementById('floating-dish');
+const floatingPlate = document.getElementById('floating-plate');
+const floatingSandwich = document.getElementById('floating-sandwich');
+const movingArm = document.getElementById('moving-arm');
+const imageWidth = 120;
+const imageHeight = 120;
+let timeout1 = null;
+let timeout2 = null;
+let interval = null;
 let idleTime = 0;
 
-function flotingImages() {
-  document.getElementById('floating-dish').style.display = 'block';
+function displayFloatingImages() {
+  floatingDish.style.display = 'block';
 
-  setTimeout(() => {
-    document.getElementById('floating-plate').style.display = 'block';
+  timeout1 = setTimeout(() => {
+    floatingPlate.style.display = 'block';
   }, 12 * 1000);
 
-  setTimeout(() => {
-    document.getElementById('floating-sandwich').style.display = 'block';
-  }, 17 * 1000);
+  timeout2 = setTimeout(() => {
+    floatingSandwich.style.display = 'block';
+  }, 20 * 1000);
 }
 
-function movingArm() {
-  document.getElementById('moving-arm').style.display = 'block';
+function displayMovingArm() {
+  movingArm.style.display = 'block';
 }
 
-function createChouquette() {
+function createAndDisplayChouquette() {
   const img = document.createElement('img');
   img.src = '/img/chouquette.png';
   img.alt = 'une chouquette';
   img.classList.add('chouquette');
   img.style.position = 'fixed';
   img.style.zIndex = '20';
+  img.style.transform = 'translateX(-25%) translateY(-25%)';
 
-  let randomX = Math.floor(Math.random() * window.innerWidth);
-  let randomY = Math.floor(Math.random() * window.innerHeight);
-
-  if (document.querySelectorAll('img').length === 0) {
-    randomX = window.innerWidth / 2;
-    randomY = window.innerHeight / 2;
-  }
+  let randomX = Math.floor(Math.random() * (window.innerWidth - imageWidth));
+  let randomY = Math.floor(Math.random() * (window.innerHeight - imageHeight));
 
   img.style.left = `${randomX}px`;
   img.style.top = `${randomY}px`;
@@ -40,11 +45,11 @@ function createChouquette() {
 
 function incrementChouquette() {
   let count = 0;
-  const intervalId = setInterval(() => {
-    createChouquette();
+  interval = setInterval(() => {
+    createAndDisplayChouquette();
     count++;
-    if (count >= 30) {
-      clearInterval(intervalId);
+    if (count >= 80) {
+      clearInterval(interval);
     }
   }, 1000);
 }
@@ -53,11 +58,11 @@ function randomIdleImages() {
   const randomNumber = Math.floor(Math.random() * 3);
   switch (randomNumber) {
     case 0:
-      flotingImages();
+      displayFloatingImages();
       break;
 
     case 1:
-      movingArm();
+      displayMovingArm();
       break;
 
     case 2:
@@ -72,31 +77,41 @@ function randomIdleImages() {
 function idleImages() {
   setInterval(() => {
     idleTime += 1;
-    if (idleTime == 5) {
+    if (idleTime == 4) {
       randomIdleImages();
     }
   }, 1000);
 }
 
 function hideIdleImages() {
-  idleTime = 0;
-  document.getElementById('floating-dish').style.display = 'none';
-  document.getElementById('floating-plate').style.display = 'none';
-  document.getElementById('floating-sandwich').style.display = 'none';
-  document.getElementById('moving-arm').style.display = 'none';
   const chouquettes = document.querySelectorAll('.chouquette');
-  chouquettes.forEach((img) => {
-    img.remove();
+  idleTime = 0;
+
+  floatingDish.style.display = 'none';
+  floatingPlate.style.display = 'none';
+  floatingSandwich.style.display = 'none';
+  movingArm.style.display = 'none';
+
+  chouquettes.forEach((chouquetteIndex) => {
+    chouquetteIndex.remove();
   });
+}
+
+function clearIntervalAndTimeOut() {
+  clearTimeout(timeout1);
+  clearTimeout(timeout2);
+  clearInterval(interval);
 }
 
 hideIdleImages();
 idleImages();
 
 document.addEventListener('mousemove', () => {
+  clearIntervalAndTimeOut();
   hideIdleImages();
 });
 
 document.addEventListener('scroll', () => {
+  clearIntervalAndTimeOut();
   hideIdleImages();
 });
