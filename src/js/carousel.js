@@ -151,7 +151,7 @@ function disableButtons() {
     buttonDisabled = false;
     prevButtonElement.removeAttribute('disabled');
     nextButtonElement.removeAttribute('disabled');
-  }, 1000);
+  }, 350);
 }
 
 // eslint-disable-next-line no-unused-vars
