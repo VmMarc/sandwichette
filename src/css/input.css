@@ -36,7 +36,8 @@
 
   #catering-btn a:hover {
     @apply text-black;
-    
+  }
+
   a:hover {
     @apply text-brand;
   }
@@ -80,7 +81,7 @@
   }
 
   .nav-bar #nav__list {
-    @apply justify-end gap-7;
+    @apply justify-end gap-4;
   }
 
   .nav-menu #nav__list {
@@ -136,6 +137,8 @@
 
   .moving-arm {
     @apply fixed bottom-14 max-tablet:w-[40%] max-tablet:h-[40%] z-20;
+  }
+
   #carousel {
     overflow-anchor: none;
   }
