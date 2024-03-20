@@ -34,6 +34,9 @@
     @apply cursor-pickle;
   }
 
+  #catering-btn a:hover {
+    @apply text-black;
+    
   a:hover {
     @apply text-brand;
   }
@@ -127,6 +130,12 @@
     @apply text-black;
   }
 
+  .floating-images {
+    @apply fixed max-tablet:w-[40%] max-tablet:h-[40%] z-20;
+  }
+
+  .moving-arm {
+    @apply fixed bottom-14 max-tablet:w-[40%] max-tablet:h-[40%] z-20;
   #carousel {
     overflow-anchor: none;
   }

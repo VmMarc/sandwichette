@@ -167,7 +167,6 @@ const nextButton = () => {
 const prevButton = () => {
   if (buttonDisabled) return;
   if (position > 0) --position;
-  carousel.scrollLeft -= magazineWidth;
   buttonSlider();
   disableButtons();
 };

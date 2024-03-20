@@ -175,7 +175,11 @@ const css = {
       .src(`${TMP}/css/main.css`)
       .pipe(csso())
       .pipe(rev())
-      .pipe(gulp.dest(`${DEST}/css/`));
+      .pipe(gulp.dest(`${DEST}/css/`))
+      .pipe(save('before-manifest'))
+      .pipe(rev.manifest())
+      .pipe(gulp.dest('./'))
+      .pipe(save.restore('before-manifest'));
   },
 };
 
@@ -188,7 +192,7 @@ const html = {
       .pipe(gulp.dest(`${TMP}/js/`));
 
     const footScripts = gulp
-      .src(`${SRC}/js/{accordion,carousel,disclaimer}.js`)
+      .src(`${SRC}/js/{accordion,carousel,disclaimer,idle}.js`)
       .pipe(sort())
       .pipe(concat({ path: 'bundle.js', cwd: '' }))
       .pipe(rev())
