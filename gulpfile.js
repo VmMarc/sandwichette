@@ -74,10 +74,10 @@ const images = {
       .pipe(
         imagemin([
           gifsicle({ interlaced: true, optimizationLevel: 3 }),
-          mozjpeg({ quality: 50, progressive: true }),
+          mozjpeg({ progressive: true }),
           optipng(),
           svgo(),
-          webp({ method: 6, preset: 'photo', quality: 60 }),
+          webp({ method: 6, preset: 'photo' }),
         ]),
       )
       .pipe(flatten())
@@ -106,9 +106,15 @@ const images = {
           )) {
             await sharp(`${TMP}/img/${file}`, { pages: -1 })
               .resize({ ...dimensions, ...imageConf[filePath.name].options })
-              .toFile(
-                `${DEST}/img/${filePath.name}-${dimensions.width}${filePath.ext}`,
-              );
+              .toBuffer({ resolveWithObject: true })
+              .then(({ data, info }) => {
+                sharp(data, { pages: -1 }).toFile(
+                  `${DEST}/img/${filePath.name}-${info.width}${filePath.ext}`,
+                );
+              })
+              .catch((err) => {
+                console.error(err);
+              });
           }
         }
       } else {

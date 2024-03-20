@@ -36,6 +36,9 @@
 
   #catering-btn a:hover {
     @apply text-black;
+    
+  a:hover {
+    @apply text-brand;
   }
 
   img {
@@ -133,6 +136,12 @@
 
   .moving-arm {
     @apply fixed bottom-14 max-tablet:w-[40%] max-tablet:h-[40%] z-20;
+  #carousel {
+    overflow-anchor: none;
+  }
+
+  .magazine {
+    @apply h-[360px] w-[240px] snap-always snap-center border-solid border-[1px] border-black transition-all duration-150 ease-in-out;
   }
 }
 
