@@ -76,6 +76,9 @@ const checkLoaded = setInterval(() => {
       if (!frameTick) {
         window.requestAnimationFrame(() => {
           position = Math.round(carousel.scrollLeft / magazineWidth);
+          if (position >= magazineLength) position = magazineLength - 1;
+          else if (position < 0) position = 0;
+
           if (window.matchMedia('(min-width: 768px)').matches) {
             buttonSlider();
           } else {

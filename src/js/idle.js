@@ -111,11 +111,15 @@ function resetTimer() {
   hideIdleImages();
 }
 
-window.addEventListener('load', resetTimer, true);
-window.addEventListener('mousemove', resetTimer, true);
-window.addEventListener('mousedown', resetTimer, true);
-window.addEventListener('touchstart', resetTimer, true);
-window.addEventListener('touchmove', resetTimer, true);
-window.addEventListener('click', resetTimer, true);
-window.addEventListener('keydown', resetTimer, true);
-window.addEventListener('scroll', resetTimer, true);
+[
+  'load',
+  'mousemove',
+  'mousedown',
+  'touchstart',
+  'touchmove',
+  'click',
+  'keydown',
+  'scroll',
+].forEach((event) => {
+  window.addEventListener(event, resetTimer, true);
+});

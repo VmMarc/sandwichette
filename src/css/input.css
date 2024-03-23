@@ -34,10 +34,6 @@
     @apply cursor-pickle;
   }
 
-  #catering-btn a:hover {
-    @apply text-black;
-  }
-
   a:hover {
     @apply text-brand;
   }
@@ -127,7 +123,7 @@
     @apply shadow-magazine;
   }
 
-  #catering-btn:hover {
+  #catering-btn a:hover {
     @apply text-black;
   }
 
