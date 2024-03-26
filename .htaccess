@@ -1,3 +1,0 @@
-RewriteEngine on
-RewriteCond %{HTTP:X-Forwarded-Proto} !https
-RewriteRule (.*) https://sandwichette.com/$1 [R=301,L]
