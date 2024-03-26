@@ -11,7 +11,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    environment: dev
+    environment: main
 
     steps:
       - uses: actions/checkout@v4
@@ -34,14 +34,23 @@ jobs:
           mkdir ${TMP}
           npx gulp build
           npx gulp test
-
-      - name: Deploy
-        uses: appleboy/scp-action@v0.1.7
+  
+      - name: 📂 Sync files
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          host: ${{ secrets.HOST }}
+          server: ${{ secrets.SERVER }}
           username: ${{ secrets.USER }}
+          password: ${{ secrets.PASSWORD }}
+          protocol: ftps
           port: ${{ secrets.PORT }}
-          key: ${{ secrets.KEY }}
-          source: ${{ vars.DEST }}/*
-          target: /var/www/${{ vars.HOSTNAME }}/public
-          strip_components: 1
+  
+      # - name: Deploy
+      #   uses: appleboy/scp-action@v0.1.7
+      #   with:
+      #     host: ${{ secrets.HOST }}
+      #     username: ${{ secrets.USER }}
+      #     port: ${{ secrets.PORT }}
+      #     key: ${{ secrets.KEY }}
+      #     source: ${{ vars.DEST }}/*
+      #     target: /var/www/${{ vars.HOSTNAME }}/public
+      #     strip_components: 1
