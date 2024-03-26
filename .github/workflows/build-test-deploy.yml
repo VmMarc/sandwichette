@@ -42,17 +42,7 @@ jobs:
             server: ${{ secrets.SERVER }}
             port: ${{ secrets.PORT }}
             local_path: ${{ vars.DEST }}/*
-            remote_path: '/www'
+            remote_path: 'www'
             sftp_only: true
             password: ${{ secrets.PASSWORD }}
   
-      # - name: Deploy
-      #   uses: appleboy/scp-action@v0.1.7
-      #   with:
-      #     host: ${{ secrets.HOST }}
-      #     username: ${{ secrets.USER }}
-      #     port: ${{ secrets.PORT }}
-      #     key: ${{ secrets.KEY }}
-      #     source: ${{ vars.DEST }}/*
-      #     target: /var/www/${{ vars.HOSTNAME }}/public
-      #     strip_components: 1
