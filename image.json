@@ -1,0 +1,93 @@
+{
+  "hero-bg": {
+    "breakpoints": [
+      { "width": 2897, "height": 2048 },
+      { "width": 1920, "height": 1357 },
+      { "width": 1600, "height": 1131 },
+      { "width": 1280, "height": 905 },
+      { "width": 1200, "height": 628 },
+      { "width": 428, "height": 926 },
+      { "width": 360, "height": 800 }
+    ]
+  },
+  "boisson": {
+    "aspectRatio": "2 / 3",
+    "breakpoints": [{ "width": 240 }]
+  },
+  "chaise": {
+    "aspectRatio": "2 / 3",
+    "breakpoints": [{ "width": 240 }]
+  },
+  "cheese-sandwich": {
+    "aspectRatio": "2 / 3",
+    "breakpoints": [{ "width": 240 }]
+  },
+  "chouquettes": {
+    "breakpoints": [{ "width": 200 }]
+  },
+  "dessert": {
+    "aspectRatio": "2 / 3",
+    "breakpoints": [{ "width": 240 }]
+  },
+  "sandwich-frites": {
+    "breakpoints": [{ "width": 240 }]
+  },
+  "footer-bg": {
+    "breakpoints": [
+      { "width": 2048, "height": 1253 },
+      { "width": 1600, "height": 954 },
+      { "width": 1280, "height": 741 },
+      { "width": 428, "height": 814 },
+      { "width": 360, "height": 688 }
+    ]
+  },
+  "noble-rot": {
+    "breakpoints": [{ "height": 360 }],
+    "options": {
+      "fit": "outside",
+      "background": { "r": 0, "g": 0, "b": 0, "alpha": 0 }
+    }
+  },
+  "cherry-bombe": {
+    "breakpoints": [{ "height": 360 }],
+    "options": {
+      "fit": "outside",
+      "background": { "r": 0, "g": 0, "b": 0, "alpha": 0 }
+    }
+  },
+  "midnight-snack": {
+    "breakpoints": [{ "height": 360 }],
+    "options": {
+      "fit": "outside",
+      "background": { "r": 0, "g": 0, "b": 0, "alpha": 0 }
+    }
+  },
+  "sandwich": {
+    "breakpoints": [{ "height": 360 }],
+    "options": {
+      "fit": "outside",
+      "background": { "r": 0, "g": 0, "b": 0, "alpha": 0 }
+    }
+  },
+  "serviette": {
+    "breakpoints": [{ "height": 360 }],
+    "options": {
+      "fit": "outside",
+      "background": { "r": 0, "g": 0, "b": 0, "alpha": 0 }
+    }
+  },
+  "the-gourmand-shop": {
+    "breakpoints": [{ "height": 360 }],
+    "options": {
+      "fit": "outside",
+      "background": { "r": 0, "g": 0, "b": 0, "alpha": 0 }
+    }
+  },
+  "picnic": {
+    "breakpoints": [{ "height": 360 }],
+    "options": {
+      "fit": "outside",
+      "background": { "r": 0, "g": 0, "b": 0, "alpha": 0 }
+    }
+  }
+}

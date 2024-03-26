@@ -2,11 +2,12 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible" />
     <title>Sandwichette – Fine cuisine in a dwich</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Des sandwichs, des chouquettes, des choses à boire et des magazines food 🥪🍰🍷"
+      content="Des bons sandwichs, des chouquettes, du café filtre en abondance et des magazines food. Mardi-Vendredi 11h-16h. Samedi 11h-17h. 52 rue Saint-Maur 75011 Paris"
     />
     <link rel="canonical" href="https://sandwichette.com/" />
 
@@ -23,220 +24,290 @@
     <meta property="og:locale" content="fr_FR" />
     <meta
       property="og:description"
-      content="Des sandwichs, des chouquettes, des choses à boire et des magazines food 🥪🍰🍷"
+      content="Des bons sandwichs, des chouquettes, du café filtre en abondance et des magazines food 🥪🍰🍷 Mardi-Vendredi 11h-16h. Samedi 11h-17h – 52 rue Saint-Maur 75011 Paris"
+    />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.googleapis.com https://*.gstatic.com *.google.com https://*.ggpht.com *.googleusercontent.com blob:; img-src 'self' https://*.googleapis.com https://*.gstatic.com *.google.com  *.googleusercontent.com data:; frame-src *.google.com; connect-src 'self' https://*.googleapis.com *.google.com https://*.gstatic.com  data: blob:; font-src 'self' https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; worker-src blob:;"
     />
 
-    <link rel="preload" href="/img/logo.svg" fetchpriority="high" as="image" />
+    <!-- inject:head:html -->
+    <!-- endinject -->
+
+    <link rel="preload" fetchpriority="high" href="/img/logo.svg" as="image" />
     <link
       rel="preload"
       fetchpriority="high"
-      as="image"
-      imagesrcset="/img/hero-bg-2897.webp 2897w, /img/hero-bg-1920.webp 1920w, /img/hero-bg-1600.webp 1600w, /img/hero-bg-1280.webp 1280w, /img/hero-bg-1024.webp 1024w, /img/hero-bg-854.webp 854w, /img/hero-bg-640.webp 640w"
-      imagesizes="(min-height: 1357px) 2897w, (min-height: 1131px) 1920w, (min-height: 905px) 1600w, (min-height: 724px) 1280w, (min-height: 604px) 1024w, (min-height: 452px) 854w, 100vw"
-    />
-
-    <link
-      rel="preload"
       as="font"
       href="/fonts/cooper_bold_bt.woff2"
       crossorigin
     />
-
-    <!-- build:css css/main.css -->
     <link
-      rel="stylesheet"
-      href="/css/global.css"
-      type="text/css"
-      charset="UTF-8"
+      rel="preload"
+      as="image"
+      imagesrcset="/img/hero-bg-2897.webp 2897w, /img/hero-bg-1920.webp 1920w, /img/hero-bg-1600.webp 1600w, /img/hero-bg-1280.webp 1280w, /img/hero-bg-428.webp 428w, /img/hero-bg-360.webp 360w"
+      imagesizes="(max-height: 800px and max-width: 360px) 360w, (max-height: 926px and max-width: 428px) 428w, (min-height: 1357px) 2897w, (min-height: 1131px) 1920w, (min-height: 905px) 1600w, (min-height: 724px) 1280w, (min-height: 604px) 1024w, (min-height: 452px) 854w, 100vw"
     />
-    <link href="/css/fontawesome/fontawesome.css" rel="stylesheet" />
-    <link href="/css/fontawesome/brands.css" rel="stylesheet" />
-    <link href="/css/fontawesome/solid.css" rel="stylesheet" />
-    <link href="/css/fontawesome/regular.css" rel="stylesheet" />
-    <!-- endbuild -->
 
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
-    <link rel="manifest" href="site.webmanifest" />
-    <meta name="msapplication-TileColor" content="#da532c" />
-    <meta name="theme-color" content="#ffffff" />
+    <!-- inject:css -->
+    <!-- endinject -->
+
+    <!-- inject:head:js -->
+    <!-- endinject -->
   </head>
 
-  <body class="text-base text-black tablet:text-lg desktop:text-xl">
-    <header class="mb-8 tablet:mb-16 desktop:mb-24">
-      <div
-        id="navbar"
-        class="fixed top-0 left-0 z-10 flex h-28 w-full items-center justify-between px-8 py-2 transition duration-500 ease-in-out"
-      >
-        <div class="flex grow justify-start">
-          <a
-            class="hover:bg-insta-gradient hover:bg-clip-text hover:text-transparent"
-            href="https://www.instagram.com/sandwichetteparis"
-            aria-label="Instagram"
-          >
-            <i class="fa-brands fa-instagram text-3xl"></i>
-          </a>
-        </div>
-        <div class="h-full grow-0">
-          <img
-            id="logo"
-            class="aspect-16/10 w-full object-cover"
-            src="/img/logo.svg"
-            alt="Logo Sandwichette"
-          />
-        </div>
-        <nav class="hidden shrink-0 grow basis-0 desktop:block">
-          <ul class="flex items-center justify-end gap-7">
-            <li>
-              <a class="text-nowrap text-lg" href="#apropos">À propos</a>
-            </li>
-            <li>
-              <a class="text-nowrap text-lg" href="#philosophie">Philosophie</a>
-            </li>
-            <li>
-              <a class="text-nowrap text-lg" href="#magazines">Magazines</a>
-            </li>
-            <li>
-              <a class="text-nowrap text-lg" href="#contact">Contact</a>
-            </li>
-          </ul>
-        </nav>
-        <div class="flex grow justify-end desktop:hidden">
-          <a href="#" aria-label="menu">
-            <i id="menu-icon" class="fa-solid fa-bars text-3xl"></i>
-          </a>
-        </div>
-      </div>
-      <div id="hero">
-        <picture id="hero-bg">
-          <source
-            type="image/webp"
-            srcset="
-              /img/hero-bg-2897.webp 2897w,
-              /img/hero-bg-1920.webp 1920w,
-              /img/hero-bg-1600.webp 1600w,
-              /img/hero-bg-1280.webp 1280w,
-              /img/hero-bg-1024.webp 1024w,
-              /img/hero-bg-854.webp   854w,
-              /img/hero-bg-640.webp   640w
-            "
-            sizes="(min-height: 1357px) 2897w, (min-height: 1131px) 1920w, (min-height: 905px) 1600w, (min-height: 724px) 1280w, (min-height: 604px) 1024w, (min-height: 452px) 854w, 100vw"
-          />
-          <source
-            type="image/jpg"
-            srcset="
-              /img/hero-bg-2897.jpg 2897w,
-              /img/hero-bg-1920.jpg 1920w,
-              /img/hero-bg-1600.jpg 1600w,
-              /img/hero-bg-1280.jpg 1280w,
-              /img/hero-bg-1024.jpg 1024w,
-              /img/hero-bg-854.jpg   854w,
-              /img/hero-bg-640.jpg   640w
-            "
-            sizes="(min-height: 1357px) 2897w, (min-height: 1131px) 1920w, (min-height: 905px) 1600w, (min-height: 724px) 1280w, (min-height: 604px) 1024w, (min-height: 452px) 854w, 100vw"
-          />
-          <img
-            class="w-full h-screen object-cover object-center"
-            src="/img/hero-bg-2xl.jpg"
-            alt="background"
-          />
-        </picture>
-        <div id="scroll-icon" class="absolute left-1/2 top-[90vh]">
-          <i class="fa-solid fa-angles-down animate-bounce text-3xl"></i>
-        </div>
-      </div>
-    </header>
-    <script inline defer src="js/header.js"></script>
-
-    <div
-      class="flex flex-col items-center justify-center gap-8 tablet:gap-16 desktop:gap-32"
+  <body class="w-full overflow-x-hidden">
+    <!-- FLOATING IMAGES -->
+    <div id="floating-dish" class="floating-images animate-floating-image">
+      <img src="/img/assiette-jaune.png" alt="une assiette jaune qui flotte" />
+    </div>
+    <div id="floating-sandwich" class="floating-images animate-floating-image">
+      <img src="/img/sandwich-triangle.png" alt="une sandwich qui flotte" />
+    </div>
+    <div id="floating-plate" class="floating-images animate-floating-image">
+      <img src="/img/plateau.png" alt="un plateau qui flotte" />
+    </div>
+    <!-- MOVING ARM -->
+    <div id="moving-arm" class="moving-arm animate-moving-arm">
+      <img
+        src="/img/bras.png"
+        alt="un bras qui porte une assiette de cookies"
+      />
+    </div>
+    <header
+      id="header"
+      class="fixed inset-0 z-10 flex h-28 w-full items-center px-8 py-2 bg-gradient-to-r from-transparent to-brand bg-[length:200%] from-50% to-50% overlay-collapse max-desktop:nav-menu desktop:nav-bar self-stretch"
     >
-      <section
-        id="apropos"
-        class="flex max-w-6xl grow scroll-mt-32 flex-col items-center justify-center gap-4 px-5 tablet:gap-10 tablet:px-16 desktop:gap-12 desktop:px-24"
-      >
-        <div class="flex items-center gap-4 self-stretch">
-          <hr
-            class="h-[8px] w-16 rounded-md bg-black tablet:h-[10px] tablet:w-24 desktop:h-[12px] desktop:w-36"
-          />
-          <h1>À propos</h1>
-        </div>
-        <div
-          class="flex flex-col content-center items-center justify-center gap-8 tablet:gap-11 lg:flex-row desktop:gap-16"
+      <div id="instagram-btn__container" class="flex-[1_0_0%]">
+        <a
+          id="instagram-btn"
+          href="https://www.instagram.com/sandwichetteparis"
+          aria-label="Ouvrir Instagram"
         >
-          <div
-            class="flex max-w-2xl flex-[1_0_0%] flex-col items-center justify-center gap-4 text-justify tablet:gap-6"
+          <svg
+            id="instagram-btn__icon"
+            class="h-8 w-8 link-primary"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 448 512"
+            aria-hidden="true"
           >
-            <span
-              >Des sandwichs, des gâteaux et des trucs à boire. Rien de nouveau
-              mais avec quelque chose en plus, pas original mais un peu
-              <span class="text-brand"><b>spécial</b></span
-              >.</span
-            >
-            <span
-              >Des bons sandwichs faits dans des pains du quotidien fabriqués
-              par une boulangerie qui respecte la terre et le sommeil de ses
-              employés. Des recettes classiques et souvent très kitsch.</span
-            >
-            <span
-              >Desserts à la part, en barre ou à la louche. Chouquettes
-              débordantes de chantilly, cookies plein de confettis. Vanille,
-              praliné ou chocolat, pas de problème de choix.</span
-            >
-            <span
-              >Pas de matcha latte ni de latte tout court. Du café filtre en
-              abondance à toute heure. Des chouquettes et de l'amour. Vin nature
-              choisi par nos amis des
-              <a href="https://www.instagram.com/lesvinsdumatin/"
-                ><u>Vins du matin</u></a
-              >. Thé chaud ou thé pas chaud.</span
-            >
-          </div>
-          <picture>
-            <source type="image/webp" srcset="/img/boisson1.webp" />
-            <img
-              class="h-96 w-64 rounded-xl"
-              src="/img/boisson.jpg"
-              alt="photo animee boisson"
-              loading="lazy"
+            <path
+              d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"
             />
-          </picture>
-        </div>
+            <defs>
+              <pattern
+                id="background"
+                patternUnits="objectBoundingBox"
+                width="1"
+                height="1"
+              >
+                <use href="#instaGradient" />
+              </pattern>
+              <image
+                id="instaGradient"
+                width="512"
+                height="512"
+                href="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAlgCWAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCABAAEADASIAAhEBAxEB/8QAGwAAAgMBAQEAAAAAAAAAAAAAAgMBBQYEAAf/xAAkEAACAQMDBAMBAAAAAAAAAAAAAQIDBBEhIkEFEjFxE1FhFP/EABwBAAICAwEBAAAAAAAAAAAAAAMEBQYAAgcBCP/EACARAAIDAQACAgMAAAAAAAAAAAABAgMEBTFBERMVIVH/2gAMAwEAAhEDEQA/AMlOW+WfslSEzlvl7I7jsH2pli/HSkdDkLkwO8hyNXYkPZ+fKJEmLbCbBfgxWomKs7igckJtNavyeJXlBVYhlVsfUW+XsWzsqUt8vYuVIpcexH+klViic6CDcMAeAj6qfscjhj6QMiAyMBa+gn7PJZEheCYrVB4JitUPR2foC85f1LbfLTkXK1/DSTs9z05A/i/Dg67bT8mR0JGXqWr+jnnbP6NdKwzwIqdO/B2nt/PsZhtSMr8DXAEqeDRVbLHBwV7bHBM5uum/IxG9TKhxJj5Q2tT7RKymiwU9BSXkOq1JfJ9gdnuenIcbLPBbfEu5+x9Oij59leygvS0imXT88CqvTtPBqadunwRWtl2+DWO2UWCW1pmFurHGdCjvLTGdDeX1Ba6Gc6hRWpM5OhJMmMmpsxV3b4bK+VLEjRX1PVlVUhuLbk3ycSx02to//9k="
+              ></image>
+            </defs>
+          </svg>
+        </a>
+      </div>
+      <div id="sandwichette-logo__container" class="h-full flex items-center">
+        <img
+          id="sandwichette-logo"
+          class="aspect-16/10 w-full object-cover"
+          src="/img/logo.svg"
+          alt="Logo de Sandwichette"
+        />
+      </div>
+      <nav id="nav__container" class="flex-[1_0_0%]">
+        <ul id="nav__list" class="flex items-center">
+          <li class="menu__item">
+            <a href="#apropos" onclick="navMenuClose()">À propos</a>
+          </li>
+          <li class="menu__item">
+            <a href="#philosophie" onclick="navMenuClose()">Philosophie</a>
+          </li>
+          <li class="menu__item">
+            <a href="#catering" onclick="navMenuClose()">Catering</a>
+          </li>
+          <li class="menu__item">
+            <a href="#magazines" onclick="navMenuClose()">Magazines</a>
+          </li>
+          <li class="menu__item">
+            <a href="#contact" onclick="navMenuClose()">Contact</a>
+          </li>
+        </ul>
         <div
-          class="flex flex-col items-center gap-4 tablet:gap-6 desktop:flex-row"
+          id="nav-menu__btn-container"
+          class="flex grow justify-end desktop:hidden"
         >
-          <span class="w-[312px] text-center"
-            >C'est petit chez nous mais
-            <span class="text-lg text-brand tablet:text-xl desktop:text-2xl"
-              >sympathique</span
-            ></span
+          <button
+            aria-label="Toggle menu"
+            onclick="navMenuOpen()"
+            id="nav-menu__btn"
+            accesskey="m"
           >
-          <picture>
-            <source type="image/webp" srcset="/img/chaise1.webp" />
-            <img
-              class="h-96 w-64 rounded-t-full"
-              src="/img/chaise1.jpg"
-              alt="sandwich"
-              loading="lazy"
-            />
-          </picture>
-          <span class="w-[312px] text-center"
-            >Pas original mais un peu
-            <span class="text-lg text-brand tablet:text-xl desktop:text-2xl"
-              >extraordinaire</span
-            ></span
-          >
+            <span class="sr-only">Toggle navigation menu</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 448 512"
+              class="h-8 w-8 link-primary"
+              id="nav-menu__btn-toggle"
+              aria-hidden="true"
+            >
+              <path
+                d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"
+              />
+            </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 384 512"
+              class="w-8 h-8 hidden link-secondary active:animate-spin-once"
+              id="nav-menu__btn-collapse"
+              aria-hidden="true"
+            >
+              <path
+                d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+              />
+            </svg>
+          </button>
         </div>
-      </section>
-      <section
-        id="philosophie"
-        class="flex w-full grow -scroll-mt-32 flex-col items-center justify-center text-white"
+      </nav>
+    </header>
+
+    <div id="hero" class="h-screen mb-16 tablet:mb-24 desktop:mb-32">
+      <picture id="hero-bg">
+        <source
+          type="image/webp"
+          srcset="
+            /img/hero-bg-2897.webp 2897w,
+            /img/hero-bg-1920.webp 1920w,
+            /img/hero-bg-1600.webp 1600w,
+            /img/hero-bg-1280.webp 1280w,
+            /img/hero-bg-428.webp   428w,
+            /img/hero-bg-360.webp   360w
+          "
+          sizes="(max-height: 800px and max-width: 360px) 360w, (max-height: 926px and max-width: 428px) 428w, (min-height: 1357px) 2897w, (min-height: 1131px) 1920w, (min-height: 905px) 1600w, (min-height: 724px) 1280w, (min-height: 604px) 1024w, (min-height: 452px) 854w, 100vw"
+        />
+        <source
+          type="image/jpg"
+          srcset="
+            /img/hero-bg-2897.jpg 2897w,
+            /img/hero-bg-1920.jpg 1920w,
+            /img/hero-bg-1600.jpg 1600w,
+            /img/hero-bg-1280.jpg 1280w,
+            /img/hero-bg-428.jpg   428w,
+            /img/hero-bg-360.jpg   360w
+          "
+          sizes="(max-height: 800px and max-width: 360px) 360w, (max-height: 926px and max-width: 428px) 428w, (min-height: 1357px) 2897w, (min-height: 1131px) 1920w, (min-height: 905px) 1600w, (min-height: 724px) 1280w, (min-height: 604px) 1024w, (min-height: 452px) 854w, 100vw"
+        />
+        <img
+          class="w-full h-full object-cover object-center"
+          src="/img/hero-bg-2897.jpg"
+          alt="Un sandwich ô combien appetissant"
+        />
+      </picture>
+      <div
+        id="scroll-icon"
+        class="absolute left-1/2 top-[80vh] tablet:top-[90vh]"
+        aria-hidden="true"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          viewBox="1 1 1279 195"
-          class="w-full"
+          viewBox="0 0 448 512"
+          class="animate-bounce h-8 w-8"
+        >
+          <path
+            d="M246.6 470.6c-12.5 12.5-32.8 12.5-45.3 0l-160-160c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L224 402.7 361.4 265.4c12.5-12.5 32.8-12.5 45.3 0s12.5 32.8 0 45.3l-160 160zm160-352l-160 160c-12.5 12.5-32.8 12.5-45.3 0l-160-160c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L224 210.7 361.4 73.4c12.5-12.5 32.8-12.5 45.3 0s12.5 32.8 0 45.3z"
+          />
+        </svg>
+      </div>
+    </div>
+
+    <main class="flex flex-col gap-16 tablet:gap-24 desktop:gap-32">
+      <section id="apropos" class="w-full scroll-mt-32 desktop:scroll-mt-40">
+        <div
+          class="flex w-full max-w-6xl flex-col items-center justify-center gap-8 tablet:gap-12 desktop:gap-16 px-5 tablet:px-16 desktop:px-24 m-[0_auto]"
+        >
+          <div class="flex items-center gap-4 tablet:gap-8 self-stretch">
+            <hr
+              class="h-[8px] w-16 rounded-md bg-black tablet:h-[10px] tablet:w-24 desktop:h-[12px] desktop:w-36"
+            />
+            <h1>À propos</h1>
+          </div>
+          <div
+            class="flex flex-wrap content-center items-center justify-center gap-8 tablet:gap-10 desktop:gap-12 lg:flex-row"
+          >
+            <div
+              class="flex flex-col items-center justify-center gap-2 tablet:gap-4 desktop:gap-6 flex-[1_1_65%]"
+            >
+              <p>
+                Des sandwichs, des gâteaux et des trucs à boire. Rien de nouveau
+                mais avec quelque chose en plus, pas original mais un peu
+                <span class="text-brand"><b>spécial</b></span
+                >.
+              </p>
+              <p>
+                Des bons sandwichs faits dans des pains du quotidien fabriqués
+                par une boulangerie qui respecte la terre et le sommeil de ses
+                employés. Des recettes classiques et souvent très kitsch.
+              </p>
+              <p>
+                Desserts à la part, en barre ou à la louche. Chouquettes
+                débordantes de chantilly, cookies plein de confettis. Vanille,
+                praliné ou chocolat, pas de problème de choix.
+              </p>
+              <p>
+                Pas de matcha latte ni de latte tout court. Du café filtre en
+                abondance à toute heure. Des chouquettes et de l'amour. Vin
+                nature choisi par nos amis des
+                <a
+                  href="https://www.instagram.com/lesvinsdumatin/"
+                  aria-label="Ouvrir Instagram"
+                  ><u>Vins du matin</u></a
+                >. Thé chaud ou thé pas chaud.
+              </p>
+            </div>
+            <img
+              class="w-60 aspect-[2/3] rounded-xl"
+              src="/img/boisson-240.webp"
+              alt="Boisson servie a l'arrache"
+              loading="lazy"
+            />
+          </div>
+          <div
+            class="flex flex-col items-center h-[560px] gap-4 tablet:gap-6 desktop:flex-row"
+          >
+            <p class="max-w-72 text-center">
+              C'est petit chez nous mais
+              <span class="text-brand text-3xl">sympathique</span>
+            </p>
+            <img
+              class="w-60 aspect-[2/3] rounded-t-full"
+              src="/img/chaise-240.webp"
+              alt="Une chaise, un sandwich, un fumigène et un cerceau de hula-hoop, kamoulox"
+              loading="lazy"
+            />
+            <p class="w-[312px] text-center">
+              Pas original mais un peu
+              <span class="text-brand text-3xl">extraordinaire</span>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="philosophie"
+        class="w-full tablet:-scroll-mt-16 desktop:-scroll-mt-32 text-white"
+      >
+        <svg
+          id="border-top"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="1 -2 1279 195"
+          class="w-full translate-y-1"
+          aria-hidden="true"
         >
           <path
             d="M1280.5 82.0047V196.5H0.5V89.0308C0.5 89.0308 323.607 -84.0464 640.599 53.7961C994.675 207.763 1280.5 82.0047 1280.5 82.0047Z"
@@ -246,125 +317,542 @@
         <div
           id="content-mask"
           class="relative top-80 -mt-40 block h-40 w-full bg-gradient-to-b from-transparent to-brand"
+          aria-hidden="true"
         ></div>
         <div
           id="panel"
-          class="flex max-h-80 w-full flex-col items-center justify-start self-stretch overflow-hidden bg-brand px-5 py-16 transition-[max-height_500ms_ease-out] duration-500 tablet:px-16 desktop:px-24"
+          class="flex max-h-80 w-full flex-col items-center justify-start overflow-hidden bg-brand py-16 transition-[max-height_500ms_ease-out] duration-500"
         >
           <div
-            class="flex w-full max-w-6xl flex-col items-center justify-center gap-4 tablet:gap-10 desktop:gap-12"
+            class="flex w-full max-w-6xl flex-col gap-8 tablet:gap-12 desktop:gap-16 px-5 tablet:px-16 desktop:px-24"
           >
-            <div class="flex items-center gap-8 self-stretch">
+            <div class="flex items-center gap-4 tablet:gap-8 self-stretch">
               <hr
                 class="h-[8px] w-16 rounded-md bg-white tablet:h-[10px] tablet:w-24 desktop:h-[12px] desktop:w-36"
               />
               <h1>Philosophie</h1>
             </div>
-            <div class="flex flex-col gap-4 tablet:gap-8 self-stretch">
+            <div
+              class="flex flex-col gap-4 flex-[1_0_0%] tablet:gap-8 self-stretch"
+            >
               <div
                 class="flex flex-wrap content-center items-center justify-center gap-4 self-stretch tablet:gap-8"
               >
-                <span class="min-w-60 max-w-2xl flex-[1_0_0%] text-justify"
-                  >Toute l'année, nous suivons le rythme de la terre et ses
-                  saisons. Des produits français dans la mesure du possible et
-                  venant de nos fournisseurs, le Zingam, Borniambuc, les Vergers
-                  Saint Eustache, Huguenin, etc. Pour le reste (comme les
-                  agrumes), ce sera des produits issus d'une agriculture
-                  européenne raisonnée. On veut respecter la planète et dans le
-                  bon sens. Quand on s'occupe d'un légume, d'un fruit ou d'un
-                  morceau de viande c'est entièrement.</span
-                >
+                <p class="flex-[1_1_65%]">
+                  Toute l'année, nous suivons le rythme de la terre et ses
+                  saisons.<br />Des produits français dans la mesure du possible
+                  et venant de nos fournisseurs, le Zingam, Borniambuc, les
+                  Vergers Saint Eustache, Huguenin, etc.<br />Pour le reste
+                  (comme les agrumes), ce sera des produits issus d'une
+                  agriculture européenne raisonnée.<br />On veut respecter la
+                  planète et dans le bon sens.<br />Quand on s'occupe d'un
+                  légume, d'un fruit ou d'un morceau de viande c'est
+                  entièrement.
+                </p>
                 <picture>
                   <source
                     type="image/webp"
-                    srcset="/img/sandwich-frites1.webp"
+                    srcset="/img/sandwich-frites-240.webp"
                   />
                   <img
-                    class="h-64 w-64 rounded-full tablet:h-80 tablet:w-80"
-                    src="/img/sandwich-frites1.jpg"
-                    alt="sandwich-frite"
+                    class="w-60 aspect-square rounded-full"
+                    src="/img/sandwich-frites-240.jpg"
+                    alt="Un autre sandwich qui met l'eau à la bouche"
                     loading="lazy"
                   />
                 </picture>
               </div>
-              <span class="min-w-60 self-stretch text-justify tablet:min-w-80">
+              <p>
                 Peu de plastique autant que possible.<br />Du packaging
                 recyclable mais si vous venez avec vos contenants ça sera encore
                 mieux.<br />Pas de carte précise à vous montrer ici. Mais des
                 exemples.<br />Les œufs, la mayo et le jambon nous en avons tout
                 le temps.<br />Le bourguignon c'est plutôt pour l'hiver quand il
                 fait froid.<br />Le fameux BLT (bacon/laitue/tomate) vous le
-                croiserez seulement en été.</span
-              >
+                croiserez seulement en été.
+              </p>
               <div
                 class="flex flex-wrap content-center items-center justify-center gap-4 self-stretch tablet:gap-8"
               >
-                <picture>
-                  <source
-                    type="image/webp"
-                    srcset="/img/cheese-sandwich1.webp"
-                  />
-                  <img
-                    class="h-80 w-60"
-                    src="/img/cheese-sandwich1.jpg"
-                    alt="cheese-sandwich"
-                    loading="lazy"
-                  />
-                </picture>
-                <span class="min-w-60 flex-[1_0_0%] text-justify"
-                  >Faire fondre du fromage sur du pain au levain, ça, on peut le
-                  faire tous les jours. Pour les fêtes, on fera des sandwichs
-                  super spéciaux pour s'enjailler. Bref, certains seront vos
-                  acolytes du quotidien et d'autres ne seront que de passage.
-                  Avec ou sans viande, avec ou sans œuf, tout est
-                  possible.</span
-                >
+                <img
+                  class="w-60 h-60"
+                  src="/img/cheese-sandwich-240.webp"
+                  alt="Fromage coulant sur du pain"
+                  loading="lazy"
+                />
+                <p class="flex-[1_1_65%]">
+                  Faire fondre du fromage sur du pain au levain, ça, on peut le
+                  faire tous les jours.<br />Pour les fêtes, on fera des
+                  sandwichs super spéciaux pour s'enjailler.<br />Bref, certains
+                  seront vos acolytes du quotidien et d'autres ne seront que de
+                  passage.<br />Avec ou sans viande, avec ou sans œuf, tout est
+                  possible.
+                </p>
               </div>
               <div
                 class="flex flex-wrap content-center items-center justify-center gap-4 self-stretch tablet:gap-8"
               >
-                <span class="min-w-60 flex-[1_0_0%] text-justify"
-                  >On peut enlever ou ajouter des ingrédients, le seul qui reste
-                  c'est celui du plaisir. Au final, chez Sandwichette, dans un
-                  sandwich on trouve de la sauce, du croquant, du fondant, de
-                  l'acidité et des fois du coulant. Pour le sucré, il reste
-                  toujours de la place. Des goûts qui rappellent les sorties au
-                  square du mercredi après-midi. Sandwichette, c'est l'odeur du
-                  fait maison sans prise de tête.</span
-                >
-                <picture>
-                  <source type="image/webp" srcset="/img/dessert.webp" />
-                  <img
-                    class="h-60 w-60"
-                    src="/img/dessert.jpg"
-                    alt="dessert"
-                    loading="lazy"
-                  />
-                </picture>
+                <p class="flex-[1_1_65%]">
+                  On peut enlever ou ajouter des ingrédients, le seul qui reste
+                  c'est celui du plaisir.<br />Au final, chez Sandwichette, dans
+                  un sandwich on trouve de la sauce, du croquant, du fondant, de
+                  l'acidité et des fois du coulant.<br />Pour le sucré, il reste
+                  toujours de la place.<br />Des goûts qui rappellent les
+                  sorties au square du mercredi après-midi.<br />Sandwichette,
+                  c'est l'odeur du fait maison sans prise de tête.
+                </p>
+                <img
+                  class="w-60 h-60"
+                  src="/img/dessert-240.webp"
+                  alt="Dessert au chocolat"
+                  loading="lazy"
+                />
               </div>
             </div>
           </div>
         </div>
-        <div class="w-full">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="1 1 1279 195">
+        <div class="w-full -translate-y-1 aspect-[1279/195] relative">
+          <svg
+            id="border-bot"
+            class="absolute"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="1 2 1279 195"
+            aria-hidden="true"
+          >
             <path
               d="M0.5 114.995V0.5H1280.5V107.969C1280.5 107.969 957.393 281.046 640.401 143.204C286.325 -10.7635 0.5 114.995 0.5 114.995Z"
               class="w-full fill-brand"
             ></path>
           </svg>
           <button
-            id="accordion"
-            aria-label="Open/close accordion"
-            class="relative -top-16 left-[calc(50%_-_2rem)] flex h-16 w-16 items-center justify-center rounded-full border-4 border-solid border-primary bg-brand p-4 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-button tablet:-top-20 tablet:h-20 tablet:w-20 desktop:-top-28 desktop:h-24 desktop:w-24"
+            id="accordion-btn"
+            aria-label="Ouvrir la section Philosophie"
+            class="absolute top-[calc(70%_-_2rem)] left-[calc(50%_-_2rem)] desktop:top-[calc(70%_-_2.5rem)] desktop:left-[calc(50%_-_2.5rem)] h-16 w-16 rounded-full ring-4 ring-primary bg-brand hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[6px_6px_0px_2px_rgba(0,0,0,1)] active:shadow-none active:translate-x-0 active:translate-y-0 transition-all ease-in-out duration-150 desktop:h-20 desktop:w-20"
+            title="En savoir plus"
+            onclick="accordionOpen()"
           >
-            <i></i>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 448 512"
+              class="desktop:w-10 desktop:h-10 w-8 h-8 m-[0_auto] fill-white"
+              aria-hidden="true"
+            >
+              <path
+                d="M201.4 342.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 274.7 86.6 137.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+              />
+            </svg>
           </button>
-          <script inline defer src="js/accordion.js"></script>
         </div>
       </section>
-      <section id="magazines" class="h-64 scroll-mt-32 bg-lime-500"></section>
-      <section id="contact" class="h-64 scroll-mt-32 bg-cyan-500"></section>
-    </div>
-    <footer></footer>
+      <section id="catering" class="w-full scroll-mt-32 desktop:scroll-mt-40">
+        <div
+          class="flex w-full max-w-6xl flex-col items-center justify-center gap-8 tablet:gap-12 desktop:gap-16 px-5 tablet:px-16 desktop:px-24 m-[0_auto]"
+        >
+          <div class="flex items-center gap-4 tablet:gap-8 self-stretch">
+            <hr
+              class="h-[8px] w-16 rounded-md bg-black tablet:h-[10px] tablet:w-24 desktop:h-[12px] desktop:w-36"
+            />
+            <h1>Catering</h1>
+          </div>
+          <div
+            class="flex flex-col content-center items-center justify-center gap-8 tablet:gap-10 desktop:gap-12"
+          >
+            <div
+              class="flex flex-col items-center justify-center gap-2 tablet:gap-4 desktop:gap-6 flex-[1_1_65%]"
+            >
+              <p>
+                Sandwichette fait du
+                <span class="text-brand"><b> traiteur </b></span>! <br />
+                Évenements, staff meal, festivités, tout est possible !
+              </p>
+            </div>
+            <a
+              id="catering-btn"
+              class="flex text-black items-center justify-center h-16 w-full rounded-full ring-[5px] ring-black bg-primary hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[6px_6px_0px_2px_rgba(0,0,0,1)] active:shadow-none active:translate-x-0 active:translate-y-0 transition-all ease-in-out duration-150 tablet:w-96"
+              href="/pdf/proposition_commerciale.pdf"
+              target="_blank"
+              title="Formule catering"
+              aria-label="Lien vers le PDF de la formule catering"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 640 512"
+                class="h-8 w-8 mr-2"
+              >
+                <path
+                  d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"
+                />
+              </svg>
+              LIEN VERS LE PDF
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="magazines" class="w-full scroll-mt-32 desktop:scroll-mt-40">
+        <div
+          class="flex h-full max-w-6xl flex-col flex-[1_0_0%] items-center justify-center gap-8 tablet:gap-12 desktop:gap-16 px-5 tablet:px-16 desktop:px-24 m-[0_auto]"
+        >
+          <div class="flex items-center gap-4 tablet:gap-8 self-stretch">
+            <hr
+              class="h-[8px] w-16 rounded-md bg-black tablet:h-[10px] tablet:w-24 desktop:h-[12px] desktop:w-36"
+            />
+            <h1>Magazines</h1>
+          </div>
+          <div class="flex flex-col gap-4 tablet:gap-6 desktop:gap-8">
+            <div
+              id="carousel__container"
+              class="w-[700px] max-tablet:w-[240px]"
+            >
+              <div
+                id="carousel"
+                class="max-tablet:m-[0_auto] max-tablet:gap-4 tablet:px-[calc(50%_-_120px)] flex scroll-smooth overflow-y-hidden overflow-x-scroll tablet:overflow-x-hidden disable-scrollbar max-tablet:snap-mandatory max-tablet:snap-x h-[400px] items-center"
+              >
+                <img
+                  class="magazine"
+                  src="/img/noble-rot-270.webp"
+                  alt="magazines noble rot"
+                  loading="lazy"
+                />
+                <img
+                  class="magazine"
+                  src="/img/cherry-bombe-288.webp"
+                  alt="magazine cherry bomb"
+                  loading="lazy"
+                />
+                <img
+                  class="magazine"
+                  src="/img/midnight-snack-288.webp"
+                  alt="magazine mignight snack"
+                  loading="lazy"
+                />
+                <img
+                  class="magazine"
+                  src="/img/picnic-257.webp"
+                  alt="magazine picnic"
+                  loading="lazy"
+                />
+                <img
+                  class="magazine"
+                  src="/img/sandwich-257.webp"
+                  alt="magazine sandwich"
+                  loading="lazy"
+                />
+                <img
+                  class="magazine"
+                  src="/img/serviette-288.webp"
+                  alt="magazine serviette"
+                  loading="lazy"
+                />
+                <img
+                  class="magazine"
+                  src="/img/the-gourmand-shop-257.webp"
+                  alt="magazine the gourmand shop"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+            <div
+              id="carousel-bullets"
+              class="flex tablet:hidden justify-center gap-2"
+            ></div>
+            <div
+              id="carousel-buttons"
+              class="max-tablet:hidden tablet:flex justify-center gap-4 text-justify tablet:gap-6"
+            >
+              <button
+                id="previous-button"
+                aria-label="Naviguer vers l'image précedente"
+                class="h-16 w-16 rounded-full ring-4 ring-brand bg-primary desktop:h-20 desktop:w-20 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[6px_6px_0px_1px_rgba(0,0,0,1)] active:shadow-none active:translate-x-0 active:translate-y-0 transition-all ease-in-out duration-150"
+                title="Image précedente"
+                onclick="prevButton()"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 320 512"
+                  class="desktop:w-10 desktop:h-10 w-8 h-8 m-[0_auto] fill-brand"
+                >
+                  <path
+                    d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"
+                  />
+                </svg>
+              </button>
+              <button
+                id="next-button"
+                aria-label="Naviguer vers l'image suivante"
+                class="h-16 w-16 rounded-full ring-4 ring-brand bg-primary desktop:h-20 desktop:w-20 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[6px_6px_0px_1px_rgba(0,0,0,1)] active:shadow-none active:translate-x-0 active:translate-y-0 transition-all ease-in-out duration-150"
+                title="Image suivante"
+                onclick="nextButton()"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 320 512"
+                  class="desktop:w-10 desktop:h-10 w-8 h-8 m-[0_auto] fill-brand"
+                >
+                  <path
+                    d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="w-full scroll-mt-32 desktop:scroll-mt-40">
+        <div
+          class="flex w-full items-center justify-center px-5 tablet:px-16 desktop:px-24 m-[0_auto] max-w-6xl"
+        >
+          <div
+            class="flex flex-col w-full overflow-x-hidden relative bg-brand h-full rounded-2xl max-tablet:px-4 tablet:px-8 max-tablet:py-12 tablet:py-16 desktop:py-24 gap-8 tablet:gap-12 desktop:gap-16 self-stretch grow"
+          >
+            <div
+              class="flex items-center gap-4 tablet:gap-8 self-stretch -translate-x-[calc(1rem_+_1%)] tablet:-translate-x-[calc(2rem_+_1%)]"
+            >
+              <hr
+                class="h-[8px] w-16 rounded-md bg-black tablet:h-[10px] tablet:w-24 desktop:h-[12px] desktop:w-36"
+              />
+              <h1>Contact</h1>
+            </div>
+            <div
+              class="flex flex-wrap self-stretch items-center justify-center gap-8 tablet:gap-12 desktop:gap-16"
+            >
+              <div
+                class="flex flex-col gap-4 tablet:gap-6 desktop:gap-8 w-auto"
+              >
+                <div
+                  class="flex flex-col gap-1 items-center justify-start w-auto"
+                >
+                  <svg
+                    class="h-8 w-8 shrink-0"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 384 512"
+                  >
+                    <path
+                      d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"
+                    />
+                  </svg>
+                  <span
+                    class="whitespace-break-spaces w-auto self-stretch text-center"
+                  >
+                    52 rue Saint Maur,
+                    <span class="inline-block">75011 Paris</span>
+                  </span>
+                </div>
+                <div
+                  class="flex flex-col gap-1 items-center justify-start w-auto"
+                >
+                  <svg
+                    class="h-8 w-8 shrink-0"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 512"
+                  >
+                    <path
+                      d="M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"
+                    />
+                  </svg>
+                  <table
+                    class="table-fixed w-auto border-separate border-spacing-x-2 border-spacing-y-0 text-center self-stretch"
+                  >
+                    <tbody>
+                      <tr>
+                        <td class="w-1/2 text-right">Mar-Ven:</td>
+                        <td class="w-1/2 text-left">11h-16h</td>
+                      </tr>
+                      <tr>
+                        <td class="w-1/2 text-right">Sam:</td>
+                        <td class="w-1/2 text-left">11h-17h</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div
+                  class="flex flex-col gap-1 items-center justify-start w-auto"
+                >
+                  <svg
+                    class="h-8 w-8 shrink-0"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 512"
+                  >
+                    <path
+                      d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"
+                    />
+                  </svg>
+                  <span
+                    class="w-auto text-wrap self-stretch break-all text-center"
+                  >
+                    sandwichetteparis<span class="inline-block"
+                      >@gmail.com</span
+                    >
+                  </span>
+                </div>
+                <div
+                  class="flex flex-col gap-1 items-center justify-start w-auto"
+                >
+                  <svg
+                    class="h-8 w-8 shrink-0"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512"
+                  >
+                    <path
+                      d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"
+                    />
+                  </svg>
+                  <a
+                    id="instagram-link"
+                    class="link-secondary w-auto self-stretch break-all text-center"
+                    href="https://www.instagram.com/sandwichetteparis"
+                    aria-label="Ouvrir Instagram"
+                    ><u>@sandwichetteparis</u></a
+                  >
+                </div>
+              </div>
+              <iframe
+                class="flex-[1_1_100%] max-w-[402px] aspect-square border-[1px] border-black"
+                title="Sandwichette sur Google maps"
+                loading="lazy"
+                allowfullscreen
+                referrerpolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJ45fR0A9t5kcRTjyFrmhwt3g&key=AIzaSyD2Vrgp9v03NEjdASw-aRRe_B7sttn5a9E&language=fr&region=fr"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer
+      class="relative mt-16 tablet:mt-24 desktop:mt-32 text-white w-full h-[calc(100vh_-_7rem)]"
+    >
+      <picture id="footer-bg">
+        <source
+          type="image/webp"
+          srcset="
+            /img/footer-bg-2048.webp 2048w,
+            /img/footer-bg-1600.webp 1600w,
+            /img/footer-bg-1280.webp 1280w,
+            /img/footer-bg-428.webp   428w,
+            /img/footer-bg-360.webp   360w
+          "
+          sizes="(max-height: 800px and max-width: 360px) 360w, (max-height: 926px and max-width: 428px) 428w, (min-height: 1066px) 2048w, (min-height: 853px) 1600w, (min-height: 683px) 1280w, 100vw"
+        />
+        <source
+          type="image/jpg"
+          srcset="
+            /img/footer-bg-2048.jpg 2048w,
+            /img/footer-bg-1600.jpg 1600w,
+            /img/footer-bg-1280.jpg 1280w,
+            /img/footer-bg-428.jpg   428w,
+            /img/footer-bg-360.jpg   360w
+          "
+          sizes="(max-height: 800px and max-width: 360px) 360w, (max-height: 926px and max-width: 428px) 428w, (min-height: 1066px) 2048w, (min-height: 853px) 1600w, (min-height: 683px) 1280w, 100vw"
+        />
+        <img
+          class="absolute w-full h-full object-cover object-center brightness-[.4]"
+          src="/img/footer-bg-2048.jpg"
+          alt="Sandwichette écrit dans un bol de soupe de pâtes alphabet"
+          loading="lazy"
+        />
+      </picture>
+      <div
+        id="overlay"
+        class="fixed overflow-y-scroll hidden p-5 tablet:p-8 desktop:p-12 inset-0 overscroll-contain w-full h-full z-20 bg-black/75 backdrop-blur-lg"
+      >
+        <button
+          class="absolute top-4 right-4 tablet:top-6 tablet:right-6 desktop:top-8 desktop:right-8"
+          onclick="disclaimerClose()"
+          aria-label="Quitter"
+          accesskey="q"
+        >
+          <span class="sr-only">Quitter la section mentions légales</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 384 512"
+            class="desktop:w-12 desktop:h-12 tablet:w-10 tablet:h-10 w-8 h-8 fill-primary hover:fill-brand active:animate-spin-once"
+            id="disclaimer-close-icon"
+            aria-hidden="true"
+          >
+            <path
+              d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+            />
+          </svg>
+        </button>
+        <div
+          class="mx-auto flex max-w-7xl gap-8 tablet:gap-12 desktop:gap-16 grow scroll-mt-32 flex-col items-center justify-center pt-8 tablet:pt-12 desktop:pt-16 px-5 tablet:px-16 desktop:px-24 self-stretch"
+        >
+          <div class="flex items-center gap-4 tablet:gap-8 self-stretch">
+            <hr
+              class="h-[8px] w-16 rounded-md bg-white tablet:h-[10px] tablet:w-24 desktop:h-[12px] desktop:w-36"
+            />
+            <h1 class="text-white">Mentions légales</h1>
+          </div>
+          <ol>
+            <div
+              class="flex max-w-6xl flex-[1_0_0%] flex-col items-center justify-center text-left gap-12 tablet:gap-12 desktop:gap-16"
+            >
+              <li class="gap-8 tablet:gap-12 desktop:gap-16">
+                <div>
+                  <h2 class="text-left mb-2">• Propriétaire :</h2>
+                  <p class="ml-8 min-w-60 flex-[1_0_0%] text-left">
+                    Nom commercial : Sandwichette&reg;, marque déposée auprès de
+                    l'INPI<br />Nenette SAS<br />Siège social : 52 rue Saint
+                    Maur 75011 Paris<br />Capital social de 5000 €<br />SIRET
+                    953 220 753 00016<br />RCS PARIS 953 220 753<br />TVA n°
+                    FR33 953220753<br />sandwichetteparis@gmail.com
+                  </p>
+                </div>
+                <div>
+                  <hr class="w-full h-1 rounded-md bg-white my-8" />
+                  <h2 class="text-left mb-2">
+                    • Conception et réalisation technique du site :
+                  </h2>
+                  <p class="ml-8 min-w-60 flex-[1_0_0%] text-left">
+                    - Florian Ohrel EI<br />- Victor Marc
+                  </p>
+                </div>
+                <div>
+                  <hr class="w-full h-1 rounded-md bg-white my-8" />
+                  <h2 class="text-left mb-2">• Hébergement du site :</h2>
+                  <p class="ml-8 min-w-60 flex-[1_0_0%] text-left"></p>
+                </div>
+                <div>
+                  <hr class="w-full h-1 rounded-md bg-white my-8" />
+                  <h2 class="text-left mb-2">• Photo :</h2>
+                  <p class="ml-8 min-w-60 flex-[1_0_0%] text-left">
+                    Julia Velázquez Charro
+                  </p>
+                </div>
+                <div>
+                  <hr class="w-full h-1 rounded-md bg-white my-8" />
+                  <h2 class="text-left mb-2">• Logo :</h2>
+                  <p class="ml-8 min-w-60 flex-[1_0_0%] text-left">
+                    Ida Quilvin
+                  </p>
+                </div>
+              </li>
+            </div>
+          </ol>
+        </div>
+      </div>
+      <div
+        class="flex absolute flex-row max-tablet:flex-col max-tablet:justify-end w-full p-12 h-full items-start tablet:items-end justify-between"
+      >
+        <button
+          class="hover:text-brand max-tablet:text-right min-h-12"
+          onclick="disclaimerOpen()"
+          aria-label="Ouvrir section"
+          accesskey="o"
+        >
+          Mentions légales
+        </button>
+        <div class="flex items-center min-h-12 text-right">
+          <p class="items-center">
+            Sandwichette&reg; 2024 – Tous droits réservés
+          </p>
+        </div>
+      </div>
+    </footer>
+    <!-- inject:js -->
+    <!-- endinject -->
   </body>
 </html>
