@@ -34,15 +34,17 @@ jobs:
           mkdir ${TMP}
           npx gulp build
           npx gulp test
-  
-      - name: 📂 Sync files
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      
+      - name: Deploy file
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
-          server: ${{ secrets.SERVER }}
-          username: ${{ secrets.USER }}
-          password: ${{ secrets.PASSWORD }}
-          protocol: ftps
-          port: ${{ secrets.PORT }}
+            username: ${{ secrets.USER }}
+            server: ${{ secrets.SERVER }}
+            port: ${{ secrets.PORT }}
+            local_path: ${{ vars.DEST }}/*
+            remote_path: '/www'
+            sftp_only: true
+            password: ${{ secrets.PASSWORD }}
   
       # - name: Deploy
       #   uses: appleboy/scp-action@v0.1.7
