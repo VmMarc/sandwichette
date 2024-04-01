@@ -19,54 +19,54 @@ if (magazines) {
   }
 }
 
-// function easeInOutQuad(x) {
-//   return x < 0.5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2;
-// }
+function easeInOutQuad(x) {
+  return x < 0.5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2;
+}
 
-// async function scroll(
-//   scrollRight = true,
-//   duration = 1000,
-//   baseValue = carousel.scrollLeft,
-//   easingFn = easeInOutQuad,
-// ) {
-//   let start, prevTime;
-//   let done = false;
-//   const scrollDir = scrollRight ? 1 : -1;
-//   const startTime = performance.now();
+async function scroll(
+  scrollRight = true,
+  duration = 1000,
+  baseValue = carousel.scrollLeft,
+  easingFn = easeInOutQuad,
+) {
+  let start, prevTime;
+  let done = false;
+  const scrollDir = scrollRight ? 1 : -1;
+  const startTime = performance.now();
 
-//   function* generator(x, f) {
-//     yield f(x);
-//   }
+  function* generator(x, f) {
+    yield f(x);
+  }
 
-//   function scrollLeftTransition(timeStamp) {
-//     if (start === undefined) {
-//       start = timeStamp;
-//     }
-//     const elapsed = timeStamp - start;
+  function scrollLeftTransition(timeStamp) {
+    if (start === undefined) {
+      start = timeStamp;
+    }
+    const elapsed = timeStamp - start;
 
-//     if (prevTime !== timeStamp) {
-//       const count = Math.min(
-//         magazineWidth * generator(elapsed / duration, easingFn).next().value,
-//         magazineWidth,
-//       );
-//       carousel.scrollLeft = baseValue + count * scrollDir;
-//       if (count === magazineWidth) done = true;
-//     }
+    if (prevTime !== timeStamp) {
+      const count = Math.min(
+        magazineWidth * generator(elapsed / duration, easingFn).next().value,
+        magazineWidth,
+      );
+      carousel.scrollLeft = baseValue + count * scrollDir;
+      if (count === magazineWidth) done = true;
+    }
 
-//     if (elapsed < duration) {
-//       prevTime = timeStamp;
-//       if (!done) {
-//         window.requestAnimationFrame(scrollLeftTransition);
-//       }
-//     } else {
-//       buttonSlider();
-//       const endTime = performance.now();
-//       console.log(`Call to scroll took ${endTime - startTime} ms`);
-//     }
-//   }
+    if (elapsed < duration) {
+      prevTime = timeStamp;
+      if (!done) {
+        window.requestAnimationFrame(scrollLeftTransition);
+      }
+    } else {
+      buttonSlider();
+      const endTime = performance.now();
+      console.log(`Call to scroll took ${endTime - startTime} ms`);
+    }
+  }
 
-//   window.requestAnimationFrame(scrollLeftTransition);
-// }
+  window.requestAnimationFrame(scrollLeftTransition);
+}
 
 const checkLoaded = setInterval(() => {
   if (magazineLoaded === magazineLength) {
@@ -161,7 +161,7 @@ function disableButtons() {
 const nextButton = () => {
   if (buttonDisabled) return;
   if (position < magazineLength - 1) ++position;
-  carousel.scrollLeft += magazineWidth;
+  scroll(true, 250);
   buttonSlider();
   disableButtons();
 };
@@ -170,7 +170,7 @@ const nextButton = () => {
 const prevButton = () => {
   if (buttonDisabled) return;
   if (position > 0) --position;
-  carousel.scrollLeft -= magazineWidth;
+  scroll(false, 250);
   buttonSlider();
   disableButtons();
 };
