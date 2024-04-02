@@ -34,6 +34,10 @@
     @apply cursor-pickle;
   }
 
+  button:disabled {
+    @apply text-opacity-20 bg-opacity-20 cursor-pickle;
+  }
+
   a:hover {
     @apply text-brand;
   }
@@ -93,11 +97,11 @@
   }
 
   .nav-menu #nav__list > .menu__item > a {
-    @apply text-2xl link-secondary;
+    @apply text-xl link-secondary;
   }
 
   .nav-bar #nav__list > .menu__item > a {
-    @apply text-nowrap text-xl link-primary;
+    @apply text-nowrap text-lg link-primary;
   }
 
   #header.overlay-collapse.nav-menu #nav__list > .menu__item > a {
@@ -121,10 +125,6 @@
 
   .image-shadow {
     @apply shadow-magazine;
-  }
-
-  #catering-btn a:hover {
-    @apply text-black;
   }
 
   .floating-images {
