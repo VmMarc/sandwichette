@@ -144,7 +144,7 @@ const images = {
           display: 'browser',
           orientation: 'any',
           scope: '/',
-          start_url: `${URL}/index.html`,
+          start_url: `${URL}index.html`,
           version: 1.0,
           html: 'head-favicons.html',
           pipeHTML: true,
